@@ -205,7 +205,7 @@ switch ($routes['1']) {
         $ui->assign('sessions', $sessions);
         $ui->assign('packages', $packages);
         $ui->assign('_title', 'Portal Management');
-        $ui->display('portal-admin.tpl');
+        $ui->display('admin/portal-admin.tpl');
         break;
         
     default:
