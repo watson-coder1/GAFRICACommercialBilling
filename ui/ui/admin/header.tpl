@@ -389,11 +389,21 @@
                     {/if}
                     {$_MENU_AFTER_LOGS}
                     {if in_array($_admin['user_type'],['SuperAdmin','Admin'])}
-                        <li {if $_routes[0] eq 'portal' and $_routes[1] eq 'admin' }class="active" {/if}>
-                            <a href="{Text::url('portal/admin')}">
-                                <i class="ion ion-wifi"></i>
-                                <span class="text">Portal Management</span>
+                        <li class="{if $_routes[0] eq 'portal' || $_routes[0] eq 'packages'}active{/if} treeview">
+                            <a href="#">
+                                <i class="ion ion-wifi"></i> <span>Captive Portal</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
                             </a>
+                            <ul class="treeview-menu">
+                                <li {if $_routes[0] eq 'packages'}class="active"{/if}><a
+                                        href="{Text::url('packages/list')}">
+                                        <i class="fa fa-cubes"></i> Manage Packages</a></li>
+                                <li {if $_routes[0] eq 'portal' and $_routes[1] eq 'admin'}class="active"{/if}><a
+                                        href="{Text::url('portal/admin')}">
+                                        <i class="fa fa-dashboard"></i> Portal Sessions</a></li>
+                            </ul>
                         </li>
                     {/if}
                     {$_MENU_AFTER_COMMUNITY}
