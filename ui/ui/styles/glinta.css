@@ -1,0 +1,511 @@
+/* Glinta Africa Custom Theme - Gold, White, Black */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+:root {
+    --glinta-gold: #FFD700;
+    --glinta-dark-gold: #DAA520;
+    --glinta-light-gold: #FFF8DC;
+    --glinta-black: #000000;
+    --glinta-dark-gray: #1a1a1a;
+    --glinta-light-gray: #333333;
+    --glinta-white: #FFFFFF;
+    --glinta-off-white: #FAFAFA;
+}
+
+body {
+    position: relative;
+    z-index: 1;
+    background-color: var(--glinta-off-white);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 400;
+    color: var(--glinta-black);
+}
+
+/* Header and Logo Styling */
+.main-header .logo {
+    background-color: var(--glinta-black) !important;
+    color: var(--glinta-gold) !important;
+    border-bottom: 2px solid var(--glinta-gold) !important;
+    width: 220px !important; /* Increased width for "Glinta Africa" */
+    min-width: 220px !important;
+    height: 50px !important;
+    line-height: 50px !important;
+}
+
+.main-header .logo .logo-lg {
+    font-size: 16px !important;
+    font-weight: bold !important;
+    color: var(--glinta-gold) !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+    display: inline-block !important;
+    padding-left: 5px !important;
+}
+
+.main-header .logo .logo-mini {
+    font-size: 18px !important;
+    color: var(--glinta-gold) !important;
+    font-weight: bold !important;
+}
+
+/* Ensure sidebar doesn't overlap */
+@media (min-width: 768px) {
+    .sidebar-mini.sidebar-collapse .content-wrapper,
+    .sidebar-mini.sidebar-collapse .main-footer {
+        margin-left: 50px !important;
+    }
+    
+    .sidebar-mini:not(.sidebar-collapse) .content-wrapper,
+    .sidebar-mini:not(.sidebar-collapse) .main-footer {
+        margin-left: 220px !important;
+    }
+}
+
+.modern-skin-dark .main-header .navbar {
+    background: var(--glinta-black);
+    border-bottom: 2px solid var(--glinta-gold);
+}
+
+/* Sidebar Styling */
+.modern-skin-dark .main-sidebar .sidebar {
+    background-color: var(--glinta-dark-gray);
+    bottom: 0;
+}
+
+.modern-skin-dark .main-sidebar {
+    background-color: var(--glinta-dark-gray);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    border-right: 2px solid var(--glinta-gold);
+}
+
+.modern-skin-dark .main-header .navbar>a:focus,
+.modern-skin-dark .main-header .navbar>a:active,
+.modern-skin-dark .main-header .navbar>a:visited,
+.modern-skin-dark .main-header .navbar>a:hover {
+    background-color: var(--glinta-light-gray);
+    color: var(--glinta-gold);
+}
+
+/* Sidebar Menu Items */
+.sidebar-menu li>a {
+    position: relative;
+    background-color: var(--glinta-dark-gray);
+    color: var(--glinta-white);
+    border-left: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.sidebar-menu li>a:hover,
+.sidebar-menu li.active>a {
+    color: var(--glinta-gold);
+    background-color: var(--glinta-light-gray);
+    border-left: 3px solid var(--glinta-gold);
+}
+
+.sidebar-menu li:focus,
+.sidebar-menu li:hover {
+    color: var(--glinta-gold);
+}
+
+/* Content Area */
+.content-wrapper {
+    background-color: var(--glinta-white);
+    min-height: calc(100vh - 50px);
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--glinta-gold);
+    border-color: var(--glinta-dark-gold);
+    color: var(--glinta-black);
+    font-weight: 600;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: var(--glinta-dark-gold);
+    border-color: var(--glinta-dark-gold);
+    color: var(--glinta-black);
+}
+
+.btn-success {
+    background-color: var(--glinta-gold);
+    border-color: var(--glinta-dark-gold);
+    color: var(--glinta-black);
+}
+
+/* Cards and Panels */
+.box {
+    background-color: var(--glinta-white);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    box-shadow: 0 2px 4px rgba(255, 215, 0, 0.1);
+}
+
+.box-header {
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+    background-color: var(--glinta-light-gold);
+}
+
+.box-title {
+    color: var(--glinta-black);
+    font-weight: 600;
+}
+
+/* Tables */
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: rgba(255, 215, 0, 0.05);
+}
+
+.table-hover > tbody > tr:hover {
+    background-color: rgba(255, 215, 0, 0.1);
+}
+
+/* Footer */
+.main-footer {
+    background-color: var(--glinta-black);
+    color: var(--glinta-white);
+    border-top: 2px solid var(--glinta-gold);
+}
+
+.main-footer a {
+    color: var(--glinta-gold);
+    text-decoration: none;
+}
+
+.main-footer a:hover {
+    color: var(--glinta-dark-gold);
+    text-decoration: underline;
+}
+
+/* Navigation Pills and Tabs */
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+    background-color: var(--glinta-gold);
+    color: var(--glinta-black);
+}
+
+/* Form Controls */
+.form-control:focus {
+    border-color: var(--glinta-gold);
+    box-shadow: 0 0 0 0.2rem rgba(255, 215, 0, 0.25);
+}
+
+/* Progress Bars */
+.progress-bar {
+    background-color: var(--glinta-gold);
+}
+
+/* Links */
+a {
+    color: var(--glinta-dark-gold);
+}
+
+a:hover,
+a:focus {
+    color: var(--glinta-gold);
+}
+
+/* Info Boxes and Small Boxes */
+.info-box {
+    background-color: var(--glinta-white);
+    border-left: 3px solid var(--glinta-gold);
+}
+
+.small-box {
+    background-color: var(--glinta-gold);
+    color: var(--glinta-black);
+}
+
+.small-box h3,
+.small-box p {
+    color: var(--glinta-black);
+}
+
+.small-box .icon {
+    color: rgba(0, 0, 0, 0.15);
+}
+
+/* Badges and Labels */
+.label-primary,
+.badge-primary {
+    background-color: var(--glinta-gold);
+    color: var(--glinta-black);
+}
+
+/* Dropdown Menus */
+.dropdown-menu {
+    border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+    background-color: var(--glinta-light-gold);
+    color: var(--glinta-black);
+}
+
+/* Alerts */
+.alert-info {
+    background-color: var(--glinta-light-gold);
+    border-color: var(--glinta-gold);
+    color: var(--glinta-black);
+}
+
+/* Logo Mini Styling */
+.logo-mini b {
+    color: var(--glinta-gold);
+    font-weight: bold;
+}
+
+/* Navbar Toggle */
+.navbar-toggle {
+    border-color: var(--glinta-gold);
+}
+
+.navbar-toggle .icon-bar {
+    background-color: var(--glinta-gold);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-sidebar {
+        transform: translateX(-230px);
+    }
+    
+    .sidebar-open .main-sidebar {
+        transform: translateX(0);
+    }
+}
+
+/* Dark Mode Compatibility */
+.dark-mode {
+    background-color: var(--glinta-dark-gray);
+    color: var(--glinta-white);
+}
+
+.dark-mode .content-wrapper {
+    background-color: var(--glinta-light-gray);
+}
+
+.dark-mode .box {
+    background-color: var(--glinta-light-gray);
+    border-color: var(--glinta-gold);
+}
+
+/* Custom Glinta Branding */
+.glinta-brand {
+    background: linear-gradient(45deg, var(--glinta-gold), var(--glinta-dark-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: bold;
+}
+
+/* Loading Animation */
+.loading {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--glinta-gold);
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Enhanced Gold Accents */
+.skin-black .main-header .navbar .nav > li > a:hover,
+.skin-black .main-header .navbar .nav > li > a:active,
+.skin-black .main-header .navbar .nav > li > a:focus,
+.skin-black .main-header .navbar .nav .open > a,
+.skin-black .main-header .navbar .nav .open > a:hover,
+.skin-black .main-header .navbar .nav .open > a:focus {
+    background: var(--glinta-gold);
+    color: var(--glinta-black);
+}
+
+/* Pagination */
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+    background-color: var(--glinta-gold);
+    border-color: var(--glinta-gold);
+    color: var(--glinta-black);
+}
+
+/* Header Layout Fixes */
+.main-header .navbar {
+    margin: 0;
+    border: none;
+    min-height: 50px;
+    border-radius: 0;
+}
+
+.navbar-custom-menu .nav > li {
+    float: left;
+}
+
+.navbar-custom-menu .nav > li > a {
+    color: var(--glinta-white);
+    padding: 15px 12px;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.navbar-custom-menu .nav > li > a:hover,
+.navbar-custom-menu .nav > li > a:focus {
+    background-color: var(--glinta-light-gray);
+    color: var(--glinta-gold);
+    text-decoration: none;
+}
+
+.navbar-custom-menu .nav > li.nav-item > a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.navbar-custom-menu .nav > li.nav-item > a i {
+    margin-right: 3px;
+}
+
+/* User Menu Improvements */
+.user-menu > a {
+    padding: 10px 15px !important;
+}
+
+.user-menu .user-image {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin-right: 8px;
+    margin-top: -2px;
+    float: left;
+}
+
+.user-menu > a > span {
+    margin-left: 0;
+    font-size: 13px;
+}
+
+.user-menu > a > span small {
+    font-size: 11px;
+    color: var(--glinta-gold);
+    font-weight: normal;
+}
+
+/* Search Overlay Improvements */
+.search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-container {
+    background-color: var(--glinta-white);
+    border-radius: 8px;
+    padding: 0;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+}
+
+.search-header {
+    background: linear-gradient(135deg, var(--glinta-gold), var(--glinta-dark-gold));
+    color: var(--glinta-black);
+    padding: 15px 20px;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search-header h4 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.close-search {
+    background: none;
+    border: none;
+    color: var(--glinta-black);
+    font-size: 18px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.close-search:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.search-input {
+    margin: 20px;
+    width: calc(100% - 40px);
+    border: 2px solid var(--glinta-gold);
+    border-radius: 5px;
+    padding: 12px 15px;
+    font-size: 14px;
+}
+
+.search-input:focus {
+    border-color: var(--glinta-dark-gold);
+    box-shadow: 0 0 0 0.2rem rgba(255, 215, 0, 0.25);
+}
+
+.search-results {
+    max-height: 300px;
+    overflow-y: auto;
+    margin: 0 20px 20px 20px;
+    border-top: 1px solid rgba(255, 215, 0, 0.3);
+    padding-top: 10px;
+}
+
+/* Toggle Icon Improvements */
+.toggle-icon {
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+.toggle-container:hover .toggle-icon {
+    transform: scale(1.1);
+}
+
+/* Responsive Header */
+@media (max-width: 768px) {
+    .navbar-custom-menu .nav > li > a .hidden-xs {
+        display: none !important;
+    }
+    
+    .navbar-custom-menu .nav > li > a {
+        padding: 15px 8px;
+    }
+    
+    .search-container {
+        width: 95%;
+        margin: 0 10px;
+    }
+    
+    .user-menu > a > span {
+        display: none;
+    }
+}

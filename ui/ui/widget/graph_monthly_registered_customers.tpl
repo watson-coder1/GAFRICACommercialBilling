@@ -20,6 +20,7 @@
 <script type="text/javascript">
     {literal}
         document.addEventListener("DOMContentLoaded", function() {
+            console.log("Loading Monthly Registered Customers Chart with Blue Color...");
             var counts = JSON.parse('{/literal}{$monthlyRegistered|json_encode}{literal}');
 
             var monthNames = [
@@ -44,8 +45,8 @@
                     datasets: [{
                         label: 'Registered Members',
                         data: data,
-                        backgroundColor: 'rgba(0, 0, 255, 0.5)',
-                        borderColor: 'rgba(0, 0, 255, 0.7)',
+                        backgroundColor: 'rgba(0, 123, 255, 0.8)', // Blue color for registered customers
+                        borderColor: 'rgba(0, 123, 255, 1)', // Blue border color
                         borderWidth: 1
                     }]
                 },

@@ -173,9 +173,6 @@
         responsive: true,
         aspectRatio: 1,
         plugins: {
-            autocolors: {
-                mode: 'data'
-            },
             legend: {
                 position: 'bottom',
                 labels: {
@@ -186,12 +183,36 @@
         };
 
         function create_cart(field, labels, datas, options) {
+        // Define custom colors - green, red, blue, pink
+        var customColors = [
+            'rgba(34, 139, 34, 0.8)',   // Green
+            'rgba(220, 53, 69, 0.8)',   // Red
+            'rgba(0, 123, 255, 0.8)',   // Blue
+            'rgba(255, 20, 147, 0.8)'   // Pink
+        ];
+        var borderColors = [
+            'rgba(34, 139, 34, 1)',     // Green
+            'rgba(220, 53, 69, 1)',     // Red
+            'rgba(0, 123, 255, 1)',     // Blue
+            'rgba(255, 20, 147, 1)'     // Pink
+        ];
+        
+        // Repeat colors if more data points than colors
+        var backgroundColors = [];
+        var borderColorsArray = [];
+        for (var i = 0; i < datas.length; i++) {
+            backgroundColors.push(customColors[i % customColors.length]);
+            borderColorsArray.push(borderColors[i % borderColors.length]);
+        }
+        
         new Chart(document.getElementById(field), {
             type: 'pie',
             data: {
                 labels: labels,
                 datasets: [{
                     data: datas,
+                    backgroundColor: backgroundColors,
+                    borderColor: borderColorsArray,
                     borderWidth: 1
                 }]
             },
@@ -235,6 +256,28 @@
 
         function getLineChartData() {
             $.getJSON("{/literal}{Text::url('reports/ajax/line&', $filter)}{literal}", function( data ) {
+            // Apply custom colors to line chart datasets
+            var customColors = [
+                'rgba(34, 139, 34, 0.8)',   // Green
+                'rgba(220, 53, 69, 0.8)',   // Red
+                'rgba(0, 123, 255, 0.8)',   // Blue
+                'rgba(255, 20, 147, 0.8)'   // Pink
+            ];
+            var borderColors = [
+                'rgba(34, 139, 34, 1)',     // Green
+                'rgba(220, 53, 69, 1)',     // Red
+                'rgba(0, 123, 255, 1)',     // Blue
+                'rgba(255, 20, 147, 1)'     // Pink
+            ];
+            
+            // Apply colors to each dataset
+            for (var i = 0; i < data.datas.length; i++) {
+                data.datas[i].backgroundColor = customColors[i % customColors.length];
+                data.datas[i].borderColor = borderColors[i % borderColors.length];
+                data.datas[i].borderWidth = 2;
+                data.datas[i].fill = false;
+            }
+            
             var linechart = new Chart(document.getElementById('line_cart'), {
                 type: 'line',
                 data: {
@@ -245,9 +288,6 @@
                     maintainAspectRatio: false,
                     aspectRatio: 1,
                     plugins: {
-                        autocolors: {
-                            mode: 'data'
-                        },
                         legend: {
                             position: 'bottom'
                         }

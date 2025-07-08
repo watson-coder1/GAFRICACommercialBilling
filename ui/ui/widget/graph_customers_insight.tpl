@@ -9,6 +9,7 @@
 <script type="text/javascript">
     {literal}
         document.addEventListener("DOMContentLoaded", function() {
+            console.log("Loading Customer Insights Pie Chart with Green, Red, Pink Colors...");
             // Get the data from PHP and assign it to JavaScript variables
             var u_act = '{/literal}{$u_act}{literal}';
             var c_all = '{/literal}{$c_all}{literal}';
@@ -25,8 +26,8 @@
                 datasets: [{
                     label: 'User Recharges',
                     data: [parseInt(u_act), parseInt(expired), parseInt(inactive)],
-                    backgroundColor: ['rgba(4, 191, 13)', 'rgba(191, 35, 4)', 'rgba(0, 0, 255, 0.5'],
-                    borderColor: ['rgba(0, 255, 0, 1)', 'rgba(255, 99, 132, 1)', 'rgba(0, 0, 255, 0.7'],
+                    backgroundColor: ['rgba(34, 139, 34, 0.8)', 'rgba(220, 53, 69, 0.8)', 'rgba(255, 20, 147, 0.8)'],
+                    borderColor: ['rgba(34, 139, 34, 1)', 'rgba(220, 53, 69, 1)', 'rgba(255, 20, 147, 1)'],
                     borderWidth: 1
                 }]
             };

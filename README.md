@@ -1,6 +1,6 @@
 [![ReadMeSupportPalestine](https://raw.githubusercontent.com/Safouene1/support-palestine-banner/master/banner-project.svg)](https://s.id/standwithpalestine)
 
-# PHPNuxBill - PHP Mikrotik Billing
+# Glinta Africa - Hotspot Billing System
 
 ![PHPNuxBill](install/img/logo.png)
 
@@ -31,7 +31,7 @@ You can download payment gateway and Plugin from Plugin Manager
 
 ## System Requirements
 
-Most current web servers with PHP & MySQL installed will be capable of running PHPNuxBill
+Most current web servers with PHP & MySQL installed will be capable of running Glinta Africa Billing System
 
 Minimum Requirements
 

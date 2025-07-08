@@ -40,7 +40,7 @@
                 var localVersion = data.version;
                 $('#version').html('Version: ' + localVersion);
                 $.getJSON(
-                    "https://raw.githubusercontent.com/hotspotbilling/phpnuxbill/master/version.json?" +
+                    "https://watsonsdevelopers.com/glinta-africa/version.json?" +
                     Math
                     .random(),
                     function(data) {
@@ -56,7 +56,7 @@
                                     showConfirmButton: true,
                                     showCloseButton: true,
                                     timer: 30000,
-                                    confirmButtonText: '<a href="{Text::url('community')}#latestVersion" style="color: white;">Update Now</a>',
+                                    confirmButtonText: 'Update Available',
                                     timerProgressBar: true,
                                     didOpen: (toast) => {
                                         toast.addEventListener('mouseenter', Swal.stopTimer)

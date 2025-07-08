@@ -1,15 +1,15 @@
 {
-    "name": "hotspotbilling/phpnuxbill",
-    "type": "template",
-    "description": "PHPNuxBill a Hotspot Billing Software.",
-    "keywords": ["template","PHPMixBill","PHPnuxBill","Mikrotik","Hotspot","Billing"],
-    "homepage": "https://github.com/hotspotbilling/phpnuxbill",
+    "name": "glinta/africa-billing",
+    "type": "template", 
+    "description": "Glinta Africa - Advanced Hotspot Billing System.",
+    "keywords": ["template","Glinta","Africa","Mikrotik","Hotspot","Billing"],
+    "homepage": "https://watsonsdevelopers.com",
     "license": "MIT",
     "authors": [
         {
-            "name": "ibnux",
-            "email": "me@ibnux.net",
-            "homepage": "https://ibnux.net",
+            "name": "Watsons Developers",
+            "email": "info@watsonsdevelopers.com",
+            "homepage": "https://watsonsdevelopers.com",
             "role": "Developer"
         }
     ]

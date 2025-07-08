@@ -20,6 +20,7 @@
     {if $_c['hide_tmc'] != 'yes'}
         {literal}
             document.addEventListener("DOMContentLoaded", function() {
+                console.log("Loading Monthly Sales Chart with Green Colors...");
                 var monthlySales = JSON.parse('{/literal}{$monthlySales|json_encode}{literal}');
 
                 var monthNames = [
@@ -44,8 +45,8 @@
                         datasets: [{
                             label: 'Monthly Sales',
                             data: data,
-                            backgroundColor: 'rgba(2, 10, 242)', // Customize the background color
-                            borderColor: 'rgba(255, 99, 132, 1)', // Customize the border color
+                            backgroundColor: 'rgba(34, 139, 34, 0.8)', // Green color for sales chart
+                            borderColor: 'rgba(34, 139, 34, 1)', // Green border color
                             borderWidth: 1
                         }]
                     },

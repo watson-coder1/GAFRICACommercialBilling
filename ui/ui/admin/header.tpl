@@ -20,11 +20,11 @@
     <link rel="stylesheet" href="{$app_url}/ui/ui/styles/sweetalert2.min.css" />
     <link rel="stylesheet" href="{$app_url}/ui/ui/styles/plugins/pace.css" />
     <link rel="stylesheet" href="{$app_url}/ui/ui/summernote/summernote.min.css" />
-    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/phpnuxbill.css?2025.2.4" />
+    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/glinta.css?v=20250708" />
     <link rel="stylesheet" href="{$app_url}/ui/ui/styles/7.css" />
 
     <script src="{$app_url}/ui/ui/scripts/sweetalert2.all.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js?v=20250708"></script>
     <style>
 
     </style>
@@ -38,7 +38,7 @@
     <div class="wrapper">
         <header class="main-header">
             <a href="{Text::url('dashboard')}" class="logo">
-                <span class="logo-mini"><b>N</b>uX</span>
+                <span class="logo-mini"><b>G</b>A</span>
                 <span class="logo-lg">{$_c['CompanyName']}</span>
             </a>
             <nav class="navbar navbar-static-top">
@@ -47,23 +47,14 @@
                 </a>
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
-                        <div class="wrap">
-                            <div class="">
-                                <button id="openSearch" class="search"><i class="fa fa-search x2"></i></button>
-                            </div>
-                        </div>
-                        <div id="searchOverlay" class="search-overlay">
-                            <div class="search-container">
-                                <input type="text" id="searchTerm" class="searchTerm"
-                                    placeholder="{Lang::T('Search Users')}" autocomplete="off">
-                                <div id="searchResults" class="search-results">
-                                    <!-- Search results will be displayed here -->
-                                </div>
-                                <button type="button" id="closeSearch" class="cancelButton">{Lang::T('Cancel')}</button>
-                            </div>
-                        </div>
-                        <li>
-                            <a class="toggle-container" href="#">
+                        <li class="nav-item">
+                            <a href="#" id="openSearch" class="nav-link" title="{Lang::T('Search Users')}">
+                                <i class="fa fa-search"></i>
+                                <span class="hidden-xs">{Lang::T('Search')}</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link toggle-container" href="#" title="Toggle Dark Mode">
                                 <i class="toggle-icon" id="toggleIcon">🌜</i>
                             </a>
                         </li>
@@ -72,7 +63,7 @@
                                 <img src="{$app_url}/{$UPLOAD_PATH}{$_admin['photo']}.thumb.jpg"
                                     onerror="this.src='{$app_url}/{$UPLOAD_PATH}/admin.default.png'" class="user-image"
                                     alt="Avatar">
-                                <span class="hidden-xs">{$_admin['fullname']}</span>
+                                <span class="hidden-xs">{$_admin['fullname']} <small>({Lang::T($_admin['user_type'])})</small></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="user-header">
@@ -109,6 +100,24 @@
                 </div>
             </nav>
         </header>
+        
+        <!-- Search Overlay -->
+        <div id="searchOverlay" class="search-overlay">
+            <div class="search-container">
+                <div class="search-header">
+                    <h4><i class="fa fa-search"></i> {Lang::T('Search Users')}</h4>
+                    <button type="button" id="closeSearch" class="close-search" title="{Lang::T('Cancel')}">
+                        <i class="fa fa-times"></i>
+                    </button>
+                </div>
+                <input type="text" id="searchTerm" class="form-control search-input"
+                    placeholder="{Lang::T('Search Users')}" autocomplete="off">
+                <div id="searchResults" class="search-results">
+                    <!-- Search results will be displayed here -->
+                </div>
+            </div>
+        </div>
+        
         <aside class="main-sidebar">
             <section class="sidebar">
                 <ul class="sidebar-menu" data-widget="tree">
@@ -358,7 +367,7 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li {if $_routes[1] eq 'list' }class="active" {/if}><a
-                                        href="{Text::url('logs/phpnuxbill')}">PhpNuxBill</a></li>
+                                        href="{Text::url('logs/phpnuxbill')}">Glinta Africa</a></li>
                                 {if $_c['radius_enable']}
                                     <li {if $_routes[1] eq 'radius' }class="active" {/if}><a
                                             href="{Text::url('logs/radius')}">Radius</a>
@@ -380,12 +389,6 @@
                                     <span class="pull-right-container"><small
                                             class="label pull-right bg-green">New</small></span>
                                 {/if}
-                            </a>
-                        </li>
-                        <li {if $_system_menu eq 'community' }class="active" {/if}>
-                            <a href="{Text::url('community')}">
-                                <i class="ion ion-chatboxes"></i>
-                                <span class="text">Community</span>
                             </a>
                         </li>
                     {/if}
