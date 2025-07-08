@@ -22,6 +22,9 @@
     <link rel="stylesheet" href="{$app_url}/ui/ui/summernote/summernote.min.css" />
     <link rel="stylesheet" href="{$app_url}/ui/ui/styles/glinta.css?v=20250708" />
     <link rel="stylesheet" href="{$app_url}/ui/ui/styles/7.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Lobster&display=swap" rel="stylesheet">
 
     <script src="{$app_url}/ui/ui/scripts/sweetalert2.all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js?v=20250708"></script>
@@ -45,17 +48,22 @@
                 <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button" onclick="return setKolaps()">
                     <span class="sr-only">Toggle navigation</span>
                 </a>
+                <div class="navbar-left">
+                    <span class="company-brand-header" style="font-family: 'Lobster', cursive; color: #FFD700; font-size: 22px; font-weight: 400; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); letter-spacing: 1px; padding: 15px 20px; display: inline-block;">
+                        {$_c['CompanyName']}
+                    </span>
+                </div>
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
                         <li class="nav-item">
-                            <a href="#" id="openSearch" class="nav-link" title="{Lang::T('Search Users')}">
-                                <i class="fa fa-search"></i>
+                            <a href="#" id="openSearch" class="nav-link" title="{Lang::T('Search Users')}" style="padding: 12px 15px;">
+                                <i class="fa fa-search" style="font-size: 18px;"></i>
                                 <span class="hidden-xs">{Lang::T('Search')}</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link toggle-container" href="#" title="Toggle Dark Mode">
-                                <i class="toggle-icon" id="toggleIcon">🌜</i>
+                            <a class="nav-link toggle-container" href="#" title="Toggle Dark Mode" style="padding: 12px 15px;">
+                                <i class="toggle-icon" id="toggleIcon" style="font-size: 18px;">🌜</i>
                             </a>
                         </li>
                         <li class="dropdown user user-menu">
@@ -381,14 +389,10 @@
                     {/if}
                     {$_MENU_AFTER_LOGS}
                     {if in_array($_admin['user_type'],['SuperAdmin','Admin'])}
-                        <li {if $_routes[1] eq 'docs' }class="active" {/if}>
-                            <a href="{if $_c['docs_clicked'] != 'yes'}{Text::url('settings/docs')}{else}{$app_url}/docs{/if}">
-                                <i class="ion ion-ios-bookmarks"></i>
-                                <span class="text">{Lang::T('Documentation')}</span>
-                                {if $_c['docs_clicked'] != 'yes'}
-                                    <span class="pull-right-container"><small
-                                            class="label pull-right bg-green">New</small></span>
-                                {/if}
+                        <li {if $_routes[0] eq 'portal' and $_routes[1] eq 'admin' }class="active" {/if}>
+                            <a href="{Text::url('portal/admin')}">
+                                <i class="ion ion-wifi"></i>
+                                <span class="text">Portal Management</span>
                             </a>
                         </li>
                     {/if}

@@ -1,6 +1,6 @@
 <?php
 
-include "../init.php";
+include dirname(__DIR__) . "/init.php";
 $lockFile = "$CACHE_PATH/router_monitor.lock";
 
 if (!is_dir($CACHE_PATH)) {
