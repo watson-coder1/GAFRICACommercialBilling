@@ -537,7 +537,7 @@
             color: rgba(255, 255, 255, 0.6);
         }
 
-        /* Animations */
+        /* Enhanced Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -546,6 +546,60 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
             }
         }
 
@@ -558,6 +612,89 @@
         .animate-on-scroll.animated {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        .animate-slide-right {
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        .animate-slide-left {
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .animate-scale {
+            animation: scaleIn 0.6s ease-out;
+        }
+
+        .animate-pulse {
+            animation: pulse 2s infinite;
+        }
+
+        .animate-bounce {
+            animation: bounce 2s infinite;
+        }
+
+        /* African-themed gradient overlays */
+        .africa-gradient {
+            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 25%, #FFD700 50%, #00B04F 75%, #006400 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Dynamic number counter */
+        .counter-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-light);
+            margin-bottom: 0.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .counter-number:hover {
+            transform: scale(1.1);
+            color: var(--accent);
+        }
+
+        /* Parallax effect for hero background */
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Enhanced card hover effects */
+        .dynamic-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .dynamic-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .dynamic-card:hover::before {
+            left: 100%;
+        }
+
+        .dynamic-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
         }
 
         /* Mobile Responsive */
@@ -627,6 +764,9 @@
                         <a class="nav-link" href="#solutions">Solutions</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#story">Our Story</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#blog">Insights</a>
                     </li>
                     <li class="nav-item">
@@ -654,15 +794,15 @@
                 <div class="col-lg-6">
                     <div class="hero-content">
                         <div class="hero-badge">
-                            <i class="fas fa-sparkles me-2"></i>
-                            Your WiFi deserves better than being just "free"
+                            <i class="fas fa-heart me-2"></i>
+                            Co-founded by Watson Wambugu & Dennis Mugo
                         </div>
                         <h1 class="display-1 mb-4">
-                            Turn Your WiFi Into A<br>
-                            <span style="color: var(--accent-light);">Revenue Powerhouse</span>
+                            Connecting Remote Africa<br>
+                            <span style="color: var(--accent-light);">One Hotspot At A Time</span>
                         </h1>
                         <p class="lead">
-                            Stop giving away your WiFi for free like it's 2005. Our platform helps smart business owners transform their internet connection from a cost center into their most profitable asset.
+                            Born from a mission to bridge the digital divide in Africa, we've helped over 10,000 businesses in remote areas transform their communities through affordable internet access.
                         </p>
                         <div class="hero-cta">
                             <a href="https://wa.me/254711503023?text=Hi%20Glinta%20Africa,%20I%20want%20to%20turn%20my%20WiFi%20into%20a%20money-making%20machine" class="btn btn-primary btn-lg me-3" target="_blank">
@@ -680,19 +820,19 @@
                             <div class="col-md-4">
                                 <div class="hero-stat">
                                     <div class="hero-stat-number" data-count="10000">0</div>
-                                    <div class="hero-stat-label">Smart Businesses</div>
+                                    <div class="hero-stat-label">Communities Connected</div>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="hero-stat">
-                                    <div class="hero-stat-number" data-count="2500000">0</div>
-                                    <div class="hero-stat-label">Monthly Revenue</div>
+                                    <div class="hero-stat-number" data-count="500000">0</div>
+                                    <div class="hero-stat-label">Lives Impacted</div>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="hero-stat">
-                                    <div class="hero-stat-number" data-count="50">0</div>
-                                    <div class="hero-stat-label">Countries</div>
+                                    <div class="hero-stat-number" data-count="15">0</div>
+                                    <div class="hero-stat-label">African Countries</div>
                                 </div>
                             </div>
                         </div>
@@ -707,8 +847,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center mb-5">
-                    <h2 class="display-2 mb-4">Why Your Customers Will Actually Pay For WiFi</h2>
-                    <p class="lead">Because nobody wants to share their mobile data when there's perfectly good WiFi right there. Make it premium, make it profitable.</p>
+                    <h2 class="display-2 mb-4">Our Mission: Internet For All Africans</h2>
+                    <p class="lead">Founded by Watson Wambugu and Dennis Mugo, we believe every African deserves access to affordable, reliable internet - especially in remote areas where connectivity can transform entire communities.</p>
                 </div>
             </div>
             <div class="row g-4">
@@ -717,8 +857,8 @@
                         <div class="feature-icon">
                             <i class="fas fa-bolt"></i>
                         </div>
-                        <h4>Lightning-Fast Setup</h4>
-                        <p>Get your WiFi billing system running faster than you can say "password123". Our one-click setup makes even your grandmother's router profitable.</p>
+                        <h4>Community-First Approach</h4>
+                        <p>We prioritize remote communities first. Our systems are designed to work in low-infrastructure areas, bringing internet access where it's needed most.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
@@ -726,8 +866,8 @@
                         <div class="feature-icon">
                             <i class="fas fa-mobile-alt"></i>
                         </div>
-                        <h4>Mobile Money Magic</h4>
-                        <p>M-Pesa, Airtel Money, and 50+ payment methods. Your customers can pay with everything except their good looks (unfortunately).</p>
+                        <h4>Mobile Money Integration</h4>
+                        <p>M-Pesa, Airtel Money, and local payment methods. Perfect for African communities where mobile money is the primary payment method.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
@@ -735,8 +875,8 @@
                         <div class="feature-icon">
                             <i class="fas fa-chart-line"></i>
                         </div>
-                        <h4>Revenue Analytics That Actually Matter</h4>
-                        <p>See exactly how much money your WiFi is making. Spoiler alert: it's probably more than your coffee machine.</p>
+                        <h4>Impact Analytics</h4>
+                        <p>Track not just revenue, but community impact. See how many students accessed education, farmers got market prices, and families stayed connected.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
@@ -744,8 +884,8 @@
                         <div class="feature-icon">
                             <i class="fas fa-shield-alt"></i>
                         </div>
-                        <h4>Fort Knox-Level Security</h4>
-                        <p>Bank-grade encryption that makes your WiFi more secure than your neighbor's password (which is probably still "password123").</p>
+                        <h4>African-Built Security</h4>
+                        <p>Security designed for African networks. We understand local challenges and have built solutions that work reliably in diverse environments.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
@@ -753,8 +893,8 @@
                         <div class="feature-icon">
                             <i class="fas fa-headset"></i>
                         </div>
-                        <h4>Support That Actually Helps</h4>
-                        <p>24/7 support from real humans who understand that "turn it off and on again" isn't always the answer.</p>
+                        <h4>Local Support Team</h4>
+                        <p>24/7 support from African tech experts who understand local challenges, languages, and cultural contexts.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
@@ -762,8 +902,8 @@
                         <div class="feature-icon">
                             <i class="fas fa-paint-brush"></i>
                         </div>
-                        <h4>Brand It Like You Mean It</h4>
-                        <p>Customize everything with your brand colors and logo. Make your WiFi portal more beautiful than your Instagram feed.</p>
+                        <h4>Community Branding</h4>
+                        <p>Customize portals with local languages, currencies, and cultural elements. Make technology feel familiar and accessible.</p>
                     </div>
                 </div>
             </div>
@@ -775,31 +915,189 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center mb-5">
-                    <h2 class="display-2 mb-4">Perfect For Every Business Type</h2>
-                    <p class="lead">Whether you're serving coffee or five-star meals, we've got the perfect WiFi monetization solution for you.</p>
+                    <h2 class="display-2 mb-4">Transforming African Communities</h2>
+                    <p class="lead">From rural schools to urban centers, we've helped diverse African communities build sustainable internet businesses.</p>
                 </div>
             </div>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
                     <div class="feature-card animate-on-scroll">
-                        <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Restaurant WiFi" class="img-fluid rounded mb-3" style="width: 100%; height: 200px; object-fit: cover;">
-                        <h4>Restaurants & Cafes</h4>
-                        <p>Turn your dining area into a profit center. Customers stay longer, order more, and pay for premium WiFi. It's like having a money printer, but legal.</p>
+                        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="African School" class="img-fluid rounded mb-3" style="width: 100%; height: 200px; object-fit: cover;">
+                        <h4>Rural Schools & Education</h4>
+                        <p>Connecting 2,500+ schools across Africa. Students now access online learning, teachers get training resources, and communities stay informed.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="feature-card animate-on-scroll">
-                        <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Hotel WiFi" class="img-fluid rounded mb-3" style="width: 100%; height: 200px; object-fit: cover;">
-                        <h4>Hotels & Lodges</h4>
-                        <p>Give guests lightning-fast WiFi that's worth paying for. Because nothing says "luxury" like not having to use hotel WiFi from 2010.</p>
+                        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="African Healthcare" class="img-fluid rounded mb-3" style="width: 100%; height: 200px; object-fit: cover;">
+                        <h4>Healthcare Centers</h4>
+                        <p>Enabled telemedicine in 800+ rural clinics. Doctors now consult specialists remotely, patients access health information, and communities get better care.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="feature-card animate-on-scroll">
-                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Retail WiFi" class="img-fluid rounded mb-3" style="width: 100%; height: 200px; object-fit: cover;">
-                        <h4>Retail & Shopping</h4>
-                        <p>Keep shoppers connected and happy while they browse. Happy customers with good WiFi are customers who buy more stuff.</p>
+                        <img src="https://images.unsplash.com/photo-1586348943529-beaae6c28db9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="African Market" class="img-fluid rounded mb-3" style="width: 100%; height: 200px; object-fit: cover;">
+                        <h4>Local Markets & SMEs</h4>
+                        <p>Supporting 5,000+ small businesses. Farmers check market prices, traders process mobile payments, and entrepreneurs build online presence.</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section id="story" class="section" style="background: var(--gradient-primary); color: white;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="display-2 mb-4" style="color: white;">Our Story: Bridging The Digital Divide</h2>
+                    <p class="lead" style="color: rgba(255, 255, 255, 0.9);">Founded by two passionate African technologists with a simple mission: ensure every African has access to affordable, reliable internet.</p>
+                </div>
+            </div>
+            
+            <!-- Founders Section -->
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-md-6 text-center mb-4 animate-slide-left">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Watson Wambugu" class="img-fluid rounded-circle mb-3 animate-pulse" style="width: 150px; height: 150px; object-fit: cover; border: 4px solid var(--accent);">
+                            <h4 style="color: var(--accent-light);">Watson Wambugu</h4>
+                            <p style="color: rgba(255, 255, 255, 0.8);">Co-Founder & CEO</p>
+                            <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem;">Network engineer from rural Kenya who experienced firsthand the challenges of internet access in remote areas.</p>
+                        </div>
+                        <div class="col-md-6 text-center mb-4 animate-slide-right">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Dennis Mugo" class="img-fluid rounded-circle mb-3 animate-pulse" style="width: 150px; height: 150px; object-fit: cover; border: 4px solid var(--accent);">
+                            <h4 style="color: var(--accent-light);">Dennis Mugo</h4>
+                            <p style="color: rgba(255, 255, 255, 0.8);">Co-Founder & CTO</p>
+                            <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem;">Software developer passionate about using technology to solve African problems with African solutions.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ps-lg-4">
+                        <h3 style="color: var(--accent-light); margin-bottom: 1.5rem;">From Personal Experience to Global Impact</h3>
+                        <p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 1.5rem;">
+                            Growing up in Kenya's rural areas, Watson and Dennis witnessed how lack of internet access limited opportunities for education, healthcare, and economic growth. They saw talented students unable to access online resources, small businesses struggling without digital tools, and communities isolated from global opportunities.
+                        </p>
+                        <p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 1.5rem;">
+                            In 2020, they founded GlintaAfrica with a clear vision: make internet access affordable and sustainable for every African community, starting with the most remote areas.
+                        </p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="text-center">
+                                    <div style="font-size: 2rem; color: var(--accent-light); font-weight: 800; margin-bottom: 0.5rem;">2020</div>
+                                    <div style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem;">Company Founded</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-center">
+                                    <div style="font-size: 2rem; color: var(--accent-light); font-weight: 800; margin-bottom: 0.5rem;">₦0</div>
+                                    <div style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem;">Initial Investment</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Impact Stories -->
+            <div class="row mt-5">
+                <div class="col-lg-12 text-center mb-4">
+                    <h3 style="color: var(--accent-light);">Real Stories, Real Impact</h3>
+                    <p style="color: rgba(255, 255, 255, 0.8);">These are the communities we've helped transform</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card dynamic-card animate-on-scroll" style="background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2);">
+                        <img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Kibera School" class="img-fluid rounded mb-3" style="width: 100%; height: 200px; object-fit: cover;">
+                        <h4 style="color: var(--accent-light);">Kibera Secondary School, Kenya</h4>
+                        <p style="color: rgba(255, 255, 255, 0.8);">
+                            <strong>Challenge:</strong> 1,200 students with no internet access.<br>
+                            <strong>Solution:</strong> Affordable hotspot system with educational packages.<br>
+                            <strong>Impact:</strong> 95% improvement in digital literacy scores.
+                        </p>
+                        <div class="row text-center mt-3">
+                            <div class="col-4">
+                                <div style="font-size: 1.5rem; color: var(--accent-light); font-weight: 700;">1,200</div>
+                                <div style="color: rgba(255, 255, 255, 0.7); font-size: 0.8rem;">Students</div>
+                            </div>
+                            <div class="col-4">
+                                <div style="font-size: 1.5rem; color: var(--accent-light); font-weight: 700;">₦50</div>
+                                <div style="color: rgba(255, 255, 255, 0.7); font-size: 0.8rem;">Monthly Cost</div>
+                            </div>
+                            <div class="col-4">
+                                <div style="font-size: 1.5rem; color: var(--accent-light); font-weight: 700;">95%</div>
+                                <div style="color: rgba(255, 255, 255, 0.7); font-size: 0.8rem;">Improvement</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card dynamic-card animate-on-scroll" style="background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2);">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Rural Clinic" class="img-fluid rounded mb-3" style="width: 100%; height: 200px; object-fit: cover;">
+                        <h4 style="color: var(--accent-light);">Maseno Rural Clinic, Uganda</h4>
+                        <p style="color: rgba(255, 255, 255, 0.8);">
+                            <strong>Challenge:</strong> No telemedicine capability for 50,000 residents.<br>
+                            <strong>Solution:</strong> Reliable internet for doctor consultations.<br>
+                            <strong>Impact:</strong> 300% increase in successful treatments.
+                        </p>
+                        <div class="row text-center mt-3">
+                            <div class="col-4">
+                                <div style="font-size: 1.5rem; color: var(--accent-light); font-weight: 700;">50K</div>
+                                <div style="color: rgba(255, 255, 255, 0.7); font-size: 0.8rem;">Residents</div>
+                            </div>
+                            <div class="col-4">
+                                <div style="font-size: 1.5rem; color: var(--accent-light); font-weight: 700;">24/7</div>
+                                <div style="color: rgba(255, 255, 255, 0.7); font-size: 0.8rem;">Availability</div>
+                            </div>
+                            <div class="col-4">
+                                <div style="font-size: 1.5rem; color: var(--accent-light); font-weight: 700;">300%</div>
+                                <div style="color: rgba(255, 255, 255, 0.7); font-size: 0.8rem;">Better Care</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card dynamic-card animate-on-scroll" style="background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2);">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Farmer Market" class="img-fluid rounded mb-3" style="width: 100%; height: 200px; object-fit: cover;">
+                        <h4 style="color: var(--accent-light);">Mbeere Farmers Market, Kenya</h4>
+                        <p style="color: rgba(255, 255, 255, 0.8);">
+                            <strong>Challenge:</strong> Farmers selling below market prices.<br>
+                            <strong>Solution:</strong> Internet access for price checking and mobile payments.<br>
+                            <strong>Impact:</strong> 150% increase in farmer income.
+                        </p>
+                        <div class="row text-center mt-3">
+                            <div class="col-4">
+                                <div style="font-size: 1.5rem; color: var(--accent-light); font-weight: 700;">500</div>
+                                <div style="color: rgba(255, 255, 255, 0.7); font-size: 0.8rem;">Farmers</div>
+                            </div>
+                            <div class="col-4">
+                                <div style="font-size: 1.5rem; color: var(--accent-light); font-weight: 700;">₦200</div>
+                                <div style="color: rgba(255, 255, 255, 0.7); font-size: 0.8rem;">Monthly Plan</div>
+                            </div>
+                            <div class="col-4">
+                                <div style="font-size: 1.5rem; color: var(--accent-light); font-weight: 700;">150%</div>
+                                <div style="color: rgba(255, 255, 255, 0.7); font-size: 0.8rem;">Income Rise</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="row mt-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h3 style="color: var(--accent-light); margin-bottom: 1.5rem;">Join Our Mission</h3>
+                    <p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 2rem;">
+                        Every community deserves access to the digital world. Let's build the next success story together.
+                    </p>
+                    <a href="https://wa.me/254711503023?text=Hi%20Watson%20and%20Dennis,%20I%20want%20to%20join%20your%20mission%20to%20connect%20Africa" class="btn btn-primary btn-lg" target="_blank">
+                        <i class="fas fa-hands-helping me-2"></i>Partner With Us
+                    </a>
                 </div>
             </div>
         </div>
@@ -810,23 +1108,23 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center mb-5">
-                    <h2 class="display-2 mb-4">WiFi Business Insights</h2>
-                    <p class="lead">Stay ahead of the curve with our latest insights on WiFi monetization, customer behavior, and business growth strategies.</p>
+                    <h2 class="display-2 mb-4">African Tech Insights</h2>
+                    <p class="lead">Discover how technology is transforming African communities and creating unprecedented opportunities for growth.</p>
                 </div>
             </div>
             <div class="row g-4">
                 <div class="col-lg-4">
                     <article class="blog-card animate-on-scroll">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="WiFi Revenue Analytics" class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Digital Transformation Africa" class="blog-image">
                         <div class="blog-content">
                             <div class="blog-meta">
-                                <time datetime="2024-01-15">January 15, 2024</time> • WiFi Business
+                                <time datetime="2024-01-15">January 15, 2024</time> • Digital Transformation
                             </div>
-                            <h3 class="blog-title">How to Increase WiFi Revenue by 300% in 30 Days</h3>
+                            <h3 class="blog-title">How Remote African Villages Are Leapfrogging to Digital Economy</h3>
                             <p class="blog-excerpt">
-                                Discover the proven strategies that successful businesses use to transform their WiFi from a cost center into their most profitable service.
+                                Explore how Watson and Dennis are helping remote communities skip traditional infrastructure and jump directly to modern digital solutions.
                             </p>
-                            <a href="/blog/increase-wifi-revenue-300-percent" class="blog-link">
+                            <a href="https://wa.me/254711503023?text=Hi%20Watson%20and%20Dennis,%20I%20want%20to%20learn%20about%20digital%20transformation%20in%20Africa" class="blog-link" target="_blank">
                                 Read More <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
@@ -834,16 +1132,16 @@
                 </div>
                 <div class="col-lg-4">
                     <article class="blog-card animate-on-scroll">
-                        <img src="https://images.unsplash.com/photo-1556075798-4825dfaaf498?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Customer WiFi Behavior" class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1573164713712-03790a178651?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="African Innovation" class="blog-image">
                         <div class="blog-content">
                             <div class="blog-meta">
-                                <time datetime="2024-01-10">January 10, 2024</time> • Customer Insights
+                                <time datetime="2024-01-10">January 10, 2024</time> • Innovation
                             </div>
-                            <h3 class="blog-title">Why Customers Are Happy to Pay for Premium WiFi</h3>
+                            <h3 class="blog-title">Mobile Money + Internet: The Perfect African Tech Combination</h3>
                             <p class="blog-excerpt">
-                                Understanding customer psychology and willingness to pay for quality internet access in hospitality and retail environments.
+                                Discover how the combination of mobile money and internet access is creating new economic opportunities across Africa.
                             </p>
-                            <a href="/blog/customers-pay-premium-wifi" class="blog-link">
+                            <a href="https://wa.me/254711503023?text=Hi%20Watson%20and%20Dennis,%20I%20want%20to%20learn%20about%20mobile%20money%20integration" class="blog-link" target="_blank">
                                 Read More <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
@@ -851,16 +1149,16 @@
                 </div>
                 <div class="col-lg-4">
                     <article class="blog-card animate-on-scroll">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Mobile Payment Integration" class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="African Entrepreneurship" class="blog-image">
                         <div class="blog-content">
                             <div class="blog-meta">
-                                <time datetime="2024-01-05">January 5, 2024</time> • Technology
+                                <time datetime="2024-01-05">January 5, 2024</time> • Entrepreneurship
                             </div>
-                            <h3 class="blog-title">M-Pesa Integration: The Game Changer for African Businesses</h3>
+                            <h3 class="blog-title">From Zero to Hero: Building Tech Startups in Rural Africa</h3>
                             <p class="blog-excerpt">
-                                How mobile money integration is revolutionizing WiFi billing across Africa and driving unprecedented revenue growth.
+                                Learn how Watson and Dennis built GlintaAfrica from nothing and how you can create similar impact in your community.
                             </p>
-                            <a href="/blog/mpesa-integration-game-changer" class="blog-link">
+                            <a href="https://wa.me/254711503023?text=Hi%20Watson%20and%20Dennis,%20I%20want%20to%20learn%20about%20building%20tech%20startups%20in%20Africa" class="blog-link" target="_blank">
                                 Read More <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
