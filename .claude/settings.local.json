@@ -18,7 +18,8 @@
       "Bash(./verify_security_fixes.sh:*)",
       "Bash(docker:*)",
       "Bash(git reset:*)",
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "Bash(git pull:*)"
     ],
     "deny": []
   }
