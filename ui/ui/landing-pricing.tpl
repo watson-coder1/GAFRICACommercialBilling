@@ -4,15 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{$_title}</title>
-    <meta name="description" content="Affordable pricing plans for African ISPs. Start from $29/month with mobile money integration, unlimited customers, and 24/7 support.">
-    <meta name="keywords" content="ISP pricing, billing software cost, affordable ISP solution, mobile money billing, hotspot management pricing">
+    <meta name="description" content="Professional ISP billing platform pricing. Enterprise-grade features with transparent pricing for African telecommunications. Custom solutions available.">
+    <meta name="keywords" content="ISP pricing, billing software cost, enterprise ISP solution, mobile money billing, professional network management pricing">
     <meta name="author" content="Glinta Africa">
     
     <link rel="canonical" href="https://glintaafrica.com/pricing">
     <link rel="shortcut icon" href="{$app_url}/ui/ui/images/logo.png" type="image/x-icon" />
     
     <!-- Professional Typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Bootstrap & Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -23,19 +23,36 @@
     
     <style>
         :root {
-            --gold: #D4AF37;
-            --gold-light: #F4E4C1;
-            --gold-dark: #B8941F;
-            --black: #000000;
-            --black-soft: #1a1a1a;
-            --white: #FFFFFF;
-            --white-soft: #f8f8f8;
-            --gray: #666666;
-            --shadow: 0 5px 20px rgba(0,0,0,0.1);
-            --shadow-lg: 0 15px 40px rgba(0,0,0,0.2);
-            --shadow-gold: 0 10px 30px rgba(212,175,55,0.3);
-            --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #F4E4C1 50%, #B8941F 100%);
-            --gradient-black: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            --primary: #1a365d;
+            --primary-light: #2d5282;
+            --primary-dark: #0f2a44;
+            --accent: #d4af37;
+            --accent-light: #f4e4c1;
+            --accent-dark: #b8941f;
+            --secondary: #4a5568;
+            --success: #38a169;
+            --warning: #ed8936;
+            --danger: #e53e3e;
+            --info: #3182ce;
+            --light: #f7fafc;
+            --dark: #1a202c;
+            --gray-50: #fafafa;
+            --gray-100: #f5f5f5;
+            --gray-200: #e5e5e5;
+            --gray-300: #d4d4d4;
+            --gray-400: #a3a3a3;
+            --gray-500: #737373;
+            --gray-600: #525252;
+            --gray-700: #404040;
+            --gray-800: #262626;
+            --gray-900: #171717;
+            --gradient-primary: linear-gradient(135deg, #1a365d 0%, #2d5282 100%);
+            --gradient-accent: linear-gradient(135deg, #d4af37 0%, #f4e4c1 100%);
+            --gradient-hero: linear-gradient(135deg, #0f2a44 0%, #1a365d 50%, #2d5282 100%);
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
         }
 
         * {
@@ -49,146 +66,191 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: var(--black);
-            background: var(--white);
-            overflow-x: hidden;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--gray-700);
+            background: var(--light);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Creative Logo Typography */
+        /* Professional Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+        h4 { font-size: 1.25rem; }
+        h5 { font-size: 1.125rem; }
+        h6 { font-size: 1rem; }
+
+        .display-2 { font-size: 3rem; font-weight: 700; }
+        .text-lg { font-size: 1.125rem; }
+        .text-sm { font-size: 0.875rem; }
+        .text-xs { font-size: 0.75rem; }
+
+        /* Logo */
         .logo-brand {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.8rem;
-            font-weight: 900;
-            background: var(--gradient-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
             text-decoration: none;
-            position: relative;
-            transition: all 0.3s ease;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            letter-spacing: -0.025em;
         }
 
         .logo-brand:hover {
-            transform: scale(1.05);
+            color: var(--primary-light);
         }
 
         /* Navigation */
         .navbar {
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-            padding: 1.2rem 0;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-200);
+            padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
-            z-index: 2000;
-        }
-
-        .navbar-nav .nav-link {
-            color: var(--black);
-            font-weight: 600;
-            margin: 0 0.5rem;
-            padding: 0.8rem 1.2rem;
-            border-radius: 25px;
+            z-index: 1000;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
         }
 
-        .navbar-nav .nav-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-gold);
-            transition: left 0.3s ease;
-            z-index: -1;
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: var(--shadow);
         }
 
-        .navbar-nav .nav-link:hover::before {
-            left: 0;
+        .nav-link {
+            color: var(--gray-600);
+            font-weight: 500;
+            font-size: 0.875rem;
+            margin: 0 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
         }
 
-        .navbar-nav .nav-link:hover {
-            color: var(--white);
-            transform: translateY(-2px);
+        .nav-link:hover {
+            color: var(--primary);
+            background: var(--gray-50);
         }
 
         /* Hero Section */
         .hero {
-            background: var(--gradient-black);
-            color: var(--white);
-            padding: 120px 0 80px;
-            margin-top: 80px;
+            background: var(--gradient-hero);
+            color: white;
+            padding: 8rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 700;
-            background: var(--gradient-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: white;
             margin-bottom: 1.5rem;
+        }
+
+        .hero .lead {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
         }
 
         /* Pricing Cards */
         .pricing-card {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 3rem 2rem;
-            box-shadow: var(--shadow);
-            transition: all 0.4s ease;
-            border: 2px solid transparent;
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            border: 1px solid var(--gray-200);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
             height: 100%;
-            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
         .pricing-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-gold);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
         }
 
         .pricing-card.featured {
-            border-color: var(--gold);
-            transform: scale(1.05);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-lg);
+            transform: scale(1.02);
+        }
+
+        .pricing-card.featured::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-accent);
         }
 
         .pricing-badge {
-            background: var(--gradient-gold);
-            color: var(--black);
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
+            background: var(--gradient-accent);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
             font-weight: 600;
-            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
             display: inline-block;
         }
 
         .pricing-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 600;
-            color: var(--black);
-            margin-bottom: 1rem;
-        }
-
-        .pricing-price {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--gold);
+            color: var(--dark);
             margin-bottom: 0.5rem;
         }
 
+        .pricing-subtitle {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 0.25rem;
+        }
+
         .pricing-period {
-            color: var(--gray);
+            color: var(--gray-500);
+            font-size: 0.875rem;
             margin-bottom: 2rem;
         }
 
@@ -196,13 +258,13 @@
             list-style: none;
             padding: 0;
             margin: 0 0 2rem;
-            text-align: left;
         }
 
         .pricing-features li {
-            padding: 0.8rem 0;
-            color: var(--gray);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            padding: 0.75rem 0;
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            border-bottom: 1px solid var(--gray-200);
             display: flex;
             align-items: center;
         }
@@ -212,65 +274,182 @@
         }
 
         .pricing-features li i {
-            color: var(--gold);
-            margin-right: 1rem;
-            width: 20px;
+            color: var(--success);
+            margin-right: 0.75rem;
+            font-size: 0.75rem;
+            width: 16px;
+        }
+
+        .pricing-features li.unavailable {
+            color: var(--gray-400);
+        }
+
+        .pricing-features li.unavailable i {
+            color: var(--gray-300);
+        }
+
+        /* Value Proposition */
+        .value-section {
+            background: var(--gray-50);
+            padding: 4rem 0;
+        }
+
+        .value-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid var(--gray-200);
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            box-shadow: var(--shadow);
+            transform: translateY(-2px);
+        }
+
+        .value-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.75rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        /* ROI Calculator */
+        .roi-section {
+            background: white;
+            padding: 4rem 0;
+        }
+
+        .roi-calculator {
+            background: var(--gray-50);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid var(--gray-200);
+        }
+
+        .roi-metric {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid var(--gray-200);
+        }
+
+        .roi-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .roi-label {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            margin-top: 0.5rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--primary);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        /* Buttons */
+        .btn {
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            border: none;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow);
+            color: white;
+        }
+
+        .btn-outline-primary {
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-accent {
+            background: var(--gradient-accent);
+            color: var(--primary);
+        }
+
+        .btn-accent:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow);
+            color: var(--primary);
         }
 
         .btn-pricing {
-            background: var(--gradient-gold);
-            color: var(--black);
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
             width: 100%;
-        }
-
-        .btn-pricing:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-gold);
-            color: var(--black);
+            justify-content: center;
         }
 
         /* Footer */
         .footer {
-            background: var(--gradient-black);
-            color: var(--white);
-            padding: 4rem 0 2rem;
-            margin-top: 4rem;
+            background: var(--dark);
+            color: var(--gray-300);
+            padding: 3rem 0 1rem;
         }
 
-        .footer h5 {
-            color: var(--gold);
-            font-weight: 700;
-            margin-bottom: 1.5rem;
+        .footer h6 {
+            color: white;
+            margin-bottom: 1rem;
         }
 
         .footer a {
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--gray-400);
             text-decoration: none;
-            transition: all 0.3s ease;
-            display: block;
-            padding: 0.3rem 0;
+            font-size: 0.875rem;
+            transition: color 0.2s ease;
         }
 
         .footer a:hover {
-            color: var(--gold);
-            transform: translateX(5px);
+            color: var(--accent);
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
+            .hero {
+                padding: 6rem 0 3rem;
             }
             
-            .logo-brand {
-                font-size: 1.5rem;
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.75rem; }
+            
+            .pricing-card {
+                padding: 2rem 1.5rem;
             }
             
             .pricing-card.featured {
@@ -282,13 +461,13 @@
 
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg" id="navbar">
         <div class="container">
             <a class="logo-brand" href="{$app_url}">
-                GLINTA<span style="color: var(--gold);">•</span>AFRICA
+                <i class="fas fa-network-wired me-2"></i>Glinta Africa
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <i class="fas fa-bars text-dark"></i>
+                <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
@@ -313,6 +492,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{$app_url}/blog">Blog</a>
                     </li>
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-primary" href="https://glintaafrica.com/admin" target="_blank">
+                            <i class="fas fa-tachometer-alt me-1"></i>Dashboard
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -320,13 +504,19 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
+        <div class="container hero-content">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
-                    <h1>Simple, Transparent Pricing</h1>
-                    <p class="lead" style="color: rgba(255, 255, 255, 0.9);">
-                        Choose the perfect plan for your ISP business. All plans include mobile money integration and 24/7 support.
-                    </p>
+                    <h1 class="display-2">Enterprise Pricing</h1>
+                    <p class="lead">Professional ISP billing solutions with transparent pricing. Choose the plan that scales with your business operations.</p>
+                    <div class="mt-4">
+                        <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-accent me-3">
+                            <i class="fas fa-external-link-alt me-2"></i>View Demo
+                        </a>
+                        <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-outline-primary">
+                            <i class="fas fa-envelope me-2"></i>Contact Sales
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -335,108 +525,248 @@
     <!-- Pricing Section -->
     <section class="py-5">
         <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
+                    <h2>Professional Plans</h2>
+                    <p class="text-lg text-gray-600">Scalable solutions for ISPs of all sizes</p>
+                </div>
+            </div>
             <div class="row g-4">
-                <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="pricing-card">
                         <h3 class="pricing-title">Starter</h3>
-                        <div class="pricing-price">$29</div>
+                        <p class="pricing-subtitle">Perfect for small ISPs getting started</p>
+                        <div class="pricing-price">$299</div>
                         <div class="pricing-period">per month</div>
                         <ul class="pricing-features">
-                            <li><i class="fas fa-check"></i> Up to 100 Customers</li>
-                            <li><i class="fas fa-check"></i> Basic Hotspot Management</li>
-                            <li><i class="fas fa-check"></i> Mobile Money Integration</li>
-                            <li><i class="fas fa-check"></i> Customer Portal</li>
-                            <li><i class="fas fa-check"></i> Email Support</li>
-                            <li><i class="fas fa-check"></i> Basic Analytics</li>
-                            <li><i class="fas fa-check"></i> 1 Router Support</li>
+                            <li><i class="fas fa-check"></i> Up to 500 customers</li>
+                            <li><i class="fas fa-check"></i> Basic RADIUS integration</li>
+                            <li><i class="fas fa-check"></i> M-Pesa integration</li>
+                            <li><i class="fas fa-check"></i> Customer portal</li>
+                            <li><i class="fas fa-check"></i> Email support</li>
+                            <li><i class="fas fa-check"></i> Basic reporting</li>
+                            <li><i class="fas fa-check"></i> 2 network devices</li>
+                            <li class="unavailable"><i class="fas fa-times"></i> API access</li>
+                            <li class="unavailable"><i class="fas fa-times"></i> White-label branding</li>
                         </ul>
-                        <a href="{$app_url}/contact" class="btn-pricing">Get Started</a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="pricing-card featured">
-                        <div class="pricing-badge">Most Popular</div>
-                        <h3 class="pricing-title">Professional</h3>
-                        <div class="pricing-price">$79</div>
-                        <div class="pricing-period">per month</div>
-                        <ul class="pricing-features">
-                            <li><i class="fas fa-check"></i> Up to 1,000 Customers</li>
-                            <li><i class="fas fa-check"></i> Advanced Hotspot & PPPoE</li>
-                            <li><i class="fas fa-check"></i> All Mobile Money Platforms</li>
-                            <li><i class="fas fa-check"></i> Advanced Customer Portal</li>
-                            <li><i class="fas fa-check"></i> Priority Support</li>
-                            <li><i class="fas fa-check"></i> Advanced Analytics</li>
-                            <li><i class="fas fa-check"></i> Up to 5 Routers</li>
-                            <li><i class="fas fa-check"></i> Custom Branding</li>
-                            <li><i class="fas fa-check"></i> API Access</li>
-                        </ul>
-                        <a href="{$app_url}/contact" class="btn-pricing">Get Started</a>
+                        <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-primary btn-pricing">
+                            <i class="fas fa-envelope me-2"></i>Get Started
+                        </a>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="pricing-card">
-                        <h3 class="pricing-title">Enterprise</h3>
-                        <div class="pricing-price">$199</div>
+                    <div class="pricing-card featured">
+                        <div class="pricing-badge">Most Popular</div>
+                        <h3 class="pricing-title">Professional</h3>
+                        <p class="pricing-subtitle">Ideal for growing ISP operations</p>
+                        <div class="pricing-price">$799</div>
                         <div class="pricing-period">per month</div>
                         <ul class="pricing-features">
-                            <li><i class="fas fa-check"></i> Unlimited Customers</li>
-                            <li><i class="fas fa-check"></i> Full Platform Access</li>
-                            <li><i class="fas fa-check"></i> Multi-location Support</li>
-                            <li><i class="fas fa-check"></i> White-label Solution</li>
-                            <li><i class="fas fa-check"></i> 24/7 Phone Support</li>
-                            <li><i class="fas fa-check"></i> Advanced Reporting</li>
-                            <li><i class="fas fa-check"></i> Unlimited Routers</li>
-                            <li><i class="fas fa-check"></i> Custom Integrations</li>
-                            <li><i class="fas fa-check"></i> Dedicated Account Manager</li>
+                            <li><i class="fas fa-check"></i> Up to 2,000 customers</li>
+                            <li><i class="fas fa-check"></i> Advanced RADIUS & CoA</li>
+                            <li><i class="fas fa-check"></i> All mobile money platforms</li>
+                            <li><i class="fas fa-check"></i> Advanced customer portal</li>
+                            <li><i class="fas fa-check"></i> Priority support</li>
+                            <li><i class="fas fa-check"></i> Advanced analytics</li>
+                            <li><i class="fas fa-check"></i> 10 network devices</li>
+                            <li><i class="fas fa-check"></i> REST API access</li>
+                            <li><i class="fas fa-check"></i> Custom branding</li>
                         </ul>
-                        <a href="{$app_url}/contact" class="btn-pricing">Contact Sales</a>
+                        <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-accent btn-pricing">
+                            <i class="fas fa-envelope me-2"></i>Get Started
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="pricing-card">
+                        <h3 class="pricing-title">Enterprise</h3>
+                        <p class="pricing-subtitle">For large-scale ISP deployments</p>
+                        <div class="pricing-price">Custom</div>
+                        <div class="pricing-period">contact sales</div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Unlimited customers</li>
+                            <li><i class="fas fa-check"></i> Full platform access</li>
+                            <li><i class="fas fa-check"></i> Multi-tenant support</li>
+                            <li><i class="fas fa-check"></i> White-label solution</li>
+                            <li><i class="fas fa-check"></i> 24/7 phone support</li>
+                            <li><i class="fas fa-check"></i> Custom integrations</li>
+                            <li><i class="fas fa-check"></i> Unlimited devices</li>
+                            <li><i class="fas fa-check"></i> Full API suite</li>
+                            <li><i class="fas fa-check"></i> Dedicated support</li>
+                        </ul>
+                        <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-outline-primary btn-pricing">
+                            <i class="fas fa-envelope me-2"></i>Contact Sales
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Comparison -->
-    <section class="py-5" style="background: var(--white-soft);">
+    <!-- Value Proposition -->
+    <section class="value-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 mx-auto text-center mb-5">
-                    <h2 class="display-5 fw-bold" style="color: var(--black);">All Plans Include</h2>
-                    <p class="lead" style="color: var(--gray);">
-                        Essential features included in every plan to help you succeed.
-                    </p>
+                <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
+                    <h2>Why Choose Glinta Africa</h2>
+                    <p class="text-lg text-gray-600">Enterprise-grade features that deliver real business value</p>
                 </div>
             </div>
             <div class="row g-4">
-                <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up">
-                    <div style="color: var(--gold); font-size: 3rem; margin-bottom: 1rem;">
-                        <i class="fas fa-mobile-alt"></i>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h5>Faster Deployment</h5>
+                        <p class="text-sm text-gray-600">Get up and running in 24 hours with our automated setup process</p>
                     </div>
-                    <h4 style="color: var(--black);">Mobile Money</h4>
-                    <p style="color: var(--gray);">M-Pesa, Airtel Money, MTN MoMo integration</p>
                 </div>
-                <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="100">
-                    <div style="color: var(--gold); font-size: 3rem; margin-bottom: 1rem;">
-                        <i class="fas fa-shield-alt"></i>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h5>Increased Revenue</h5>
+                        <p class="text-sm text-gray-600">Average 35% revenue increase through automated billing and payments</p>
                     </div>
-                    <h4 style="color: var(--black);">Security</h4>
-                    <p style="color: var(--gray);">SSL encryption and fraud protection</p>
                 </div>
-                <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="200">
-                    <div style="color: var(--gold); font-size: 3rem; margin-bottom: 1rem;">
-                        <i class="fas fa-headset"></i>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h5>Better Customer Experience</h5>
+                        <p class="text-sm text-gray-600">Self-service portal reduces support tickets by 60%</p>
                     </div>
-                    <h4 style="color: var(--black);">Support</h4>
-                    <p style="color: var(--gray);">Email, chat, and phone support</p>
                 </div>
-                <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="300">
-                    <div style="color: var(--gold); font-size: 3rem; margin-bottom: 1rem;">
-                        <i class="fas fa-sync-alt"></i>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h5>Enterprise Security</h5>
+                        <p class="text-sm text-gray-600">Bank-grade security with 99.9% uptime SLA guarantee</p>
                     </div>
-                    <h4 style="color: var(--black);">Updates</h4>
-                    <p style="color: var(--gray);">Regular platform updates and new features</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Calculator -->
+    <section class="roi-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="roi-calculator" data-aos="fade-up">
+                        <div class="text-center mb-4">
+                            <h3>Return on Investment</h3>
+                            <p class="text-gray-600">See how much you can save with automated billing</p>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="roi-metric">
+                                    <div class="roi-value">3x</div>
+                                    <div class="roi-label">Faster Customer Onboarding</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div class="roi-metric">
+                                    <div class="roi-value">60%</div>
+                                    <div class="roi-label">Reduction in Support Tickets</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div class="roi-metric">
+                                    <div class="roi-value">98%</div>
+                                    <div class="roi-label">Payment Success Rate</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div class="roi-metric">
+                                    <div class="roi-value">6</div>
+                                    <div class="roi-label">Months to Break Even</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Plans Include -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
+                    <h2>All Plans Include</h2>
+                    <p class="text-lg text-gray-600">Essential features included in every plan</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-center">
+                        <div class="value-icon mx-auto mb-3">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h6>Mobile Money Integration</h6>
+                        <p class="text-sm text-gray-600">M-Pesa, Airtel Money, MTN MoMo</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-center">
+                        <div class="value-icon mx-auto mb-3">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h6>RADIUS Authentication</h6>
+                        <p class="text-sm text-gray-600">FreeRADIUS with AAA support</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-center">
+                        <div class="value-icon mx-auto mb-3">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h6>Regular Updates</h6>
+                        <p class="text-sm text-gray-600">Monthly platform updates</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-center">
+                        <div class="value-icon mx-auto mb-3">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h6>24/7 Support</h6>
+                        <p class="text-sm text-gray-600">Email and chat support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="mb-4">Ready to Transform Your ISP Operations?</h2>
+                    <p class="text-lg mb-4" style="color: rgba(255,255,255,0.9);">Contact our sales team to discuss your requirements and get a customized quote.</p>
+                    <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+                        <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-accent">
+                            <i class="fas fa-envelope me-2"></i>Email: watsonwambugu@yahoo.com
+                        </a>
+                        <a href="https://wa.me/254711503023" target="_blank" class="btn btn-outline-primary" style="color: white; border-color: white;">
+                            <i class="fab fa-whatsapp me-2"></i>WhatsApp: +254 711 503 023
+                        </a>
+                    </div>
+                    <div class="mt-4">
+                        <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-outline-primary" style="color: white; border-color: white;">
+                            <i class="fas fa-external-link-alt me-2"></i>Explore Dashboard
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -446,42 +776,58 @@
     <footer class="footer">
         <div class="container">
             <div class="row g-4">
-                <div class="col-lg-3 col-md-6">
-                    <h5>Company</h5>
-                    <a href="{$app_url}/about">About Us</a>
-                    <a href="{$app_url}/careers">Careers</a>
-                    <a href="{$app_url}/news">News & Press</a>
-                    <a href="{$app_url}/investors">Investor Relations</a>
+                <div class="col-lg-4">
+                    <h6>Glinta Africa</h6>
+                    <p class="text-sm text-gray-400 mb-3">Professional ISP billing and network management pricing for African telecommunications infrastructure.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-gray-400"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-400"><i class="fab fa-github"></i></a>
+                    </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5>Products</h5>
-                    <a href="{$app_url}/hotspot">Hotspot Solutions</a>
-                    <a href="{$app_url}/pppoe">PPPoE Management</a>
-                    <a href="{$app_url}/billing">Billing Platform</a>
-                    <a href="{$app_url}/analytics">Analytics Suite</a>
+                <div class="col-lg-2 col-md-4">
+                    <h6>Plans</h6>
+                    <div class="d-flex flex-column gap-2">
+                        <a href="{$app_url}/pricing">Starter Plan</a>
+                        <a href="{$app_url}/pricing">Professional</a>
+                        <a href="{$app_url}/pricing">Enterprise</a>
+                        <a href="{$app_url}/pricing">Custom Solutions</a>
+                    </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5>Support</h5>
-                    <a href="{$app_url}/help">Help Center</a>
-                    <a href="{$app_url}/documentation">Documentation</a>
-                    <a href="{$app_url}/community">Community Forum</a>
-                    <a href="{$app_url}/contact">Contact Support</a>
+                <div class="col-lg-2 col-md-4">
+                    <h6>Platform</h6>
+                    <div class="d-flex flex-column gap-2">
+                        <a href="{$app_url}/features">Features</a>
+                        <a href="{$app_url}/services">Services</a>
+                        <a href="https://glintaafrica.com/admin" target="_blank">Dashboard</a>
+                        <a href="#">API Docs</a>
+                    </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5>Legal</h5>
-                    <a href="{$app_url}/privacy">Privacy Policy</a>
-                    <a href="{$app_url}/terms">Terms of Service</a>
-                    <a href="{$app_url}/security">Security</a>
-                    <a href="{$app_url}/compliance">Compliance</a>
+                <div class="col-lg-2 col-md-4">
+                    <h6>Support</h6>
+                    <div class="d-flex flex-column gap-2">
+                        <a href="#">Documentation</a>
+                        <a href="{$app_url}/blog">Blog</a>
+                        <a href="{$app_url}/about">About</a>
+                        <a href="{$app_url}/contact">Contact</a>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <h6>Contact</h6>
+                    <div class="d-flex flex-column gap-2">
+                        <a href="mailto:watsonwambugu@yahoo.com">Email Sales</a>
+                        <a href="https://wa.me/254711503023" target="_blank">WhatsApp</a>
+                        <a href="{$app_url}/contact">Contact Form</a>
+                    </div>
                 </div>
             </div>
-            <hr style="border-color: var(--gold); margin: 3rem 0 2rem;">
+            <hr class="my-4" style="border-color: var(--gray-700);">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <p class="mb-0">&copy; 2024 Glinta Africa. All rights reserved.</p>
+                    <p class="text-sm text-gray-500 mb-0">&copy; 2024 Glinta Africa. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <p class="mb-0">Made with ❤️ in Africa | <a href="https://watsonsdevelopers.com" style="color: var(--gold);">watsonsdevelopers.com</a></p>
+                    <p class="text-sm text-gray-500 mb-0">Professional pricing for professional ISPs</p>
                 </div>
             </div>
         </div>
@@ -492,12 +838,57 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
     <script>
-        // Initialize AOS animations
+        // Initialize AOS
         AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
+            duration: 600,
+            easing: 'ease-out-sine',
+            once: true,
+            offset: 100
         });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Animate ROI values
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const values = entry.target.querySelectorAll('.roi-value');
+                    values.forEach(value => {
+                        const text = value.textContent;
+                        if (text.includes('x') || text.includes('%')) {
+                            // Animate numeric values
+                            const num = parseInt(text);
+                            if (num) {
+                                let current = 0;
+                                const increment = num / 30;
+                                const timer = setInterval(() => {
+                                    current += increment;
+                                    if (current >= num) {
+                                        value.textContent = text;
+                                        clearInterval(timer);
+                                    } else {
+                                        value.textContent = Math.floor(current) + text.replace(num, '');
+                                    }
+                                }, 50);
+                            }
+                        }
+                    });
+                }
+            });
+        });
+
+        const roiSection = document.querySelector('.roi-calculator');
+        if (roiSection) {
+            observer.observe(roiSection);
+        }
     </script>
 </body>
 </html>

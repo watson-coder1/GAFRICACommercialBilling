@@ -4,15 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{$_title}</title>
-    <meta name="description" content="Latest insights on internet billing, ISP management, and hotspot solutions in Africa. Expert tips for growing your internet business.">
-    <meta name="keywords" content="ISP blog, internet billing, hotspot business, Africa ISP, WiFi monetization, internet service provider">
+    <meta name="description" content="Professional insights on ISP management, network operations, and telecommunications technology. Expert analysis of African internet infrastructure and business strategies.">
+    <meta name="keywords" content="ISP blog, network management, telecommunications, African internet, professional ISP solutions, enterprise network operations">
     <meta name="author" content="Glinta Africa">
     
     <link rel="canonical" href="https://glintaafrica.com/blog">
     <link rel="shortcut icon" href="{$app_url}/ui/ui/images/logo.png" type="image/x-icon" />
     
     <!-- Professional Typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Bootstrap & Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -21,22 +21,38 @@
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <!-- Dynamic Visual Styles -->
     <style>
         :root {
-            --gold: #D4AF37;
-            --gold-light: #F4E4C1;
-            --gold-dark: #B8941F;
-            --black: #000000;
-            --black-soft: #1a1a1a;
-            --white: #FFFFFF;
-            --white-soft: #f8f8f8;
-            --gray: #666666;
-            --shadow: 0 5px 20px rgba(0,0,0,0.1);
-            --shadow-lg: 0 15px 40px rgba(0,0,0,0.2);
-            --shadow-gold: 0 10px 30px rgba(212,175,55,0.3);
-            --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #F4E4C1 50%, #B8941F 100%);
-            --gradient-black: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            --primary: #1a365d;
+            --primary-light: #2d5282;
+            --primary-dark: #0f2a44;
+            --accent: #d4af37;
+            --accent-light: #f4e4c1;
+            --accent-dark: #b8941f;
+            --secondary: #4a5568;
+            --success: #38a169;
+            --warning: #ed8936;
+            --danger: #e53e3e;
+            --info: #3182ce;
+            --light: #f7fafc;
+            --dark: #1a202c;
+            --gray-50: #fafafa;
+            --gray-100: #f5f5f5;
+            --gray-200: #e5e5e5;
+            --gray-300: #d4d4d4;
+            --gray-400: #a3a3a3;
+            --gray-500: #737373;
+            --gray-600: #525252;
+            --gray-700: #404040;
+            --gray-800: #262626;
+            --gray-900: #171717;
+            --gradient-primary: linear-gradient(135deg, #1a365d 0%, #2d5282 100%);
+            --gradient-accent: linear-gradient(135deg, #d4af37 0%, #f4e4c1 100%);
+            --gradient-hero: linear-gradient(135deg, #0f2a44 0%, #1a365d 50%, #2d5282 100%);
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
         }
 
         * {
@@ -50,115 +66,166 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: var(--black);
-            background: var(--white);
-            overflow-x: hidden;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--gray-700);
+            background: var(--light);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Creative Logo Typography */
+        /* Professional Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+        h4 { font-size: 1.25rem; }
+        h5 { font-size: 1.125rem; }
+        h6 { font-size: 1rem; }
+
+        .display-2 { font-size: 3rem; font-weight: 700; }
+        .text-lg { font-size: 1.125rem; }
+        .text-sm { font-size: 0.875rem; }
+        .text-xs { font-size: 0.75rem; }
+
+        /* Logo */
         .logo-brand {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.8rem;
-            font-weight: 900;
-            background: var(--gradient-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
             text-decoration: none;
-            position: relative;
-            transition: all 0.3s ease;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            letter-spacing: -0.025em;
         }
 
         .logo-brand:hover {
-            transform: scale(1.05);
+            color: var(--primary-light);
         }
 
         /* Navigation */
         .navbar {
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-            padding: 1.2rem 0;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-200);
+            padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
-            z-index: 2000;
-        }
-
-        .navbar-nav .nav-link {
-            color: var(--black);
-            font-weight: 600;
-            margin: 0 0.5rem;
-            padding: 0.8rem 1.2rem;
-            border-radius: 25px;
+            z-index: 1000;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
         }
 
-        .navbar-nav .nav-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-gold);
-            transition: left 0.3s ease;
-            z-index: -1;
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: var(--shadow);
         }
 
-        .navbar-nav .nav-link:hover::before {
-            left: 0;
+        .nav-link {
+            color: var(--gray-600);
+            font-weight: 500;
+            font-size: 0.875rem;
+            margin: 0 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
         }
 
-        .navbar-nav .nav-link:hover {
-            color: var(--white);
-            transform: translateY(-2px);
+        .nav-link:hover {
+            color: var(--primary);
+            background: var(--gray-50);
         }
 
         /* Hero Section */
         .hero {
-            background: var(--gradient-black);
-            color: var(--white);
-            padding: 120px 0 80px;
-            margin-top: 80px;
+            background: var(--gradient-hero);
+            color: white;
+            padding: 8rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 700;
-            background: var(--gradient-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: white;
             margin-bottom: 1.5rem;
+        }
+
+        .hero .lead {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+
+        /* Category Filter */
+        .category-filter {
+            background: var(--gray-50);
+            padding: 2rem 0;
+        }
+
+        .category-btn {
+            background: white;
+            color: var(--gray-600);
+            border: 1px solid var(--gray-200);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin: 0.25rem;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .category-btn:hover,
+        .category-btn.active {
+            background: var(--gradient-primary);
+            color: white;
+            border-color: var(--primary);
         }
 
         /* Blog Cards */
         .blog-card {
-            background: var(--white);
-            border-radius: 20px;
+            background: white;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: all 0.4s ease;
-            border: 1px solid rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--gray-200);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
             height: 100%;
         }
 
         .blog-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-gold);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
         }
 
         .blog-image {
             width: 100%;
-            height: 250px;
+            height: 200px;
             object-fit: cover;
             transition: transform 0.3s ease;
         }
@@ -168,33 +235,35 @@
         }
 
         .blog-content {
-            padding: 2rem;
+            padding: 1.5rem;
         }
 
         .blog-category {
-            background: var(--gradient-gold);
-            color: var(--black);
-            padding: 0.3rem 1rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
+            background: var(--gradient-accent);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
             font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
             margin-bottom: 1rem;
             display: inline-block;
         }
 
         .blog-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.4rem;
+            font-size: 1.125rem;
             font-weight: 600;
-            color: var(--black);
-            margin-bottom: 1rem;
+            color: var(--dark);
+            margin-bottom: 0.75rem;
             line-height: 1.3;
         }
 
         .blog-excerpt {
-            color: var(--gray);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
         }
 
         .blog-meta {
@@ -202,72 +271,230 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 1rem;
+            font-size: 0.75rem;
+            color: var(--gray-500);
         }
 
         .blog-date {
-            color: var(--gray);
-            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .blog-read-time {
-            color: var(--gold);
-            font-size: 0.9rem;
-            font-weight: 600;
+            color: var(--accent);
+            font-weight: 500;
         }
 
         .blog-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.875rem;
             display: inline-flex;
             align-items: center;
-            color: var(--gold);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            gap: 0.5rem;
+            transition: all 0.2s ease;
         }
 
         .blog-link:hover {
-            color: var(--gold-dark);
-            transform: translateX(5px);
+            color: var(--primary-light);
+            transform: translateX(2px);
+        }
+
+        /* Featured Post */
+        .featured-post {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--gray-200);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 3rem;
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .featured-content {
+            padding: 2rem;
+        }
+
+        .featured-badge {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .featured-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .featured-excerpt {
+            font-size: 1rem;
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            background: var(--primary);
+            color: white;
+            padding: 4rem 0;
+        }
+
+        .newsletter-form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+        }
+
+        .newsletter-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+        }
+
+        /* Pagination */
+        .pagination {
+            justify-content: center;
+            margin-top: 3rem;
+        }
+
+        .page-link {
+            color: var(--primary);
+            border: 1px solid var(--gray-200);
+            padding: 0.5rem 1rem;
+            margin: 0 0.25rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+        }
+
+        .page-link:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .page-item.active .page-link {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        /* Buttons */
+        .btn {
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            border: none;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow);
+            color: white;
+        }
+
+        .btn-outline-primary {
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-accent {
+            background: var(--gradient-accent);
+            color: var(--primary);
+        }
+
+        .btn-accent:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow);
+            color: var(--primary);
         }
 
         /* Footer */
         .footer {
-            background: var(--gradient-black);
-            color: var(--white);
-            padding: 4rem 0 2rem;
-            margin-top: 4rem;
+            background: var(--dark);
+            color: var(--gray-300);
+            padding: 3rem 0 1rem;
         }
 
-        .footer h5 {
-            color: var(--gold);
-            font-weight: 700;
-            margin-bottom: 1.5rem;
+        .footer h6 {
+            color: white;
+            margin-bottom: 1rem;
         }
 
         .footer a {
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--gray-400);
             text-decoration: none;
-            transition: all 0.3s ease;
-            display: block;
-            padding: 0.3rem 0;
+            font-size: 0.875rem;
+            transition: color 0.2s ease;
         }
 
         .footer a:hover {
-            color: var(--gold);
-            transform: translateX(5px);
+            color: var(--accent);
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
+            .hero {
+                padding: 6rem 0 3rem;
             }
             
-            .logo-brand {
-                font-size: 1.5rem;
-            }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.75rem; }
             
             .blog-image {
+                height: 180px;
+            }
+            
+            .featured-image {
                 height: 200px;
+            }
+            
+            .featured-title {
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -275,13 +502,13 @@
 
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg" id="navbar">
         <div class="container">
             <a class="logo-brand" href="{$app_url}">
-                GLINTA<span style="color: var(--gold);">•</span>AFRICA
+                <i class="fas fa-network-wired me-2"></i>Glinta Africa
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <i class="fas fa-bars text-dark"></i>
+                <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
@@ -306,6 +533,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{$app_url}/blog">Blog</a>
                     </li>
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-primary" href="https://glintaafrica.com/admin" target="_blank">
+                            <i class="fas fa-tachometer-alt me-1"></i>Dashboard
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -313,57 +545,97 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
+        <div class="container hero-content">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
-                    <h1>ISP & Hotspot Insights</h1>
-                    <p class="lead" style="color: rgba(255, 255, 255, 0.9);">
-                        Expert insights on internet service provision, hotspot billing, and growing your ISP business in Africa.
-                    </p>
+                    <h1 class="display-2">Technical Insights</h1>
+                    <p class="lead">Professional analysis of ISP operations, network management, and telecommunications technology. Expert perspectives on African internet infrastructure and business strategies.</p>
+                    <div class="mt-4">
+                        <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-accent me-3">
+                            <i class="fas fa-external-link-alt me-2"></i>Platform Demo
+                        </a>
+                        <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-outline-primary">
+                            <i class="fas fa-envelope me-2"></i>Contact Authors
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Blog Articles -->
+    <!-- Category Filter -->
+    <section class="category-filter">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="mb-3">
+                        <h6 class="text-gray-600 mb-3">Filter by Category</h6>
+                        <a href="#" class="category-btn active">All Posts</a>
+                        <a href="#" class="category-btn">Network Operations</a>
+                        <a href="#" class="category-btn">Enterprise Solutions</a>
+                        <a href="#" class="category-btn">Security</a>
+                        <a href="#" class="category-btn">Technology Trends</a>
+                        <a href="#" class="category-btn">Industry Analysis</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Post -->
     <section class="py-5">
         <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6" data-aos="fade-up">
-                    <article class="blog-card">
-                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Internet Infrastructure Africa" class="blog-image">
-                        <div class="blog-content">
-                            <div class="blog-category">ISP Business</div>
-                            <h2 class="blog-title">The Future of Internet Service Provision in Africa</h2>
-                            <div class="blog-meta">
-                                <span class="blog-date">December 15, 2024</span>
-                                <span class="blog-read-time">5 min read</span>
-                            </div>
-                            <p class="blog-excerpt">
-                                Discover how African ISPs are revolutionizing internet access with innovative billing solutions, mobile money integration, and community-focused approaches.
+            <div class="featured-post" data-aos="fade-up">
+                <div class="row g-0">
+                    <div class="col-md-6">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="African ISP Infrastructure" class="featured-image">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="featured-content">
+                            <div class="featured-badge">Featured Article</div>
+                            <h2 class="featured-title">Enterprise ISP Operations: Scaling Network Infrastructure in Africa</h2>
+                            <p class="featured-excerpt">
+                                A comprehensive analysis of enterprise-grade ISP operations across African markets. This deep-dive covers network architecture, operational best practices, and technology strategies for scaling telecommunications infrastructure.
                             </p>
-                            <a href="{$app_url}/blog/future-isp-africa" class="blog-link">
-                                Read More <i class="fas fa-arrow-right ms-2"></i>
+                            <div class="blog-meta mb-3">
+                                <div class="blog-date">
+                                    <i class="fas fa-calendar text-gray-400"></i>
+                                    <span>January 15, 2025</span>
+                                </div>
+                                <div class="blog-read-time">12 min read</div>
+                            </div>
+                            <a href="#" class="blog-link">
+                                Read Full Article <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
-                    </article>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Blog Posts -->
+    <section class="pb-5">
+        <div class="container">
+            <div class="row g-4">
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <article class="blog-card">
-                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Kenya Internet Market" class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Network Security" class="blog-image">
                         <div class="blog-content">
-                            <div class="blog-category">Kenya Market</div>
-                            <h2 class="blog-title">Kenya's Internet Market: Opportunities for ISPs in 2025</h2>
-                            <div class="blog-meta">
-                                <span class="blog-date">December 10, 2024</span>
-                                <span class="blog-read-time">6 min read</span>
-                            </div>
+                            <div class="blog-category">Security</div>
+                            <h3 class="blog-title">Enterprise Network Security: RADIUS Authentication Best Practices</h3>
                             <p class="blog-excerpt">
-                                Kenya leads Africa in internet penetration. Learn how ISPs can capitalize on growing demand for reliable, affordable connectivity in urban and rural areas.
+                                Comprehensive guide to implementing enterprise-grade RADIUS authentication with AAA protocols for professional ISP operations.
                             </p>
-                            <a href="{$app_url}/blog/kenya-internet-market-2025" class="blog-link">
-                                Read More <i class="fas fa-arrow-right ms-2"></i>
+                            <div class="blog-meta">
+                                <div class="blog-date">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Jan 10, 2025</span>
+                                </div>
+                                <div class="blog-read-time">8 min read</div>
+                            </div>
+                            <a href="#" class="blog-link">
+                                Read More <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </article>
@@ -371,19 +643,22 @@
 
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <article class="blog-card">
-                        <img src="https://images.unsplash.com/photo-1556075798-4825dfaaf498?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Hotspot Business Model" class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Network Management" class="blog-image">
                         <div class="blog-content">
-                            <div class="blog-category">Hotspot Business</div>
-                            <h2 class="blog-title">Building a Profitable Hotspot Business: Complete Guide</h2>
-                            <div class="blog-meta">
-                                <span class="blog-date">December 5, 2024</span>
-                                <span class="blog-read-time">8 min read</span>
-                            </div>
+                            <div class="blog-category">Network Operations</div>
+                            <h3 class="blog-title">SNMP Network Monitoring: Advanced Techniques for ISP Operations</h3>
                             <p class="blog-excerpt">
-                                From location selection to billing software, learn everything you need to know to build and scale a successful WiFi hotspot business across Africa.
+                                Advanced SNMP monitoring strategies for professional network management, including automated alerts and performance optimization.
                             </p>
-                            <a href="{$app_url}/blog/profitable-hotspot-business-guide" class="blog-link">
-                                Read More <i class="fas fa-arrow-right ms-2"></i>
+                            <div class="blog-meta">
+                                <div class="blog-date">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Jan 5, 2025</span>
+                                </div>
+                                <div class="blog-read-time">10 min read</div>
+                            </div>
+                            <a href="#" class="blog-link">
+                                Read More <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </article>
@@ -391,19 +666,22 @@
 
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                     <article class="blog-card">
-                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Mobile Money Internet" class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Payment Integration" class="blog-image">
                         <div class="blog-content">
-                            <div class="blog-category">Payment Systems</div>
-                            <h2 class="blog-title">Mobile Money Revolution: Transforming Internet Payments</h2>
-                            <div class="blog-meta">
-                                <span class="blog-date">November 30, 2024</span>
-                                <span class="blog-read-time">4 min read</span>
-                            </div>
+                            <div class="blog-category">Technology Trends</div>
+                            <h3 class="blog-title">Mobile Money API Integration: Technical Implementation Guide</h3>
                             <p class="blog-excerpt">
-                                How M-Pesa and other mobile money platforms are revolutionizing how Africans pay for internet services, making connectivity more accessible than ever.
+                                Technical deep-dive into integrating M-Pesa, Airtel Money, and MTN MoMo APIs for automated billing systems.
                             </p>
-                            <a href="{$app_url}/blog/mobile-money-internet-payments" class="blog-link">
-                                Read More <i class="fas fa-arrow-right ms-2"></i>
+                            <div class="blog-meta">
+                                <div class="blog-date">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Dec 28, 2024</span>
+                                </div>
+                                <div class="blog-read-time">15 min read</div>
+                            </div>
+                            <a href="#" class="blog-link">
+                                Read More <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </article>
@@ -411,19 +689,22 @@
 
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
                     <article class="blog-card">
-                        <img src="https://images.unsplash.com/photo-1573164713712-03790a178651?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Rural Internet Access" class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Network Analytics" class="blog-image">
                         <div class="blog-content">
-                            <div class="blog-category">Rural Development</div>
-                            <h2 class="blog-title">Bridging the Digital Divide: Rural Internet Solutions</h2>
-                            <div class="blog-meta">
-                                <span class="blog-date">November 25, 2024</span>
-                                <span class="blog-read-time">7 min read</span>
-                            </div>
+                            <div class="blog-category">Enterprise Solutions</div>
+                            <h3 class="blog-title">Network Analytics: InfluxDB and Grafana for ISP Monitoring</h3>
                             <p class="blog-excerpt">
-                                Innovative approaches to bringing affordable internet to rural African communities, including satellite, microwave, and community-owned networks.
+                                Building enterprise-grade network monitoring dashboards with InfluxDB time-series data and Grafana visualization.
                             </p>
-                            <a href="{$app_url}/blog/rural-internet-solutions-africa" class="blog-link">
-                                Read More <i class="fas fa-arrow-right ms-2"></i>
+                            <div class="blog-meta">
+                                <div class="blog-date">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Dec 20, 2024</span>
+                                </div>
+                                <div class="blog-read-time">12 min read</div>
+                            </div>
+                            <a href="#" class="blog-link">
+                                Read More <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </article>
@@ -431,22 +712,100 @@
 
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
                     <article class="blog-card">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="ISP Technology Trends" class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1573164713712-03790a178651?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Network Automation" class="blog-image">
                         <div class="blog-content">
-                            <div class="blog-category">Technology</div>
-                            <h2 class="blog-title">ISP Technology Trends: What's Next for African Internet</h2>
-                            <div class="blog-meta">
-                                <span class="blog-date">November 20, 2024</span>
-                                <span class="blog-read-time">6 min read</span>
-                            </div>
+                            <div class="blog-category">Network Operations</div>
+                            <h3 class="blog-title">Network Automation: Mikrotik RouterOS API Programming</h3>
                             <p class="blog-excerpt">
-                                Explore emerging technologies reshaping the ISP landscape in Africa, from 5G deployment to AI-powered network management and edge computing.
+                                Advanced automation techniques for Mikrotik RouterOS using API programming for bulk user management and configuration.
                             </p>
-                            <a href="{$app_url}/blog/isp-technology-trends-africa" class="blog-link">
-                                Read More <i class="fas fa-arrow-right ms-2"></i>
+                            <div class="blog-meta">
+                                <div class="blog-date">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Dec 15, 2024</span>
+                                </div>
+                                <div class="blog-read-time">9 min read</div>
+                            </div>
+                            <a href="#" class="blog-link">
+                                Read More <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </article>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                    <article class="blog-card">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Industry Analysis" class="blog-image">
+                        <div class="blog-content">
+                            <div class="blog-category">Industry Analysis</div>
+                            <h3 class="blog-title">African Telecommunications Market: 2025 Industry Report</h3>
+                            <p class="blog-excerpt">
+                                Comprehensive analysis of African telecommunications markets, regulatory environments, and growth opportunities for professional ISPs.
+                            </p>
+                            <div class="blog-meta">
+                                <div class="blog-date">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Dec 10, 2024</span>
+                                </div>
+                                <div class="blog-read-time">20 min read</div>
+                            </div>
+                            <a href="#" class="blog-link">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <nav aria-label="Blog pagination">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <i class="fas fa-chevron-left"></i>
+                        </a>
+                    </li>
+                    <li class="page-item active">
+                        <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="mb-4">Stay Updated on ISP Technology</h2>
+                    <p class="text-lg mb-4" style="color: rgba(255,255,255,0.9);">Get the latest insights on network operations, security, and telecommunications technology delivered to your inbox.</p>
+                    <div class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" class="form-control newsletter-input" placeholder="Enter your email address" required>
+                            <button class="btn btn-accent" type="submit">
+                                <i class="fas fa-paper-plane me-2"></i>Subscribe
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-sm" style="color: rgba(255,255,255,0.7);">
+                            For technical inquiries: 
+                            <a href="mailto:watsonwambugu@yahoo.com" style="color: var(--accent);">watsonwambugu@yahoo.com</a> | 
+                            <a href="https://wa.me/254711503023" target="_blank" style="color: var(--accent);">WhatsApp: +254 711 503 023</a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -456,42 +815,58 @@
     <footer class="footer">
         <div class="container">
             <div class="row g-4">
-                <div class="col-lg-3 col-md-6">
-                    <h5>Company</h5>
-                    <a href="{$app_url}/about">About Us</a>
-                    <a href="{$app_url}/careers">Careers</a>
-                    <a href="{$app_url}/news">News & Press</a>
-                    <a href="{$app_url}/investors">Investor Relations</a>
+                <div class="col-lg-4">
+                    <h6>Glinta Africa</h6>
+                    <p class="text-sm text-gray-400 mb-3">Professional ISP solutions and technical insights for African telecommunications. Expert analysis of network operations and enterprise technology.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-gray-400"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-400"><i class="fab fa-github"></i></a>
+                    </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5>Products</h5>
-                    <a href="{$app_url}/hotspot">Hotspot Solutions</a>
-                    <a href="{$app_url}/pppoe">PPPoE Management</a>
-                    <a href="{$app_url}/billing">Billing Platform</a>
-                    <a href="{$app_url}/analytics">Analytics Suite</a>
+                <div class="col-lg-2 col-md-4">
+                    <h6>Categories</h6>
+                    <div class="d-flex flex-column gap-2">
+                        <a href="#">Network Operations</a>
+                        <a href="#">Enterprise Solutions</a>
+                        <a href="#">Security</a>
+                        <a href="#">Technology Trends</a>
+                    </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5>Support</h5>
-                    <a href="{$app_url}/help">Help Center</a>
-                    <a href="{$app_url}/documentation">Documentation</a>
-                    <a href="{$app_url}/community">Community Forum</a>
-                    <a href="{$app_url}/contact">Contact Support</a>
+                <div class="col-lg-2 col-md-4">
+                    <h6>Platform</h6>
+                    <div class="d-flex flex-column gap-2">
+                        <a href="{$app_url}/features">Features</a>
+                        <a href="{$app_url}/services">Services</a>
+                        <a href="{$app_url}/pricing">Pricing</a>
+                        <a href="https://glintaafrica.com/admin" target="_blank">Dashboard</a>
+                    </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5>Legal</h5>
-                    <a href="{$app_url}/privacy">Privacy Policy</a>
-                    <a href="{$app_url}/terms">Terms of Service</a>
-                    <a href="{$app_url}/security">Security</a>
-                    <a href="{$app_url}/compliance">Compliance</a>
+                <div class="col-lg-2 col-md-4">
+                    <h6>Support</h6>
+                    <div class="d-flex flex-column gap-2">
+                        <a href="#">Documentation</a>
+                        <a href="{$app_url}/contact">Contact</a>
+                        <a href="{$app_url}/about">About</a>
+                        <a href="#">API Reference</a>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <h6>Contact</h6>
+                    <div class="d-flex flex-column gap-2">
+                        <a href="mailto:watsonwambugu@yahoo.com">Technical Team</a>
+                        <a href="https://wa.me/254711503023" target="_blank">WhatsApp</a>
+                        <a href="{$app_url}/contact">Contact Form</a>
+                    </div>
                 </div>
             </div>
-            <hr style="border-color: var(--gold); margin: 3rem 0 2rem;">
+            <hr class="my-4" style="border-color: var(--gray-700);">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <p class="mb-0">&copy; 2024 Glinta Africa. All rights reserved.</p>
+                    <p class="text-sm text-gray-500 mb-0">&copy; 2025 Glinta Africa. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <p class="mb-0">Made with ❤️ in Africa | <a href="https://watsonsdevelopers.com" style="color: var(--gold);">watsonsdevelopers.com</a></p>
+                    <p class="text-sm text-gray-500 mb-0">Professional insights for African telecommunications</p>
                 </div>
             </div>
         </div>
@@ -502,11 +877,49 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
     <script>
-        // Initialize AOS animations
+        // Initialize AOS
         AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
+            duration: 600,
+            easing: 'ease-out-sine',
+            once: true,
+            offset: 100
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Category filter functionality
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all buttons
+                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Here you could add filtering logic for blog posts
+                console.log('Filter by:', this.textContent);
+            });
+        });
+
+        // Newsletter form submission
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            if (email) {
+                // Here you would handle the newsletter subscription
+                alert('Thank you for subscribing to our technical insights!');
+                this.reset();
+            }
         });
     </script>
 </body>

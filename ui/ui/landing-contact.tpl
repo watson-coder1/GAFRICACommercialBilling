@@ -4,15 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{$_title}</title>
-    <meta name="description" content="Contact Glinta Africa for ISP billing solutions. Get in touch for demos, support, or partnership opportunities.">
-    <meta name="keywords" content="contact ISP billing, Glinta Africa support, ISP software demo, mobile money integration contact">
+    <meta name="description" content="Contact Glinta Africa for professional ISP billing solutions. Get technical support, pricing information, or demo access for enterprise telecommunications.">
+    <meta name="keywords" content="contact ISP billing, Glinta Africa support, professional ISP solutions, enterprise telecommunications, technical support">
     <meta name="author" content="Glinta Africa">
     
     <link rel="canonical" href="https://glintaafrica.com/contact">
     <link rel="shortcut icon" href="{$app_url}/ui/ui/images/logo.png" type="image/x-icon" />
     
     <!-- Professional Typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Bootstrap & Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -23,19 +23,36 @@
     
     <style>
         :root {
-            --gold: #D4AF37;
-            --gold-light: #F4E4C1;
-            --gold-dark: #B8941F;
-            --black: #000000;
-            --black-soft: #1a1a1a;
-            --white: #FFFFFF;
-            --white-soft: #f8f8f8;
-            --gray: #666666;
-            --shadow: 0 5px 20px rgba(0,0,0,0.1);
-            --shadow-lg: 0 15px 40px rgba(0,0,0,0.2);
-            --shadow-gold: 0 10px 30px rgba(212,175,55,0.3);
-            --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #F4E4C1 50%, #B8941F 100%);
-            --gradient-black: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            --primary: #1a365d;
+            --primary-light: #2d5282;
+            --primary-dark: #0f2a44;
+            --accent: #d4af37;
+            --accent-light: #f4e4c1;
+            --accent-dark: #b8941f;
+            --secondary: #4a5568;
+            --success: #38a169;
+            --warning: #ed8936;
+            --danger: #e53e3e;
+            --info: #3182ce;
+            --light: #f7fafc;
+            --dark: #1a202c;
+            --gray-50: #fafafa;
+            --gray-100: #f5f5f5;
+            --gray-200: #e5e5e5;
+            --gray-300: #d4d4d4;
+            --gray-400: #a3a3a3;
+            --gray-500: #737373;
+            --gray-600: #525252;
+            --gray-700: #404040;
+            --gray-800: #262626;
+            --gray-900: #171717;
+            --gradient-primary: linear-gradient(135deg, #1a365d 0%, #2d5282 100%);
+            --gradient-accent: linear-gradient(135deg, #d4af37 0%, #f4e4c1 100%);
+            --gradient-hero: linear-gradient(135deg, #0f2a44 0%, #1a365d 50%, #2d5282 100%);
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
         }
 
         * {
@@ -49,220 +66,297 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: var(--black);
-            background: var(--white);
-            overflow-x: hidden;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--gray-700);
+            background: var(--light);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Creative Logo Typography */
+        /* Professional Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+        h4 { font-size: 1.25rem; }
+        h5 { font-size: 1.125rem; }
+        h6 { font-size: 1rem; }
+
+        .display-2 { font-size: 3rem; font-weight: 700; }
+        .text-lg { font-size: 1.125rem; }
+        .text-sm { font-size: 0.875rem; }
+        .text-xs { font-size: 0.75rem; }
+
+        /* Logo */
         .logo-brand {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.8rem;
-            font-weight: 900;
-            background: var(--gradient-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
             text-decoration: none;
-            position: relative;
-            transition: all 0.3s ease;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            letter-spacing: -0.025em;
         }
 
         .logo-brand:hover {
-            transform: scale(1.05);
+            color: var(--primary-light);
         }
 
         /* Navigation */
         .navbar {
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-            padding: 1.2rem 0;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-200);
+            padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
-            z-index: 2000;
-        }
-
-        .navbar-nav .nav-link {
-            color: var(--black);
-            font-weight: 600;
-            margin: 0 0.5rem;
-            padding: 0.8rem 1.2rem;
-            border-radius: 25px;
+            z-index: 1000;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
         }
 
-        .navbar-nav .nav-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-gold);
-            transition: left 0.3s ease;
-            z-index: -1;
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: var(--shadow);
         }
 
-        .navbar-nav .nav-link:hover::before {
-            left: 0;
+        .nav-link {
+            color: var(--gray-600);
+            font-weight: 500;
+            font-size: 0.875rem;
+            margin: 0 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
         }
 
-        .navbar-nav .nav-link:hover {
-            color: var(--white);
-            transform: translateY(-2px);
+        .nav-link:hover {
+            color: var(--primary);
+            background: var(--gray-50);
         }
 
         /* Hero Section */
         .hero {
-            background: var(--gradient-black);
-            color: var(--white);
-            padding: 120px 0 80px;
-            margin-top: 80px;
+            background: var(--gradient-hero);
+            color: white;
+            padding: 8rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 700;
-            background: var(--gradient-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: white;
             margin-bottom: 1.5rem;
+        }
+
+        .hero .lead {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
         }
 
         /* Contact Form */
         .contact-form {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 3rem;
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+
+        .contact-form:hover {
             box-shadow: var(--shadow-lg);
-            border: 1px solid rgba(212, 175, 55, 0.1);
         }
 
         .form-control {
-            border: 2px solid rgba(212, 175, 55, 0.2);
-            border-radius: 10px;
-            padding: 1rem;
-            font-size: 1rem;
-            transition: all 0.3s ease;
+            border: 1px solid var(--gray-200);
+            border-radius: 6px;
+            padding: 0.75rem 1rem;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
         }
 
         .form-control:focus {
-            border-color: var(--gold);
-            box-shadow: 0 0 0 0.2rem rgba(212, 175, 55, 0.25);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(26, 54, 93, 0.1);
+            outline: none;
         }
 
         .form-label {
-            font-weight: 600;
-            color: var(--black);
+            font-weight: 500;
+            color: var(--gray-700);
             margin-bottom: 0.5rem;
+            font-size: 0.875rem;
         }
 
         .btn-contact {
-            background: var(--gradient-gold);
-            color: var(--black);
+            background: var(--gradient-primary);
+            color: white;
             border: none;
-            padding: 1rem 3rem;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            padding: 0.75rem 2rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
             text-decoration: none;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .btn-contact:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-gold);
-            color: var(--black);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow);
+            color: white;
         }
 
         /* Contact Info Cards */
         .contact-card {
-            background: var(--white);
-            border-radius: 20px;
+            background: white;
+            border-radius: 12px;
             padding: 2rem;
-            box-shadow: var(--shadow);
-            transition: all 0.4s ease;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
             text-align: center;
-            border: 1px solid rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--gray-200);
+            height: 100%;
         }
 
         .contact-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-gold);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
         }
 
         .contact-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-gold);
-            border-radius: 15px;
+            width: 64px;
+            height: 64px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 1.5rem;
             font-size: 1.5rem;
-            color: var(--black);
+            color: white;
         }
 
         .contact-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.3rem;
+            font-size: 1.125rem;
             font-weight: 600;
-            color: var(--black);
+            color: var(--dark);
             margin-bottom: 1rem;
         }
 
         .contact-info {
-            color: var(--gray);
-            font-size: 1.1rem;
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        /* Buttons */
+        .btn {
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            border: none;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow);
+            color: white;
+        }
+
+        .btn-outline-primary {
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-accent {
+            background: var(--gradient-accent);
+            color: var(--primary);
+        }
+
+        .btn-accent:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow);
+            color: var(--primary);
         }
 
         /* Footer */
         .footer {
-            background: var(--gradient-black);
-            color: var(--white);
-            padding: 4rem 0 2rem;
-            margin-top: 4rem;
+            background: var(--dark);
+            color: var(--gray-300);
+            padding: 3rem 0 1rem;
         }
 
-        .footer h5 {
-            color: var(--gold);
-            font-weight: 700;
-            margin-bottom: 1.5rem;
+        .footer h6 {
+            color: white;
+            margin-bottom: 1rem;
         }
 
         .footer a {
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--gray-400);
             text-decoration: none;
-            transition: all 0.3s ease;
-            display: block;
-            padding: 0.3rem 0;
+            font-size: 0.875rem;
+            transition: color 0.2s ease;
         }
 
         .footer a:hover {
-            color: var(--gold);
-            transform: translateX(5px);
+            color: var(--accent);
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
+            .hero {
+                padding: 6rem 0 3rem;
             }
             
-            .logo-brand {
-                font-size: 1.5rem;
-            }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.75rem; }
             
             .contact-form {
                 padding: 2rem;
@@ -273,13 +367,13 @@
 
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg" id="navbar">
         <div class="container">
             <a class="logo-brand" href="{$app_url}">
-                GLINTA<span style="color: var(--gold);">•</span>AFRICA
+                <i class="fas fa-network-wired me-2"></i>Glinta Africa
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <i class="fas fa-bars text-dark"></i>
+                <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
@@ -304,6 +398,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{$app_url}/blog">Blog</a>
                     </li>
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-primary" href="https://glintaafrica.com/admin" target="_blank">
+                            <i class="fas fa-tachometer-alt me-1"></i>Dashboard
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -311,13 +410,21 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
+        <div class="container hero-content">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
-                    <h1>Contact Us</h1>
-                    <p class="lead" style="color: rgba(255, 255, 255, 0.9);">
-                        Ready to transform your ISP business? Get in touch for demos, support, or partnership opportunities.
+                    <h1 class="display-2">Contact Us</h1>
+                    <p class="lead">
+                        Ready to transform your ISP operations? Get professional support, technical assistance, and demo access for enterprise telecommunications.
                     </p>
+                    <div class="mt-4">
+                        <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-accent me-3">
+                            <i class="fas fa-external-link-alt me-2"></i>View Dashboard
+                        </a>
+                        <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-outline-primary">
+                            <i class="fas fa-envelope me-2"></i>Direct Contact
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -326,40 +433,44 @@
     <!-- Contact Info Section -->
     <section class="py-5">
         <div class="container">
-            <div class="row g-4 mb-5">
-                <div class="col-lg-4" data-aos="fade-up">
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <h3 class="contact-title">Phone Support</h3>
-                        <div class="contact-info">
-                            <p>+254 700 123 456</p>
-                            <p>Available 24/7 for enterprise customers</p>
-                        </div>
-                    </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
+                    <h2>Get in Touch</h2>
+                    <p class="text-lg text-gray-600">Professional support for your ISP operations</p>
                 </div>
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            </div>
+            <div class="row g-4 mb-5">
+                <div class="col-lg-6" data-aos="fade-up">
                     <div class="contact-card">
                         <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
                         <h3 class="contact-title">Email Support</h3>
                         <div class="contact-info">
-                            <p>support@glintaafrica.com</p>
-                            <p>Response within 2 hours during business hours</p>
+                            <p><strong>watsonwambugu@yahoo.com</strong></p>
+                            <p>Technical support, sales inquiries, and partnership opportunities</p>
+                            <div class="mt-3">
+                                <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-accent">
+                                    <i class="fas fa-envelope me-2"></i>Send Email
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="contact-card">
                         <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
+                            <i class="fab fa-whatsapp"></i>
                         </div>
-                        <h3 class="contact-title">Office Location</h3>
+                        <h3 class="contact-title">WhatsApp Support</h3>
                         <div class="contact-info">
-                            <p>Nairobi, Kenya</p>
-                            <p>Serving ISPs across 25 African countries</p>
+                            <p><strong>+254 711 503 023</strong></p>
+                            <p>Instant messaging for quick questions and technical support</p>
+                            <div class="mt-3">
+                                <a href="https://wa.me/254711503023" target="_blank" class="btn btn-outline-primary">
+                                    <i class="fab fa-whatsapp me-2"></i>Chat on WhatsApp
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -368,14 +479,14 @@
     </section>
 
     <!-- Contact Form Section -->
-    <section class="py-5" style="background: var(--white-soft);">
+    <section class="py-5" style="background: var(--gray-50);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto">
                     <div class="contact-form" data-aos="fade-up">
                         <div class="text-center mb-4">
-                            <h2 style="color: var(--black); font-family: 'Space Grotesk', sans-serif;">Get Started Today</h2>
-                            <p style="color: var(--gray);">Fill out the form below and our team will get back to you within 24 hours.</p>
+                            <h2>Get Started Today</h2>
+                            <p class="text-gray-600">Fill out the form below and our team will get back to you within 24 hours.</p>
                         </div>
                         
                         <form>
@@ -456,41 +567,28 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center mb-4">
-                    <h2 style="color: var(--black); font-family: 'Space Grotesk', sans-serif;">Try Our Platform</h2>
-                    <p style="color: var(--gray);">Experience our billing system with live demos before getting in touch.</p>
+                    <h2>Try Our Platform</h2>
+                    <p class="text-gray-600">Experience our professional billing system with live admin dashboard access.</p>
                 </div>
             </div>
             <div class="row g-4">
-                <div class="col-lg-6" data-aos="fade-up">
+                <div class="col-lg-12" data-aos="fade-up">
                     <div class="contact-card">
                         <div class="contact-icon">
-                            <i class="fas fa-user-tie"></i>
+                            <i class="fas fa-tachometer-alt"></i>
                         </div>
-                        <h3 class="contact-title">Reseller Demo</h3>
-                        <p style="color: var(--gray); margin-bottom: 1.5rem;">
-                            Access the full admin dashboard to manage customers, plans, and analytics.
+                        <h3 class="contact-title">Admin Dashboard Demo</h3>
+                        <p class="text-gray-600 mb-4">
+                            Access the full admin dashboard to explore customer management, billing analytics, network monitoring, and mobile money integration features.
                         </p>
-                        <div style="background: var(--gradient-gold); color: var(--black); padding: 1rem; border-radius: 10px; margin-bottom: 1.5rem; font-weight: 600;">
-                            <strong>Username:</strong> Trial<br>
-                            <strong>Password:</strong> Trialpass
+                        <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+                            <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-primary">
+                                <i class="fas fa-external-link-alt me-2"></i>Launch Dashboard
+                            </a>
+                            <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-outline-primary">
+                                <i class="fas fa-envelope me-2"></i>Request Demo
+                            </a>
                         </div>
-                        <a href="{$app_url}/demo-reseller" class="btn-contact">Launch Demo</a>
-                    </div>
-                </div>
-                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <h3 class="contact-title">Customer Demo</h3>
-                        <p style="color: var(--gray); margin-bottom: 1.5rem;">
-                            Experience the customer portal for purchasing packages and managing accounts.
-                        </p>
-                        <div style="background: var(--gradient-gold); color: var(--black); padding: 1rem; border-radius: 10px; margin-bottom: 1.5rem; font-weight: 600;">
-                            <strong>Username:</strong> Trial<br>
-                            <strong>Password:</strong> Trialpass
-                        </div>
-                        <a href="{$app_url}/demo-customer" class="btn-contact">Launch Demo</a>
                     </div>
                 </div>
             </div>
@@ -501,42 +599,58 @@
     <footer class="footer">
         <div class="container">
             <div class="row g-4">
-                <div class="col-lg-3 col-md-6">
-                    <h5>Company</h5>
-                    <a href="{$app_url}/about">About Us</a>
-                    <a href="{$app_url}/careers">Careers</a>
-                    <a href="{$app_url}/news">News & Press</a>
-                    <a href="{$app_url}/investors">Investor Relations</a>
+                <div class="col-lg-4">
+                    <h6>Glinta Africa</h6>
+                    <p class="text-sm text-gray-400 mb-3">Professional ISP billing and contact solutions for African telecommunications. Enterprise-grade support and technical assistance.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-gray-400"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-400"><i class="fab fa-github"></i></a>
+                    </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5>Products</h5>
-                    <a href="{$app_url}/hotspot">Hotspot Solutions</a>
-                    <a href="{$app_url}/pppoe">PPPoE Management</a>
-                    <a href="{$app_url}/billing">Billing Platform</a>
-                    <a href="{$app_url}/analytics">Analytics Suite</a>
+                <div class="col-lg-2 col-md-4">
+                    <h6>Platform</h6>
+                    <div class="d-flex flex-column gap-2">
+                        <a href="{$app_url}/features">Features</a>
+                        <a href="{$app_url}/services">Services</a>
+                        <a href="{$app_url}/pricing">Pricing</a>
+                        <a href="https://glintaafrica.com/admin" target="_blank">Dashboard</a>
+                    </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5>Support</h5>
-                    <a href="{$app_url}/help">Help Center</a>
-                    <a href="{$app_url}/documentation">Documentation</a>
-                    <a href="{$app_url}/community">Community Forum</a>
-                    <a href="{$app_url}/contact">Contact Support</a>
+                <div class="col-lg-2 col-md-4">
+                    <h6>Support</h6>
+                    <div class="d-flex flex-column gap-2">
+                        <a href="#" onclick="window.open('mailto:watsonwambugu@yahoo.com')">Email Support</a>
+                        <a href="https://wa.me/254711503023" target="_blank">WhatsApp</a>
+                        <a href="{$app_url}/blog">Blog</a>
+                        <a href="{$app_url}/about">About</a>
+                    </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5>Legal</h5>
-                    <a href="{$app_url}/privacy">Privacy Policy</a>
-                    <a href="{$app_url}/terms">Terms of Service</a>
-                    <a href="{$app_url}/security">Security</a>
-                    <a href="{$app_url}/compliance">Compliance</a>
+                <div class="col-lg-2 col-md-4">
+                    <h6>Company</h6>
+                    <div class="d-flex flex-column gap-2">
+                        <a href="{$app_url}/about">About Us</a>
+                        <a href="{$app_url}/contact">Contact</a>
+                        <a href="#" onclick="window.open('mailto:watsonwambugu@yahoo.com')">Careers</a>
+                        <a href="#">Partners</a>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <h6>Contact</h6>
+                    <div class="d-flex flex-column gap-2">
+                        <a href="mailto:watsonwambugu@yahoo.com">Technical Team</a>
+                        <a href="https://wa.me/254711503023" target="_blank">WhatsApp</a>
+                        <a href="{$app_url}/contact">Contact Form</a>
+                    </div>
                 </div>
             </div>
-            <hr style="border-color: var(--gold); margin: 3rem 0 2rem;">
+            <hr class="my-4" style="border-color: var(--gray-700);">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <p class="mb-0">&copy; 2024 Glinta Africa. All rights reserved.</p>
+                    <p class="text-sm text-gray-500 mb-0">&copy; 2025 Glinta Africa. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <p class="mb-0">Made with ❤️ in Africa | <a href="https://watsonsdevelopers.com" style="color: var(--gold);">watsonsdevelopers.com</a></p>
+                    <p class="text-sm text-gray-500 mb-0">Professional contact solutions for African ISPs</p>
                 </div>
             </div>
         </div>
@@ -547,11 +661,40 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
     <script>
-        // Initialize AOS animations
+        // Initialize AOS
         AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
+            duration: 600,
+            easing: 'ease-out-sine',
+            once: true,
+            offset: 100
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Form submission handling
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Here you would send the data to your server
+            console.log('Form submitted:', data);
+            
+            // Show success message
+            alert('Thank you for your message! We will get back to you within 24 hours.');
+            
+            // Reset form
+            this.reset();
         });
     </script>
 </body>

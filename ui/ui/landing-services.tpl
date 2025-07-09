@@ -4,15 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{$_title}</title>
-    <meta name="description" content="Comprehensive internet billing solutions for African ISPs. Hotspot management, PPPoE billing, mobile money integration, and advanced analytics.">
-    <meta name="keywords" content="ISP billing software, hotspot management, PPPoE billing, mobile money integration, WiFi monetization, internet service provider solutions">
+    <meta name="description" content="Professional ISP billing services for African telecommunications. RADIUS authentication, mobile money integration, network automation, and enterprise-grade support.">
+    <meta name="keywords" content="ISP billing services, RADIUS server, mobile money integration, network automation, telecommunications billing, African ISP solutions">
     <meta name="author" content="Glinta Africa">
     
     <link rel="canonical" href="https://glintaafrica.com/services">
     <link rel="shortcut icon" href="{$app_url}/ui/ui/images/logo.png" type="image/x-icon" />
     
     <!-- Professional Typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Bootstrap & Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -23,19 +23,36 @@
     
     <style>
         :root {
-            --gold: #D4AF37;
-            --gold-light: #F4E4C1;
-            --gold-dark: #B8941F;
-            --black: #000000;
-            --black-soft: #1a1a1a;
-            --white: #FFFFFF;
-            --white-soft: #f8f8f8;
-            --gray: #666666;
-            --shadow: 0 5px 20px rgba(0,0,0,0.1);
-            --shadow-lg: 0 15px 40px rgba(0,0,0,0.2);
-            --shadow-gold: 0 10px 30px rgba(212,175,55,0.3);
-            --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #F4E4C1 50%, #B8941F 100%);
-            --gradient-black: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            --primary: #1a365d;
+            --primary-light: #2d5282;
+            --primary-dark: #0f2a44;
+            --accent: #d4af37;
+            --accent-light: #f4e4c1;
+            --accent-dark: #b8941f;
+            --secondary: #4a5568;
+            --success: #38a169;
+            --warning: #ed8936;
+            --danger: #e53e3e;
+            --info: #3182ce;
+            --light: #f7fafc;
+            --dark: #1a202c;
+            --gray-50: #fafafa;
+            --gray-100: #f5f5f5;
+            --gray-200: #e5e5e5;
+            --gray-300: #d4d4d4;
+            --gray-400: #a3a3a3;
+            --gray-500: #737373;
+            --gray-600: #525252;
+            --gray-700: #404040;
+            --gray-800: #262626;
+            --gray-900: #171717;
+            --gradient-primary: linear-gradient(135deg, #1a365d 0%, #2d5282 100%);
+            --gradient-accent: linear-gradient(135deg, #d4af37 0%, #f4e4c1 100%);
+            --gradient-hero: linear-gradient(135deg, #0f2a44 0%, #1a365d 50%, #2d5282 100%);
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
         }
 
         * {
@@ -49,150 +66,174 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: var(--black);
-            background: var(--white);
-            overflow-x: hidden;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--gray-700);
+            background: var(--light);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Creative Logo Typography */
+        /* Professional Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+        h4 { font-size: 1.25rem; }
+        h5 { font-size: 1.125rem; }
+        h6 { font-size: 1rem; }
+
+        .display-2 { font-size: 3rem; font-weight: 700; }
+        .text-lg { font-size: 1.125rem; }
+        .text-sm { font-size: 0.875rem; }
+        .text-xs { font-size: 0.75rem; }
+
+        /* Logo */
         .logo-brand {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.8rem;
-            font-weight: 900;
-            background: var(--gradient-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
             text-decoration: none;
-            position: relative;
-            transition: all 0.3s ease;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            letter-spacing: -0.025em;
         }
 
         .logo-brand:hover {
-            transform: scale(1.05);
+            color: var(--primary-light);
         }
 
         /* Navigation */
         .navbar {
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-            padding: 1.2rem 0;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-200);
+            padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
-            z-index: 2000;
-        }
-
-        .navbar-nav .nav-link {
-            color: var(--black);
-            font-weight: 600;
-            margin: 0 0.5rem;
-            padding: 0.8rem 1.2rem;
-            border-radius: 25px;
+            z-index: 1000;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
         }
 
-        .navbar-nav .nav-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-gold);
-            transition: left 0.3s ease;
-            z-index: -1;
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: var(--shadow);
         }
 
-        .navbar-nav .nav-link:hover::before {
-            left: 0;
+        .nav-link {
+            color: var(--gray-600);
+            font-weight: 500;
+            font-size: 0.875rem;
+            margin: 0 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
         }
 
-        .navbar-nav .nav-link:hover {
-            color: var(--white);
-            transform: translateY(-2px);
+        .nav-link:hover {
+            color: var(--primary);
+            background: var(--gray-50);
         }
 
         /* Hero Section */
         .hero {
-            background: var(--gradient-black);
-            color: var(--white);
-            padding: 120px 0 80px;
-            margin-top: 80px;
+            background: var(--gradient-hero);
+            color: white;
+            padding: 8rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 700;
-            background: var(--gradient-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: white;
             margin-bottom: 1.5rem;
+        }
+
+        .hero .lead {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
         }
 
         /* Service Cards */
         .service-card {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 3rem 2rem;
-            box-shadow: var(--shadow);
-            transition: all 0.4s ease;
-            border: 1px solid rgba(212, 175, 55, 0.1);
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid var(--gray-200);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
             height: 100%;
-            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
         .service-card:hover {
-            transform: translateY(-15px);
-            box-shadow: var(--shadow-gold);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
         }
 
         .service-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient-gold);
-            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            background: var(--gradient-primary);
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 2rem;
-            font-size: 2rem;
-            color: var(--black);
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
         .service-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--black);
+            font-size: 1.25rem;
             margin-bottom: 1rem;
+            color: var(--dark);
         }
 
         .service-description {
-            color: var(--gray);
-            margin-bottom: 2rem;
-            line-height: 1.6;
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
         }
 
         .service-features {
             list-style: none;
             padding: 0;
-            margin: 0 0 2rem;
+            margin-bottom: 2rem;
         }
 
         .service-features li {
             padding: 0.5rem 0;
-            color: var(--gray);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            border-bottom: 1px solid var(--gray-200);
         }
 
         .service-features li:last-child {
@@ -200,105 +241,153 @@
         }
 
         .service-features li i {
-            color: var(--gold);
+            color: var(--success);
             margin-right: 0.5rem;
+            font-size: 0.75rem;
         }
 
-        .btn-service {
-            background: var(--gradient-gold);
-            color: var(--black);
-            border: none;
-            padding: 0.8rem 2rem;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
+        /* Process Section */
+        .process-section {
+            background: white;
+            padding: 4rem 0;
         }
 
-        .btn-service:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-gold);
-            color: var(--black);
-        }
-
-        /* Demo Section */
-        .demo-section {
-            background: var(--white-soft);
-            padding: 5rem 0;
-        }
-
-        .demo-card {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 3rem;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
+        .process-step {
             text-align: center;
-            border: 2px solid transparent;
+            padding: 1.5rem;
+            position: relative;
         }
 
-        .demo-card:hover {
-            border-color: var(--gold);
-            transform: translateY(-5px);
-        }
-
-        .demo-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.8rem;
+        .process-number {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
             font-weight: 600;
-            color: var(--black);
+            color: white;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Tech Stack */
+        .tech-stack {
+            background: var(--gray-50);
+            padding: 4rem 0;
+        }
+
+        .tech-item {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            box-shadow: var(--shadow);
+            transform: translateY(-2px);
+        }
+
+        .tech-icon {
+            font-size: 2rem;
+            color: var(--primary);
             margin-bottom: 1rem;
         }
 
-        .demo-credentials {
-            background: var(--gradient-gold);
-            color: var(--black);
-            padding: 1rem;
-            border-radius: 10px;
-            margin: 1.5rem 0;
-            font-weight: 600;
+        /* CTA Section */
+        .cta-section {
+            background: var(--primary);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        /* Buttons */
+        .btn {
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            border: none;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow);
+            color: white;
+        }
+
+        .btn-outline-primary {
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-accent {
+            background: var(--gradient-accent);
+            color: var(--primary);
+        }
+
+        .btn-accent:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow);
+            color: var(--primary);
         }
 
         /* Footer */
         .footer {
-            background: var(--gradient-black);
-            color: var(--white);
-            padding: 4rem 0 2rem;
-            margin-top: 4rem;
+            background: var(--dark);
+            color: var(--gray-300);
+            padding: 3rem 0 1rem;
         }
 
-        .footer h5 {
-            color: var(--gold);
-            font-weight: 700;
-            margin-bottom: 1.5rem;
+        .footer h6 {
+            color: white;
+            margin-bottom: 1rem;
         }
 
         .footer a {
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--gray-400);
             text-decoration: none;
-            transition: all 0.3s ease;
-            display: block;
-            padding: 0.3rem 0;
+            font-size: 0.875rem;
+            transition: color 0.2s ease;
         }
 
         .footer a:hover {
-            color: var(--gold);
-            transform: translateX(5px);
+            color: var(--accent);
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
+            .hero {
+                padding: 6rem 0 3rem;
             }
             
-            .logo-brand {
-                font-size: 1.5rem;
-            }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.75rem; }
             
             .service-card {
-                padding: 2rem 1.5rem;
+                padding: 1.5rem;
             }
         }
     </style>
@@ -306,13 +395,13 @@
 
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg" id="navbar">
         <div class="container">
             <a class="logo-brand" href="{$app_url}">
-                GLINTA<span style="color: var(--gold);">•</span>AFRICA
+                <i class="fas fa-network-wired me-2"></i>Glinta Africa
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <i class="fas fa-bars text-dark"></i>
+                <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
@@ -337,6 +426,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{$app_url}/blog">Blog</a>
                     </li>
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-primary" href="https://glintaafrica.com/admin" target="_blank">
+                            <i class="fas fa-tachometer-alt me-1"></i>Dashboard
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -344,187 +438,287 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
+        <div class="container hero-content">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
-                    <h1>Our Services</h1>
-                    <p class="lead" style="color: rgba(255, 255, 255, 0.9);">
-                        Comprehensive internet billing solutions designed for African ISPs and network operators.
-                    </p>
+                    <h1 class="display-2">Professional ISP Services</h1>
+                    <p class="lead">Comprehensive billing, authentication, and network management services designed for African telecommunications infrastructure. Enterprise-grade solutions with local payment integration.</p>
+                    <div class="mt-4">
+                        <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-accent me-3">
+                            <i class="fas fa-external-link-alt me-2"></i>Launch Dashboard
+                        </a>
+                        <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-outline-primary">
+                            <i class="fas fa-envelope me-2"></i>Contact Sales
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Core Services -->
     <section class="py-5">
         <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6" data-aos="fade-up">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-wifi"></i>
-                        </div>
-                        <h3 class="service-title">Hotspot Management</h3>
-                        <p class="service-description">
-                            Complete WiFi hotspot billing and management solution with captive portal, user authentication, and mobile money integration.
-                        </p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Captive Portal System</li>
-                            <li><i class="fas fa-check"></i> Mobile Money Integration</li>
-                            <li><i class="fas fa-check"></i> User Management</li>
-                            <li><i class="fas fa-check"></i> Bandwidth Control</li>
-                            <li><i class="fas fa-check"></i> Real-time Monitoring</li>
-                        </ul>
-                        <a href="{$app_url}/hotspot" class="btn-service">Learn More</a>
-                    </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
+                    <h2>Core Services</h2>
+                    <p class="text-lg text-gray-600">Professional services designed for modern ISP operations</p>
                 </div>
-
+            </div>
+            <div class="row g-4">
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-card">
                         <div class="service-icon">
-                            <i class="fas fa-network-wired"></i>
+                            <i class="fas fa-server"></i>
                         </div>
-                        <h3 class="service-title">PPPoE Billing</h3>
-                        <p class="service-description">
-                            Advanced PPPoE management for fiber and DSL networks with automated billing, usage tracking, and customer self-service portals.
-                        </p>
+                        <h5 class="service-title">RADIUS Authentication</h5>
+                        <p class="service-description">Enterprise-grade RADIUS server with full AAA (Authentication, Authorization, Accounting) support for network access control.</p>
                         <ul class="service-features">
-                            <li><i class="fas fa-check"></i> PPPoE Authentication</li>
-                            <li><i class="fas fa-check"></i> Automated Billing</li>
-                            <li><i class="fas fa-check"></i> Usage Monitoring</li>
-                            <li><i class="fas fa-check"></i> Speed Management</li>
-                            <li><i class="fas fa-check"></i> Customer Portal</li>
+                            <li><i class="fas fa-check"></i> RFC 2865/2866 compliant</li>
+                            <li><i class="fas fa-check"></i> CoA (Change of Authorization)</li>
+                            <li><i class="fas fa-check"></i> Dynamic VLAN assignment</li>
+                            <li><i class="fas fa-check"></i> Load balancing & failover</li>
+                            <li><i class="fas fa-check"></i> Real-time accounting</li>
                         </ul>
-                        <a href="{$app_url}/pppoe" class="btn-service">Learn More</a>
+                        <div class="mt-3">
+                            <span class="badge bg-light text-dark me-1">RADIUS</span>
+                            <span class="badge bg-light text-dark me-1">AAA</span>
+                            <span class="badge bg-light text-dark">CoA</span>
+                        </div>
                     </div>
                 </div>
-
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="service-card">
                         <div class="service-icon">
                             <i class="fas fa-mobile-alt"></i>
                         </div>
-                        <h3 class="service-title">Mobile Money Integration</h3>
-                        <p class="service-description">
-                            Seamless integration with M-Pesa, Airtel Money, MTN MoMo, and other African mobile money platforms for instant payments.
-                        </p>
+                        <h5 class="service-title">Mobile Money Integration</h5>
+                        <p class="service-description">Native API integration with major African mobile money platforms for seamless payment processing and automated reconciliation.</p>
                         <ul class="service-features">
-                            <li><i class="fas fa-check"></i> M-Pesa Integration</li>
-                            <li><i class="fas fa-check"></i> Airtel Money Support</li>
-                            <li><i class="fas fa-check"></i> MTN MoMo Compatible</li>
-                            <li><i class="fas fa-check"></i> Instant Payments</li>
-                            <li><i class="fas fa-check"></i> Auto Reconciliation</li>
+                            <li><i class="fas fa-check"></i> M-Pesa STK Push integration</li>
+                            <li><i class="fas fa-check"></i> Airtel Money API support</li>
+                            <li><i class="fas fa-check"></i> MTN MoMo compatibility</li>
+                            <li><i class="fas fa-check"></i> Automated reconciliation</li>
+                            <li><i class="fas fa-check"></i> Real-time transaction status</li>
                         </ul>
-                        <a href="{$app_url}/billing" class="btn-service">Learn More</a>
+                        <div class="mt-3">
+                            <span class="badge bg-light text-dark me-1">M-Pesa</span>
+                            <span class="badge bg-light text-dark me-1">API</span>
+                            <span class="badge bg-light text-dark">Webhooks</span>
+                        </div>
                     </div>
                 </div>
-
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h5 class="service-title">Network Automation</h5>
+                        <p class="service-description">Automated network provisioning and management via SNMP, SSH, and vendor-specific APIs for major equipment manufacturers.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Mikrotik RouterOS API</li>
+                            <li><i class="fas fa-check"></i> Ubiquiti UniFi integration</li>
+                            <li><i class="fas fa-check"></i> SNMP v2/v3 support</li>
+                            <li><i class="fas fa-check"></i> SSH automation scripts</li>
+                            <li><i class="fas fa-check"></i> Bulk configuration management</li>
+                        </ul>
+                        <div class="mt-3">
+                            <span class="badge bg-light text-dark me-1">SNMP</span>
+                            <span class="badge bg-light text-dark me-1">SSH</span>
+                            <span class="badge bg-light text-dark">API</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
                     <div class="service-card">
                         <div class="service-icon">
                             <i class="fas fa-chart-line"></i>
                         </div>
-                        <h3 class="service-title">Analytics & Reporting</h3>
-                        <p class="service-description">
-                            Comprehensive business intelligence with real-time dashboards, revenue analytics, and customer insights for data-driven decisions.
-                        </p>
+                        <h5 class="service-title">Analytics & Monitoring</h5>
+                        <p class="service-description">Real-time network monitoring, performance analytics, and business intelligence with customizable dashboards and alerting.</p>
                         <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Real-time Dashboards</li>
-                            <li><i class="fas fa-check"></i> Revenue Analytics</li>
-                            <li><i class="fas fa-check"></i> Customer Insights</li>
-                            <li><i class="fas fa-check"></i> Usage Reports</li>
-                            <li><i class="fas fa-check"></i> Performance Metrics</li>
+                            <li><i class="fas fa-check"></i> Real-time metrics collection</li>
+                            <li><i class="fas fa-check"></i> Custom dashboard creation</li>
+                            <li><i class="fas fa-check"></i> Automated alerting system</li>
+                            <li><i class="fas fa-check"></i> Performance trend analysis</li>
+                            <li><i class="fas fa-check"></i> SLA monitoring & reporting</li>
                         </ul>
-                        <a href="{$app_url}/analytics" class="btn-service">Learn More</a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-users"></i>
+                        <div class="mt-3">
+                            <span class="badge bg-light text-dark me-1">InfluxDB</span>
+                            <span class="badge bg-light text-dark me-1">Grafana</span>
+                            <span class="badge bg-light text-dark">Alerts</span>
                         </div>
-                        <h3 class="service-title">Customer Management</h3>
-                        <p class="service-description">
-                            Advanced customer relationship management with automated communications, support ticketing, and customer lifecycle management.
-                        </p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Customer Database</li>
-                            <li><i class="fas fa-check"></i> Automated Notifications</li>
-                            <li><i class="fas fa-check"></i> Support Ticketing</li>
-                            <li><i class="fas fa-check"></i> Payment History</li>
-                            <li><i class="fas fa-check"></i> Service Management</li>
-                        </ul>
-                        <a href="{$app_url}/contact" class="btn-service">Learn More</a>
                     </div>
                 </div>
-
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
                     <div class="service-card">
                         <div class="service-icon">
                             <i class="fas fa-shield-alt"></i>
                         </div>
-                        <h3 class="service-title">Security & Compliance</h3>
-                        <p class="service-description">
-                            Enterprise-grade security with data encryption, fraud prevention, regulatory compliance, and secure payment processing.
-                        </p>
+                        <h5 class="service-title">Security & Compliance</h5>
+                        <p class="service-description">Enterprise security framework with compliance management, audit trails, and security monitoring for regulated environments.</p>
                         <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Data Encryption</li>
-                            <li><i class="fas fa-check"></i> Fraud Prevention</li>
-                            <li><i class="fas fa-check"></i> Compliance Ready</li>
-                            <li><i class="fas fa-check"></i> Secure Payments</li>
-                            <li><i class="fas fa-check"></i> Access Control</li>
+                            <li><i class="fas fa-check"></i> PCI DSS compliance</li>
+                            <li><i class="fas fa-check"></i> GDPR data protection</li>
+                            <li><i class="fas fa-check"></i> SOC 2 Type II controls</li>
+                            <li><i class="fas fa-check"></i> Audit trail management</li>
+                            <li><i class="fas fa-check"></i> Security incident response</li>
                         </ul>
-                        <a href="{$app_url}/security" class="btn-service">Learn More</a>
+                        <div class="mt-3">
+                            <span class="badge bg-light text-dark me-1">PCI DSS</span>
+                            <span class="badge bg-light text-dark me-1">GDPR</span>
+                            <span class="badge bg-light text-dark">SOC 2</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h5 class="service-title">Support & Maintenance</h5>
+                        <p class="service-description">24/7 technical support, proactive monitoring, regular updates, and dedicated account management for mission-critical operations.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> 24/7 technical support</li>
+                            <li><i class="fas fa-check"></i> Proactive system monitoring</li>
+                            <li><i class="fas fa-check"></i> Regular security updates</li>
+                            <li><i class="fas fa-check"></i> Dedicated account manager</li>
+                            <li><i class="fas fa-check"></i> SLA-backed response times</li>
+                        </ul>
+                        <div class="mt-3">
+                            <span class="badge bg-light text-dark me-1">24/7</span>
+                            <span class="badge bg-light text-dark me-1">SLA</span>
+                            <span class="badge bg-light text-dark">Support</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Demo Section -->
-    <section class="demo-section">
+    <!-- Implementation Process -->
+    <section class="process-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 mx-auto text-center mb-5">
-                    <h2 class="display-5 fw-bold" style="color: var(--black);">Try Our Platform</h2>
-                    <p class="lead" style="color: var(--gray);">
-                        Experience our billing system with live demos for both resellers and end customers.
-                    </p>
+                <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
+                    <h2>Implementation Process</h2>
+                    <p class="text-lg text-gray-600">Structured approach to deploying your ISP infrastructure</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="process-step">
+                        <div class="process-number">1</div>
+                        <h6>Requirements Analysis</h6>
+                        <p class="text-sm text-gray-600">Technical assessment of your infrastructure and business requirements</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="process-step">
+                        <div class="process-number">2</div>
+                        <h6>System Configuration</h6>
+                        <p class="text-sm text-gray-600">Custom configuration and integration with existing network equipment</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="process-step">
+                        <div class="process-number">3</div>
+                        <h6>Testing & Validation</h6>
+                        <p class="text-sm text-gray-600">Comprehensive testing of all systems and failover procedures</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="process-step">
+                        <div class="process-number">4</div>
+                        <h6>Go-Live & Support</h6>
+                        <p class="text-sm text-gray-600">Production deployment with ongoing monitoring and support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="tech-stack">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
+                    <h2>Technology Stack</h2>
+                    <p class="text-lg text-gray-600">Built with enterprise-grade technologies and industry standards</p>
                 </div>
             </div>
             <div class="row g-4">
-                <div class="col-lg-6" data-aos="fade-up">
-                    <div class="demo-card">
-                        <div class="service-icon mx-auto mb-3">
-                            <i class="fas fa-user-tie"></i>
+                <div class="col-lg-2 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fab fa-php"></i>
                         </div>
-                        <h3 class="demo-title">Reseller Demo</h3>
-                        <p class="text-muted">
-                            Access the full admin dashboard to manage customers, plans, payments, and analytics.
-                        </p>
-                        <div class="demo-credentials">
-                            <strong>Username:</strong> Trial<br>
-                            <strong>Password:</strong> Trialpass
-                        </div>
-                        <a href="{$app_url}/demo-reseller" class="btn-service">Launch Reseller Demo</a>
+                        <h6 class="text-sm">PHP 8.2</h6>
                     </div>
                 </div>
-                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="demo-card">
-                        <div class="service-icon mx-auto mb-3">
-                            <i class="fas fa-user"></i>
+                <div class="col-lg-2 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fas fa-database"></i>
                         </div>
-                        <h3 class="demo-title">Customer Demo</h3>
-                        <p class="text-muted">
-                            Experience the customer portal for purchasing packages, viewing usage, and managing account.
-                        </p>
-                        <div class="demo-credentials">
-                            <strong>Username:</strong> Trial<br>
-                            <strong>Password:</strong> Trialpass
+                        <h6 class="text-sm">MySQL 8.0</h6>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fas fa-server"></i>
                         </div>
-                        <a href="{$app_url}/demo-customer" class="btn-service">Launch Customer Demo</a>
+                        <h6 class="text-sm">FreeRADIUS</h6>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fab fa-docker"></i>
+                        </div>
+                        <h6 class="text-sm">Docker</h6>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h6 class="text-sm">InfluxDB</h6>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h6 class="text-sm">OpenSSL</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="mb-4">Ready to Deploy Professional ISP Services?</h2>
+                    <p class="text-lg mb-4" style="color: rgba(255,255,255,0.9);">Contact our technical team to discuss your requirements and get a customized solution.</p>
+                    <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+                        <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-accent">
+                            <i class="fas fa-envelope me-2"></i>Email: watsonwambugu@yahoo.com
+                        </a>
+                        <a href="https://wa.me/254711503023" target="_blank" class="btn btn-outline-primary" style="color: white; border-color: white;">
+                            <i class="fab fa-whatsapp me-2"></i>WhatsApp: +254 711 503 023
+                        </a>
+                    </div>
+                    <div class="mt-4">
+                        <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-outline-primary" style="color: white; border-color: white;">
+                            <i class="fas fa-external-link-alt me-2"></i>Access Dashboard
+                        </a>
                     </div>
                 </div>
             </div>
@@ -535,42 +729,58 @@
     <footer class="footer">
         <div class="container">
             <div class="row g-4">
-                <div class="col-lg-3 col-md-6">
-                    <h5>Company</h5>
-                    <a href="{$app_url}/about">About Us</a>
-                    <a href="{$app_url}/careers">Careers</a>
-                    <a href="{$app_url}/news">News & Press</a>
-                    <a href="{$app_url}/investors">Investor Relations</a>
+                <div class="col-lg-4">
+                    <h6>Glinta Africa</h6>
+                    <p class="text-sm text-gray-400 mb-3">Professional ISP billing and network management services for African telecommunications infrastructure.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-gray-400"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-400"><i class="fab fa-github"></i></a>
+                    </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5>Products</h5>
-                    <a href="{$app_url}/hotspot">Hotspot Solutions</a>
-                    <a href="{$app_url}/pppoe">PPPoE Management</a>
-                    <a href="{$app_url}/billing">Billing Platform</a>
-                    <a href="{$app_url}/analytics">Analytics Suite</a>
+                <div class="col-lg-2 col-md-4">
+                    <h6>Services</h6>
+                    <div class="d-flex flex-column gap-2">
+                        <a href="{$app_url}/services">RADIUS Server</a>
+                        <a href="{$app_url}/services">Mobile Money</a>
+                        <a href="{$app_url}/services">Network Automation</a>
+                        <a href="{$app_url}/services">Analytics</a>
+                    </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5>Support</h5>
-                    <a href="{$app_url}/help">Help Center</a>
-                    <a href="{$app_url}/documentation">Documentation</a>
-                    <a href="{$app_url}/community">Community Forum</a>
-                    <a href="{$app_url}/contact">Contact Support</a>
+                <div class="col-lg-2 col-md-4">
+                    <h6>Platform</h6>
+                    <div class="d-flex flex-column gap-2">
+                        <a href="{$app_url}/features">Features</a>
+                        <a href="{$app_url}/pricing">Pricing</a>
+                        <a href="https://glintaafrica.com/admin" target="_blank">Dashboard</a>
+                        <a href="#">API Docs</a>
+                    </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5>Legal</h5>
-                    <a href="{$app_url}/privacy">Privacy Policy</a>
-                    <a href="{$app_url}/terms">Terms of Service</a>
-                    <a href="{$app_url}/security">Security</a>
-                    <a href="{$app_url}/compliance">Compliance</a>
+                <div class="col-lg-2 col-md-4">
+                    <h6>Support</h6>
+                    <div class="d-flex flex-column gap-2">
+                        <a href="#">Documentation</a>
+                        <a href="{$app_url}/blog">Blog</a>
+                        <a href="{$app_url}/about">About</a>
+                        <a href="{$app_url}/contact">Contact</a>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <h6>Contact</h6>
+                    <div class="d-flex flex-column gap-2">
+                        <a href="mailto:watsonwambugu@yahoo.com">Email Support</a>
+                        <a href="https://wa.me/254711503023" target="_blank">WhatsApp</a>
+                        <a href="{$app_url}/contact">Contact Form</a>
+                    </div>
                 </div>
             </div>
-            <hr style="border-color: var(--gold); margin: 3rem 0 2rem;">
+            <hr class="my-4" style="border-color: var(--gray-700);">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <p class="mb-0">&copy; 2024 Glinta Africa. All rights reserved.</p>
+                    <p class="text-sm text-gray-500 mb-0">&copy; 2024 Glinta Africa. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <p class="mb-0">Made with ❤️ in Africa | <a href="https://watsonsdevelopers.com" style="color: var(--gold);">watsonsdevelopers.com</a></p>
+                    <p class="text-sm text-gray-500 mb-0">Professional ISP solutions for Africa</p>
                 </div>
             </div>
         </div>
@@ -579,13 +789,24 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
+
     <script>
-        // Initialize AOS animations
+        // Initialize AOS
         AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
+            duration: 600,
+            easing: 'ease-out-sine',
+            once: true,
+            offset: 100
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
         });
     </script>
 </body>
