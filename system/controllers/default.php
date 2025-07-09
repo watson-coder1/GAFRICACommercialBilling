@@ -18,6 +18,10 @@ if(Admin::getID()){
     } else {
         // Show marketing landing page
         $ui->assign('_title', 'Glinta Africa - Hotspot Billing Solutions');
+        $ui->assign('_c', $config);
+        $ui->assign('app_url', APP_URL);
+        $ui->assign('logged_in_admin', false);
+        $ui->assign('logged_in_customer', false);
         $ui->display('landing.tpl');
         return;
     }

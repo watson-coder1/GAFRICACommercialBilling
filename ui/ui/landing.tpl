@@ -759,7 +759,7 @@
                 <i class="fa fa-users" style="font-size: 36px; color: var(--gold);"></i>
             </div>
             <div class="floating-element" style="bottom: 30%; left: 20%; animation-delay: 2s;">
-                <i class="fa fa-chart-line" style="font-size: 42px; color: var(--gold);"></i>
+                <i class="fa fa-line-chart" style="font-size: 42px; color: var(--gold);"></i>
             </div>
             <div class="floating-element" style="bottom: 40%; right: 10%; animation-delay: 3s;">
                 <i class="fa fa-shield" style="font-size: 40px; color: var(--gold);"></i>
@@ -817,7 +817,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="feature-box text-center">
-                        <i class="fa fa-chart-line feature-icon"></i>
+                        <i class="fa fa-line-chart feature-icon"></i>
                         <h4 class="feature-title">Business Analytics</h4>
                         <p class="feature-description">Real-time dashboards, revenue reports, user statistics, and performance metrics. Make data-driven decisions to grow your business.</p>
                     </div>
@@ -894,7 +894,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="feature-box text-center">
-                        <i class="fa fa-users-cog feature-icon"></i>
+                        <i class="fa fa-users feature-icon"></i>
                         <h4 class="feature-title">Staff Management</h4>
                         <p class="feature-description">Role-based access control, multiple admin levels, activity logging, and permission management for team collaboration.</p>
                     </div>
@@ -915,7 +915,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="feature-box text-center">
-                        <i class="fa fa-backup feature-icon"></i>
+                        <i class="fa fa-database feature-icon"></i>
                         <h4 class="feature-title">Backup & Recovery</h4>
                         <p class="feature-description">Automated daily backups, one-click restore, data export/import, and disaster recovery solutions to protect your business data.</p>
                     </div>
@@ -1025,7 +1025,7 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="step-card">
                         <div class="step-number">4</div>
-                        <i class="fa fa-chart-bar feature-icon"></i>
+                        <i class="fa fa-bar-chart feature-icon"></i>
                         <h4 class="feature-title">Grow</h4>
                         <p class="feature-description">Monitor analytics, optimize performance, and scale your business.</p>
                     </div>
@@ -1368,7 +1368,7 @@
                 <div class="col-lg-4">
                     <div class="blog-card">
                         <div class="blog-image">
-                            <i class="fa fa-chart-line"></i>
+                            <i class="fa fa-line-chart"></i>
                         </div>
                         <div class="blog-content">
                             <h4 class="blog-title">Understanding Hotspot Analytics</h4>
@@ -1514,6 +1514,8 @@
             
             // Counter animation for stats
             function animateCounter(element, start, end, duration) {
+                if (!element || !element.length) return;
+                
                 var obj = $(element);
                 var range = end - start;
                 var increment = end > start ? 1 : -1;
@@ -1522,11 +1524,13 @@
                 
                 var timer = setInterval(function() {
                     current += increment;
-                    if (element.text().includes('+')) {
+                    var originalText = obj.text();
+                    
+                    if (originalText.includes('+')) {
                         obj.text(current + '+');
-                    } else if (element.text().includes('%')) {
+                    } else if (originalText.includes('%')) {
                         obj.text(current + '%');
-                    } else if (element.text().includes('/')) {
+                    } else if (originalText.includes('/')) {
                         obj.text(current + '/7');
                     } else {
                         obj.text(current);
