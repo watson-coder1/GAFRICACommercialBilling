@@ -1034,7 +1034,7 @@
                     Trusted by 10,000+ businesses across Africa for seamless connectivity and revenue growth.
                 </p>
                 <div class="hero-cta">
-                    <a href="#pricing" class="btn-primary-large">Start Free Trial</a>
+                    <a href="https://wa.me/254711503023?text=Hi%20Glinta%20Africa,%20I%20want%20to%20start%20a%20free%20trial" class="btn-primary-large" target="_blank">Start Free Trial</a>
                     <a href="#features" class="btn-secondary-large">Explore Features</a>
                 </div>
             </div>
@@ -1215,7 +1215,7 @@
                             <li>Email support</li>
                             <li>Mobile responsive</li>
                         </ul>
-                        <a href="#contact" class="btn-primary-large">Get Started</a>
+                        <a href="https://wa.me/254711503023?text=Hi%20Glinta%20Africa,%20I%20want%20to%20get%20started" class="btn-primary-large" target="_blank">Get Started</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -1231,7 +1231,7 @@
                             <li>Priority support</li>
                             <li>Analytics dashboard</li>
                         </ul>
-                        <a href="#contact" class="btn-primary-large">Get Started</a>
+                        <a href="https://wa.me/254711503023?text=Hi%20Glinta%20Africa,%20I%20want%20to%20get%20started" class="btn-primary-large" target="_blank">Get Started</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -1247,7 +1247,7 @@
                             <li>24/7 phone support</li>
                             <li>Advanced analytics</li>
                         </ul>
-                        <a href="#contact" class="btn-primary-large">Get Started</a>
+                        <a href="https://wa.me/254711503023?text=Hi%20Glinta%20Africa,%20I%20want%20to%20get%20started" class="btn-primary-large" target="_blank">Get Started</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -1263,7 +1263,7 @@
                             <li>SLA guarantee</li>
                             <li>On-premise option</li>
                         </ul>
-                        <a href="#contact" class="btn-primary-large">Contact Sales</a>
+                        <a href="https://wa.me/254711503023?text=Hi%20Glinta%20Africa,%20I%20want%20to%20discuss%20the%20Enterprise%20plan" class="btn-primary-large" target="_blank">Contact Sales</a>
                     </div>
                 </div>
             </div>
@@ -1398,15 +1398,15 @@
                     <div class="row mt-5">
                         <div class="col-md-4 text-center">
                             <h5><i class="fa fa-envelope"></i> Email</h5>
-                            <p>info@glintaafrica.com</p>
+                            <p><a href="mailto:info@glintaafrica.com" style="color: #007bff; text-decoration: none;">info@glintaafrica.com</a><br><a href="mailto:watsonwambugu@yahoo.com" style="color: #007bff; text-decoration: none;">watsonwambugu@yahoo.com</a></p>
                         </div>
                         <div class="col-md-4 text-center">
                             <h5><i class="fa fa-phone"></i> Phone</h5>
-                            <p>+254 700 123 456</p>
+                            <p><a href="https://wa.me/254711503023" target="_blank" style="color: #25D366; text-decoration: none;">+254 711 503 023</a></p>
                         </div>
                         <div class="col-md-4 text-center">
                             <h5><i class="fa fa-whatsapp"></i> WhatsApp</h5>
-                            <p>+254 700 123 456</p>
+                            <p><a href="https://wa.me/254711503023" target="_blank" style="color: #25D366; text-decoration: none;">+254 711 503 023</a></p>
                         </div>
                     </div>
                 </div>
