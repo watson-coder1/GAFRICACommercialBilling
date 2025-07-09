@@ -20,7 +20,74 @@
     <link rel="stylesheet" href="{$app_url}/ui/ui/styles/glinta.customer.css?2025.2.4" />
 
     <style>
-
+        /* Mobile Responsive Fixes */
+        @media (max-width: 768px) {
+            .main-header .logo {
+                width: auto !important;
+                padding: 0 10px !important;
+            }
+            
+            .main-header .logo .logo-lg {
+                font-size: 16px !important;
+                display: inline-block !important;
+            }
+            
+            .main-header .logo .logo-mini {
+                display: none !important;
+            }
+            
+            .main-header .navbar {
+                margin-left: 0 !important;
+            }
+            
+            .sidebar-toggle {
+                display: inline-block !important;
+                color: #fff !important;
+                background: transparent !important;
+                border: none !important;
+                padding: 15px 10px !important;
+                float: left !important;
+            }
+            
+            .main-sidebar {
+                transform: translate(-100%, 0) !important;
+                transition: transform 0.3s ease-in-out !important;
+            }
+            
+            .sidebar-open .main-sidebar {
+                transform: translate(0, 0) !important;
+            }
+            
+            .content-wrapper {
+                margin-left: 0 !important;
+                transition: margin-left 0.3s ease-in-out !important;
+            }
+            
+            .main-header .navbar-custom-menu {
+                float: right !important;
+                margin-right: 10px !important;
+            }
+            
+            .main-header .navbar-custom-menu .nav > li > a {
+                padding: 15px 5px !important;
+            }
+        }
+        
+        /* Company name styling */
+        .main-header .logo .logo-lg {
+            color: #fff !important;
+            font-weight: bold !important;
+            text-decoration: none !important;
+        }
+        
+        .main-header .logo:hover .logo-lg {
+            color: #f4f4f4 !important;
+        }
+        
+        /* Remove duplicate company names */
+        .duplicate-company-name {
+            display: none !important;
+        }
     </style>
 
     {if isset($xheader)}
@@ -32,13 +99,14 @@
 <body class="hold-transition modern-skin-dark sidebar-mini">
     <div class="wrapper">
         <header class="main-header" style="position:fixed; width: 100%">
-            <a href="{Text::url('home')}" class="logo">
+            <a href="{if $_user}{Text::url('home')}{else}{$app_url}{/if}" class="logo" style="text-decoration: none;">
                 <span class="logo-mini"><b>G</b>A</span>
-                <span class="logo-lg">{$_c['CompanyName']}</span>
+                <span class="logo-lg" style="font-weight: bold; font-size: 18px;">{$_c['CompanyName']}</span>
             </a>
             <nav class="navbar navbar-static-top">
                 <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
                     <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
                 </a>
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">

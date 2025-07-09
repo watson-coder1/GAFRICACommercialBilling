@@ -29,7 +29,42 @@
     <script src="{$app_url}/ui/ui/scripts/sweetalert2.all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js?v=20250708"></script>
     <style>
-
+        /* Mobile Responsive Fixes */
+        @media (max-width: 768px) {
+            .main-header .logo {
+                width: auto !important;
+                padding: 0 10px !important;
+            }
+            
+            .main-header .logo .logo-lg {
+                font-size: 16px !important;
+                display: inline-block !important;
+            }
+            
+            .main-header .logo .logo-mini {
+                display: none !important;
+            }
+            
+            .sidebar-toggle {
+                display: inline-block !important;
+                color: #fff !important;
+                background: transparent !important;
+                border: none !important;
+                padding: 15px 10px !important;
+                float: left !important;
+            }
+        }
+        
+        /* Company name styling */
+        .main-header .logo .logo-lg {
+            color: #fff !important;
+            font-weight: bold !important;
+            text-decoration: none !important;
+        }
+        
+        .main-header .logo:hover .logo-lg {
+            color: #f4f4f4 !important;
+        }
     </style>
     {if isset($xheader)}
         {$xheader}
@@ -40,19 +75,15 @@
 <body class="hold-transition modern-skin-dark sidebar-mini {if $_kolaps}sidebar-collapse{/if}">
     <div class="wrapper">
         <header class="main-header">
-            <a href="{Text::url('dashboard')}" class="logo">
+            <a href="{Text::url('dashboard')}" class="logo" style="text-decoration: none;">
                 <span class="logo-mini"><b>G</b>A</span>
-                <span class="logo-lg">{$_c['CompanyName']}</span>
+                <span class="logo-lg" style="font-weight: bold; font-size: 18px;">{$_c['CompanyName']}</span>
             </a>
             <nav class="navbar navbar-static-top">
                 <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button" onclick="return setKolaps()">
                     <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
                 </a>
-                <div class="navbar-left">
-                    <span class="company-brand-header" style="font-family: 'Lobster', cursive; color: #FFD700; font-size: 22px; font-weight: 400; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); letter-spacing: 1px; padding: 15px 20px; display: inline-block;">
-                        {$_c['CompanyName']}
-                    </span>
-                </div>
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
                         <li class="nav-item">
