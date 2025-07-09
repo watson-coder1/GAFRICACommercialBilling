@@ -70,15 +70,49 @@
             }
         }
         
-        /* Company name styling */
+        /* Company name styling - Gold branding */
+        .main-header .logo {
+            background: #2c3e50 !important;
+            border-right: 1px solid #34495e !important;
+        }
+        
         .main-header .logo .logo-lg {
-            color: #fff !important;
-            font-weight: bold !important;
+            color: #FFD700 !important;
+            font-weight: 900 !important;
+            font-size: 20px !important;
             text-decoration: none !important;
+            text-transform: uppercase !important;
+            letter-spacing: 2px !important;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5) !important;
+        }
+        
+        .main-header .logo .logo-mini {
+            color: #FFD700 !important;
+            font-weight: 900 !important;
+            font-size: 18px !important;
         }
         
         .main-header .logo:hover .logo-lg {
-            color: #f4f4f4 !important;
+            color: #DAA520 !important;
+            text-decoration: none !important;
+        }
+        
+        .main-header .logo:hover .logo-mini {
+            color: #DAA520 !important;
+        }
+        
+        /* Hamburger menu positioning fix */
+        .main-header .navbar .sidebar-toggle {
+            color: #fff !important;
+            padding: 15px !important;
+            display: inline-block !important;
+            background: transparent !important;
+            border: none !important;
+        }
+        
+        .main-header .navbar .sidebar-toggle:hover {
+            background: rgba(255, 215, 0, 0.1) !important;
+            color: #FFD700 !important;
         }
     </style>
     {if isset($xheader)}

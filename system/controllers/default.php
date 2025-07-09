@@ -23,7 +23,7 @@ if(Admin::getID()){
             $ui->assign('app_url', APP_URL);
             $ui->assign('logged_in_admin', false);
             $ui->assign('logged_in_customer', false);
-            $ui->display('landing-simple.tpl');
+            $ui->display('landing-professional.tpl');
             return;
         } catch (Exception $e) {
             // If landing page fails, show a simple HTML page
