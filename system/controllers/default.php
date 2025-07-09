@@ -129,6 +129,13 @@ if(Admin::getID()){
         
         // Show the appropriate template
         try {
+            // Check if template file exists
+            if (!file_exists($root_path . '/ui/ui/' . $template)) {
+                // Template doesn't exist, use landing-final.tpl as fallback
+                $template = 'landing-final.tpl';
+                $title = 'Glinta Africa - Internet Billing Solutions';
+            }
+            
             $ui->assign('_title', $title);
             $ui->assign('_c', $config);
             $ui->assign('app_url', APP_URL);

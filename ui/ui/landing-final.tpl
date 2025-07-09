@@ -603,22 +603,25 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
+                        <a class="nav-link" href="{$app_url}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#services">Services</a>
+                        <a class="nav-link" href="{$app_url}/services">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#features">Features</a>
+                        <a class="nav-link" href="{$app_url}/features">Features</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#pricing">Pricing</a>
+                        <a class="nav-link" href="{$app_url}/pricing">Pricing</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
+                        <a class="nav-link" href="{$app_url}/about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
+                        <a class="nav-link" href="{$app_url}/contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{$app_url}/blog">Blog</a>
                     </li>
                 </ul>
             </div>
@@ -788,11 +791,11 @@
                         </div>
                     </div>
                     <div class="demo-buttons mt-4">
-                        <a href="{$app_url}/index.php?_route=demo-reseller" class="btn btn-primary me-3" target="_blank">
+                        <a href="{$app_url}/demo-reseller" class="btn btn-primary me-3" target="_blank">
                             <i class="fas fa-cogs me-2"></i>
                             Try Reseller Demo
                         </a>
-                        <a href="{$app_url}/index.php?_route=demo-customer" class="btn btn-outline-dark" target="_blank">
+                        <a href="{$app_url}/demo-customer" class="btn btn-outline-dark" target="_blank">
                             <i class="fas fa-user me-2"></i>
                             Try Customer Demo
                         </a>
@@ -1076,31 +1079,31 @@
             <div class="row g-4">
                 <div class="col-lg-3 col-md-6">
                     <h5>Company</h5>
-                    <a href="{$app_url}/index.php?_route=about">About Us</a>
-                    <a href="{$app_url}/index.php?_route=careers">Careers</a>
-                    <a href="{$app_url}/index.php?_route=news">News & Press</a>
-                    <a href="{$app_url}/index.php?_route=investors">Investor Relations</a>
+                    <a href="{$app_url}/about">About Us</a>
+                    <a href="{$app_url}/careers">Careers</a>
+                    <a href="{$app_url}/news">News & Press</a>
+                    <a href="{$app_url}/investors">Investor Relations</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5>Products</h5>
-                    <a href="{$app_url}/index.php?_route=hotspot">Hotspot Solutions</a>
-                    <a href="{$app_url}/index.php?_route=pppoe">PPPoE Management</a>
-                    <a href="{$app_url}/index.php?_route=billing">Billing Platform</a>
-                    <a href="{$app_url}/index.php?_route=analytics">Analytics Suite</a>
+                    <a href="{$app_url}/hotspot">Hotspot Solutions</a>
+                    <a href="{$app_url}/pppoe">PPPoE Management</a>
+                    <a href="{$app_url}/billing">Billing Platform</a>
+                    <a href="{$app_url}/analytics">Analytics Suite</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5>Support</h5>
-                    <a href="{$app_url}/index.php?_route=help">Help Center</a>
-                    <a href="{$app_url}/index.php?_route=documentation">Documentation</a>
-                    <a href="{$app_url}/index.php?_route=community">Community Forum</a>
-                    <a href="{$app_url}/index.php?_route=contact">Contact Support</a>
+                    <a href="{$app_url}/help">Help Center</a>
+                    <a href="{$app_url}/documentation">Documentation</a>
+                    <a href="{$app_url}/community">Community Forum</a>
+                    <a href="{$app_url}/contact">Contact Support</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5>Legal</h5>
-                    <a href="{$app_url}/index.php?_route=privacy">Privacy Policy</a>
-                    <a href="{$app_url}/index.php?_route=terms">Terms of Service</a>
-                    <a href="{$app_url}/index.php?_route=security">Security</a>
-                    <a href="{$app_url}/index.php?_route=compliance">Compliance</a>
+                    <a href="{$app_url}/privacy">Privacy Policy</a>
+                    <a href="{$app_url}/terms">Terms of Service</a>
+                    <a href="{$app_url}/security">Security</a>
+                    <a href="{$app_url}/compliance">Compliance</a>
                 </div>
             </div>
             <hr style="border-color: var(--gold); margin: 3rem 0 2rem;">
