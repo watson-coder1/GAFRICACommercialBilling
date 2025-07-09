@@ -145,8 +145,8 @@
                 <div class="col-lg-8 mx-auto">
                     <h1>Enterprise Hotspot Billing Solutions</h1>
                     <p>Transform your WiFi business with Africa's most advanced hotspot billing system.</p>
+                    <a href="https://wa.me/254711503023?text=Hi%20Glinta%20Africa,%20I%20want%20to%20start%20a%20free%20trial" class="btn-gold" target="_blank">Start Free Trial</a>
                     <a href="{$app_url}/index.php?_route=admin" class="btn-gold" target="_blank">Admin Demo</a>
-                    <a href="{$app_url}/index.php?_route=login" class="btn-gold" target="_blank">Customer Demo</a>
                 </div>
             </div>
         </div>
@@ -202,7 +202,7 @@
                         <h3>Basic</h3>
                         <div class="h2" style="color: var(--gold);">KES 1,000</div>
                         <p>50 users, 1 location</p>
-                        <a href="#contact" class="btn-gold">Get Started</a>
+                        <a href="https://wa.me/254711503023?text=Hi%20Glinta%20Africa,%20I%20want%20to%20get%20started" class="btn-gold" target="_blank">Get Started</a>
                     </div>
                 </div>
                 <div class="col-lg-3">
@@ -210,7 +210,7 @@
                         <h3>Starter</h3>
                         <div class="h2" style="color: var(--gold);">KES 2,500</div>
                         <p>150 users, 3 locations</p>
-                        <a href="#contact" class="btn-gold">Get Started</a>
+                        <a href="https://wa.me/254711503023?text=Hi%20Glinta%20Africa,%20I%20want%20to%20get%20started" class="btn-gold" target="_blank">Get Started</a>
                     </div>
                 </div>
                 <div class="col-lg-3">
@@ -241,11 +241,11 @@
                     <h2>Get Started Today</h2>
                     <p class="lead">Ready to transform your hotspot business?</p>
                     <div class="mt-4">
-                        <p><strong>Email:</strong> info@glintaafrica.com</p>
+                        <p><strong>Email:</strong> <a href="mailto:info@glintaafrica.com">info@glintaafrica.com</a> | <a href="mailto:watsonwambugu@yahoo.com">watsonwambugu@yahoo.com</a></p>
                         <p><strong>Phone:</strong> +254 700 123 456</p>
-                        <p><strong>WhatsApp:</strong> +254 700 123 456</p>
+                        <p><strong>WhatsApp:</strong> <a href="https://wa.me/254711503023" target="_blank" style="color: #25D366; text-decoration: none;">+254 711 503 023</a></p>
                     </div>
-                    <a href="mailto:info@glintaafrica.com" class="btn-gold">Contact Us Now</a>
+                    <a href="https://wa.me/254711503023?text=Hi%20Glinta%20Africa,%20I%20want%20to%20contact%20you" class="btn-gold" target="_blank">Contact Us Now</a>
                 </div>
             </div>
         </div>

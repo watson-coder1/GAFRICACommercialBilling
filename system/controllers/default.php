@@ -26,6 +26,9 @@ if(Admin::getID()){
             $ui->display('landing-professional.tpl');
             return;
         } catch (Exception $e) {
+            // Log the error for debugging
+            error_log("Landing page template error: " . $e->getMessage());
+            
             // If landing page fails, show a simple HTML page
             echo '<!DOCTYPE html>
             <html>

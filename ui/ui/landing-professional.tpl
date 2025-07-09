@@ -161,7 +161,7 @@
 
         /* Hero Section */
         .hero-section {
-            background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
+            background: var(--gradient-primary);
             position: relative;
             min-height: 100vh;
             display: flex;
