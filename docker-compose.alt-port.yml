@@ -1,0 +1,30 @@
+services:
+  nuxbill-local:
+    container_name: nuxbill-local
+    pull_policy: always
+    build: ./
+    restart: unless-stopped
+    ports:
+      - "8081:80"  # Using port 8081 instead of 8080
+    environment:
+      TZ: Africa/Nairobi
+    depends_on:
+      - mysql-local
+    volumes:
+      - ./config.local.php:/var/www/html/config.php
+
+  mysql-local:
+    container_name: mysql-local
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: "SecureP@ssw0rd123!"
+      MYSQL_DATABASE: "nuxbill_local"
+      MYSQL_USER: "nuxbill"
+      MYSQL_PASSWORD: "SecureP@ssw0rd123!"
+    ports:
+      - "3309:3306"  # Using port 3309 instead of 3308
+    volumes:
+      - mysql_local_data:/var/lib/mysql
+
+volumes:
+  mysql_local_data:

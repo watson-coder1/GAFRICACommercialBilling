@@ -8,7 +8,17 @@
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(git push:*)",
-      "Bash(git remote set-url:*)"
+      "Bash(git remote set-url:*)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(ls:*)",
+      "Bash(rg:*)",
+      "Bash(chmod:*)",
+      "Bash(php:*)",
+      "Bash(./verify_security_fixes.sh:*)",
+      "Bash(docker:*)",
+      "Bash(git reset:*)",
+      "WebFetch(domain:github.com)"
     ],
     "deny": []
   }

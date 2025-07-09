@@ -36,8 +36,7 @@
         }
         
         .landing-hero {
-            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(26,26,26,0.8) 100%), 
-                        url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover;
+            background: linear-gradient(135deg, var(--black) 0%, var(--dark-gray) 100%);
             color: var(--white);
             padding: 140px 0;
             text-align: center;
@@ -733,15 +732,15 @@
                     </li>
                     {if $logged_in_admin}
                         <li class="nav-item">
-                            <a class="nav-link btn btn-outline-custom ml-2" href="{$app_url}/admin">Admin Dashboard</a>
+                            <a class="nav-link btn btn-outline-custom ml-2" href="{$app_url}/index.php?_route=admin">Admin Dashboard</a>
                         </li>
                     {elseif $logged_in_customer}
                         <li class="nav-item">
-                            <a class="nav-link btn btn-outline-custom ml-2" href="{$app_url}">Customer Portal</a>
+                            <a class="nav-link btn btn-outline-custom ml-2" href="{$app_url}/index.php?_route=home">Customer Portal</a>
                         </li>
                     {else}
                         <li class="nav-item">
-                            <a class="nav-link btn btn-outline-custom ml-2" href="{$app_url}/login">Login</a>
+                            <a class="nav-link btn btn-outline-custom ml-2" href="{$app_url}/index.php?_route=login">Login</a>
                         </li>
                     {/if}
                 </ul>
@@ -1057,7 +1056,7 @@
                                 <span class="text-muted">Username:</span> admin<br>
                                 <span class="text-muted">Password:</span> admin
                             </div>
-                            <a href="{$app_url}/admin" class="btn btn-primary-custom" target="_blank">Launch Admin Demo</a>
+                            <a href="{$app_url}/index.php?_route=admin" class="btn btn-primary-custom" target="_blank">Launch Admin Demo</a>
                         </div>
                     </div>
                 </div>
@@ -1074,7 +1073,7 @@
                                 <span class="text-muted">Username:</span> demo<br>
                                 <span class="text-muted">Password:</span> demo
                             </div>
-                            <a href="{$app_url}/login" class="btn btn-primary-custom" target="_blank">Launch Customer Demo</a>
+                            <a href="{$app_url}/index.php?_route=login" class="btn btn-primary-custom" target="_blank">Launch Customer Demo</a>
                         </div>
                     </div>
                 </div>

@@ -23,7 +23,7 @@ if(Admin::getID()){
             $ui->assign('app_url', APP_URL);
             $ui->assign('logged_in_admin', false);
             $ui->assign('logged_in_customer', false);
-            $ui->display('landing.tpl');
+            $ui->display('landing-simple.tpl');
             return;
         } catch (Exception $e) {
             // If landing page fails, show a simple HTML page
@@ -49,8 +49,8 @@ if(Admin::getID()){
                     <p>Transform your WiFi business with Africa\'s most advanced hotspot billing system. Trusted by ISPs, hotels, cafes, and enterprise networks across the continent.</p>
                     
                     <div style="text-align: center; margin: 30px 0;">
-                        <a href="' . APP_URL . '/admin" class="btn">Admin Demo</a>
-                        <a href="' . APP_URL . '/login" class="btn">Customer Portal</a>
+                        <a href="' . APP_URL . '/index.php?_route=admin" class="btn">Admin Demo</a>
+                        <a href="' . APP_URL . '/index.php?_route=login" class="btn">Customer Portal</a>
                     </div>
                     
                     <div class="features">
