@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{$_title}</title>
+    <meta name="description" content="Glinta Africa - Transform your WiFi into a revenue powerhouse. Professional hotspot billing solutions trusted by 10,000+ businesses across Africa.">
+    <meta name="keywords" content="wifi monetization, hotspot billing, business wifi solutions, africa wifi management, restaurant wifi, hotel internet billing">
+    <meta name="author" content="Glinta Africa">
+    <meta property="og:title" content="Glinta Africa - WiFi Monetization Made Simple">
+    <meta property="og:description" content="Turn your WiFi from a cost center into a profit driver. Professional billing solutions for modern businesses.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://glintaafrica.com">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="canonical" href="https://glintaafrica.com">
+    <link rel="shortcut icon" href="{$app_url}/ui/ui/images/logo.png" type="image/x-icon" />
+    
+    <!-- Professional Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --primary: #1e293b;
+            --secondary: #0f172a;
+            --accent: #f59e0b;
+            --accent-light: #fbbf24;
+            --accent-dark: #d97706;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --text-light: #94a3b8;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-accent: #fffbeb;
+            --border: #e2e8f0;
+            --shadow: rgba(30, 41, 59, 0.04);
+            --shadow-lg: rgba(30, 41, 59, 0.08);
+            --gradient-primary: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            --gradient-accent: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            --gradient-hero: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        /* Custom Logo Typography */
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+            display: inline-block;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .logo-text:hover {
+            color: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        .logo-text::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-accent);
+            transition: width 0.3s ease;
+        }
+
+        .logo-text:hover::after {
+            width: 100%;
+        }
+
+        /* Advanced Typography */
+        .display-1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .display-2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+
+        /* Dynamic Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 20px var(--shadow-lg);
+            padding: 0.75rem 0;
+        }
+
+        .navbar-nav .nav-link {
+            font-weight: 500;
+            color: var(--text-primary);
+            margin: 0 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--accent);
+            background: var(--bg-accent);
+        }
+
+        .navbar-nav .nav-link.active {
+            color: var(--accent);
+            background: var(--bg-accent);
+        }
+
+        /* Hero Section - Dynamic */
+        .hero {
+            background: var(--gradient-hero);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1553484771-cc0d9b8c2b33?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
+            opacity: 0.05;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            color: var(--accent-light);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .hero h1 {
+            color: white;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.6s ease-out 0.2s both;
+        }
+
+        .hero .lead {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            animation: fadeInUp 0.6s ease-out 0.4s both;
+        }
+
+        .hero-cta {
+            animation: fadeInUp 0.6s ease-out 0.6s both;
+        }
+
+        .hero-stats {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeInUp 0.6s ease-out 0.8s both;
+        }
+
+        .hero-stat {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .hero-stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-light);
+            margin-bottom: 0.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .hero-stat-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        /* Floating Elements */
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-icon {
+            position: absolute;
+            color: rgba(245, 158, 11, 0.2);
+            font-size: 1.5rem;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-icon:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .floating-icon:nth-child(2) { top: 30%; right: 15%; animation-delay: 1s; }
+        .floating-icon:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 2s; }
+        .floating-icon:nth-child(4) { bottom: 20%; right: 25%; animation-delay: 3s; }
+        .floating-icon:nth-child(5) { top: 60%; left: 5%; animation-delay: 4s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Button Styles */
+        .btn {
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--gradient-accent);
+            color: white;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(245, 158, 11, 0.4);
+            color: white;
+        }
+
+        .btn-outline-light {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-outline-light:hover {
+            background: white;
+            color: var(--primary);
+            border-color: white;
+        }
+
+        /* Section Spacing */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-sm {
+            padding: 3rem 0;
+        }
+
+        /* Feature Cards */
+        .feature-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-accent);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px var(--shadow-lg);
+            border-color: var(--accent);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--bg-accent);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            background: var(--accent);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* Blog Section */
+        .blog-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px var(--shadow-lg);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-meta {
+            color: var(--text-light);
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .blog-excerpt {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .blog-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.875rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .blog-link:hover {
+            color: var(--accent-dark);
+            gap: 0.5rem;
+        }
+
+        /* Testimonials */
+        .testimonial-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px var(--shadow-lg);
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            object-fit: cover;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .testimonial-company {
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        /* Pricing Cards */
+        .pricing-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px var(--shadow-lg);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--accent);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer h5 {
+            color: var(--accent-light);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .footer a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--accent-light);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            margin-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .logo-text {
+                font-size: 1.5rem;
+            }
+
+            .display-1 {
+                font-size: 2.5rem;
+            }
+
+            .display-2 {
+                font-size: 2rem;
+            }
+
+            .hero {
+                min-height: 80vh;
+            }
+
+            .hero-stats {
+                margin-top: 2rem;
+                padding-top: 2rem;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="logo-text" href="{$app_url}">
+                <span style="color: var(--accent);">G</span>linta<span style="color: var(--accent);">A</span>frica
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#solutions">Solutions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#blog">Insights</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pricing">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="floating-elements">
+            <i class="floating-icon fas fa-wifi"></i>
+            <i class="floating-icon fas fa-chart-line"></i>
+            <i class="floating-icon fas fa-mobile-alt"></i>
+            <i class="floating-icon fas fa-shield-alt"></i>
+            <i class="floating-icon fas fa-rocket"></i>
+        </div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <div class="hero-badge">
+                            <i class="fas fa-sparkles me-2"></i>
+                            Your WiFi deserves better than being just "free"
+                        </div>
+                        <h1 class="display-1 mb-4">
+                            Turn Your WiFi Into A<br>
+                            <span style="color: var(--accent-light);">Revenue Powerhouse</span>
+                        </h1>
+                        <p class="lead">
+                            Stop giving away your WiFi for free like it's 2005. Our platform helps smart business owners transform their internet connection from a cost center into their most profitable asset.
+                        </p>
+                        <div class="hero-cta">
+                            <a href="https://wa.me/254711503023?text=Hi%20Glinta%20Africa,%20I%20want%20to%20turn%20my%20WiFi%20into%20a%20money-making%20machine" class="btn btn-primary btn-lg me-3" target="_blank">
+                                <i class="fas fa-rocket me-2"></i>Start Making Money
+                            </a>
+                            <a href="#features" class="btn btn-outline-light btn-lg">
+                                <i class="fas fa-play me-2"></i>See How It Works
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-stats">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="hero-stat">
+                                    <div class="hero-stat-number" data-count="10000">0</div>
+                                    <div class="hero-stat-label">Smart Businesses</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="hero-stat">
+                                    <div class="hero-stat-number" data-count="2500000">0</div>
+                                    <div class="hero-stat-label">Monthly Revenue</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="hero-stat">
+                                    <div class="hero-stat-number" data-count="50">0</div>
+                                    <div class="hero-stat-label">Countries</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="display-2 mb-4">Why Your Customers Will Actually Pay For WiFi</h2>
+                    <p class="lead">Because nobody wants to share their mobile data when there's perfectly good WiFi right there. Make it premium, make it profitable.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h4>Lightning-Fast Setup</h4>
+                        <p>Get your WiFi billing system running faster than you can say "password123". Our one-click setup makes even your grandmother's router profitable.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4>Mobile Money Magic</h4>
+                        <p>M-Pesa, Airtel Money, and 50+ payment methods. Your customers can pay with everything except their good looks (unfortunately).</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Revenue Analytics That Actually Matter</h4>
+                        <p>See exactly how much money your WiFi is making. Spoiler alert: it's probably more than your coffee machine.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Fort Knox-Level Security</h4>
+                        <p>Bank-grade encryption that makes your WiFi more secure than your neighbor's password (which is probably still "password123").</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h4>Support That Actually Helps</h4>
+                        <p>24/7 support from real humans who understand that "turn it off and on again" isn't always the answer.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h4>Brand It Like You Mean It</h4>
+                        <p>Customize everything with your brand colors and logo. Make your WiFi portal more beautiful than your Instagram feed.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="display-2 mb-4">Perfect For Every Business Type</h2>
+                    <p class="lead">Whether you're serving coffee or five-star meals, we've got the perfect WiFi monetization solution for you.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card animate-on-scroll">
+                        <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Restaurant WiFi" class="img-fluid rounded mb-3" style="width: 100%; height: 200px; object-fit: cover;">
+                        <h4>Restaurants & Cafes</h4>
+                        <p>Turn your dining area into a profit center. Customers stay longer, order more, and pay for premium WiFi. It's like having a money printer, but legal.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card animate-on-scroll">
+                        <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Hotel WiFi" class="img-fluid rounded mb-3" style="width: 100%; height: 200px; object-fit: cover;">
+                        <h4>Hotels & Lodges</h4>
+                        <p>Give guests lightning-fast WiFi that's worth paying for. Because nothing says "luxury" like not having to use hotel WiFi from 2010.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card animate-on-scroll">
+                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Retail WiFi" class="img-fluid rounded mb-3" style="width: 100%; height: 200px; object-fit: cover;">
+                        <h4>Retail & Shopping</h4>
+                        <p>Keep shoppers connected and happy while they browse. Happy customers with good WiFi are customers who buy more stuff.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="display-2 mb-4">WiFi Business Insights</h2>
+                    <p class="lead">Stay ahead of the curve with our latest insights on WiFi monetization, customer behavior, and business growth strategies.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <article class="blog-card animate-on-scroll">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="WiFi Revenue Analytics" class="blog-image">
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <time datetime="2024-01-15">January 15, 2024</time> • WiFi Business
+                            </div>
+                            <h3 class="blog-title">How to Increase WiFi Revenue by 300% in 30 Days</h3>
+                            <p class="blog-excerpt">
+                                Discover the proven strategies that successful businesses use to transform their WiFi from a cost center into their most profitable service.
+                            </p>
+                            <a href="/blog/increase-wifi-revenue-300-percent" class="blog-link">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4">
+                    <article class="blog-card animate-on-scroll">
+                        <img src="https://images.unsplash.com/photo-1556075798-4825dfaaf498?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Customer WiFi Behavior" class="blog-image">
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <time datetime="2024-01-10">January 10, 2024</time> • Customer Insights
+                            </div>
+                            <h3 class="blog-title">Why Customers Are Happy to Pay for Premium WiFi</h3>
+                            <p class="blog-excerpt">
+                                Understanding customer psychology and willingness to pay for quality internet access in hospitality and retail environments.
+                            </p>
+                            <a href="/blog/customers-pay-premium-wifi" class="blog-link">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4">
+                    <article class="blog-card animate-on-scroll">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Mobile Payment Integration" class="blog-image">
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <time datetime="2024-01-05">January 5, 2024</time> • Technology
+                            </div>
+                            <h3 class="blog-title">M-Pesa Integration: The Game Changer for African Businesses</h3>
+                            <p class="blog-excerpt">
+                                How mobile money integration is revolutionizing WiFi billing across Africa and driving unprecedented revenue growth.
+                            </p>
+                            <a href="/blog/mpesa-integration-game-changer" class="blog-link">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="display-2 mb-4">What Our Customers Say</h2>
+                    <p class="lead">Don't just take our word for it. Here's what real business owners have to say about turning their WiFi into a revenue stream.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="testimonial-card animate-on-scroll">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616c79e696b?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Sarah Mwangi" class="testimonial-avatar">
+                        <p class="testimonial-text">
+                            "I never thought WiFi could make me money until I found Glinta Africa. Now my coffee shop's WiFi pays for itself and then some. Best investment I've made in years!"
+                        </p>
+                        <div class="testimonial-author">Sarah Mwangi</div>
+                        <div class="testimonial-company">Java House, Nairobi</div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial-card animate-on-scroll">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="James Ochieng" class="testimonial-avatar">
+                        <p class="testimonial-text">
+                            "Our hotel guests actually compliment us on our WiFi speed now. And the extra revenue? It's covering our internet costs and more. Genius system!"
+                        </p>
+                        <div class="testimonial-author">James Ochieng</div>
+                        <div class="testimonial-company">Lake View Hotel, Kisumu</div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial-card animate-on-scroll">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Amina Hassan" class="testimonial-avatar">
+                        <p class="testimonial-text">
+                            "The setup was ridiculously easy and the support team is amazing. My restaurant's WiFi went from expense to profit center in one day. Literally."
+                        </p>
+                        <div class="testimonial-author">Amina Hassan</div>
+                        <div class="testimonial-company">Swahili Delights, Mombasa</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="display-2 mb-4">Pricing That Actually Makes Sense</h2>
+                    <p class="lead">No hidden fees, no surprises, no "enterprise" pricing for basic features. Just honest pricing that scales with your success.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="pricing-card animate-on-scroll">
+                        <h3>Starter</h3>
+                        <div class="pricing-price">KSh 1,000</div>
+                        <p class="text-muted">per month</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Up to 50 users</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>1 location</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Basic analytics</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>M-Pesa integration</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Email support</li>
+                        </ul>
+                        <a href="https://wa.me/254711503023?text=Hi%20Glinta%20Africa,%20I%20want%20to%20start%20with%20the%20Starter%20plan" class="btn btn-primary w-100 mt-3" target="_blank">
+                            Get Started
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="pricing-card animate-on-scroll">
+                        <h3>Business</h3>
+                        <div class="pricing-price">KSh 2,500</div>
+                        <p class="text-muted">per month</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Up to 150 users</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>3 locations</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Advanced analytics</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>All payment methods</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Priority support</li>
+                        </ul>
+                        <a href="https://wa.me/254711503023?text=Hi%20Glinta%20Africa,%20I%20want%20to%20start%20with%20the%20Business%20plan" class="btn btn-primary w-100 mt-3" target="_blank">
+                            Get Started
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="pricing-card featured animate-on-scroll">
+                        <h3>Professional</h3>
+                        <div class="pricing-price">KSh 5,000</div>
+                        <p class="text-muted">per month</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Up to 500 users</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>10 locations</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Full analytics suite</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Custom branding</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Phone support</li>
+                        </ul>
+                        <a href="https://wa.me/254711503023?text=Hi%20Glinta%20Africa,%20I%20want%20to%20start%20with%20the%20Professional%20plan" class="btn btn-primary w-100 mt-3" target="_blank">
+                            Get Started
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="pricing-card animate-on-scroll">
+                        <h3>Enterprise</h3>
+                        <div class="pricing-price">KSh 10,000</div>
+                        <p class="text-muted">per month</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Unlimited users</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Unlimited locations</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Custom features</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>API access</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Dedicated support</li>
+                        </ul>
+                        <a href="https://wa.me/254711503023?text=Hi%20Glinta%20Africa,%20I%20want%20to%20discuss%20the%20Enterprise%20plan" class="btn btn-primary w-100 mt-3" target="_blank">
+                            Contact Sales
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-2 mb-4">Ready to See It in Action?</h2>
+                    <p class="lead mb-4">
+                        Take our platform for a test drive. No credit card required, no pushy sales calls, just pure WiFi monetization magic.
+                    </p>
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+                        <a href="{$app_url}/index.php?_route=admin" class="btn btn-primary btn-lg" target="_blank">
+                            <i class="fas fa-cog me-2"></i>Try Admin Demo
+                        </a>
+                        <a href="{$app_url}/index.php?_route=login" class="btn btn-outline-primary btn-lg" target="_blank">
+                            <i class="fas fa-user me-2"></i>Try Customer Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section" style="background: var(--gradient-primary); color: white;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="display-2 mb-4" style="color: white;">Let's Turn Your WiFi Into Money</h2>
+                    <p class="lead">Ready to stop giving away your most valuable asset for free? Let's chat about how we can make your WiFi profitable.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="text-center">
+                        <div class="mb-3">
+                            <i class="fas fa-envelope" style="font-size: 2rem; color: var(--accent-light);"></i>
+                        </div>
+                        <h5 style="color: var(--accent-light);">Email Us</h5>
+                        <p>
+                            <a href="mailto:info@glintaafrica.com" style="color: rgba(255, 255, 255, 0.9);">info@glintaafrica.com</a><br>
+                            <a href="mailto:watsonwambugu@yahoo.com" style="color: rgba(255, 255, 255, 0.9);">watsonwambugu@yahoo.com</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="text-center">
+                        <div class="mb-3">
+                            <i class="fas fa-phone" style="font-size: 2rem; color: var(--accent-light);"></i>
+                        </div>
+                        <h5 style="color: var(--accent-light);">Call Us</h5>
+                        <p>
+                            +254 700 123 456<br>
+                            <small style="color: rgba(255, 255, 255, 0.7);">Monday - Friday: 8AM - 6PM</small>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="text-center">
+                        <div class="mb-3">
+                            <i class="fab fa-whatsapp" style="font-size: 2rem; color: var(--accent-light);"></i>
+                        </div>
+                        <h5 style="color: var(--accent-light);">WhatsApp</h5>
+                        <p>
+                            <a href="https://wa.me/254711503023" target="_blank" style="color: rgba(255, 255, 255, 0.9);">+254 711 503 023</a><br>
+                            <small style="color: rgba(255, 255, 255, 0.7);">Instant response 24/7</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-6 mx-auto text-center">
+                    <a href="https://wa.me/254711503023?text=Hi%20Glinta%20Africa,%20I%20want%20to%20turn%20my%20WiFi%20into%20a%20revenue%20stream" class="btn btn-primary btn-lg" target="_blank">
+                        <i class="fas fa-comments me-2"></i>Start the Conversation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="logo-text mb-3" style="font-size: 1.5rem; color: var(--accent-light);">
+                        <span style="color: var(--accent);">G</span>linta<span style="color: var(--accent);">A</span>frica
+                    </div>
+                    <p class="text-light">
+                        Transforming WiFi networks across Africa into profitable business assets. Join thousands of smart business owners who've stopped giving away their most valuable resource for free.
+                    </p>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Product</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#solutions">Solutions</a></li>
+                        <li><a href="/integrations">Integrations</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Resources</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/case-studies">Case Studies</a></li>
+                        <li><a href="/help">Help Center</a></li>
+                        <li><a href="/api-docs">API Docs</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Company</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/careers">Careers</a></li>
+                        <li><a href="/press">Press</a></li>
+                        <li><a href="/partners">Partners</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Legal</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/terms">Terms of Service</a></li>
+                        <li><a href="/security">Security</a></li>
+                        <li><a href="/compliance">Compliance</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Glinta Africa. All rights reserved. | Made with ❤️ by <a href="https://watsonsdevelopers.com" style="color: var(--accent);">watsonsdevelopers.com</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Active navigation
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('[data-count]');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = parseInt(counter.getAttribute('data-count'));
+                        const duration = 2000;
+                        const increment = target / (duration / 16);
+                        let current = 0;
+
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= target) {
+                                current = target;
+                                clearInterval(timer);
+                            }
+                            counter.textContent = Math.floor(current).toLocaleString();
+                        }, 16);
+
+                        observer.unobserve(counter);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            counters.forEach(counter => observer.observe(counter));
+        }
+
+        // Scroll animations
+        function initScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', function() {
+            animateCounters();
+            initScrollAnimations();
+        });
+
+        // Mobile menu close on link click
+        document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                if (navbarCollapse.classList.contains('show')) {
+                    const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                    bsCollapse.hide();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
