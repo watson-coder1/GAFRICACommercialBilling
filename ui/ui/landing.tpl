@@ -168,8 +168,24 @@
         
         .navbar-brand {
             font-weight: 900;
-            font-size: 24px;
+            font-size: 28px;
             color: var(--gold) !important;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: 'Arial Black', Arial, sans-serif;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        
+        .navbar-brand::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--dark-gold) 100%);
+            border-radius: 2px;
         }
         
         .navbar-dark .navbar-nav .nav-link {
@@ -212,8 +228,25 @@
         
         .pricing-card.featured {
             border-color: var(--gold);
-            transform: scale(1.05);
+            transform: scale(1.08);
             background: linear-gradient(135deg, var(--light-gold) 0%, var(--white) 100%);
+            position: relative;
+        }
+        
+        .pricing-card.featured::after {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold);
+            color: var(--black);
+            padding: 5px 20px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .pricing-card.featured::before {
@@ -355,6 +388,12 @@
                 transform: none;
                 margin-top: 0;
             }
+            
+            .pricing-card.featured::after {
+                top: -10px;
+                font-size: 10px;
+                padding: 3px 15px;
+            }
         }
     </style>
 </head>
@@ -364,8 +403,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="{$app_url}/landing.php">
-                <img src="{$app_url}/ui/ui/images/logo.png" alt="Glinta Africa" height="30" class="d-inline-block align-top mr-2">
-                Glinta Africa
+                GLINTA AFRICA
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -497,6 +535,69 @@
                         <i class="fa fa-globe feature-icon"></i>
                         <h4 class="feature-title">Multi-Location Support</h4>
                         <p class="feature-description">Manage multiple hotspot locations from a single dashboard. Perfect for franchise operations and multi-site businesses.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-box text-center">
+                        <i class="fa fa-clock-o feature-icon"></i>
+                        <h4 class="feature-title">Time-Based Packages</h4>
+                        <p class="feature-description">Flexible time-based internet packages: hourly, daily, weekly, monthly plans. Automatic disconnection when time expires.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-box text-center">
+                        <i class="fa fa-tachometer feature-icon"></i>
+                        <h4 class="feature-title">Bandwidth Management</h4>
+                        <p class="feature-description">Dynamic bandwidth allocation, speed limits per user, traffic shaping, and Quality of Service (QoS) controls for optimal network performance.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-box text-center">
+                        <i class="fa fa-envelope feature-icon"></i>
+                        <h4 class="feature-title">SMS & Email Integration</h4>
+                        <p class="feature-description">Automated SMS and email notifications for payments, package expiry, promotions, and customer communications via multiple channels.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-box text-center">
+                        <i class="fa fa-code feature-icon"></i>
+                        <h4 class="feature-title">API & Integrations</h4>
+                        <p class="feature-description">RESTful API for third-party integrations, webhooks, custom applications, and seamless connection with external systems.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-box text-center">
+                        <i class="fa fa-database feature-icon"></i>
+                        <h4 class="feature-title">Data Usage Monitoring</h4>
+                        <p class="feature-description">Real-time data usage tracking, automatic cutoff when limits reached, detailed usage reports, and fair usage policies.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-box text-center">
+                        <i class="fa fa-users-cog feature-icon"></i>
+                        <h4 class="feature-title">Staff Management</h4>
+                        <p class="feature-description">Role-based access control, multiple admin levels, activity logging, and permission management for team collaboration.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-box text-center">
+                        <i class="fa fa-sync feature-icon"></i>
+                        <h4 class="feature-title">Auto-Renewal & Subscriptions</h4>
+                        <p class="feature-description">Automatic package renewals, subscription management, recurring billing, and grace period configurations for uninterrupted service.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-box text-center">
+                        <i class="fa fa-map-marker feature-icon"></i>
+                        <h4 class="feature-title">Geolocation & Mapping</h4>
+                        <p class="feature-description">GPS tracking of access points, customer location mapping, coverage area visualization, and location-based services.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-box text-center">
+                        <i class="fa fa-backup feature-icon"></i>
+                        <h4 class="feature-title">Backup & Recovery</h4>
+                        <p class="feature-description">Automated daily backups, one-click restore, data export/import, and disaster recovery solutions to protect your business data.</p>
                     </div>
                 </div>
             </div>
@@ -632,58 +733,78 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-3">
+                    <div class="pricing-card">
+                        <h3 class="pricing-title">Basic</h3>
+                        <div class="pricing-price">
+                            KES 1,000<span style="font-size: 1.2rem; color: #666;">/month</span>
+                        </div>
+                        <ul class="list-unstyled text-left">
+                            <li class="mb-2">✓ Up to 50 concurrent users</li>
+                            <li class="mb-2">✓ Basic captive portal</li>
+                            <li class="mb-2">✓ M-Pesa integration</li>
+                            <li class="mb-2">✓ Email support</li>
+                            <li class="mb-2">✓ Basic reporting</li>
+                            <li class="mb-2">✓ Voucher system</li>
+                            <li class="mb-2">✓ 1 location</li>
+                            <li class="mb-2">✓ 10GB monthly data</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline-custom">Start Free Trial</a>
+                    </div>
+                </div>
+                <div class="col-lg-3">
                     <div class="pricing-card">
                         <h3 class="pricing-title">Starter</h3>
                         <div class="pricing-price">
                             KES 2,500<span style="font-size: 1.2rem; color: #666;">/month</span>
                         </div>
                         <ul class="list-unstyled text-left">
-                            <li class="mb-2">✓ Up to 100 concurrent users</li>
-                            <li class="mb-2">✓ Basic reporting & analytics</li>
-                            <li class="mb-2">✓ M-Pesa & Airtel Money integration</li>
+                            <li class="mb-2">✓ Up to 150 concurrent users</li>
+                            <li class="mb-2">✓ Advanced captive portal</li>
+                            <li class="mb-2">✓ M-Pesa & Airtel Money</li>
                             <li class="mb-2">✓ Email & SMS support</li>
-                            <li class="mb-2">✓ MikroTik RouterOS integration</li>
-                            <li class="mb-2">✓ Voucher system</li>
-                            <li class="mb-2">✓ Mobile responsive design</li>
+                            <li class="mb-2">✓ MikroTik integration</li>
+                            <li class="mb-2">✓ Advanced voucher system</li>
+                            <li class="mb-2">✓ Up to 3 locations</li>
+                            <li class="mb-2">✓ 50GB monthly data</li>
                         </ul>
-                        <a href="#contact" class="btn btn-outline-custom">Start Free Trial</a>
+                        <a href="#contact" class="btn btn-outline-custom">Get Started</a>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-3">
                     <div class="pricing-card featured">
                         <h3 class="pricing-title">Professional</h3>
                         <div class="pricing-price">
-                            KES 7,500<span style="font-size: 1.2rem; color: #666;">/month</span>
+                            KES 5,000<span style="font-size: 1.2rem; color: #666;">/month</span>
                         </div>
                         <ul class="list-unstyled text-left">
                             <li class="mb-2">✓ Up to 500 concurrent users</li>
-                            <li class="mb-2">✓ Advanced reporting & analytics</li>
                             <li class="mb-2">✓ All payment gateways</li>
                             <li class="mb-2">✓ Priority support</li>
-                            <li class="mb-2">✓ Custom branding & themes</li>
-                            <li class="mb-2">✓ API access & integrations</li>
-                            <li class="mb-2">✓ Multi-location support</li>
-                            <li class="mb-2">✓ Advanced user management</li>
+                            <li class="mb-2">✓ Custom branding</li>
+                            <li class="mb-2">✓ API access</li>
+                            <li class="mb-2">✓ Up to 10 locations</li>
+                            <li class="mb-2">✓ Advanced analytics</li>
+                            <li class="mb-2">✓ 200GB monthly data</li>
                         </ul>
                         <a href="#contact" class="btn btn-primary-custom">Most Popular</a>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-3">
                     <div class="pricing-card">
                         <h3 class="pricing-title">Enterprise</h3>
                         <div class="pricing-price">
-                            KES 15,000<span style="font-size: 1.2rem; color: #666;">/month</span>
+                            KES 10,000<span style="font-size: 1.2rem; color: #666;">/month</span>
                         </div>
                         <ul class="list-unstyled text-left">
-                            <li class="mb-2">✓ Unlimited concurrent users</li>
+                            <li class="mb-2">✓ Unlimited users</li>
                             <li class="mb-2">✓ White-label solution</li>
                             <li class="mb-2">✓ Unlimited locations</li>
                             <li class="mb-2">✓ 24/7 phone support</li>
                             <li class="mb-2">✓ Custom integrations</li>
-                            <li class="mb-2">✓ Dedicated account manager</li>
+                            <li class="mb-2">✓ Dedicated manager</li>
                             <li class="mb-2">✓ SLA guarantee</li>
-                            <li class="mb-2">✓ On-site training</li>
+                            <li class="mb-2">✓ Unlimited data</li>
                         </ul>
                         <a href="#contact" class="btn btn-outline-custom">Contact Sales</a>
                     </div>
@@ -823,7 +944,7 @@
                     <p>&copy; 2025 Glinta Africa. All rights reserved.</p>
                 </div>
                 <div class="col-lg-6 text-right">
-                    <p>Made with ❤️ in Kenya | Powered by Glinta Africa</p>
+                    <p>Made with ❤️ by <a href="https://watsonsdevelopers.com" target="_blank" style="color: var(--gold); text-decoration: none;">watsonsdevelopers.com</a></p>
                 </div>
             </div>
         </div>
