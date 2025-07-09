@@ -603,22 +603,25 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
+                        <a class="nav-link" href="{$app_url}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#services">Services</a>
+                        <a class="nav-link" href="{$app_url}/services">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#features">Features</a>
+                        <a class="nav-link" href="{$app_url}/features">Features</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#pricing">Pricing</a>
+                        <a class="nav-link" href="{$app_url}/pricing">Pricing</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
+                        <a class="nav-link" href="{$app_url}/about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
+                        <a class="nav-link" href="{$app_url}/contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{$app_url}/blog">Blog</a>
                     </li>
                 </ul>
             </div>
@@ -801,6 +804,140 @@
                         <h6 class="mb-2">Demo Login Credentials:</h6>
                         <p class="mb-1"><strong>Username:</strong> Trial</p>
                         <p class="mb-0"><strong>Password:</strong> Trialpass</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Captive Portal Demo Section -->
+    <section class="py-5" style="background: var(--white-soft);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
+                    <h2 class="display-4 fw-bold mb-4">See It In Action</h2>
+                    <p class="lead text-muted">Experience our captive portal system with interactive demo</p>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="captive-portal-demo" style="background: var(--white); border-radius: 20px; padding: 2rem; box-shadow: var(--shadow-lg); border: 1px solid rgba(212, 175, 55, 0.2);">
+                        <div class="demo-header" style="background: var(--gradient-gold); color: var(--black); padding: 1rem; border-radius: 10px; margin-bottom: 2rem; text-align: center;">
+                            <h4 class="mb-0" style="font-family: 'Space Grotesk', sans-serif;">🔥 Free WiFi Available</h4>
+                        </div>
+                        
+                        <div class="demo-content">
+                            <div class="step mb-3" style="display: flex; align-items: center; padding: 1rem; border-radius: 10px; background: rgba(212, 175, 55, 0.1);">
+                                <div style="background: var(--gradient-gold); color: var(--black); width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem;">1</div>
+                                <div>
+                                    <strong>Connect to WiFi Network</strong><br>
+                                    <small class="text-muted">Select "Glinta_Free_WiFi" from available networks</small>
+                                </div>
+                            </div>
+                            
+                            <div class="step mb-3" style="display: flex; align-items: center; padding: 1rem; border-radius: 10px; background: rgba(212, 175, 55, 0.1);">
+                                <div style="background: var(--gradient-gold); color: var(--black); width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem;">2</div>
+                                <div>
+                                    <strong>Choose Your Package</strong><br>
+                                    <small class="text-muted">Select from hourly, daily, or weekly packages</small>
+                                </div>
+                            </div>
+                            
+                            <div class="step mb-3" style="display: flex; align-items: center; padding: 1rem; border-radius: 10px; background: rgba(212, 175, 55, 0.1);">
+                                <div style="background: var(--gradient-gold); color: var(--black); width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem;">3</div>
+                                <div>
+                                    <strong>Pay with Mobile Money</strong><br>
+                                    <small class="text-muted">M-Pesa, Airtel Money, or MTN MoMo</small>
+                                </div>
+                            </div>
+                            
+                            <div class="step mb-3" style="display: flex; align-items: center; padding: 1rem; border-radius: 10px; background: rgba(212, 175, 55, 0.1);">
+                                <div style="background: var(--gradient-gold); color: var(--black); width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 1rem;">4</div>
+                                <div>
+                                    <strong>Instant Access</strong><br>
+                                    <small class="text-muted">Automatic activation within seconds</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-packages mt-4">
+                            <h5 style="color: var(--black); margin-bottom: 1rem;">Popular Packages:</h5>
+                            <div class="row g-2">
+                                <div class="col-4">
+                                    <div style="background: var(--white); border: 2px solid var(--gold); border-radius: 10px; padding: 0.8rem; text-align: center;">
+                                        <strong style="color: var(--gold);">KSh 20</strong><br>
+                                        <small>1 Hour</small>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div style="background: var(--gradient-gold); color: var(--black); border-radius: 10px; padding: 0.8rem; text-align: center;">
+                                        <strong>KSh 100</strong><br>
+                                        <small>1 Day</small>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div style="background: var(--white); border: 2px solid var(--gold); border-radius: 10px; padding: 0.8rem; text-align: center;">
+                                        <strong style="color: var(--gold);">KSh 500</strong><br>
+                                        <small>1 Week</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="demo-description">
+                        <h3 style="color: var(--black); font-family: 'Space Grotesk', sans-serif; margin-bottom: 2rem;">Seamless Customer Experience</h3>
+                        
+                        <div class="feature-point mb-3" style="display: flex; align-items: start;">
+                            <div style="background: var(--gradient-gold); color: var(--black); width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-right: 1rem; flex-shrink: 0;">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: var(--black); margin-bottom: 0.5rem;">Mobile-First Design</h5>
+                                <p style="color: var(--gray); margin-bottom: 0;">Optimized for smartphones with instant mobile money integration</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-point mb-3" style="display: flex; align-items: start;">
+                            <div style="background: var(--gradient-gold); color: var(--black); width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-right: 1rem; flex-shrink: 0;">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: var(--black); margin-bottom: 0.5rem;">Instant Activation</h5>
+                                <p style="color: var(--gray); margin-bottom: 0;">Payment verification and service activation in under 30 seconds</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-point mb-3" style="display: flex; align-items: start;">
+                            <div style="background: var(--gradient-gold); color: var(--black); width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-right: 1rem; flex-shrink: 0;">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: var(--black); margin-bottom: 0.5rem;">Secure & Reliable</h5>
+                                <p style="color: var(--gray); margin-bottom: 0;">Bank-grade security with 99.9% uptime guarantee</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-point mb-4" style="display: flex; align-items: start;">
+                            <div style="background: var(--gradient-gold); color: var(--black); width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-right: 1rem; flex-shrink: 0;">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div>
+                                <h5 style="color: var(--black); margin-bottom: 0.5rem;">Real-time Analytics</h5>
+                                <p style="color: var(--gray); margin-bottom: 0;">Track usage, revenue, and customer behavior in real-time</p>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-actions">
+                            <a href="{$app_url}/demo-customer" class="btn btn-primary me-3" style="background: var(--gradient-gold); color: var(--black); border: none; padding: 0.8rem 2rem; border-radius: 25px; font-weight: 600; text-decoration: none;">
+                                <i class="fas fa-play me-2"></i>Try Live Demo
+                            </a>
+                            <a href="{$app_url}/contact" class="btn btn-outline-primary" style="border: 2px solid var(--gold); color: var(--gold); padding: 0.8rem 2rem; border-radius: 25px; font-weight: 600; text-decoration: none;">
+                                Get Started
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

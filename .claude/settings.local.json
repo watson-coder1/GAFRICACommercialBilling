@@ -19,7 +19,8 @@
       "Bash(docker:*)",
       "Bash(git reset:*)",
       "WebFetch(domain:github.com)",
-      "Bash(git pull:*)"
+      "Bash(git pull:*)",
+      "Bash(cp:*)"
     ],
     "deny": []
   }
