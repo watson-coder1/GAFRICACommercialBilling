@@ -198,6 +198,27 @@
             transform: translateY(-4px);
         }
 
+        .service-card.featured {
+            border-color: var(--accent);
+            position: relative;
+            transform: scale(1.02);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
         .service-icon {
             width: 56px;
             height: 56px;
@@ -209,6 +230,14 @@
             color: white;
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
+        }
+
+        .price-tag {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-family: 'JetBrains Mono', monospace;
         }
 
         .service-title {
@@ -695,6 +724,99 @@
                         </div>
                         <h6 class="text-sm">OpenSSL</h6>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sample Hotspot Packages -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
+                    <h2>Sample Customer Packages</h2>
+                    <p class="text-lg text-gray-600">Ready-to-use hotspot packages your customers will love - all configured automatically</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card text-center">
+                        <div class="service-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h5>Quick Access</h5>
+                        <div class="price-tag">KSh 5 / 1 Hour</div>
+                        <p class="text-sm text-gray-600 mb-3">Perfect for quick browsing and social media</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> 1 Hour Access</li>
+                            <li><i class="fas fa-check"></i> Unlimited Bandwidth</li>
+                            <li><i class="fas fa-check"></i> All Devices</li>
+                            <li><i class="fas fa-check"></i> Instant Activation</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card text-center">
+                        <div class="service-icon">
+                            <i class="fas fa-wifi"></i>
+                        </div>
+                        <h5>Extended Browse</h5>
+                        <div class="price-tag">KSh 10 / 2 Hours</div>
+                        <p class="text-sm text-gray-600 mb-3">Great for work sessions and streaming</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> 2 Hours Access</li>
+                            <li><i class="fas fa-check"></i> Unlimited Bandwidth</li>
+                            <li><i class="fas fa-check"></i> Multiple Devices</li>
+                            <li><i class="fas fa-check"></i> Priority Support</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card text-center featured">
+                        <div class="featured-badge">Most Popular</div>
+                        <div class="service-icon">
+                            <i class="fas fa-calendar-day"></i>
+                        </div>
+                        <h5>Full Day Pass</h5>
+                        <div class="price-tag">KSh 30 / 24 Hours</div>
+                        <p class="text-sm text-gray-600 mb-3">Complete day coverage for business and entertainment</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> 24 Hours Access</li>
+                            <li><i class="fas fa-check"></i> Unlimited Bandwidth</li>
+                            <li><i class="fas fa-check"></i> All Devices</li>
+                            <li><i class="fas fa-check"></i> Premium Support</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-card text-center">
+                        <div class="service-icon">
+                            <i class="fas fa-calendar-week"></i>
+                        </div>
+                        <h5>Weekly Package</h5>
+                        <div class="price-tag">KSh 150 / 7 Days</div>
+                        <p class="text-sm text-gray-600 mb-3">Best value for regular users and students</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> 7 Days Access</li>
+                            <li><i class="fas fa-check"></i> Unlimited Bandwidth</li>
+                            <li><i class="fas fa-check"></i> Multiple Devices</li>
+                            <li><i class="fas fa-check"></i> 24/7 Support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="500">
+                <div class="alert alert-info d-inline-block">
+                    <i class="fas fa-info-circle me-2"></i>
+                    <strong>For ISP Owners:</strong> These packages are pre-configured in our system. You can customize prices, duration, and features to match your market.
+                </div>
+                <div class="mt-3">
+                    <a href="{$app_url}/pricing" class="btn btn-primary me-3">
+                        <i class="fas fa-dollar-sign me-2"></i>View Platform Pricing
+                    </a>
+                    <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-outline-primary">
+                        <i class="fas fa-cogs me-2"></i>Configure Packages
+                    </a>
                 </div>
             </div>
         </div>

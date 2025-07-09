@@ -536,10 +536,10 @@
                     <div class="pricing-card">
                         <h3 class="pricing-title">Starter</h3>
                         <p class="pricing-subtitle">Perfect for small ISPs getting started</p>
-                        <div class="pricing-price">$299</div>
+                        <div class="pricing-price">$10</div>
                         <div class="pricing-period">per month</div>
                         <ul class="pricing-features">
-                            <li><i class="fas fa-check"></i> Up to 500 customers</li>
+                            <li><i class="fas fa-check"></i> Up to 100 customers</li>
                             <li><i class="fas fa-check"></i> Basic RADIUS integration</li>
                             <li><i class="fas fa-check"></i> M-Pesa integration</li>
                             <li><i class="fas fa-check"></i> Customer portal</li>
@@ -560,10 +560,10 @@
                         <div class="pricing-badge">Most Popular</div>
                         <h3 class="pricing-title">Professional</h3>
                         <p class="pricing-subtitle">Ideal for growing ISP operations</p>
-                        <div class="pricing-price">$799</div>
+                        <div class="pricing-price">$25</div>
                         <div class="pricing-period">per month</div>
                         <ul class="pricing-features">
-                            <li><i class="fas fa-check"></i> Up to 2,000 customers</li>
+                            <li><i class="fas fa-check"></i> Up to 500 customers</li>
                             <li><i class="fas fa-check"></i> Advanced RADIUS & CoA</li>
                             <li><i class="fas fa-check"></i> All mobile money platforms</li>
                             <li><i class="fas fa-check"></i> Advanced customer portal</li>
@@ -583,8 +583,8 @@
                     <div class="pricing-card">
                         <h3 class="pricing-title">Enterprise</h3>
                         <p class="pricing-subtitle">For large-scale ISP deployments</p>
-                        <div class="pricing-price">Custom</div>
-                        <div class="pricing-period">contact sales</div>
+                        <div class="pricing-price">$50</div>
+                        <div class="pricing-period">per month</div>
                         <ul class="pricing-features">
                             <li><i class="fas fa-check"></i> Unlimited customers</li>
                             <li><i class="fas fa-check"></i> Full platform access</li>

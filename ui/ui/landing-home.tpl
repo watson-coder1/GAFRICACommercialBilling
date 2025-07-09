@@ -999,6 +999,102 @@
         </div>
     </section>
 
+    <!-- Sample Hotspot Packages Section -->
+    <section class="py-5" style="background: var(--gray-50);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
+                    <h2>Sample Hotspot Packages</h2>
+                    <p class="text-lg text-gray-600">Affordable internet packages for your customers - easily configured in our platform</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-card text-center">
+                        <div class="mb-3">
+                            <div class="contact-icon mx-auto" style="background: var(--gradient-primary); color: white; width: 60px; height: 60px; border-radius: 50%;">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                        </div>
+                        <h6>Quick Browse</h6>
+                        <div class="pricing-price" style="color: var(--primary); font-size: 1.5rem; font-weight: 600;">KSh 5</div>
+                        <p class="text-sm text-gray-600 mb-3">1 Hour</p>
+                        <ul class="list-unstyled text-sm text-gray-600">
+                            <li>• 1 Hour Internet Access</li>
+                            <li>• No Data Limit</li>
+                            <li>• All Devices</li>
+                            <li>• Basic Support</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-card text-center">
+                        <div class="mb-3">
+                            <div class="contact-icon mx-auto" style="background: var(--gradient-primary); color: white; width: 60px; height: 60px; border-radius: 50%;">
+                                <i class="fas fa-wifi"></i>
+                            </div>
+                        </div>
+                        <h6>Half Day</h6>
+                        <div class="pricing-price" style="color: var(--primary); font-size: 1.5rem; font-weight: 600;">KSh 10</div>
+                        <p class="text-sm text-gray-600 mb-3">2 Hours</p>
+                        <ul class="list-unstyled text-sm text-gray-600">
+                            <li>• 2 Hours Internet Access</li>
+                            <li>• No Data Limit</li>
+                            <li>• All Devices</li>
+                            <li>• Priority Support</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-card text-center featured-package" style="border: 2px solid var(--accent); position: relative;">
+                        <div class="badge bg-primary text-white" style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); font-size: 0.7rem;">POPULAR</div>
+                        <div class="mb-3">
+                            <div class="contact-icon mx-auto" style="background: var(--gradient-accent); color: var(--primary); width: 60px; height: 60px; border-radius: 50%;">
+                                <i class="fas fa-calendar-day"></i>
+                            </div>
+                        </div>
+                        <h6>Full Day</h6>
+                        <div class="pricing-price" style="color: var(--primary); font-size: 1.5rem; font-weight: 600;">KSh 30</div>
+                        <p class="text-sm text-gray-600 mb-3">24 Hours</p>
+                        <ul class="list-unstyled text-sm text-gray-600">
+                            <li>• 24 Hours Internet Access</li>
+                            <li>• No Data Limit</li>
+                            <li>• All Devices</li>
+                            <li>• Premium Support</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-card text-center">
+                        <div class="mb-3">
+                            <div class="contact-icon mx-auto" style="background: var(--gradient-primary); color: white; width: 60px; height: 60px; border-radius: 50%;">
+                                <i class="fas fa-calendar-week"></i>
+                            </div>
+                        </div>
+                        <h6>Weekly Pass</h6>
+                        <div class="pricing-price" style="color: var(--primary); font-size: 1.5rem; font-weight: 600;">KSh 150</div>
+                        <p class="text-sm text-gray-600 mb-3">7 Days</p>
+                        <ul class="list-unstyled text-sm text-gray-600">
+                            <li>• 7 Days Internet Access</li>
+                            <li>• No Data Limit</li>
+                            <li>• Multiple Devices</li>
+                            <li>• Premium Support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="500">
+                <p class="text-gray-600 mb-3">These packages are automatically configured in your billing system</p>
+                <a href="{$app_url}/pricing" class="btn btn-primary me-3">
+                    <i class="fas fa-cogs me-2"></i>View Platform Pricing
+                </a>
+                <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-outline-primary">
+                    <i class="fas fa-external-link-alt me-2"></i>Try Demo
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="contact-section">
         <div class="container">
