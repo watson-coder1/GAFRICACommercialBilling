@@ -23,7 +23,7 @@ if(Admin::getID()){
             $ui->assign('app_url', APP_URL);
             $ui->assign('logged_in_admin', false);
             $ui->assign('logged_in_customer', false);
-            $ui->display('landing-enterprise.tpl');
+            $ui->display('landing-professional-real.tpl');
             return;
         } catch (Exception $e) {
             // Log the error for debugging
