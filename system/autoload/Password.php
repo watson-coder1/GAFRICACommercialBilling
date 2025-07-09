@@ -10,15 +10,31 @@ class Password
 
     public static function _crypt($password)
     {
-        return sha1($password);
+        return password_hash($password, PASSWORD_DEFAULT);
     }
 
     public static function _verify($user_input, $hashed_password)
     {
+        // Support both old SHA1 and new bcrypt hashes for backward compatibility
+        if (password_verify($user_input, $hashed_password)) {
+            return true;
+        }
+        // Fallback to old SHA1 for existing passwords
         if (sha1($user_input) == $hashed_password) {
             return true;
         }
         return false;
+    }
+
+    /**
+     * Check if password needs to be upgraded from SHA1 to bcrypt
+     * @param string $password
+     * @return bool
+     */
+    public static function needsUpgrade($password)
+    {
+        // If it's not a bcrypt hash (doesn't start with $2y$), it needs upgrade
+        return !password_get_info($password)['algo'];
     }
     public static function _uverify($user_input, $hashed_password)
     {

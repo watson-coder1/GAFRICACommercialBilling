@@ -50,8 +50,8 @@ switch ($action) {
             case 'type':
                 foreach ($tps as $tp) {
                     $query = ORM::for_table('tbl_transactions')
-                        ->whereRaw("UNIX_TIMESTAMP(CONCAT(`recharged_on`,' ',`recharged_time`)) >= " . strtotime("$sd $ts"))
-                        ->whereRaw("UNIX_TIMESTAMP(CONCAT(`recharged_on`,' ',`recharged_time`)) <= " . strtotime("$ed $te"))
+                        ->whereRaw("UNIX_TIMESTAMP(CONCAT(`recharged_on`,' ',`recharged_time`)) >= ?", [strtotime("$sd $ts")])
+                        ->whereRaw("UNIX_TIMESTAMP(CONCAT(`recharged_on`,' ',`recharged_time`)) <= ?", [strtotime("$ed $te")])
                         ->where('type', $tp);
                     if (count($mts) > 0) {
                         if (count($mts) != count($methods)) {
@@ -80,8 +80,8 @@ switch ($action) {
             case 'plan':
                 foreach ($plns as $pln) {
                     $query = ORM::for_table('tbl_transactions')
-                        ->whereRaw("UNIX_TIMESTAMP(CONCAT(`recharged_on`,' ',`recharged_time`)) >= " . strtotime("$sd $ts"))
-                        ->whereRaw("UNIX_TIMESTAMP(CONCAT(`recharged_on`,' ',`recharged_time`)) <= " . strtotime("$ed $te"))
+                        ->whereRaw("UNIX_TIMESTAMP(CONCAT(`recharged_on`,' ',`recharged_time`)) >= ?", [strtotime("$sd $ts")])
+                        ->whereRaw("UNIX_TIMESTAMP(CONCAT(`recharged_on`,' ',`recharged_time`)) <= ?", [strtotime("$ed $te")])
                         ->where('plan_name', $pln);
                     if (count($tps) > 0) {
                         $query->where_in('type', $tps);
@@ -110,8 +110,8 @@ switch ($action) {
             case 'method':
                 foreach ($mts as $mt) {
                     $query = ORM::for_table('tbl_transactions')
-                        ->whereRaw("UNIX_TIMESTAMP(CONCAT(`recharged_on`,' ',`recharged_time`)) >= " . strtotime("$sd $ts"))
-                        ->whereRaw("UNIX_TIMESTAMP(CONCAT(`recharged_on`,' ',`recharged_time`)) <= " . strtotime("$ed $te"))
+                        ->whereRaw("UNIX_TIMESTAMP(CONCAT(`recharged_on`,' ',`recharged_time`)) >= ?", [strtotime("$sd $ts")])
+                        ->whereRaw("UNIX_TIMESTAMP(CONCAT(`recharged_on`,' ',`recharged_time`)) <= ?", [strtotime("$ed $te")])
                         ->where_like('method', "$mt - %");
                     if (count($tps) > 0) {
                         $query->where_in('type', $tps);
@@ -132,8 +132,8 @@ switch ($action) {
             case 'router':
                 foreach ($rts as $rt) {
                     $query = ORM::for_table('tbl_transactions')
-                        ->whereRaw("UNIX_TIMESTAMP(CONCAT(`recharged_on`,' ',`recharged_time`)) >= " . strtotime("$sd $ts"))
-                        ->whereRaw("UNIX_TIMESTAMP(CONCAT(`recharged_on`,' ',`recharged_time`)) <= " . strtotime("$ed $te"))
+                        ->whereRaw("UNIX_TIMESTAMP(CONCAT(`recharged_on`,' ',`recharged_time`)) >= ?", [strtotime("$sd $ts")])
+                        ->whereRaw("UNIX_TIMESTAMP(CONCAT(`recharged_on`,' ',`recharged_time`)) <= ?", [strtotime("$ed $te")])
                         ->where('routers', $rt);
                     if (count($tps) > 0) {
                         $query->where_in('type', $tps);

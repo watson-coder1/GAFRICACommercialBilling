@@ -9,11 +9,13 @@ class html_php
         $ui->assign('card_header', $data['title']);
         ob_start();
         try{
-        eval('?>'. $data['content']);
+            // SECURITY: eval() removed to prevent code injection
+            // Only allow safe HTML content output
+            echo htmlspecialchars($data['content'], ENT_QUOTES, 'UTF-8');
         }catch(Exception $e){
-            echo $e->getMessage();
+            echo htmlspecialchars($e->getMessage(), ENT_QUOTES, 'UTF-8');
             echo "<br>";
-            echo $e->getTraceAsString();
+            echo htmlspecialchars($e->getTraceAsString(), ENT_QUOTES, 'UTF-8');
         }
         $content = ob_get_clean();
         $ui->assign('card_body', $content);
