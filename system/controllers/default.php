@@ -106,12 +106,12 @@ if(Admin::getID()){
                 $title = 'Investor Relations - Glinta Africa';
                 break;
             case 'demo-reseller':
-                // Redirect to admin demo with credentials
-                r2(getUrl('admin') . '?demo=1&username=Trial&password=Trialpass');
+                // Redirect directly to admin page
+                r2(APP_URL . '/admin');
                 break;
             case 'demo-customer':
-                // Redirect to customer demo with credentials
-                r2(getUrl('login') . '?demo=1&username=Trial&password=Trialpass');
+                // Redirect to customer login page
+                r2(APP_URL . '/login');
                 break;
             default:
                 $template = 'landing-home.tpl';
