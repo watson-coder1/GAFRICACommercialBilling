@@ -1,8 +1,6 @@
-[![ReadMeSupportPalestine](https://raw.githubusercontent.com/Safouene1/support-palestine-banner/master/banner-project.svg)](https://s.id/standwithpalestine)
+
 
 # Glinta Africa - Hotspot Billing System
-
-![PHPNuxBill](install/img/logo.png)
 
 ## Feature
 
