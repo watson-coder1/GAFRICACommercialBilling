@@ -34,11 +34,13 @@
             .main-header .logo {
                 width: auto !important;
                 padding: 0 10px !important;
+                max-width: 200px !important;
             }
             
             .main-header .logo .logo-lg {
-                font-size: 16px !important;
+                font-size: 14px !important;
                 display: inline-block !important;
+                letter-spacing: 1px !important;
             }
             
             .main-header .logo .logo-mini {
@@ -52,6 +54,19 @@
                 border: none !important;
                 padding: 15px 10px !important;
                 float: left !important;
+                margin-left: 10px !important;
+            }
+            
+            .main-header .navbar-custom-menu {
+                float: right !important;
+            }
+            
+            .main-header .navbar-custom-menu .nav > li > a {
+                padding: 10px 8px !important;
+            }
+            
+            .main-header .navbar-custom-menu .nav > li > a .fa {
+                font-size: 16px !important;
             }
         }
         
@@ -77,10 +92,10 @@
         <header class="main-header">
             <a href="{Text::url('dashboard')}" class="logo" style="text-decoration: none;">
                 <span class="logo-mini"><b>G</b>A</span>
-                <span class="logo-lg" style="font-weight: bold; font-size: 18px;">{$_c['CompanyName']}</span>
+                <span class="logo-lg" style="font-weight: 900; font-size: 20px; color: #FFD700; text-transform: uppercase; letter-spacing: 2px; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">GLINTA AFRICA</span>
             </a>
             <nav class="navbar navbar-static-top">
-                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button" onclick="return setKolaps()">
+                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button" onclick="return setKolaps()" style="color: #fff; padding: 15px; display: inline-block;">
                     <span class="sr-only">Toggle navigation</span>
                     <i class="fa fa-bars"></i>
                 </a>

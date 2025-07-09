@@ -36,12 +36,16 @@
         }
         
         .landing-hero {
-            background: linear-gradient(135deg, var(--black) 0%, var(--dark-gray) 100%);
+            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(26,26,26,0.8) 100%), 
+                        url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover;
             color: var(--white);
-            padding: 120px 0;
+            padding: 140px 0;
             text-align: center;
             position: relative;
             overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
         }
         
         .landing-hero::before {
@@ -51,8 +55,13 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23FFD700" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grain)"/></svg>');
-            opacity: 0.3;
+            background: linear-gradient(45deg, transparent 49%, rgba(255, 215, 0, 0.05) 50%, transparent 51%);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
         }
         
         .hero-content {
@@ -169,12 +178,18 @@
         .navbar-brand {
             font-weight: 900;
             font-size: 28px;
-            color: var(--gold) !important;
+            color: var(--black) !important;
             text-transform: uppercase;
             letter-spacing: 2px;
             font-family: 'Arial Black', Arial, sans-serif;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 1px 1px 2px rgba(255, 215, 0, 0.3);
             position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand:hover {
+            color: var(--gold) !important;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         
         .navbar-brand::after {
@@ -362,6 +377,284 @@
             color: var(--gold);
         }
         
+        /* New Advanced Sections */
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        .how-it-works-section {
+            background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .step-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold);
+            color: var(--black);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 20px;
+        }
+        
+        .faq-section {
+            background: var(--white);
+            padding: 100px 0;
+        }
+        
+        .faq-item {
+            background: var(--light-gray);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .faq-question {
+            background: var(--gold);
+            color: var(--black);
+            padding: 20px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: var(--dark-gold);
+        }
+        
+        .faq-answer {
+            padding: 20px;
+            display: none;
+            background: var(--white);
+        }
+        
+        .newsletter-section {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--dark-gold) 100%);
+            padding: 80px 0;
+            color: var(--black);
+        }
+        
+        .newsletter-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            gap: 15px;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+        }
+        
+        .newsletter-btn {
+            background: var(--black);
+            color: var(--white);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-btn:hover {
+            background: var(--dark-gray);
+            transform: translateY(-2px);
+        }
+        
+        .blog-section {
+            background: var(--light-gray);
+            padding: 100px 0;
+        }
+        
+        .blog-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, var(--gold), var(--dark-gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--black);
+            font-size: 48px;
+        }
+        
+        .blog-content {
+            padding: 30px;
+        }
+        
+        .blog-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 15px;
+        }
+        
+        .blog-excerpt {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .blog-date {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--gold);
+            color: var(--black);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--dark-gold);
+            transform: translateY(-5px);
+        }
+        
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--black);
+            color: var(--white);
+            padding: 20px;
+            z-index: 1001;
+            transform: translateY(100%);
+            transition: all 0.3s ease;
+        }
+        
+        .cookie-banner.show {
+            transform: translateY(0);
+        }
+        
+        .cookie-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .cookie-text {
+            flex: 1;
+            margin-right: 20px;
+        }
+        
+        .cookie-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--black);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: all 0.5s ease;
+        }
+        
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .loading-spinner {
+            border: 4px solid rgba(255, 215, 0, 0.3);
+            border-top: 4px solid var(--gold);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2.5rem;
@@ -399,6 +692,13 @@
 </head>
 
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="text-center">
+            <div class="loading-spinner"></div>
+            <h4>Loading Glinta Africa...</h4>
+        </div>
+    </div>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
@@ -414,7 +714,7 @@
                         <a class="nav-link" href="#features">Features</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#stats">Why Choose Us</a>
+                        <a class="nav-link" href="#how-it-works">How It Works</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#pricing">Pricing</a>
@@ -423,7 +723,10 @@
                         <a class="nav-link" href="#demo">Demo</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#testimonials">Reviews</a>
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq">FAQ</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
@@ -448,6 +751,20 @@
 
     <!-- Hero Section -->
     <section class="landing-hero">
+        <div class="floating-elements">
+            <div class="floating-element" style="top: 10%; left: 10%; animation-delay: 0s;">
+                <i class="fa fa-wifi" style="font-size: 48px; color: var(--gold);"></i>
+            </div>
+            <div class="floating-element" style="top: 20%; right: 15%; animation-delay: 1s;">
+                <i class="fa fa-users" style="font-size: 36px; color: var(--gold);"></i>
+            </div>
+            <div class="floating-element" style="bottom: 30%; left: 20%; animation-delay: 2s;">
+                <i class="fa fa-chart-line" style="font-size: 42px; color: var(--gold);"></i>
+            </div>
+            <div class="floating-element" style="bottom: 40%; right: 10%; animation-delay: 3s;">
+                <i class="fa fa-shield" style="font-size: 40px; color: var(--gold);"></i>
+            </div>
+        </div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 mx-auto">
@@ -457,6 +774,9 @@
                         <div class="mt-5">
                             <a href="#demo" class="btn btn-primary-custom btn-lg mr-4">Start Free Trial</a>
                             <a href="#features" class="btn btn-outline-custom btn-lg">Explore Features</a>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-muted">✓ 30-day free trial &nbsp;&nbsp; ✓ No credit card required &nbsp;&nbsp; ✓ Setup in 5 minutes</p>
                         </div>
                     </div>
                 </div>
@@ -668,6 +988,52 @@
         </div>
     </section>
 
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-5">
+                    <h2 class="section-title">How It Works</h2>
+                    <p class="section-subtitle">Get your hotspot billing system up and running in just 4 simple steps</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <i class="fa fa-user-plus feature-icon"></i>
+                        <h4 class="feature-title">Sign Up</h4>
+                        <p class="feature-description">Create your account and choose the perfect plan for your business needs.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <i class="fa fa-cog feature-icon"></i>
+                        <h4 class="feature-title">Configure</h4>
+                        <p class="feature-description">Set up your MikroTik router and customize your captive portal branding.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <i class="fa fa-rocket feature-icon"></i>
+                        <h4 class="feature-title">Launch</h4>
+                        <p class="feature-description">Go live with your hotspot and start accepting payments from customers.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <i class="fa fa-chart-bar feature-icon"></i>
+                        <h4 class="feature-title">Grow</h4>
+                        <p class="feature-description">Monitor analytics, optimize performance, and scale your business.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Demo Section -->
     <section id="demo" class="demo-section">
         <div class="container">
@@ -688,10 +1054,10 @@
                         <div class="mt-4">
                             <div class="mb-3">
                                 <strong>Demo Credentials:</strong><br>
-                                <span class="text-muted">Username:</span> admin@demo.com<br>
-                                <span class="text-muted">Password:</span> demo2025
+                                <span class="text-muted">Username:</span> admin<br>
+                                <span class="text-muted">Password:</span> admin
                             </div>
-                            <a href="{$app_url}/admin?demo=1" class="btn btn-primary-custom">Launch Admin Demo</a>
+                            <a href="{$app_url}/admin" class="btn btn-primary-custom" target="_blank">Launch Admin Demo</a>
                         </div>
                     </div>
                 </div>
@@ -705,10 +1071,10 @@
                         <div class="mt-4">
                             <div class="mb-3">
                                 <strong>Demo Credentials:</strong><br>
-                                <span class="text-muted">Username:</span> customer@demo.com<br>
-                                <span class="text-muted">Password:</span> demo2025
+                                <span class="text-muted">Username:</span> demo<br>
+                                <span class="text-muted">Password:</span> demo
                             </div>
-                            <a href="{$app_url}/login?demo=1" class="btn btn-primary-custom">Launch Customer Demo</a>
+                            <a href="{$app_url}/login" class="btn btn-primary-custom" target="_blank">Launch Customer Demo</a>
                         </div>
                     </div>
                 </div>
@@ -887,6 +1253,182 @@
         </div>
     </section>
 
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-5">
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <p class="section-subtitle">Everything you need to know about Glinta Africa</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fa fa-question-circle mr-2"></i>
+                            How quickly can I set up my hotspot billing system?
+                        </div>
+                        <div class="faq-answer">
+                            <p>You can have your hotspot billing system up and running in less than 30 minutes. Our quick setup wizard guides you through the entire process, from router configuration to payment gateway integration.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fa fa-question-circle mr-2"></i>
+                            Do you support MikroTik routers?
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes! Glinta Africa has native integration with MikroTik RouterOS. We support all major MikroTik models and provide automatic configuration for seamless connectivity.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fa fa-question-circle mr-2"></i>
+                            What payment methods do you support?
+                        </div>
+                        <div class="faq-answer">
+                            <p>We support M-Pesa, Airtel Money, PayPal, Stripe, bank transfers, and major credit cards. All payments are processed securely with instant service activation.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fa fa-question-circle mr-2"></i>
+                            Can I customize the captive portal design?
+                        </div>
+                        <div class="faq-answer">
+                            <p>Absolutely! You can fully customize your captive portal with your branding, colors, logo, and custom content. No coding skills required.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fa fa-question-circle mr-2"></i>
+                            Is there a free trial available?
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes! We offer a 30-day free trial with full access to all features. No credit card required to start your trial.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 style="color: var(--black); margin-bottom: 20px;">Stay Updated</h2>
+                    <p style="margin-bottom: 40px;">Get the latest updates, tips, and exclusive offers delivered to your inbox</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                        <button type="submit" class="newsletter-btn">Subscribe</button>
+                    </form>
+                    <p class="mt-3" style="font-size: 0.9rem;">Join 5,000+ hotspot operators who trust our insights</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog/News Section -->
+    <section id="blog" class="blog-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-5">
+                    <h2 class="section-title">Latest News & Insights</h2>
+                    <p class="section-subtitle">Stay informed with the latest trends in hotspot technology</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <i class="fa fa-wifi"></i>
+                        </div>
+                        <div class="blog-content">
+                            <h4 class="blog-title">5 Ways to Increase Your Hotspot Revenue</h4>
+                            <p class="blog-excerpt">Discover proven strategies to maximize your WiFi business profitability and customer satisfaction.</p>
+                            <div class="blog-date">January 15, 2025</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <i class="fa fa-shield"></i>
+                        </div>
+                        <div class="blog-content">
+                            <h4 class="blog-title">Security Best Practices for Hotspot Operators</h4>
+                            <p class="blog-excerpt">Essential security measures to protect your network and customers' data from cyber threats.</p>
+                            <div class="blog-date">January 10, 2025</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <i class="fa fa-chart-line"></i>
+                        </div>
+                        <div class="blog-content">
+                            <h4 class="blog-title">Understanding Hotspot Analytics</h4>
+                            <p class="blog-excerpt">Learn how to interpret your hotspot data to make informed business decisions and improve performance.</p>
+                            <div class="blog-date">January 5, 2025</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-5" style="background: var(--white);">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="section-title text-left">About Glinta Africa</h2>
+                    <p class="lead">We are Africa's leading provider of hotspot billing solutions, dedicated to empowering businesses with cutting-edge WiFi monetization technology.</p>
+                    <p>Since our inception, we've helped over 500 businesses across Africa transform their WiFi networks into profitable revenue streams. Our platform combines advanced technology with local market expertise to deliver solutions that work in the African context.</p>
+                    <div class="mt-4">
+                        <div class="row">
+                            <div class="col-6">
+                                <h4 style="color: var(--gold);">500+</h4>
+                                <p>Happy Clients</p>
+                            </div>
+                            <div class="col-6">
+                                <h4 style="color: var(--gold);">99.9%</h4>
+                                <p>Uptime SLA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div style="background: linear-gradient(45deg, var(--gold), var(--dark-gold)); height: 400px; border-radius: 15px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fa fa-building" style="font-size: 120px; color: var(--black); opacity: 0.7;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fa fa-arrow-up"></i>
+    </div>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <p>We use cookies to enhance your experience and analyze site usage. By continuing to browse, you agree to our use of cookies.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="btn btn-outline-custom btn-sm" onclick="acceptCookies()">Accept</button>
+                <button class="btn btn-primary-custom btn-sm" onclick="manageCookies()">Manage</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-dark text-white py-5">
         <div class="container">
@@ -954,6 +1496,11 @@
     <script src="{$app_url}/ui/ui/scripts/bootstrap.min.js"></script>
     <script>
         $(document).ready(function() {
+            // Hide loading screen after page loads
+            setTimeout(function() {
+                $('#loadingScreen').addClass('hidden');
+            }, 1500);
+            
             // Smooth scrolling for navigation links
             $('a[href*="#"]').on('click', function (e) {
                 e.preventDefault();
@@ -961,7 +1508,7 @@
                 if (target && $(target).length) {
                     $('html, body').animate({
                         scrollTop: $(target).offset().top - 70
-                    }, 800, 'easeInOutQuart');
+                    }, 800, 'ease');
                 }
             });
             
@@ -1002,11 +1549,48 @@
                     animateCounter($('.stat-number:contains("99.9")'), 0, 99, 2000);
                     animateCounter($('.stat-number:contains("24")'), 0, 24, 2000);
                 }
+                
+                // Back to top button
+                if ($(this).scrollTop() > 300) {
+                    $('#backToTop').addClass('visible');
+                } else {
+                    $('#backToTop').removeClass('visible');
+                }
             });
             
-            // Add fade-in animation to feature boxes
+            // Back to top functionality
+            $('#backToTop').click(function() {
+                $('html, body').animate({scrollTop: 0}, 800);
+            });
+            
+            // FAQ accordion functionality
+            $('.faq-question').click(function() {
+                var answer = $(this).next('.faq-answer');
+                $('.faq-answer').not(answer).slideUp();
+                answer.slideToggle();
+            });
+            
+            // Newsletter form submission
+            $('.newsletter-form').submit(function(e) {
+                e.preventDefault();
+                var email = $(this).find('.newsletter-input').val();
+                if (email) {
+                    $(this).find('.newsletter-btn').text('Subscribed!').css('background', 'green');
+                    setTimeout(function() {
+                        $('.newsletter-btn').text('Subscribe').css('background', '');
+                        $('.newsletter-input').val('');
+                    }, 3000);
+                }
+            });
+            
+            // Cookie banner functionality
+            setTimeout(function() {
+                $('#cookieBanner').addClass('show');
+            }, 3000);
+            
+            // Add fade-in animation to elements
             $(window).scroll(function() {
-                $('.feature-box').each(function() {
+                $('.feature-box, .step-card, .blog-card').each(function() {
                     var elementTop = $(this).offset().top;
                     var elementBottom = elementTop + $(this).outerHeight();
                     var viewportTop = $(window).scrollTop();
@@ -1035,27 +1619,20 @@
                 lastScrollTop = st;
             });
             
-            // Copy demo credentials to clipboard
-            $('.btn[href*="demo"]').click(function(e) {
-                e.preventDefault();
-                var url = $(this).attr('href');
-                
-                // Show loading state
+            // Demo button functionality
+            $('.btn[href*="admin"], .btn[href*="login"]').click(function(e) {
                 var originalText = $(this).text();
                 $(this).text('Launching...');
                 
-                // Simulate demo launch
                 setTimeout(function() {
-                    window.open(url, '_blank');
                     $(this).text(originalText);
-                }.bind(this), 1000);
+                }.bind(this), 2000);
             });
             
             // Form validation and submission
-            $('form').submit(function(e) {
+            $('form').not('.newsletter-form').submit(function(e) {
                 e.preventDefault();
                 
-                // Basic form validation
                 var isValid = true;
                 $(this).find('input[required], textarea[required]').each(function() {
                     if ($(this).val() == '') {
@@ -1067,11 +1644,31 @@
                 });
                 
                 if (isValid) {
-                    // Show success message
                     alert('Thank you for your interest! We will contact you soon.');
                 }
             });
+            
+            // Parallax effect for hero section
+            $(window).scroll(function() {
+                var scrolled = $(this).scrollTop();
+                $('.landing-hero').css('background-position', 'center ' + (scrolled * 0.5) + 'px');
+            });
         });
+        
+        // Cookie consent functions
+        function acceptCookies() {
+            $('#cookieBanner').removeClass('show');
+            localStorage.setItem('cookiesAccepted', 'true');
+        }
+        
+        function manageCookies() {
+            alert('Cookie management functionality would be implemented here.');
+        }
+        
+        // Check if cookies were already accepted
+        if (localStorage.getItem('cookiesAccepted') === 'true') {
+            $('#cookieBanner').removeClass('show');
+        }
         
         // Add CSS for navbar animation
         $('<style>')
