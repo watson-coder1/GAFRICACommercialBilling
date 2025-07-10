@@ -499,8 +499,8 @@
                         <a class="nav-link" href="{$app_url}/blog">Blog</a>
                     </li>
                     <li class="nav-item ms-2">
-                        <a class="btn btn-primary" href="https://glintaafrica.com/admin" target="_blank">
-                            <i class="fas fa-tachometer-alt me-1"></i>Dashboard
+                        <a class="btn btn-primary" href="#demo-section">
+                            <i class="fas fa-play me-1"></i>Live Demo
                         </a>
                     </li>
                 </ul>
@@ -516,8 +516,8 @@
                     <h1 class="display-2">Professional ISP Services</h1>
                     <p class="lead">Comprehensive billing, authentication, and network management services designed for African telecommunications infrastructure. Enterprise-grade solutions with local payment integration.</p>
                     <div class="mt-4">
-                        <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-accent me-3">
-                            <i class="fas fa-external-link-alt me-2"></i>Launch Dashboard
+                        <a href="#demo-section" class="btn btn-accent me-3">
+                            <i class="fas fa-play me-2"></i>Try Demo
                         </a>
                         <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-outline-primary">
                             <i class="fas fa-envelope me-2"></i>Contact Sales
@@ -881,8 +881,8 @@
                     <a href="{$app_url}/pricing" class="btn btn-primary me-3">
                         <i class="fas fa-dollar-sign me-2"></i>View Platform Pricing
                     </a>
-                    <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-outline-primary">
-                        <i class="fas fa-cogs me-2"></i>Configure Packages
+                    <a href="#demo-section" class="btn btn-outline-primary">
+                        <i class="fas fa-play me-2"></i>Try Demo
                     </a>
                 </div>
             </div>
@@ -905,10 +905,25 @@
                         </a>
                     </div>
                     <div class="mt-4">
-                        <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-outline-primary" style="color: white; border-color: white;">
-                            <i class="fas fa-external-link-alt me-2"></i>Access Dashboard
+                        <a href="#demo-section" class="btn btn-outline-primary" style="color: white; border-color: white;">
+                            <i class="fas fa-play me-2"></i>Try Demo
                         </a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="py-5" id="demo-section" style="background: var(--gray-50);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2>Try Our Services</h2>
+                    <p class="text-gray-600 mb-4">Experience the complete ISP services platform with live dashboard access.</p>
+                    <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-primary btn-lg">
+                        <i class="fas fa-external-link-alt me-2"></i>Launch Demo Dashboard
+                    </a>
                 </div>
             </div>
         </div>
@@ -941,7 +956,7 @@
                     <div class="d-flex flex-column gap-2">
                         <a href="{$app_url}/features">Features</a>
                         <a href="{$app_url}/pricing">Pricing</a>
-                        <a href="https://glintaafrica.com/admin" target="_blank">Dashboard</a>
+                        <a href="#demo-section">Demo</a>
                         <a href="#">API Docs</a>
                     </div>
                 </div>

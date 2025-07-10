@@ -536,8 +536,8 @@
                         <a class="nav-link" href="{$app_url}/blog">Blog</a>
                     </li>
                     <li class="nav-item ms-2">
-                        <a class="btn btn-primary" href="https://glintaafrica.com/admin" target="_blank">
-                            <i class="fas fa-tachometer-alt me-1"></i>Dashboard
+                        <a class="btn btn-primary" href="#demo-section">
+                            <i class="fas fa-play me-1"></i>Live Demo
                         </a>
                     </li>
                 </ul>
@@ -553,8 +553,8 @@
                     <h1 class="display-2">Enterprise Pricing</h1>
                     <p class="lead">Professional ISP billing solutions with transparent pricing. Choose the plan that scales with your business operations.</p>
                     <div class="mt-4">
-                        <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-accent me-3">
-                            <i class="fas fa-external-link-alt me-2"></i>View Demo
+                        <a href="#demo-section" class="btn btn-accent me-3">
+                            <i class="fas fa-play me-2"></i>Try Demo
                         </a>
                         <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-outline-primary">
                             <i class="fas fa-envelope me-2"></i>Contact Sales
@@ -615,20 +615,20 @@
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="pricing-card">
+                        <div class="mb-3">
+                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=150&q=80" 
+                                 alt="Starter Plan" class="img-fluid rounded" style="height: 120px; width: 100%; object-fit: cover;">
+                        </div>
                         <h3 class="pricing-title">Starter</h3>
-                        <p class="pricing-subtitle">Perfect for small ISPs getting started</p>
+                        <p class="pricing-subtitle">Small ISPs</p>
                         <div class="pricing-price">$10</div>
                         <div class="pricing-period">per month</div>
                         <ul class="pricing-features">
-                            <li><i class="fas fa-check"></i> Up to 100 customers</li>
-                            <li><i class="fas fa-check"></i> Basic RADIUS integration</li>
+                            <li><i class="fas fa-check"></i> 100 customers</li>
+                            <li><i class="fas fa-check"></i> RADIUS integration</li>
                             <li><i class="fas fa-check"></i> M-Pesa integration</li>
                             <li><i class="fas fa-check"></i> Customer portal</li>
                             <li><i class="fas fa-check"></i> Email support</li>
-                            <li><i class="fas fa-check"></i> Basic reporting</li>
-                            <li><i class="fas fa-check"></i> 2 network devices</li>
-                            <li class="unavailable"><i class="fas fa-times"></i> API access</li>
-                            <li class="unavailable"><i class="fas fa-times"></i> White-label branding</li>
                         </ul>
                         <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-primary btn-pricing">
                             <i class="fas fa-envelope me-2"></i>Get Started
@@ -639,20 +639,20 @@
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="pricing-card featured">
                         <div class="pricing-badge">Most Popular</div>
+                        <div class="mb-3">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=150&q=80" 
+                                 alt="Professional Plan" class="img-fluid rounded" style="height: 120px; width: 100%; object-fit: cover;">
+                        </div>
                         <h3 class="pricing-title">Professional</h3>
-                        <p class="pricing-subtitle">Ideal for growing ISP operations</p>
+                        <p class="pricing-subtitle">Growing ISPs</p>
                         <div class="pricing-price">$25</div>
                         <div class="pricing-period">per month</div>
                         <ul class="pricing-features">
-                            <li><i class="fas fa-check"></i> Up to 500 customers</li>
-                            <li><i class="fas fa-check"></i> Advanced RADIUS & CoA</li>
-                            <li><i class="fas fa-check"></i> All mobile money platforms</li>
-                            <li><i class="fas fa-check"></i> Advanced customer portal</li>
+                            <li><i class="fas fa-check"></i> 500 customers</li>
+                            <li><i class="fas fa-check"></i> Advanced RADIUS</li>
+                            <li><i class="fas fa-check"></i> All mobile money</li>
                             <li><i class="fas fa-check"></i> Priority support</li>
-                            <li><i class="fas fa-check"></i> Advanced analytics</li>
-                            <li><i class="fas fa-check"></i> 10 network devices</li>
-                            <li><i class="fas fa-check"></i> REST API access</li>
-                            <li><i class="fas fa-check"></i> Custom branding</li>
+                            <li><i class="fas fa-check"></i> API access</li>
                         </ul>
                         <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-accent btn-pricing">
                             <i class="fas fa-envelope me-2"></i>Get Started
@@ -662,20 +662,20 @@
 
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="pricing-card">
+                        <div class="mb-3">
+                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=150&q=80" 
+                                 alt="Enterprise Plan" class="img-fluid rounded" style="height: 120px; width: 100%; object-fit: cover;">
+                        </div>
                         <h3 class="pricing-title">Enterprise</h3>
-                        <p class="pricing-subtitle">For large-scale ISP deployments</p>
+                        <p class="pricing-subtitle">Large-scale ISPs</p>
                         <div class="pricing-price">$50</div>
                         <div class="pricing-period">per month</div>
                         <ul class="pricing-features">
                             <li><i class="fas fa-check"></i> Unlimited customers</li>
                             <li><i class="fas fa-check"></i> Full platform access</li>
-                            <li><i class="fas fa-check"></i> Multi-tenant support</li>
                             <li><i class="fas fa-check"></i> White-label solution</li>
                             <li><i class="fas fa-check"></i> 24/7 phone support</li>
                             <li><i class="fas fa-check"></i> Custom integrations</li>
-                            <li><i class="fas fa-check"></i> Unlimited devices</li>
-                            <li><i class="fas fa-check"></i> Full API suite</li>
-                            <li><i class="fas fa-check"></i> Dedicated support</li>
                         </ul>
                         <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-outline-primary btn-pricing">
                             <i class="fas fa-envelope me-2"></i>Contact Sales
@@ -844,10 +844,25 @@
                         </a>
                     </div>
                     <div class="mt-4">
-                        <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-outline-primary" style="color: white; border-color: white;">
-                            <i class="fas fa-external-link-alt me-2"></i>Explore Dashboard
+                        <a href="#demo-section" class="btn btn-outline-primary" style="color: white; border-color: white;">
+                            <i class="fas fa-play me-2"></i>Try Demo
                         </a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="py-5" id="demo-section" style="background: var(--gray-50);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2>Try Our Platform</h2>
+                    <p class="text-gray-600 mb-4">Experience the complete billing system with live dashboard access.</p>
+                    <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-primary btn-lg">
+                        <i class="fas fa-external-link-alt me-2"></i>Launch Demo Dashboard
+                    </a>
                 </div>
             </div>
         </div>
@@ -880,7 +895,7 @@
                     <div class="d-flex flex-column gap-2">
                         <a href="{$app_url}/features">Features</a>
                         <a href="{$app_url}/services">Services</a>
-                        <a href="https://glintaafrica.com/admin" target="_blank">Dashboard</a>
+                        <a href="#demo-section">Demo</a>
                         <a href="#">API Docs</a>
                     </div>
                 </div>

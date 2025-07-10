@@ -458,8 +458,8 @@
                         <a class="nav-link" href="{$app_url}/blog">Blog</a>
                     </li>
                     <li class="nav-item ms-2">
-                        <a class="btn btn-primary" href="https://glintaafrica.com/admin" target="_blank">
-                            <i class="fas fa-tachometer-alt me-1"></i>Dashboard
+                        <a class="btn btn-primary" href="#demo-section">
+                            <i class="fas fa-play me-1"></i>Live Demo
                         </a>
                     </li>
                 </ul>
@@ -477,8 +477,8 @@
                         Ready to transform your ISP operations? Get professional support, technical assistance, and demo access for enterprise telecommunications.
                     </p>
                     <div class="mt-4">
-                        <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-accent me-3">
-                            <i class="fas fa-external-link-alt me-2"></i>View Dashboard
+                        <a href="#demo-section" class="btn btn-accent me-3">
+                            <i class="fas fa-play me-2"></i>Try Demo
                         </a>
                         <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-outline-primary">
                             <i class="fas fa-envelope me-2"></i>Direct Contact
@@ -652,7 +652,7 @@
     </section>
 
     <!-- Demo Links Section -->
-    <section class="py-5">
+    <section class="py-5" id="demo-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center mb-4">
@@ -672,7 +672,7 @@
                         </p>
                         <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
                             <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-primary">
-                                <i class="fas fa-external-link-alt me-2"></i>Launch Dashboard
+                                <i class="fas fa-external-link-alt me-2"></i>Launch Demo
                             </a>
                             <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-outline-primary">
                                 <i class="fas fa-envelope me-2"></i>Request Demo
@@ -703,7 +703,7 @@
                         <a href="{$app_url}/features">Features</a>
                         <a href="{$app_url}/services">Services</a>
                         <a href="{$app_url}/pricing">Pricing</a>
-                        <a href="https://glintaafrica.com/admin" target="_blank">Dashboard</a>
+                        <a href="#demo-section">Demo</a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4">

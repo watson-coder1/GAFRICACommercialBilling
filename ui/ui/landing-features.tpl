@@ -518,8 +518,8 @@
                         <a class="nav-link" href="{$app_url}/blog">Blog</a>
                     </li>
                     <li class="nav-item ms-2">
-                        <a class="btn btn-primary" href="https://glintaafrica.com/admin" target="_blank">
-                            <i class="fas fa-tachometer-alt me-1"></i>Dashboard
+                        <a class="btn btn-primary" href="#demo-section">
+                            <i class="fas fa-play me-1"></i>Live Demo
                         </a>
                     </li>
                 </ul>
@@ -535,8 +535,8 @@
                     <h1 class="display-2">Enterprise Features</h1>
                     <p class="lead">Advanced capabilities designed for professional ISP operations. Real-time monitoring, automated billing, and comprehensive network management.</p>
                     <div class="mt-4">
-                        <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-accent me-3">
-                            <i class="fas fa-external-link-alt me-2"></i>Live Demo
+                        <a href="#demo-section" class="btn btn-accent me-3">
+                            <i class="fas fa-play me-2"></i>Try Demo
                         </a>
                         <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-outline-primary">
                             <i class="fas fa-envelope me-2"></i>Contact Sales
@@ -835,10 +835,25 @@ if ($response['success']) {
                         </a>
                     </div>
                     <div class="mt-4">
-                        <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-outline-primary" style="color: white; border-color: white;">
-                            <i class="fas fa-external-link-alt me-2"></i>Access Dashboard
+                        <a href="#demo-section" class="btn btn-outline-primary" style="color: white; border-color: white;">
+                            <i class="fas fa-play me-2"></i>Try Demo
                         </a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="py-5" id="demo-section" style="background: var(--gray-50);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2>Try Our Features</h2>
+                    <p class="text-gray-600 mb-4">Experience all enterprise features with live dashboard access.</p>
+                    <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-primary btn-lg">
+                        <i class="fas fa-external-link-alt me-2"></i>Launch Demo Dashboard
+                    </a>
                 </div>
             </div>
         </div>
@@ -871,7 +886,7 @@ if ($response['success']) {
                     <div class="d-flex flex-column gap-2">
                         <a href="{$app_url}/services">Services</a>
                         <a href="{$app_url}/pricing">Pricing</a>
-                        <a href="https://glintaafrica.com/admin" target="_blank">Dashboard</a>
+                        <a href="#demo-section">Demo</a>
                         <a href="#">API Docs</a>
                     </div>
                 </div>

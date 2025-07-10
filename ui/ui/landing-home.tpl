@@ -524,8 +524,8 @@
                         <a class="nav-link" href="{$app_url}/blog">Blog</a>
                     </li>
                     <li class="nav-item ms-2">
-                        <a class="btn btn-primary" href="https://glintaafrica.com/admin" target="_blank">
-                            <i class="fas fa-tachometer-alt me-1"></i>Dashboard
+                        <a class="btn btn-primary" href="#demo-section">
+                            <i class="fas fa-play me-1"></i>Live Demo
                         </a>
                     </li>
                 </ul>
@@ -541,8 +541,8 @@
                     <h1 class="display-2">Enterprise ISP Billing Platform</h1>
                     <p class="lead">Professional-grade network billing and management solution for African telecommunications infrastructure</p>
                     <div class="mt-4">
-                        <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-accent me-3">
-                            <i class="fas fa-external-link-alt me-2"></i>Try Demo Now
+                        <a href="#demo-section" class="btn btn-accent me-3">
+                            <i class="fas fa-play me-2"></i>Try Demo Now
                         </a>
                         <a href="{$app_url}/contact" class="btn btn-outline-primary">
                             <i class="fas fa-phone me-2"></i>Contact Sales
@@ -553,13 +553,12 @@
         </div>
     </section>
 
-    <!-- Key Features Overview -->
-    <section class="py-5">
+    <!-- Visual Features Gallery -->
+    <section class="py-5" style="background: linear-gradient(rgba(245,245,245,0.8), rgba(245,245,245,0.8)), url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cover;">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
-                    <h2>Complete ISP Management Solution</h2>
-                    <p class="text-lg" style="color: var(--gray);">Everything you need to run a modern internet service provider</p>
+            <div class="row text-center mb-4">
+                <div class="col-12" data-aos="fade-up">
+                    <h2>Complete ISP Solution</h2>
                 </div>
             </div>
             <div class="row g-4">
@@ -603,33 +602,25 @@
         </div>
     </section>
 
-    <!-- Technical Architecture -->
-    <section class="demo-section">
+    <!-- Live Demo Section -->
+    <section id="demo-section" class="demo-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
-                    <h2>Built for Scale and Reliability</h2>
-                    <p class="text-lg" style="color: var(--gray);">Enterprise architecture designed for African infrastructure</p>
+                    <h2>Experience Our Platform</h2>
+                    <p class="text-lg" style="color: var(--gray);">See the system in action</p>
                 </div>
             </div>
             <div class="row g-4">
-                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="demo-card">
-                        <div class="demo-header">
-                            <div class="demo-icon">
-                                <i class="fas fa-server"></i>
-                            </div>
-                            <div>
-                                <h6 class="mb-0">System Architecture</h6>
-                                <small style="color: var(--gray);">High-availability infrastructure</small>
-                            </div>
-                        </div>
-                        <ul class="list-unstyled">
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Load-balanced servers with failover</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Distributed database with replication</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>CDN-powered asset delivery</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>99.9% uptime SLA guarantee</li>
-                        </ul>
+                <div class="col-lg-12" data-aos="fade-up">
+                    <div class="demo-card text-center">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80" 
+                             alt="Live Dashboard Demo" class="img-fluid rounded mb-4">
+                        <h4 id="demo-section">Access Live Demo Dashboard</h4>
+                        <p style="color: var(--gray);">Experience our full platform with real data</p>
+                        <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-primary btn-lg">
+                            <i class="fas fa-external-link-alt me-2"></i>Open Demo Dashboard
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
@@ -760,8 +751,8 @@ if ($payment->confirmed) {
                     <h2 class="mb-4">Ready to Transform Your ISP Business?</h2>
                     <p class="text-lg mb-4" style="color: rgba(255,255,255,0.9);">Get started with a free demo and see how Glinta can revolutionize your operations.</p>
                     <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
-                        <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-accent">
-                            <i class="fas fa-rocket me-2"></i>Launch Demo Dashboard
+                        <a href="#demo-section" class="btn btn-accent">
+                            <i class="fas fa-play me-2"></i>View Live Demo
                         </a>
                         <a href="https://wa.me/254711503023" target="_blank" class="btn btn-outline-primary" style="color: white; border-color: white;">
                             <i class="fab fa-whatsapp me-2"></i>WhatsApp: +254 711 503 023
@@ -790,7 +781,7 @@ if ($payment->confirmed) {
                     <div class="d-flex flex-column gap-2">
                         <a href="{$app_url}/features">Features</a>
                         <a href="{$app_url}/pricing">Pricing</a>
-                        <a href="https://glintaafrica.com/admin" target="_blank">Dashboard</a>
+                        <a href="#demo-section">Demo</a>
                         <a href="#">API Docs</a>
                     </div>
                 </div>
