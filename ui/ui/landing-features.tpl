@@ -145,15 +145,18 @@
 
         /* Hero Section with Tech Background */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), 
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), 
                         url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+            background-repeat: no-repeat;
+            min-height: 80vh;
             color: white;
             padding: 8rem 0 4rem;
             position: relative;
             overflow: hidden;
+            display: flex;
+            align-items: center;
         }
 
         .hero::before {
@@ -705,7 +708,9 @@
                                 <small class="text-gray-600">Live system performance data</small>
                             </div>
                         </div>
-                        <canvas id="metricsChart" width="400" height="200"></canvas>
+                        <div style="height: 250px; width: 100%; position: relative;">
+                            <canvas id="metricsChart"></canvas>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
@@ -951,6 +956,9 @@ if ($response['success']) {
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
+                interaction: {
+                    intersect: false,
+                },
                 scales: {
                     y: {
                         beginAtZero: true,

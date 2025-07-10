@@ -142,15 +142,18 @@
 
         /* Hero Section with Tech Background */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), 
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), 
                         url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+            background-repeat: no-repeat;
+            min-height: 80vh;
             color: white;
             padding: 8rem 0 4rem;
             position: relative;
             overflow: hidden;
+            display: flex;
+            align-items: center;
         }
 
         .hero::before {
