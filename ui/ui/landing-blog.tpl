@@ -641,7 +641,7 @@ Real stories, proven strategies, and breakthrough moments from industry professi
                         </div>
                         <div class="col-4">
                             <div class="text-center p-3 rounded hero-stat-box">
-                                <div class="h4 mb-1" style="color: var(--gold);">🎯</div>
+                                <div class="h4 mb-1" style="color: var(--gold);"><i class="fas fa-bullseye"></i></div>
                                 <small class="text-white">Practical Solutions</small>
                             </div>
                         </div>
@@ -914,7 +914,7 @@ Real stories, proven strategies, and breakthrough moments from industry professi
                         <div class="position-relative">
                             <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Future of African ISPs" class="blog-image">
                             <div class="position-absolute top-0 end-0 m-3">
-                                <span class="badge bg-success">🚀 Future Vision</span>
+                                <span class="badge bg-success">Future Vision</span>
                             </div>
                         </div>
                         <div class="blog-content">
