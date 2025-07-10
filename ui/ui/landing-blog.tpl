@@ -579,25 +579,26 @@
             <div class="row align-items-center">
                 <div class="col-lg-6" data-aos="fade-right">
                     <h1 class="display-2">📝 The ISP <span style="color: var(--gold); animation: glow 2s ease-in-out infinite alternate;">Chronicles</span></h1>
-                    <p class="lead">Where tech meets humor and ISPs learn to smile 😄<br>
-Real stories, real solutions, and occasionally real funny mistakes we've all made! 🤦‍♂️</p>
+                    <p class="lead">Where network wizards share their secrets! 🧙‍♂️✨<br>
+Real stories, proven solutions, and the occasional "Why didn't I think of that sooner?" moment! 💡<br>
+<small style="color: rgba(255,255,255,0.8); font-style: italic;">Warning: May cause excessive confidence in network management abilities</small></p>
                     
                     <!-- Blog Stats -->
                     <div class="row g-3 mb-4">
                         <div class="col-4">
-                            <div class="text-center p-3 rounded" style="background: rgba(212,175,55,0.15); border: 2px solid rgba(212,175,55,0.3); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.1) rotate(5deg)'" onmouseout="this.style.transform='scale(1) rotate(0deg)'">
+                            <div class="text-center p-3 rounded" style="background: rgba(212,175,55,0.15); border: 2px solid rgba(212,175,55,0.3); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.1) rotate(5deg)'; this.innerHTML='<div class=\"h4 mb-1\" style=\"color: var(--gold);\">🎉</div><small class=\"text-white\">Still Growing!</small>'" onmouseout="this.style.transform='scale(1) rotate(0deg)'; this.innerHTML='<div class=\"h4 mb-1\" style=\"color: var(--gold);\">📚</div><small class=\"text-white\">50+ Articles</small>'">
                                 <div class="h4 mb-1" style="color: var(--gold);">📚</div>
                                 <small class="text-white">50+ Articles</small>
                             </div>
                         </div>
                         <div class="col-4">
-                            <div class="text-center p-3 rounded" style="background: rgba(212,175,55,0.15); border: 2px solid rgba(212,175,55,0.3); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.1) rotate(-5deg)'" onmouseout="this.style.transform='scale(1) rotate(0deg)'">
+                            <div class="text-center p-3 rounded" style="background: rgba(212,175,55,0.15); border: 2px solid rgba(212,175,55,0.3); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.1) rotate(-5deg)'; this.innerHTML='<div class=\"h4 mb-1\" style=\"color: var(--gold);\">⚡</div><small class=\"text-white\">Lightning Fast!</small>'" onmouseout="this.style.transform='scale(1) rotate(0deg)'; this.innerHTML='<div class=\"h4 mb-1\" style=\"color: var(--gold);\">☕</div><small class=\"text-white\">5 Min Reads</small>'">
                                 <div class="h4 mb-1" style="color: var(--gold);">☕</div>
                                 <small class="text-white">5 Min Reads</small>
                             </div>
                         </div>
                         <div class="col-4">
-                            <div class="text-center p-3 rounded" style="background: rgba(212,175,55,0.15); border: 2px solid rgba(212,175,55,0.3); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.1) rotate(5deg)'" onmouseout="this.style.transform='scale(1) rotate(0deg)'">
+                            <div class="text-center p-3 rounded" style="background: rgba(212,175,55,0.15); border: 2px solid rgba(212,175,55,0.3); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.1) rotate(5deg)'; this.innerHTML='<div class=\"h4 mb-1\" style=\"color: var(--gold);\">🚀</div><small class=\"text-white\">Career Boosting!</small>'" onmouseout="this.style.transform='scale(1) rotate(0deg)'; this.innerHTML='<div class=\"h4 mb-1\" style=\"color: var(--gold);\">🎯</div><small class=\"text-white\">100% Helpful</small>'">
                                 <div class="h4 mb-1" style="color: var(--gold);">🎯</div>
                                 <small class="text-white">100% Helpful</small>
                             </div>
@@ -662,15 +663,21 @@ Real stories, real solutions, and occasionally real funny mistakes we've all mad
             <div class="featured-post" data-aos="fade-up">
                 <div class="row g-0">
                     <div class="col-md-6">
-                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="African ISP Infrastructure" class="featured-image">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Team Working on ISP Solutions" class="featured-image">
                     </div>
                     <div class="col-md-6">
                         <div class="featured-content">
                             <div class="featured-badge">Featured Article</div>
                             <h2 class="featured-title">🚀 How We Built Africa's Most Fun ISP Platform (Yes, Really!)</h2>
                             <p class="featured-excerpt">
-                                The hilarious journey from "Why is this so hard?" to "Why didn't we do this sooner?" Learn how we turned ISP nightmares into sweet dreams with M-Pesa magic, RADIUS that doesn't make you cry, and billing that actually works!
+                                The epic journey from "Why won't this work?!" to "Holy cow, this actually works!" 🎉 Discover how we transformed ISP chaos into smooth operations with M-Pesa wizardry, RADIUS that doesn't give you nightmares, and billing that your accountant will actually love! Plus, real stories of 3 AM debugging sessions and the coffee that saved our sanity ☕
                             </p>
+                            
+                            <!-- Fun Fact -->
+                            <div class="alert alert-info d-flex align-items-center mb-3" style="background: rgba(212,175,55,0.1); border: 1px solid var(--accent); border-left: 4px solid var(--accent);">
+                                <i class="fas fa-lightbulb text-warning me-2"></i>
+                                <small><strong>Fun Fact:</strong> This article was written during a power outage in Nairobi. Thank goodness for laptop batteries and mobile hotspots! 😅</small>
+                            </div>
                             <div class="blog-meta mb-3">
                                 <div class="blog-date">
                                     <i class="fas fa-calendar text-gray-400"></i>
@@ -694,7 +701,12 @@ Real stories, real solutions, and occasionally real funny mistakes we've all mad
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <article class="blog-card">
-                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Network Security" class="blog-image">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Network Security" class="blog-image">
+                            <div class="position-absolute top-0 end-0 m-3">
+                                <span class="badge bg-danger">🔥 Hot Topic</span>
+                            </div>
+                        </div>
                         <div class="blog-content">
                             <div class="blog-category">Security</div>
                             <h3 class="blog-title">🔐 RADIUS Security: How to Keep the Bad Guys Out (And Your Sanity In)</h3>
@@ -717,7 +729,12 @@ Real stories, real solutions, and occasionally real funny mistakes we've all mad
 
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <article class="blog-card">
-                        <img src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Network Management" class="blog-image">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Network Management" class="blog-image">
+                            <div class="position-absolute top-0 start-0 m-3">
+                                <span class="badge bg-primary">📊 Trending</span>
+                            </div>
+                        </div>
                         <div class="blog-content">
                             <div class="blog-category">Network Operations</div>
                             <h3 class="blog-title">🔍 SNMP Monitoring: Watching Your Network Like a Hawk (But Friendlier)</h3>
@@ -740,7 +757,12 @@ Real stories, real solutions, and occasionally real funny mistakes we've all mad
 
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                     <article class="blog-card">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Payment Integration" class="blog-image">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Payment Integration" class="blog-image">
+                            <div class="position-absolute top-0 end-0 m-3">
+                                <span class="badge bg-success">💰 Money Magic</span>
+                            </div>
+                        </div>
                         <div class="blog-content">
                             <div class="blog-category">Technology Trends</div>
                             <h3 class="blog-title">💰 M-Pesa Integration: From "Nimesend" to "Service On" in 3 Seconds!</h3>
@@ -763,7 +785,12 @@ Real stories, real solutions, and occasionally real funny mistakes we've all mad
 
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
                     <article class="blog-card">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Network Analytics" class="blog-image">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1551808525-51a94da548ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Network Analytics" class="blog-image">
+                            <div class="position-absolute bottom-0 start-0 m-3">
+                                <span class="badge bg-info">📈 Data Nerd Alert</span>
+                            </div>
+                        </div>
                         <div class="blog-content">
                             <div class="blog-category">Enterprise Solutions</div>
                             <h3 class="blog-title">Network Analytics: InfluxDB and Grafana for ISP Monitoring</h3>
@@ -786,7 +813,12 @@ Real stories, real solutions, and occasionally real funny mistakes we've all mad
 
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
                     <article class="blog-card">
-                        <img src="https://images.unsplash.com/photo-1573164713712-03790a178651?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Network Automation" class="blog-image">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Network Automation" class="blog-image">
+                            <div class="position-absolute top-0 start-0 m-3">
+                                <span class="badge bg-warning text-dark">🤖 Automation Magic</span>
+                            </div>
+                        </div>
                         <div class="blog-content">
                             <div class="blog-category">Network Operations</div>
                             <h3 class="blog-title">Network Automation: Mikrotik RouterOS API Programming</h3>
@@ -809,7 +841,12 @@ Real stories, real solutions, and occasionally real funny mistakes we've all mad
 
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
                     <article class="blog-card">
-                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Industry Analysis" class="blog-image">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Industry Analysis" class="blog-image">
+                            <div class="position-absolute bottom-0 end-0 m-3">
+                                <span class="badge bg-dark">📊 Market Intel</span>
+                            </div>
+                        </div>
                         <div class="blog-content">
                             <div class="blog-category">Industry Analysis</div>
                             <h3 class="blog-title">African Telecommunications Market: 2025 Industry Report</h3>
@@ -891,7 +928,7 @@ Real stories, real solutions, and occasionally real funny mistakes we've all mad
             <div class="row g-4">
                 <div class="col-lg-4">
                     <h6>Glinta Africa</h6>
-                    <p class="text-sm text-gray-400 mb-3">Professional ISP solutions and technical insights for African telecommunications. Expert analysis of network operations and enterprise technology.</p>
+                    <p class="text-sm mb-3" style="color: var(--accent);">Professional ISP solutions and technical insights for African telecommunications. Expert analysis of network operations and enterprise technology.</p>
                     <div class="d-flex gap-3">
                         <a href="#" class="text-gray-400"><i class="fab fa-twitter"></i></a>
                         <a href="#" class="text-gray-400"><i class="fab fa-linkedin"></i></a>
@@ -940,7 +977,7 @@ Real stories, real solutions, and occasionally real funny mistakes we've all mad
                     <p class="text-sm text-gray-500 mb-0">&copy; 2025 Glinta Africa. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <p class="text-sm text-gray-500 mb-0">Professional insights for African telecommunications</p>
+                    <p class="text-sm mb-0" style="color: var(--accent);">Professional insights for African telecommunications</p>
                 </div>
             </div>
         </div>

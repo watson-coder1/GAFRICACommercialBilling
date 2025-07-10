@@ -978,7 +978,7 @@
                             <p>African ISPs that embrace these technological trends while maintaining focus on customer needs and community impact will lead the continent's digital transformation and contribute to Africa's emergence as a global technology hub.</p>
                         </div>
                     {elseif $article == 'radius-security-guide'}
-                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="RADIUS Security" class="article-image">
+                        <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Network Security Infrastructure" class="article-image">
                         
                         <div class="article-body">
                             <p>Network security in Internet Service Provider (ISP) operations requires robust authentication mechanisms to protect infrastructure and customer data. RADIUS (Remote Authentication Dial-In User Service) servers serve as critical components in network access control, making their security paramount for operational integrity. This comprehensive guide examines advanced RADIUS security implementations and best practices for enterprise-grade ISP environments.</p>
@@ -1037,7 +1037,7 @@
                             <p>Effective RADIUS security implementation requires ongoing commitment to security best practices, regular assessment of threat landscapes, and continuous improvement of security controls based on emerging threats and technology developments. Organizations implementing these comprehensive security measures significantly reduce their exposure to authentication-related security incidents while maintaining the operational efficiency required for commercial ISP operations.</p>
                         </div>
                     {elseif $article == 'snmp-monitoring-guide'}
-                        <img src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="SNMP Monitoring" class="article-image">
+                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Network Operations Center Dashboard" class="article-image">
                         
                         <div class="article-body">
                             <p>Effective network monitoring represents a cornerstone of professional Internet Service Provider operations, enabling proactive identification and resolution of infrastructure issues before they impact customer experience. Simple Network Management Protocol (SNMP) provides the foundation for comprehensive network visibility, offering standardized mechanisms for collecting operational data from network devices. This guide examines enterprise-grade SNMP monitoring implementations and best practices for ISP environments.</p>
@@ -1123,7 +1123,7 @@
                             <p>Effective SNMP monitoring implementation requires ongoing commitment to best practices, regular assessment of monitoring effectiveness, and continuous optimization based on operational experience and technology evolution. Organizations implementing comprehensive SNMP monitoring strategies achieve significant improvements in network reliability, operational efficiency, and customer satisfaction through proactive infrastructure management.</p>
                         </div>
                     {elseif $article == 'mpesa-integration-guide'}
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="M-Pesa Integration" class="article-image">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Mobile Payment Technology Africa" class="article-image">
                         
                         <div class="article-body">
                             <p>Mobile money integration represents a critical component of modern ISP billing infrastructure in African markets, enabling seamless payment processing and improving customer experience through familiar transaction mechanisms. M-Pesa, Kenya's dominant mobile money platform, has fundamentally transformed digital payment landscapes across East Africa and provides ISPs with robust APIs for billing system integration. This comprehensive guide examines technical implementation strategies and best practices for M-Pesa payment gateway integration.</p>
@@ -1259,7 +1259,7 @@
                             <p>Pro tip: Test with small amounts first. Nothing worse than accidentally charging a customer their entire month's salary because you forgot to move a decimal point. Trust us on this one! 😅</p>
                         </div>
                     {elseif $article == 'network-analytics-influxdb-grafana'}
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Network Analytics Dashboard" class="article-image">
+                        <img src="https://images.unsplash.com/photo-1551808525-51a94da548ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Data Analytics and Business Intelligence" class="article-image">
                         
                         <div class="article-body">
                             <p>In the world of professional ISP operations, data is king. But raw data is like uncut diamonds—valuable but not immediately useful. Enter InfluxDB and Grafana: the dynamic duo that transforms your network metrics into actionable intelligence. This guide covers enterprise-grade network analytics implementation for serious ISP operations.</p>
@@ -1434,7 +1434,7 @@
                             <p>Professional network analytics with InfluxDB and Grafana transforms ISP operations from reactive to proactive. The investment in proper monitoring infrastructure pays dividends through improved efficiency, reduced downtime, and enhanced customer satisfaction. As networks grow in complexity, the ISPs with superior analytics capabilities will maintain competitive advantage.</p>
                         </div>
                     {elseif $article == 'mikrotik-routeros-api-automation'}
-                        <img src="https://images.unsplash.com/photo-1573164713712-03790a178651?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Mikrotik Automation" class="article-image">
+                        <img src="https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Network Automation and Programming" class="article-image">
                         
                         <div class="article-body">
                             <p>Manual network configuration is a relic of the past. In modern ISP operations, automation is not just convenient—it's essential for scalability and reliability. This comprehensive guide explores advanced Mikrotik RouterOS API programming techniques for automating large-scale network operations.</p>
