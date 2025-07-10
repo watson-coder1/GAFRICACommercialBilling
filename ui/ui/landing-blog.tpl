@@ -621,8 +621,8 @@ Real stories, proven solutions, and the occasional "Why didn't I think of that s
                 <div class="col-lg-6" data-aos="fade-left">
                     <!-- Blog Visual -->
                     <div class="position-relative">
-                        <img src="https://images.unsplash.com/photo-1432821596592-e2c18b78144f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" 
-                             alt="Blog Reading" class="img-fluid rounded shadow-lg" style="transform: perspective(1000px) rotateY(-5deg); transition: all 0.3s ease;" onmouseover="this.style.transform='perspective(1000px) rotateY(0deg) scale(1.02)'" onmouseout="this.style.transform='perspective(1000px) rotateY(-5deg) scale(1)'">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" 
+                             alt="Blog Reading and Learning" class="img-fluid rounded shadow-lg" style="transform: perspective(1000px) rotateY(-5deg); transition: all 0.3s ease;" onmouseover="this.style.transform='perspective(1000px) rotateY(0deg) scale(1.02)'" onmouseout="this.style.transform='perspective(1000px) rotateY(-5deg) scale(1)'">
                         
                         <!-- Animated Blog Topics -->
                         <div class="position-absolute top-0 start-0 m-3 bg-success text-white rounded p-2 shadow" style="animation: bounce 3s infinite;">
@@ -864,6 +864,34 @@ Real stories, proven solutions, and the occasional "Why didn't I think of that s
                                 <div class="blog-read-time">20 min read</div>
                             </div>
                             <a href="{$app_url}/blog/kenya-internet-market-2025" class="blog-link">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="700">
+                    <article class="blog-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Future of African ISPs" class="blog-image">
+                            <div class="position-absolute top-0 end-0 m-3">
+                                <span class="badge bg-success">🚀 Future Vision</span>
+                            </div>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-category">ISP Business</div>
+                            <h3 class="blog-title">The Future of Internet Service Provision in Africa</h3>
+                            <p class="blog-excerpt">
+                                Discover how African ISPs are revolutionizing internet access with innovative billing solutions, mobile money integration, and community-focused approaches.
+                            </p>
+                            <div class="blog-meta">
+                                <div class="blog-date">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Dec 15, 2024</span>
+                                </div>
+                                <div class="blog-read-time">5 min read</div>
+                            </div>
+                            <a href="{$app_url}/blog/future-isp-africa" class="blog-link">
                                 Read More <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
