@@ -614,10 +614,10 @@
             <div class="row g-4">
                 <div class="col-lg-12" data-aos="fade-up">
                     <div class="demo-card text-center">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80" 
-                             alt="Live Dashboard Demo" class="img-fluid rounded mb-4">
+                        <img src="{$app_url}/ui/ui/images/dashboard-demo.png" 
+                             alt="Live Dashboard Demo - Glinta Africa ISP Billing Platform" class="img-fluid rounded mb-4 shadow-lg" style="border: 2px solid var(--gold);">
                         <h4 id="demo-section">Access Live Demo Dashboard</h4>
-                        <p style="color: var(--gray);">Experience our full platform with real data</p>
+                        <p style="color: var(--gray);">Explore the actual Glinta Africa ISP billing dashboard with live features</p>
                         <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-primary btn-lg">
                             <i class="fas fa-external-link-alt me-2"></i>Open Demo Dashboard
                         </a>
