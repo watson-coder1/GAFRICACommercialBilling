@@ -984,9 +984,9 @@
                             <p>Security isn't just about keeping the bad guys out—it's about sleeping peacefully knowing your RADIUS server is locked down tighter than Fort Knox. In this guide, we'll transform your authentication system from "please don't hack me" to "good luck trying!"</p>
 
                             <h2>Why RADIUS Security Matters More Than Your Coffee</h2>
-                            <p>Your RADIUS server is the gatekeeper to your entire network. If it's compromised, hackers don't just get free internet—they get the keys to your kingdom. And trust me, explaining to your customers why their data ended up on the dark web is harder than explaining why you charge for internet in 2025.</p>
+                            <p>Your RADIUS server is the gatekeeper to your entire network. If it's compromised, hackers don't just get free internet—they get the keys to your kingdom. According to <a href="https://www.cisa.gov/cybersecurity-best-practices" target="_blank" rel="noopener">CISA's cybersecurity guidelines</a>, network authentication is the first line of defense against cyber threats.</p>
 
-                            <p>The good news? Securing RADIUS with platforms like <a href="{$app_url}">Glinta Africa</a> is easier than you think. We've built security features that make hackers cry themselves to sleep.</p>
+                            <p>The good news? Securing RADIUS with platforms like <a href="{$app_url}">Glinta Africa</a> is easier than you think. We've built security features that make hackers cry themselves to sleep, following industry standards from <a href="https://tools.ietf.org/html/rfc2865" target="_blank" rel="noopener">RFC 2865</a> and modern security practices.</p>
 
                             <h3>The "Oh No" Moments We're Preventing</h3>
                             <ul>
@@ -1021,7 +1021,7 @@
                             <p>Implement rate limiting to prevent brute force attacks. After 3 failed attempts, that IP gets a timeout. It's like putting annoying customers on hold, but for hackers.</p>
 
                             <h3>EAP-TLS for the Win</h3>
-                            <p>Certificate-based authentication is the gold standard. Yes, it's more work to set up, but so is explaining to customers why their accounts got hacked.</p>
+                            <p>Certificate-based authentication is the gold standard recommended by <a href="https://www.nist.gov/cybersecurity" target="_blank" rel="noopener">NIST cybersecurity framework</a>. Yes, it's more work to set up, but so is explaining to customers why their accounts got hacked. Learn more about <a href="https://en.wikipedia.org/wiki/Extensible_Authentication_Protocol" target="_blank" rel="noopener">EAP protocols</a> and their security benefits.</p>
 
                             <h3>VLAN Segregation</h3>
                             <p>Different user groups get different VLANs. It's like having separate parties for different friend groups—everyone has more fun and there's less drama.</p>
@@ -1131,7 +1131,7 @@
                             <p>Ah, M-Pesa integration! The magical moment when your billing system transforms from "Please come to our office with cash" to "Lipa na M-Pesa, instant connection!" If you've ever wondered how to make mobile money work seamlessly with your ISP platform, grab a cup of Kenyan tea and let's dive in!</p>
 
                             <h2>The M-Pesa Revolution (Or: How Kenya Taught the World to Pay)</h2>
-                            <p>Before we get technical, let's appreciate the beauty of M-Pesa. It's not just a payment system—it's a lifestyle. Your customers pay for everything with M-Pesa: groceries, rent, dowry (yes, really), and now, thanks to you, their internet!</p>
+                            <p>Before we get technical, let's appreciate the beauty of M-Pesa. It's not just a payment system—it's a lifestyle that has revolutionized financial inclusion in Africa. According to <a href="https://www.gsma.com/mobilefordevelopment/" target="_blank" rel="noopener">GSMA's Mobile for Development initiative</a>, M-Pesa processes over 12 billion transactions annually. Your customers pay for everything with M-Pesa: groceries, rent, dowry (yes, really), and now, thanks to you, their internet!</p>
 
                             <p>Integrating M-Pesa with <a href="{$app_url}">Glinta Africa</a> is like giving your ISP superpowers. Suddenly, payments happen at the speed of "Nimesend!"</p>
 
@@ -1148,7 +1148,7 @@
                             <p>Let's break down the M-Pesa integration process into bite-sized pieces (or should we say byte-sized? 😄):</p>
 
                             <h3>Step 1: Getting Your Daraja API Credentials</h3>
-                            <p>First things first—you need to sweet-talk Safaricom into giving you API access. It's like applying for a club membership, but instead of a fancy card, you get API keys!</p>
+                            <p>First things first—you need to sweet-talk Safaricom into giving you API access through their <a href="https://developer.safaricom.co.ke/" target="_blank" rel="noopener">Daraja API portal</a>. It's like applying for a club membership, but instead of a fancy card, you get API keys! The <a href="https://developer.safaricom.co.ke/docs" target="_blank" rel="noopener">official documentation</a> provides comprehensive guidance for getting started.</p>
 
                             <p>What you'll need:</p>
                             <ul>

@@ -97,7 +97,8 @@ $landing_routes = [
 if (in_array($handler, $landing_routes)) {
     // Only redirect single-segment routes to default controller
     // This prevents interference with order/gateway/admin routes
-    if (count($routes) == 1) {
+    // Special handling for blog articles (blog/article-name)
+    if (count($routes) == 1 || ($handler == 'blog' && count($routes) == 2)) {
         $handler = 'default';
     }
 }
