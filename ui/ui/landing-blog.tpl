@@ -505,6 +505,45 @@
             color: var(--accent);
         }
 
+        /* Hero section enhancements */
+        .hero-stat-box {
+            background: rgba(212,175,55,0.15);
+            border: 2px solid rgba(212,175,55,0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .hero-stat-box:hover {
+            transform: scale(1.05);
+            background: rgba(212,175,55,0.2);
+        }
+        
+        .hero-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .hero-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212,175,55,0.3);
+        }
+        
+        .hero-btn-outline {
+            transition: all 0.3s ease;
+        }
+        
+        .hero-btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .hero-image {
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: all 0.3s ease;
+        }
+        
+        .hero-image:hover {
+            transform: perspective(1000px) rotateY(0deg) scale(1.02);
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero {
@@ -581,39 +620,39 @@
         <div class="container hero-content">
             <div class="row align-items-center">
                 <div class="col-lg-6" data-aos="fade-right">
-                    <h1 class="display-2">📝 The ISP <span style="color: var(--gold); animation: glow 2s ease-in-out infinite alternate;">Chronicles</span></h1>
-                    <p class="lead">Where network wizards share their secrets! 🧙‍♂️✨<br>
-Real stories, proven solutions, and the occasional "Why didn't I think of that sooner?" moment! 💡<br>
-<small style="color: rgba(255,255,255,0.8); font-style: italic;">Warning: May cause excessive confidence in network management abilities</small></p>
+                    <h1 class="display-2">The ISP <span style="color: var(--gold); animation: glow 2s ease-in-out infinite alternate;">Knowledge Hub</span></h1>
+                    <p class="lead">Expert insights and practical solutions for Internet Service Providers across Africa.<br>
+Real stories, proven strategies, and breakthrough moments from industry professionals.<br>
+<small style="color: rgba(255,255,255,0.8); font-style: italic;">Professional guidance for modern ISP operations</small></p>
                     
                     <!-- Blog Stats -->
                     <div class="row g-3 mb-4">
                         <div class="col-4">
-                            <div class="text-center p-3 rounded" style="background: rgba(212,175,55,0.15); border: 2px solid rgba(212,175,55,0.3); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.1) rotate(5deg)'; this.innerHTML='<div class=\"h4 mb-1\" style=\"color: var(--gold);\">🎉</div><small class=\"text-white\">Still Growing!</small>'" onmouseout="this.style.transform='scale(1) rotate(0deg)'; this.innerHTML='<div class=\"h4 mb-1\" style=\"color: var(--gold);\">📚</div><small class=\"text-white\">50+ Articles</small>'">
+                            <div class="text-center p-3 rounded hero-stat-box">
                                 <div class="h4 mb-1" style="color: var(--gold);">📚</div>
                                 <small class="text-white">50+ Articles</small>
                             </div>
                         </div>
                         <div class="col-4">
-                            <div class="text-center p-3 rounded" style="background: rgba(212,175,55,0.15); border: 2px solid rgba(212,175,55,0.3); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.1) rotate(-5deg)'; this.innerHTML='<div class=\"h4 mb-1\" style=\"color: var(--gold);\">⚡</div><small class=\"text-white\">Lightning Fast!</small>'" onmouseout="this.style.transform='scale(1) rotate(0deg)'; this.innerHTML='<div class=\"h4 mb-1\" style=\"color: var(--gold);\">☕</div><small class=\"text-white\">5 Min Reads</small>'">
-                                <div class="h4 mb-1" style="color: var(--gold);">☕</div>
-                                <small class="text-white">5 Min Reads</small>
+                            <div class="text-center p-3 rounded hero-stat-box">
+                                <div class="h4 mb-1" style="color: var(--gold);">⚡</div>
+                                <small class="text-white">Expert Insights</small>
                             </div>
                         </div>
                         <div class="col-4">
-                            <div class="text-center p-3 rounded" style="background: rgba(212,175,55,0.15); border: 2px solid rgba(212,175,55,0.3); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.1) rotate(5deg)'; this.innerHTML='<div class=\"h4 mb-1\" style=\"color: var(--gold);\">🚀</div><small class=\"text-white\">Career Boosting!</small>'" onmouseout="this.style.transform='scale(1) rotate(0deg)'; this.innerHTML='<div class=\"h4 mb-1\" style=\"color: var(--gold);\">🎯</div><small class=\"text-white\">100% Helpful</small>'">
+                            <div class="text-center p-3 rounded hero-stat-box">
                                 <div class="h4 mb-1" style="color: var(--gold);">🎯</div>
-                                <small class="text-white">100% Helpful</small>
+                                <small class="text-white">Practical Solutions</small>
                             </div>
                         </div>
                     </div>
                     
                     <div class="d-flex flex-column flex-md-row gap-3">
-                        <a href="#latest-posts" class="btn btn-accent btn-lg px-4 py-3" style="animation: pulse 2s infinite;" onmouseover="this.style.transform='scale(1.05) rotate(1deg)'; this.style.boxShadow='0 10px 30px rgba(212,175,55,0.4)'" onmouseout="this.style.transform='scale(1) rotate(0deg)'; this.style.boxShadow='none'">
-                            <i class="fas fa-book-reader me-2"></i>📖 Start Reading
+                        <a href="#latest-posts" class="btn btn-accent btn-lg px-4 py-3 hero-btn">
+                            <i class="fas fa-book-reader me-2"></i>Explore Articles
                         </a>
-                        <a href="#newsletter" class="btn btn-outline-primary btn-lg px-4 py-3" style="transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.1)'; this.innerHTML='<i class=\"fas fa-bell me-2\"></i>🔔 Get Updates!'" onmouseout="this.style.background='transparent'; this.innerHTML='<i class=\"fas fa-rss me-2\"></i>📧 Subscribe'">
-                            <i class="fas fa-rss me-2"></i>📧 Subscribe
+                        <a href="#newsletter" class="btn btn-outline-primary btn-lg px-4 py-3 hero-btn-outline">
+                            <i class="fas fa-envelope me-2"></i>Subscribe
                         </a>
                     </div>
                 </div>
@@ -622,7 +661,7 @@ Real stories, proven solutions, and the occasional "Why didn't I think of that s
                     <!-- Blog Visual -->
                     <div class="position-relative">
                         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" 
-                             alt="Blog Reading and Learning" class="img-fluid rounded shadow-lg" style="transform: perspective(1000px) rotateY(-5deg); transition: all 0.3s ease;" onmouseover="this.style.transform='perspective(1000px) rotateY(0deg) scale(1.02)'" onmouseout="this.style.transform='perspective(1000px) rotateY(-5deg) scale(1)'">
+                             alt="Blog Reading and Learning" class="img-fluid rounded shadow-lg hero-image">
                         
                         <!-- Animated Blog Topics -->
                         <div class="position-absolute top-0 start-0 m-3 bg-success text-white rounded p-2 shadow" style="animation: bounce 3s infinite;">
@@ -671,15 +710,15 @@ Real stories, proven solutions, and the occasional "Why didn't I think of that s
                     <div class="col-md-6">
                         <div class="featured-content">
                             <div class="featured-badge">Featured Article</div>
-                            <h2 class="featured-title">🚀 How We Built Africa's Most Fun ISP Platform (Yes, Really!)</h2>
+                            <h2 class="featured-title">Building Africa's Leading ISP Management Platform</h2>
                             <p class="featured-excerpt">
-                                The epic journey from "Why won't this work?!" to "Holy cow, this actually works!" 🎉 Discover how we transformed ISP chaos into smooth operations with M-Pesa wizardry, RADIUS that doesn't give you nightmares, and billing that your accountant will actually love! Plus, real stories of 3 AM debugging sessions and the coffee that saved our sanity ☕
+                                A comprehensive guide to transforming internet service operations through advanced billing systems, mobile money integration, and automated network management. Learn from real-world implementations and proven strategies for scaling ISP businesses across Africa.
                             </p>
                             
-                            <!-- Fun Fact -->
+                            <!-- Key Insight -->
                             <div class="alert alert-info d-flex align-items-center mb-3" style="background: rgba(212,175,55,0.1); border: 1px solid var(--accent); border-left: 4px solid var(--accent);">
                                 <i class="fas fa-lightbulb text-warning me-2"></i>
-                                <small><strong>Fun Fact:</strong> This article was written during a power outage in Nairobi. Thank goodness for laptop batteries and mobile hotspots! 😅</small>
+                                <small><strong>Key Insight:</strong> Successful ISP platforms require seamless integration of billing, authentication, and customer management systems.</small>
                             </div>
                             <div class="blog-meta mb-3">
                                 <div class="blog-date">
@@ -712,9 +751,9 @@ Real stories, proven solutions, and the occasional "Why didn't I think of that s
                         </div>
                         <div class="blog-content">
                             <div class="blog-category">Security</div>
-                            <h3 class="blog-title">🔐 RADIUS Security: How to Keep the Bad Guys Out (And Your Sanity In)</h3>
+                            <h3 class="blog-title">RADIUS Security: Advanced Network Authentication and Access Control</h3>
                             <p class="blog-excerpt">
-                                Ever wondered why hackers hate us? It's because our RADIUS setup is tighter than your budget after the holidays! Learn the secrets...
+                                Comprehensive security implementation strategies for RADIUS authentication systems, including best practices for user management and network access control.
                             </p>
                             <div class="blog-meta">
                                 <div class="blog-date">
@@ -740,9 +779,9 @@ Real stories, proven solutions, and the occasional "Why didn't I think of that s
                         </div>
                         <div class="blog-content">
                             <div class="blog-category">Network Operations</div>
-                            <h3 class="blog-title">🔍 SNMP Monitoring: Watching Your Network Like a Hawk (But Friendlier)</h3>
+                            <h3 class="blog-title">SNMP Monitoring: Proactive Network Management and Performance Optimization</h3>
                             <p class="blog-excerpt">
-                                Stop playing network detective at 3 AM! Our SNMP tricks will have your network telling you its problems before they happen. Magic? Almost!
+                                Advanced SNMP monitoring techniques for real-time network performance tracking, automated alerting, and predictive maintenance strategies.
                             </p>
                             <div class="blog-meta">
                                 <div class="blog-date">
@@ -768,9 +807,9 @@ Real stories, proven solutions, and the occasional "Why didn't I think of that s
                         </div>
                         <div class="blog-content">
                             <div class="blog-category">Technology Trends</div>
-                            <h3 class="blog-title">💰 M-Pesa Integration: From "Nimesend" to "Service On" in 3 Seconds!</h3>
+                            <h3 class="blog-title">M-Pesa Integration: Seamless Mobile Money Payment Processing</h3>
                             <p class="blog-excerpt">
-                                The secret sauce to making mobile money work like magic. Spoiler: It involves less code and more understanding how Kenyans actually pay!
+                                Technical implementation guide for M-Pesa payment gateway integration, including API setup, callback handling, and automated service activation.
                             </p>
                             <div class="blog-meta">
                                 <div class="blog-date">
