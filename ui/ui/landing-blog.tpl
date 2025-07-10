@@ -104,13 +104,15 @@
             font-family: 'Manrope', sans-serif;
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--primary);
+            color: var(--accent);
             text-decoration: none;
             letter-spacing: -0.025em;
+            transition: all 0.3s ease;
         }
 
         .logo-brand:hover {
-            color: var(--primary-light);
+            color: var(--accent-dark);
+            transform: scale(1.05);
         }
 
         /* Navigation */
@@ -487,8 +489,9 @@
         }
 
         .footer h6 {
-            color: white;
+            color: var(--accent);
             margin-bottom: 1rem;
+            font-weight: 700;
         }
 
         .footer a {
