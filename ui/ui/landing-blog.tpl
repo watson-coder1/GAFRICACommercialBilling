@@ -23,6 +23,9 @@
     
     <style>
         :root {
+            --gold: #D4AF37;
+            --gold-light: #F4E4C1;
+            --gold-dark: #B8941F;
             --primary: #1a365d;
             --primary-light: #2d5282;
             --primary-dark: #0f2a44;
@@ -145,11 +148,34 @@
 
         /* Hero Section */
         .hero {
-            background: var(--gradient-hero);
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
             color: white;
             padding: 8rem 0 4rem;
             position: relative;
             overflow: hidden;
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px var(--gold), 0 0 20px var(--gold), 0 0 30px var(--gold); }
+            to { text-shadow: 0 0 20px var(--gold), 0 0 30px var(--gold), 0 0 40px var(--gold); }
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { opacity: 1; }
         }
 
         .hero::before {
@@ -534,8 +560,8 @@
                         <a class="nav-link" href="{$app_url}/blog">Blog</a>
                     </li>
                     <li class="nav-item ms-2">
-                        <a class="btn btn-primary" href="https://glintaafrica.com/admin" target="_blank">
-                            <i class="fas fa-tachometer-alt me-1"></i>Dashboard
+                        <a class="btn btn-primary" href="#demo-section">
+                            <i class="fas fa-play me-1"></i>Live Demo
                         </a>
                     </li>
                 </ul>
@@ -544,19 +570,67 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" style="position: relative; overflow: hidden;">
+        <!-- Animated Floating Elements -->
+        <div class="position-absolute" style="top: 10%; left: 5%; width: 150px; height: 150px; background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, transparent 70%); border-radius: 50%; animation: float 8s ease-in-out infinite;"></div>
+        <div class="position-absolute" style="top: 70%; right: 10%; width: 200px; height: 200px; background: radial-gradient(circle, rgba(44,82,130,0.1) 0%, transparent 70%); border-radius: 50%; animation: float 10s ease-in-out infinite reverse;"></div>
+        
         <div class="container hero-content">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h1 class="display-2">Technical Insights</h1>
-                    <p class="lead">Professional analysis of ISP operations, network management, and telecommunications technology. Expert perspectives on African internet infrastructure and business strategies.</p>
-                    <div class="mt-4">
-                        <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-accent me-3">
-                            <i class="fas fa-external-link-alt me-2"></i>Platform Demo
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h1 class="display-2">📝 The ISP <span style="color: var(--gold); animation: glow 2s ease-in-out infinite alternate;">Chronicles</span></h1>
+                    <p class="lead">Where tech meets humor and ISPs learn to smile 😄<br>
+Real stories, real solutions, and occasionally real funny mistakes we've all made! 🤦‍♂️</p>
+                    
+                    <!-- Blog Stats -->
+                    <div class="row g-3 mb-4">
+                        <div class="col-4">
+                            <div class="text-center p-3 rounded" style="background: rgba(212,175,55,0.15); border: 2px solid rgba(212,175,55,0.3); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.1) rotate(5deg)'" onmouseout="this.style.transform='scale(1) rotate(0deg)'">
+                                <div class="h4 mb-1" style="color: var(--gold);">📚</div>
+                                <small class="text-white">50+ Articles</small>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="text-center p-3 rounded" style="background: rgba(212,175,55,0.15); border: 2px solid rgba(212,175,55,0.3); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.1) rotate(-5deg)'" onmouseout="this.style.transform='scale(1) rotate(0deg)'">
+                                <div class="h4 mb-1" style="color: var(--gold);">☕</div>
+                                <small class="text-white">5 Min Reads</small>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="text-center p-3 rounded" style="background: rgba(212,175,55,0.15); border: 2px solid rgba(212,175,55,0.3); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.1) rotate(5deg)'" onmouseout="this.style.transform='scale(1) rotate(0deg)'">
+                                <div class="h4 mb-1" style="color: var(--gold);">🎯</div>
+                                <small class="text-white">100% Helpful</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex flex-column flex-md-row gap-3">
+                        <a href="#latest-posts" class="btn btn-accent btn-lg px-4 py-3" style="animation: pulse 2s infinite;" onmouseover="this.style.transform='scale(1.05) rotate(1deg)'; this.style.boxShadow='0 10px 30px rgba(212,175,55,0.4)'" onmouseout="this.style.transform='scale(1) rotate(0deg)'; this.style.boxShadow='none'">
+                            <i class="fas fa-book-reader me-2"></i>📖 Start Reading
                         </a>
-                        <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-outline-primary">
-                            <i class="fas fa-envelope me-2"></i>Contact Authors
+                        <a href="#newsletter" class="btn btn-outline-primary btn-lg px-4 py-3" style="transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.1)'; this.innerHTML='<i class=\"fas fa-bell me-2\"></i>🔔 Get Updates!'" onmouseout="this.style.background='transparent'; this.innerHTML='<i class=\"fas fa-rss me-2\"></i>📧 Subscribe'">
+                            <i class="fas fa-rss me-2"></i>📧 Subscribe
                         </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-left">
+                    <!-- Blog Visual -->
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1432821596592-e2c18b78144f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" 
+                             alt="Blog Reading" class="img-fluid rounded shadow-lg" style="transform: perspective(1000px) rotateY(-5deg); transition: all 0.3s ease;" onmouseover="this.style.transform='perspective(1000px) rotateY(0deg) scale(1.02)'" onmouseout="this.style.transform='perspective(1000px) rotateY(-5deg) scale(1)'">
+                        
+                        <!-- Animated Blog Topics -->
+                        <div class="position-absolute top-0 start-0 m-3 bg-success text-white rounded p-2 shadow" style="animation: bounce 3s infinite;">
+                            <small>🔥 Hot Topics</small>
+                        </div>
+                        <div class="position-absolute bottom-0 end-0 m-3 bg-warning text-dark rounded p-2 shadow" style="animation: bounce 4s infinite reverse;">
+                            <small>💡 ISP Tips</small>
+                        </div>
+                        
+                        <!-- Floating Icons -->
+                        <div class="position-absolute" style="top: 20%; right: -30px; animation: float 3s ease-in-out infinite; font-size: 2rem;">📝</div>
+                        <div class="position-absolute" style="bottom: 30%; left: -30px; animation: float 4s ease-in-out infinite reverse; font-size: 2rem;">💭</div>
                     </div>
                 </div>
             </div>
@@ -593,9 +667,9 @@
                     <div class="col-md-6">
                         <div class="featured-content">
                             <div class="featured-badge">Featured Article</div>
-                            <h2 class="featured-title">Enterprise ISP Operations: Scaling Network Infrastructure in Africa</h2>
+                            <h2 class="featured-title">🚀 How We Built Africa's Most Fun ISP Platform (Yes, Really!)</h2>
                             <p class="featured-excerpt">
-                                A comprehensive analysis of enterprise-grade ISP operations across African markets. This deep-dive covers network architecture, operational best practices, and technology strategies for scaling telecommunications infrastructure.
+                                The hilarious journey from "Why is this so hard?" to "Why didn't we do this sooner?" Learn how we turned ISP nightmares into sweet dreams with M-Pesa magic, RADIUS that doesn't make you cry, and billing that actually works!
                             </p>
                             <div class="blog-meta mb-3">
                                 <div class="blog-date">
@@ -623,9 +697,9 @@
                         <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Network Security" class="blog-image">
                         <div class="blog-content">
                             <div class="blog-category">Security</div>
-                            <h3 class="blog-title">Enterprise Network Security: RADIUS Authentication Best Practices</h3>
+                            <h3 class="blog-title">🔐 RADIUS Security: How to Keep the Bad Guys Out (And Your Sanity In)</h3>
                             <p class="blog-excerpt">
-                                Comprehensive guide to implementing enterprise-grade RADIUS authentication with AAA protocols for professional ISP operations.
+                                Ever wondered why hackers hate us? It's because our RADIUS setup is tighter than your budget after the holidays! Learn the secrets...
                             </p>
                             <div class="blog-meta">
                                 <div class="blog-date">
@@ -646,9 +720,9 @@
                         <img src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Network Management" class="blog-image">
                         <div class="blog-content">
                             <div class="blog-category">Network Operations</div>
-                            <h3 class="blog-title">SNMP Network Monitoring: Advanced Techniques for ISP Operations</h3>
+                            <h3 class="blog-title">🔍 SNMP Monitoring: Watching Your Network Like a Hawk (But Friendlier)</h3>
                             <p class="blog-excerpt">
-                                Advanced SNMP monitoring strategies for professional network management, including automated alerts and performance optimization.
+                                Stop playing network detective at 3 AM! Our SNMP tricks will have your network telling you its problems before they happen. Magic? Almost!
                             </p>
                             <div class="blog-meta">
                                 <div class="blog-date">
@@ -669,9 +743,9 @@
                         <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Payment Integration" class="blog-image">
                         <div class="blog-content">
                             <div class="blog-category">Technology Trends</div>
-                            <h3 class="blog-title">Mobile Money API Integration: Technical Implementation Guide</h3>
+                            <h3 class="blog-title">💰 M-Pesa Integration: From "Nimesend" to "Service On" in 3 Seconds!</h3>
                             <p class="blog-excerpt">
-                                Technical deep-dive into integrating M-Pesa, Airtel Money, and MTN MoMo APIs for automated billing systems.
+                                The secret sauce to making mobile money work like magic. Spoiler: It involves less code and more understanding how Kenyans actually pay!
                             </p>
                             <div class="blog-meta">
                                 <div class="blog-date">

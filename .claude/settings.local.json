@@ -21,7 +21,19 @@
       "WebFetch(domain:github.com)",
       "Bash(git pull:*)",
       "Bash(cp:*)",
-      "Bash(ssh:*)"
+      "Bash(ssh:*)",
+      "Bash(if [ -f \"$file_exists_test\" ])",
+      "Bash(then echo \"File exists: $file_exists_test\")",
+      "Bash(else echo \"File does not exist: $file_exists_test\")",
+      "Bash(fi)",
+      "Bash(for template in \"landing-home.tpl\" \"landing-services.tpl\" \"landing-features.tpl\" \"landing-pricing.tpl\" \"landing-contact.tpl\")",
+      "Bash(do if [ -f \"ui/ui/$template\" ])",
+      "Bash(then echo \"✓ $template exists\")",
+      "Bash(else echo \"✗ $template missing\")",
+      "Bash(done)",
+      "Bash(if [ -f \"ui/ui/landing-final.tpl\" ])",
+      "Bash(then echo \"✓ Fallback template landing-final.tpl exists\")",
+      "Bash(else echo \"✗ Fallback template landing-final.tpl missing\")"
     ],
     "deny": []
   }

@@ -513,8 +513,9 @@
         <div class="container hero-content">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
-                    <h1 class="display-2">Professional ISP Services</h1>
-                    <p class="lead">Comprehensive billing, authentication, and network management services designed for African telecommunications infrastructure. Enterprise-grade solutions with local payment integration.</p>
+                    <h1 class="display-2">🚀 Services That Actually <span style="color: var(--gold); animation: glow 2s ease-in-out infinite alternate;">Work</span>!</h1>
+                    <p class="lead">Forget complicated setups and midnight debugging sessions 🌙<br>
+We've built everything you need to run a successful ISP without losing your sanity! 🤪</p>
                     <div class="mt-4">
                         <a href="#demo-section" class="btn btn-accent me-3">
                             <i class="fas fa-play me-2"></i>Try Demo

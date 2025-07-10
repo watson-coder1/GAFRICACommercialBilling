@@ -483,26 +483,92 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" style="position: relative; overflow: hidden;">
+        <!-- Animated Floating Elements -->
+        <div class="position-absolute" style="top: 10%; left: 5%; width: 150px; height: 150px; background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, transparent 70%); border-radius: 50%; animation: float 8s ease-in-out infinite;"></div>
+        <div class="position-absolute" style="top: 70%; right: 10%; width: 200px; height: 200px; background: radial-gradient(circle, rgba(44,82,130,0.1) 0%, transparent 70%); border-radius: 50%; animation: float 10s ease-in-out infinite reverse;"></div>
+        <div class="position-absolute" style="top: 30%; right: 20%; width: 100px; height: 100px; background: radial-gradient(circle, rgba(212,175,55,0.12) 0%, transparent 70%); border-radius: 50%; animation: float 6s ease-in-out infinite;"></div>
+        
         <div class="container hero-content">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
                     <h1 class="display-2">📩 Let's <span style="color: var(--gold); animation: glow 2s ease-in-out infinite alternate;">Chat</span>!</h1>
                     <p class="lead">
                         We promise we're more fun than your average tech support 😄<br>
 No phone trees, no "have you tried turning it off and on again?", just real humans with real solutions! 🙌
                     </p>
-                    <div class="mt-4">
-                        <a href="#demo-section" class="btn btn-accent me-3">
-                            <i class="fas fa-play me-2"></i>Try Demo
+                    
+                    <!-- Fun Response Time Bar -->
+                    <div class="mb-4 p-3 rounded" style="background: rgba(212,175,55,0.1); border: 2px solid rgba(212,175,55,0.3);">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span class="text-white">Average Response Time:</span>
+                            <span class="badge bg-warning text-dark" style="animation: bounce 2s infinite;">⚡ 15 Minutes!</span>
+                        </div>
+                        <div class="progress mt-2" style="height: 8px;">
+                            <div class="progress-bar" role="progressbar" style="width: 95%; background: var(--gradient-gold); animation: pulse 2s infinite;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="row g-3 mb-4">
+                        <div class="col-4">
+                            <div class="text-center p-3 rounded" style="background: rgba(212,175,55,0.15); border: 2px solid rgba(212,175,55,0.3); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.1) rotate(5deg)'; this.style.background='rgba(212,175,55,0.25)'" onmouseout="this.style.transform='scale(1) rotate(0deg)'; this.style.background='rgba(212,175,55,0.15)'">
+                                <div class="h4 mb-1" style="color: var(--gold);">💬</div>
+                                <small class="text-white">24/7 Available</small>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="text-center p-3 rounded" style="background: rgba(212,175,55,0.15); border: 2px solid rgba(212,175,55,0.3); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.1) rotate(-5deg)'; this.style.background='rgba(212,175,55,0.25)'" onmouseout="this.style.transform='scale(1) rotate(0deg)'; this.style.background='rgba(212,175,55,0.15)'">
+                                <div class="h4 mb-1" style="color: var(--gold);">🌍</div>
+                                <small class="text-white">15+ Countries</small>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="text-center p-3 rounded" style="background: rgba(212,175,55,0.15); border: 2px solid rgba(212,175,55,0.3); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.1) rotate(5deg)'; this.style.background='rgba(212,175,55,0.25)'" onmouseout="this.style.transform='scale(1) rotate(0deg)'; this.style.background='rgba(212,175,55,0.15)'">
+                                <div class="h4 mb-1" style="color: var(--gold);">😊</div>
+                                <small class="text-white">Happy to Help</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex flex-column flex-md-row gap-3">
+                        <a href="#contact-form" class="btn btn-accent btn-lg px-4 py-3" style="animation: pulse 2s infinite;" onmouseover="this.style.transform='scale(1.05) rotate(1deg)'; this.style.boxShadow='0 10px 30px rgba(212,175,55,0.4)'" onmouseout="this.style.transform='scale(1) rotate(0deg)'; this.style.boxShadow='none'">
+                            <i class="fas fa-paper-plane me-2"></i>📝 Message Us!
                         </a>
-                        <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-outline-primary">
-                            <i class="fas fa-envelope me-2"></i>Direct Contact
+                        <a href="https://wa.me/254711503023" target="_blank" class="btn btn-outline-primary btn-lg px-4 py-3" style="transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.1)'; this.innerHTML='<i class=\"fab fa-whatsapp me-2\"></i>💬 WhatsApp Now!'" onmouseout="this.style.background='transparent'; this.innerHTML='<i class=\"fab fa-whatsapp me-2\"></i>📱 Quick Chat'">
+                            <i class="fab fa-whatsapp me-2"></i>📱 Quick Chat
                         </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-left">
+                    <!-- Interactive Contact Visual -->
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" 
+                             alt="Contact Us" class="img-fluid rounded shadow-lg" style="transform: perspective(1000px) rotateY(-5deg); transition: all 0.3s ease;" onmouseover="this.style.transform='perspective(1000px) rotateY(0deg) scale(1.02)'" onmouseout="this.style.transform='perspective(1000px) rotateY(-5deg) scale(1)'">
+                        
+                        <!-- Animated Contact Methods -->
+                        <div class="position-absolute top-0 start-0 m-3 bg-white rounded p-2 shadow" style="animation: float 3s ease-in-out infinite;">
+                            <small class="text-dark"><i class="fas fa-envelope text-warning me-1"></i> Email Us</small>
+                        </div>
+                        <div class="position-absolute bottom-0 end-0 m-3 bg-success text-white rounded p-2 shadow" style="animation: float 4s ease-in-out infinite reverse;">
+                            <small><i class="fab fa-whatsapp me-1"></i> WhatsApp</small>
+                        </div>
+                        
+                        <!-- Floating Icons -->
+                        <div class="position-absolute" style="top: 20%; right: -30px; animation: bounce 2s infinite; font-size: 2rem;">💬</div>
+                        <div class="position-absolute" style="bottom: 30%; left: -30px; animation: bounce 3s infinite reverse; font-size: 2rem;">📧</div>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <style>
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+        </style>
     </section>
 
     <!-- Team Visual Section -->
@@ -514,21 +580,26 @@ No phone trees, no "have you tried turning it off and on again?", just real huma
                          alt="Support Team" class="img-fluid rounded shadow">
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
-                    <h2>Expert Support Team</h2>
-                    <p class="text-lg text-gray-600">Our experienced engineers provide 24/7 technical support for your ISP operations.</p>
+                    <h2>🦸‍♂️ Meet Your Support Heroes</h2>
+                    <p class="text-lg text-gray-600">We're not just engineers - we're ISP whisperers, problem solvers, and coffee-powered support ninjas! 🥷</p>
                     <div class="row g-3 mt-3">
                         <div class="col-6">
-                            <div class="text-center p-3 bg-white rounded shadow-sm">
+                            <div class="text-center p-4 bg-white rounded shadow-sm" style="transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px) scale(1.05)'; this.style.boxShadow='0 20px 40px rgba(212,175,55,0.2)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 1px 3px rgba(0,0,0,0.12)'">
+                                <div class="h1 mb-2" style="color: var(--gold);">⚡</div>
                                 <h4 class="text-primary mb-1">24/7</h4>
-                                <small class="text-muted">Support Available</small>
+                                <small class="text-muted">We Never Sleep<br>(Coffee helps 😅)</small>
                             </div>
                         </div>
                         <div class="col-6">
-                            <div class="text-center p-3 bg-white rounded shadow-sm">
+                            <div class="text-center p-4 bg-white rounded shadow-sm" style="transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px) scale(1.05)'; this.style.boxShadow='0 20px 40px rgba(212,175,55,0.2)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 1px 3px rgba(0,0,0,0.12)'">
+                                <div class="h1 mb-2" style="color: var(--gold);">🚀</div>
                                 <h4 class="text-primary mb-1">500+</h4>
-                                <small class="text-muted">ISPs Supported</small>
+                                <small class="text-muted">Happy ISPs<br>(And counting! 📈)</small>
                             </div>
                         </div>
+                    </div>
+                    <div class="mt-4 p-3 rounded" style="background: linear-gradient(135deg, rgba(212,175,55,0.1) 0%, rgba(44,82,130,0.1) 100%); border-left: 4px solid var(--gold);">
+                        <p class="mb-0 text-sm"><em>"They fixed our billing issues faster than you can say M-Pesa!" - Happy ISP Owner 🎉</em></p>
                     </div>
                 </div>
             </div>

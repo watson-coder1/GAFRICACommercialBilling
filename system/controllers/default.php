@@ -166,4 +166,3 @@ if(Admin::getID()){
         }
     }
 }
-include($root_path . File::pathFixer('system/controllers/' . $handler . '.php'));
