@@ -553,29 +553,49 @@
     </section>
 
     <!-- Core Services -->
-    <section class="py-5">
+    <section class="py-5" style="background: linear-gradient(rgba(248,248,248,0.9), rgba(248,248,248,0.9)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center;">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" 
+                         alt="ISP Services" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
                     <h2>Core Services</h2>
-                    <p class="text-lg text-gray-600">Professional services designed for modern ISP operations</p>
+                    <p class="text-lg text-gray-600">Professional services for modern ISPs</p>
+                    <div class="row g-3 mt-3">
+                        <div class="col-6">
+                            <div class="text-center p-3 bg-white rounded shadow-sm">
+                                <h4 class="text-primary mb-1">5+</h4>
+                                <small class="text-muted">Core Services</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="text-center p-3 bg-white rounded shadow-sm">
+                                <h4 class="text-primary mb-1">24/7</h4>
+                                <small class="text-muted">Support</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-card">
+                        <div class="mb-3">
+                            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200&q=80" 
+                                 alt="RADIUS Server" class="img-fluid rounded" style="height: 150px; width: 100%; object-fit: cover;">
+                        </div>
                         <div class="service-icon">
                             <i class="fas fa-server"></i>
                         </div>
                         <h5 class="service-title">RADIUS Authentication</h5>
-                        <p class="service-description">Enterprise-grade RADIUS server with full AAA (Authentication, Authorization, Accounting) support for network access control.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> RFC 2865/2866 compliant</li>
-                            <li><i class="fas fa-check"></i> CoA (Change of Authorization)</li>
-                            <li><i class="fas fa-check"></i> Dynamic VLAN assignment</li>
-                            <li><i class="fas fa-check"></i> Load balancing & failover</li>
-                            <li><i class="fas fa-check"></i> Real-time accounting</li>
-                        </ul>
+                        <p class="service-description">Enterprise RADIUS server with AAA support.</p>
+                        <div class="d-flex flex-wrap gap-1 mb-3">
+                            <span class="badge bg-light text-dark">RFC Compliant</span>
+                            <span class="badge bg-light text-dark">CoA Support</span>
+                            <span class="badge bg-light text-dark">Load Balancing</span>
+                        </div>
                         <div class="mt-3">
                             <span class="badge bg-light text-dark me-1">RADIUS</span>
                             <span class="badge bg-light text-dark me-1">AAA</span>
@@ -585,18 +605,20 @@
                 </div>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="service-card">
+                        <div class="mb-3">
+                            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200&q=80" 
+                                 alt="Mobile Money" class="img-fluid rounded" style="height: 150px; width: 100%; object-fit: cover;">
+                        </div>
                         <div class="service-icon">
                             <i class="fas fa-mobile-alt"></i>
                         </div>
                         <h5 class="service-title">Mobile Money Integration</h5>
-                        <p class="service-description">Native API integration with major African mobile money platforms for seamless payment processing and automated reconciliation.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> M-Pesa STK Push integration</li>
-                            <li><i class="fas fa-check"></i> Airtel Money API support</li>
-                            <li><i class="fas fa-check"></i> MTN MoMo compatibility</li>
-                            <li><i class="fas fa-check"></i> Automated reconciliation</li>
-                            <li><i class="fas fa-check"></i> Real-time transaction status</li>
-                        </ul>
+                        <p class="service-description">Native API integration with African mobile money platforms.</p>
+                        <div class="d-flex flex-wrap gap-1 mb-3">
+                            <span class="badge bg-light text-dark">M-Pesa STK</span>
+                            <span class="badge bg-light text-dark">Airtel Money</span>
+                            <span class="badge bg-light text-dark">MTN MoMo</span>
+                        </div>
                         <div class="mt-3">
                             <span class="badge bg-light text-dark me-1">M-Pesa</span>
                             <span class="badge bg-light text-dark me-1">API</span>
@@ -606,18 +628,20 @@
                 </div>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="service-card">
+                        <div class="mb-3">
+                            <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200&q=80" 
+                                 alt="Network Automation" class="img-fluid rounded" style="height: 150px; width: 100%; object-fit: cover;">
+                        </div>
                         <div class="service-icon">
                             <i class="fas fa-network-wired"></i>
                         </div>
                         <h5 class="service-title">Network Automation</h5>
-                        <p class="service-description">Automated network provisioning and management via SNMP, SSH, and vendor-specific APIs for major equipment manufacturers.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Mikrotik RouterOS API</li>
-                            <li><i class="fas fa-check"></i> Ubiquiti UniFi integration</li>
-                            <li><i class="fas fa-check"></i> SNMP v2/v3 support</li>
-                            <li><i class="fas fa-check"></i> SSH automation scripts</li>
-                            <li><i class="fas fa-check"></i> Bulk configuration management</li>
-                        </ul>
+                        <p class="service-description">Automated network provisioning via SNMP, SSH, and APIs.</p>
+                        <div class="d-flex flex-wrap gap-1 mb-3">
+                            <span class="badge bg-light text-dark">Mikrotik API</span>
+                            <span class="badge bg-light text-dark">UniFi</span>
+                            <span class="badge bg-light text-dark">SNMP</span>
+                        </div>
                         <div class="mt-3">
                             <span class="badge bg-light text-dark me-1">SNMP</span>
                             <span class="badge bg-light text-dark me-1">SSH</span>
@@ -627,18 +651,20 @@
                 </div>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
                     <div class="service-card">
+                        <div class="mb-3">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200&q=80" 
+                                 alt="Analytics Dashboard" class="img-fluid rounded" style="height: 150px; width: 100%; object-fit: cover;">
+                        </div>
                         <div class="service-icon">
                             <i class="fas fa-chart-line"></i>
                         </div>
                         <h5 class="service-title">Analytics & Monitoring</h5>
-                        <p class="service-description">Real-time network monitoring, performance analytics, and business intelligence with customizable dashboards and alerting.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Real-time metrics collection</li>
-                            <li><i class="fas fa-check"></i> Custom dashboard creation</li>
-                            <li><i class="fas fa-check"></i> Automated alerting system</li>
-                            <li><i class="fas fa-check"></i> Performance trend analysis</li>
-                            <li><i class="fas fa-check"></i> SLA monitoring & reporting</li>
-                        </ul>
+                        <p class="service-description">Real-time monitoring with customizable dashboards and alerts.</p>
+                        <div class="d-flex flex-wrap gap-1 mb-3">
+                            <span class="badge bg-light text-dark">Real-time</span>
+                            <span class="badge bg-light text-dark">Dashboards</span>
+                            <span class="badge bg-light text-dark">Alerts</span>
+                        </div>
                         <div class="mt-3">
                             <span class="badge bg-light text-dark me-1">InfluxDB</span>
                             <span class="badge bg-light text-dark me-1">Grafana</span>
@@ -648,39 +674,43 @@
                 </div>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
                     <div class="service-card">
+                        <div class="mb-3">
+                            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200&q=80" 
+                                 alt="Security" class="img-fluid rounded" style="height: 150px; width: 100%; object-fit: cover;">
+                        </div>
                         <div class="service-icon">
                             <i class="fas fa-shield-alt"></i>
                         </div>
                         <h5 class="service-title">Security & Compliance</h5>
-                        <p class="service-description">Enterprise security framework with compliance management, audit trails, and security monitoring for regulated environments.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> PCI DSS compliance</li>
-                            <li><i class="fas fa-check"></i> GDPR data protection</li>
-                            <li><i class="fas fa-check"></i> SOC 2 Type II controls</li>
-                            <li><i class="fas fa-check"></i> Audit trail management</li>
-                            <li><i class="fas fa-check"></i> Security incident response</li>
-                        </ul>
-                        <div class="mt-3">
-                            <span class="badge bg-light text-dark me-1">PCI DSS</span>
-                            <span class="badge bg-light text-dark me-1">GDPR</span>
+                        <p class="service-description">Enterprise security with compliance management and audit trails.</p>
+                        <div class="d-flex flex-wrap gap-1 mb-3">
+                            <span class="badge bg-light text-dark">PCI DSS</span>
+                            <span class="badge bg-light text-dark">GDPR</span>
                             <span class="badge bg-light text-dark">SOC 2</span>
+                        </div>
+                        <div class="mt-3">
+                            <span class="badge bg-light text-dark me-1">Security</span>
+                            <span class="badge bg-light text-dark me-1">Compliance</span>
+                            <span class="badge bg-light text-dark">Audit</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
                     <div class="service-card">
+                        <div class="mb-3">
+                            <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200&q=80" 
+                                 alt="Support Team" class="img-fluid rounded" style="height: 150px; width: 100%; object-fit: cover;">
+                        </div>
                         <div class="service-icon">
                             <i class="fas fa-headset"></i>
                         </div>
                         <h5 class="service-title">Support & Maintenance</h5>
-                        <p class="service-description">24/7 technical support, proactive monitoring, regular updates, and dedicated account management for mission-critical operations.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> 24/7 technical support</li>
-                            <li><i class="fas fa-check"></i> Proactive system monitoring</li>
-                            <li><i class="fas fa-check"></i> Regular security updates</li>
-                            <li><i class="fas fa-check"></i> Dedicated account manager</li>
-                            <li><i class="fas fa-check"></i> SLA-backed response times</li>
-                        </ul>
+                        <p class="service-description">24/7 technical support with proactive monitoring and updates.</p>
+                        <div class="d-flex flex-wrap gap-1 mb-3">
+                            <span class="badge bg-light text-dark">24/7 Support</span>
+                            <span class="badge bg-light text-dark">Monitoring</span>
+                            <span class="badge bg-light text-dark">SLA</span>
+                        </div>
                         <div class="mt-3">
                             <span class="badge bg-light text-dark me-1">24/7</span>
                             <span class="badge bg-light text-dark me-1">SLA</span>
@@ -692,55 +722,47 @@
         </div>
     </section>
 
-    <!-- Implementation Process -->
-    <section class="process-section">
+    <!-- Visual Implementation Process -->
+    <section class="py-5" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center;">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
-                    <h2>Implementation Process</h2>
-                    <p class="text-lg text-gray-600">Structured approach to deploying your ISP infrastructure</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="process-step">
-                        <div class="process-number">1</div>
-                        <h6>Requirements Analysis</h6>
-                        <p class="text-sm text-gray-600">Technical assessment of your infrastructure and business requirements</p>
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2 class="text-white">Quick Implementation</h2>
+                    <p class="text-white-50 mb-4">Get your ISP services running in days, not months.</p>
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="text-center p-3 bg-white rounded">
+                                <h4 class="text-primary mb-1">3</h4>
+                                <small class="text-muted">Days Setup</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="text-center p-3 bg-white rounded">
+                                <h4 class="text-primary mb-1">24/7</h4>
+                                <small class="text-muted">Support</small>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="process-step">
-                        <div class="process-number">2</div>
-                        <h6>System Configuration</h6>
-                        <p class="text-sm text-gray-600">Custom configuration and integration with existing network equipment</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="process-step">
-                        <div class="process-number">3</div>
-                        <h6>Testing & Validation</h6>
-                        <p class="text-sm text-gray-600">Comprehensive testing of all systems and failover procedures</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="process-step">
-                        <div class="process-number">4</div>
-                        <h6>Go-Live & Support</h6>
-                        <p class="text-sm text-gray-600">Production deployment with ongoing monitoring and support</p>
-                    </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" 
+                         alt="Implementation Process" class="img-fluid rounded shadow">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Technology Stack -->
-    <section class="tech-stack">
+    <section class="py-5" style="background: var(--gray-50);">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
-                    <h2>Technology Stack</h2>
-                    <p class="text-lg text-gray-600">Built with enterprise-grade technologies and industry standards</p>
+            <div class="row align-items-center mb-4">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2>Enterprise Technology</h2>
+                    <p class="text-lg text-gray-600">Built with proven enterprise technologies.</p>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80" 
+                         alt="Technology Stack" class="img-fluid rounded">
                 </div>
             </div>
             <div class="row g-4">
@@ -796,94 +818,61 @@
         </div>
     </section>
 
-    <!-- Sample Hotspot Packages -->
-    <section class="py-5">
+    <!-- Visual Packages Section -->
+    <section class="py-5" style="background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center;">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
-                    <h2>Sample Customer Packages</h2>
-                    <p class="text-lg text-gray-600">Ready-to-use hotspot packages your customers will love - all configured automatically</p>
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" 
+                         alt="Hotspot Packages" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <h2>Ready-to-Use Packages</h2>
+                    <p class="text-lg text-gray-600">Pre-configured hotspot packages for instant deployment.</p>
+                    <div class="row g-3 mt-3">
+                        <div class="col-6">
+                            <div class="text-center p-3 bg-white rounded shadow-sm">
+                                <h4 class="text-primary mb-1">50+</h4>
+                                <small class="text-muted">Package Templates</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="text-center p-3 bg-white rounded shadow-sm">
+                                <h4 class="text-primary mb-1">Auto</h4>
+                                <small class="text-muted">Configuration</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row g-4">
+            <div class="row g-3">
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-card text-center">
-                        <div class="service-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <h5>Quick Access</h5>
-                        <div class="price-tag">KSh 5 / 1 Hour</div>
-                        <p class="text-sm text-gray-600 mb-3">Perfect for quick browsing and social media</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> 1 Hour Access</li>
-                            <li><i class="fas fa-check"></i> Unlimited Bandwidth</li>
-                            <li><i class="fas fa-check"></i> All Devices</li>
-                            <li><i class="fas fa-check"></i> Instant Activation</li>
-                        </ul>
+                    <div class="text-center p-3 bg-white rounded shadow-sm">
+                        <i class="fas fa-clock text-primary fs-2 mb-2"></i>
+                        <h6>Hourly</h6>
+                        <small class="text-muted">KSh 5-20</small>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-card text-center">
-                        <div class="service-icon">
-                            <i class="fas fa-wifi"></i>
-                        </div>
-                        <h5>Extended Browse</h5>
-                        <div class="price-tag">KSh 10 / 2 Hours</div>
-                        <p class="text-sm text-gray-600 mb-3">Great for work sessions and streaming</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> 2 Hours Access</li>
-                            <li><i class="fas fa-check"></i> Unlimited Bandwidth</li>
-                            <li><i class="fas fa-check"></i> Multiple Devices</li>
-                            <li><i class="fas fa-check"></i> Priority Support</li>
-                        </ul>
+                    <div class="text-center p-3 bg-white rounded shadow-sm">
+                        <i class="fas fa-calendar-day text-primary fs-2 mb-2"></i>
+                        <h6>Daily</h6>
+                        <small class="text-muted">KSh 30-50</small>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="service-card text-center featured">
-                        <div class="featured-badge">Most Popular</div>
-                        <div class="service-icon">
-                            <i class="fas fa-calendar-day"></i>
-                        </div>
-                        <h5>Full Day Pass</h5>
-                        <div class="price-tag">KSh 30 / 24 Hours</div>
-                        <p class="text-sm text-gray-600 mb-3">Complete day coverage for business and entertainment</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> 24 Hours Access</li>
-                            <li><i class="fas fa-check"></i> Unlimited Bandwidth</li>
-                            <li><i class="fas fa-check"></i> All Devices</li>
-                            <li><i class="fas fa-check"></i> Premium Support</li>
-                        </ul>
+                    <div class="text-center p-3 bg-white rounded shadow-sm">
+                        <i class="fas fa-calendar-week text-primary fs-2 mb-2"></i>
+                        <h6>Weekly</h6>
+                        <small class="text-muted">KSh 150-300</small>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="service-card text-center">
-                        <div class="service-icon">
-                            <i class="fas fa-calendar-week"></i>
-                        </div>
-                        <h5>Weekly Package</h5>
-                        <div class="price-tag">KSh 150 / 7 Days</div>
-                        <p class="text-sm text-gray-600 mb-3">Best value for regular users and students</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> 7 Days Access</li>
-                            <li><i class="fas fa-check"></i> Unlimited Bandwidth</li>
-                            <li><i class="fas fa-check"></i> Multiple Devices</li>
-                            <li><i class="fas fa-check"></i> 24/7 Support</li>
-                        </ul>
+                    <div class="text-center p-3 bg-white rounded shadow-sm">
+                        <i class="fas fa-calendar-alt text-primary fs-2 mb-2"></i>
+                        <h6>Monthly</h6>
+                        <small class="text-muted">KSh 500+</small>
                     </div>
-                </div>
-            </div>
-            <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="500">
-                <div class="alert alert-info d-inline-block">
-                    <i class="fas fa-info-circle me-2"></i>
-                    <strong>For ISP Owners:</strong> These packages are pre-configured in our system. You can customize prices, duration, and features to match your market.
-                </div>
-                <div class="mt-3">
-                    <a href="{$app_url}/pricing" class="btn btn-primary me-3">
-                        <i class="fas fa-dollar-sign me-2"></i>View Platform Pricing
-                    </a>
-                    <a href="#demo-section" class="btn btn-outline-primary">
-                        <i class="fas fa-play me-2"></i>Try Demo
-                    </a>
                 </div>
             </div>
         </div>
