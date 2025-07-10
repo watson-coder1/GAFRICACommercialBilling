@@ -565,6 +565,44 @@
         </div>
     </section>
 
+    <!-- Success Stories Gallery -->
+    <section class="py-5" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
+                    <h2 class="text-white">Trusted by ISPs Across Africa</h2>
+                    <p class="text-white-50">See how our clients transform their operations</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="bg-white rounded p-3 text-center">
+                        <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80" 
+                             alt="Café Network" class="img-fluid rounded mb-2">
+                        <h6>Café Networks</h6>
+                        <small class="text-muted">200+ locations</small>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="bg-white rounded p-3 text-center">
+                        <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80" 
+                             alt="Enterprise ISP" class="img-fluid rounded mb-2">
+                        <h6>Enterprise ISPs</h6>
+                        <small class="text-muted">50+ companies</small>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="bg-white rounded p-3 text-center">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80" 
+                             alt="Community Networks" class="img-fluid rounded mb-2">
+                        <h6>Community Networks</h6>
+                        <small class="text-muted">1000+ households</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Pricing Section -->
     <section class="py-5">
         <div class="container">

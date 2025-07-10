@@ -528,6 +528,30 @@
         </div>
     </section>
 
+    <!-- Visual Showcase -->
+    <section class="py-5" style="background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="bg-white p-4 rounded shadow">
+                        <h3 class="text-dark">Live System Overview</h3>
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80" 
+                             alt="Dashboard Preview" class="img-fluid rounded mb-3">
+                        <p class="text-muted">Real-time monitoring of your entire network infrastructure</p>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="bg-white p-4 rounded shadow">
+                        <h3 class="text-dark">Mobile Integration</h3>
+                        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80" 
+                             alt="Mobile Payments" class="img-fluid rounded mb-3">
+                        <p class="text-muted">Seamless mobile money integration for African markets</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Core Services -->
     <section class="py-5">
         <div class="container">

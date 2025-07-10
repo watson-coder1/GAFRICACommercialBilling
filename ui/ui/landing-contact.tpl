@@ -489,6 +489,36 @@
         </div>
     </section>
 
+    <!-- Team Visual Section -->
+    <section class="py-5" style="background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" 
+                         alt="Support Team" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <h2>Expert Support Team</h2>
+                    <p class="text-lg text-gray-600">Our experienced engineers provide 24/7 technical support for your ISP operations.</p>
+                    <div class="row g-3 mt-3">
+                        <div class="col-6">
+                            <div class="text-center p-3 bg-white rounded shadow-sm">
+                                <h4 class="text-primary mb-1">24/7</h4>
+                                <small class="text-muted">Support Available</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="text-center p-3 bg-white rounded shadow-sm">
+                                <h4 class="text-primary mb-1">500+</h4>
+                                <small class="text-muted">ISPs Supported</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Info Section -->
     <section class="py-5">
         <div class="container">

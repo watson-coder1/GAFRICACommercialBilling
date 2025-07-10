@@ -548,7 +548,7 @@
     </section>
 
     <!-- Core Features -->
-    <section class="py-5">
+    <section class="py-5" style="background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
@@ -559,18 +559,15 @@
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="feature-card">
+                        <div class="mb-3">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200&q=80" 
+                                 alt="Real-time Dashboard" class="img-fluid rounded" style="height: 150px; width: 100%; object-fit: cover;">
+                        </div>
                         <div class="feature-icon">
                             <i class="fas fa-tachometer-alt"></i>
                         </div>
                         <h5 class="feature-title">Real-time Dashboard</h5>
-                        <p class="feature-description">Comprehensive real-time monitoring with customizable widgets, alert systems, and performance metrics.</p>
-                        <ul class="feature-list">
-                            <li><i class="fas fa-check"></i> Live user sessions monitoring</li>
-                            <li><i class="fas fa-check"></i> Bandwidth utilization graphs</li>
-                            <li><i class="fas fa-check"></i> Revenue analytics</li>
-                            <li><i class="fas fa-check"></i> Network topology view</li>
-                            <li><i class="fas fa-check"></i> Custom alert configuration</li>
-                        </ul>
+                        <p class="feature-description">Live monitoring with customizable widgets and performance metrics.</p>
                         <div class="mt-3">
                             <span class="badge bg-light text-dark me-1">Real-time</span>
                             <span class="badge bg-light text-dark me-1">Analytics</span>
