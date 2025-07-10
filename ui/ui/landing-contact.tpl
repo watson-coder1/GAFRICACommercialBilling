@@ -88,7 +88,7 @@
         .text-sm { font-size: 0.875rem; }
         .text-xs { font-size: 0.75rem; }
 
-        /* Logo */
+        /* Creative Slanted Logo Design */
         .logo-brand {
             font-family: 'Playfair Display', serif;
             font-size: 1.75rem;
@@ -97,14 +97,107 @@
             text-decoration: none;
             letter-spacing: 0.02em;
             display: inline-block;
-            text-shadow: 0 2px 4px rgba(212, 175, 55, 0.3);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .logo-brand .mission-statement {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6rem;
+            font-weight: 500;
+            color: var(--gold-dark);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.2rem;
+            transform: skew(-12deg);
+            text-shadow: 0 1px 2px rgba(212, 175, 55, 0.2);
+        }
+
+        .logo-brand .main-logo {
+            display: block;
+            position: relative;
+            transform: skew(-8deg) scale(1.02);
+            background: linear-gradient(135deg, #D4AF37 0%, #F4E4C1 30%, #B8941F 70%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: none;
+            filter: drop-shadow(0 3px 6px rgba(212, 175, 55, 0.4));
+        }
+
+        .logo-brand .main-logo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -10px;
+            right: -10px;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+            transform: skew(8deg);
+            z-index: -1;
+            border-radius: 4px;
+            opacity: 0;
             transition: all 0.3s ease;
         }
 
+        .logo-brand .main-logo .icon {
+            display: inline-block;
+            transform: rotate(-15deg) scale(1.1);
+            margin-right: 0.5rem;
+            filter: drop-shadow(0 2px 4px rgba(212, 175, 55, 0.3));
+        }
+
         .logo-brand:hover {
+            transform: scale(1.08) translateY(-2px);
+        }
+
+        .logo-brand:hover .mission-statement {
             color: var(--gold-light);
-            transform: scale(1.05);
-            text-shadow: 0 4px 8px rgba(212, 175, 55, 0.5);
+            transform: skew(-12deg) translateX(2px);
+        }
+
+        .logo-brand:hover .main-logo {
+            transform: skew(-8deg) scale(1.05);
+            filter: drop-shadow(0 5px 12px rgba(212, 175, 55, 0.6));
+        }
+
+        .logo-brand:hover .main-logo::before {
+            opacity: 1;
+        }
+
+        .logo-brand:hover .main-logo .icon {
+            transform: rotate(-15deg) scale(1.2);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .logo-brand {
+                font-size: 1.5rem;
+            }
+            
+            .logo-brand .mission-statement {
+                font-size: 0.55rem;
+            }
+            
+            .logo-brand .main-logo {
+                transform: skew(-6deg) scale(1.02);
+            }
+            
+            .logo-brand:hover .main-logo {
+                transform: skew(-6deg) scale(1.03);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-brand {
+                font-size: 1.3rem;
+            }
+            
+            .logo-brand .mission-statement {
+                font-size: 0.5rem;
+            }
         }
 
         /* Navigation */
@@ -444,7 +537,10 @@
     <nav class="navbar navbar-expand-lg" id="navbar">
         <div class="container">
             <a class="logo-brand" href="{$app_url}">
-                <i class="fas fa-network-wired me-2"></i>Glinta Africa
+                <span class="mission-statement">Connect • Innovate • Empower</span>
+                <span class="main-logo">
+                    <i class="fas fa-network-wired icon"></i>Glinta Africa
+                </span>
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <i class="fas fa-bars"></i>
