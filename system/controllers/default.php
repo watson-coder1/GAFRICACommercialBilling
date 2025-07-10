@@ -17,9 +17,14 @@ if(Admin::getID()){
         $handler = 'login';
     } else {
         // Handle different landing page routes
+        // Only handle direct landing page requests, not order/application routes
         $page = isset($routes[0]) ? $routes[0] : 'home';
         
-        switch($page) {
+        // If this is a multi-segment route (like order/gateway/hotspot), let the normal routing handle it
+        if (count($routes) > 1 && in_array($routes[0], ['order', 'gateway', 'admin', 'api'])) {
+            $handler = 'login';
+        } else {
+            switch($page) {
             case 'home':
             case '':
                 $template = 'landing-home.tpl';
@@ -77,6 +82,14 @@ if(Admin::getID()){
                 $template = 'landing-community.tpl';
                 $title = 'Community Forum - Glinta Africa';
                 break;
+            case 'hotspot':
+                $template = 'landing-hotspot.tpl';
+                $title = 'Hotspot Solutions - Glinta Africa';
+                break;
+            case 'pppoe':
+                $template = 'landing-pppoe.tpl';
+                $title = 'PPPoE Management - Glinta Africa';
+                break;
             case 'billing':
                 $template = 'landing-billing.tpl';
                 $title = 'Billing Platform - Glinta Africa';
@@ -109,6 +122,7 @@ if(Admin::getID()){
                 $template = 'landing-home.tpl';
                 $title = 'Glinta Africa - Internet Billing Solutions';
                 break;
+        }
         }
         
         // Blog article routing
