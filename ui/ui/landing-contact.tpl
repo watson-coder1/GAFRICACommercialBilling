@@ -140,9 +140,13 @@
             background: var(--gray-50);
         }
 
-        /* Hero Section */
+        /* Hero Section with Tech Background */
         .hero {
-            background: var(--gradient-hero);
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), 
+                        url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: white;
             padding: 8rem 0 4rem;
             position: relative;
@@ -245,9 +249,28 @@
             height: 100%;
         }
 
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--gold) 0%, var(--gold-light) 100%);
+            opacity: 0.06;
+            border-radius: 50%;
+            transform: translate(15px, -15px);
+            transition: all 0.3s ease;
+        }
+
         .contact-card:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-lg);
+        }
+        
+        .contact-card:hover::before {
+            opacity: 0.12;
+            transform: translate(10px, -10px) scale(1.4);
         }
 
         .contact-icon {

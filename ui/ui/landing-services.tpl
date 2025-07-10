@@ -140,9 +140,13 @@
             background: var(--gray-50);
         }
 
-        /* Hero Section */
+        /* Hero Section with Tech Background */
         .hero {
-            background: var(--gradient-hero);
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), 
+                        url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: white;
             padding: 8rem 0 4rem;
             position: relative;
@@ -190,9 +194,28 @@
             overflow: hidden;
         }
 
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, var(--gold) 0%, var(--gold-light) 100%);
+            opacity: 0.05;
+            border-radius: 50%;
+            transform: translate(25px, -25px);
+            transition: all 0.3s ease;
+        }
+
         .service-card:hover {
             box-shadow: var(--shadow-lg);
             transform: translateY(-4px);
+        }
+        
+        .service-card:hover::before {
+            opacity: 0.1;
+            transform: translate(20px, -20px) scale(1.1);
         }
 
         .service-card.featured {
