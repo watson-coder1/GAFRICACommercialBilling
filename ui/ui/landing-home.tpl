@@ -147,9 +147,13 @@
             background: var(--gold-light);
         }
 
-        /* Hero Section */
+        /* Hero Section with Tech Background */
         .hero {
-            background: var(--gradient-hero);
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), 
+                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: white;
             padding: 8rem 0 4rem;
             position: relative;
@@ -164,8 +168,8 @@
             right: 0;
             bottom: 0;
             background-image: 
-                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 50%);
+                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.12) 0%, transparent 50%);
         }
 
         .hero-content {
@@ -250,10 +254,31 @@
             font-size: 0.75rem;
         }
 
-        /* Technical Demo Section */
+        /* Technical Demo Section with Pattern */
         .demo-section {
-            background: var(--white-soft);
+            background: linear-gradient(rgba(248, 248, 248, 0.95), rgba(248, 248, 248, 0.95)),
+                        url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
             padding: 4rem 0;
+            position: relative;
+        }
+
+        .demo-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                repeating-linear-gradient(
+                    45deg,
+                    rgba(212, 175, 55, 0.03) 0px,
+                    rgba(212, 175, 55, 0.03) 2px,
+                    transparent 2px,
+                    transparent 10px
+                );
         }
 
         .demo-card {
@@ -653,9 +678,9 @@ if ($payment->confirmed) {
         </div>
     </section>
 
-    <!-- Use Cases -->
+    <!-- Use Cases with Images -->
     <section class="demo-section">
-        <div class="container">
+        <div class="container position-relative">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
                     <h2>Perfect for Every Business Model</h2>
@@ -665,6 +690,10 @@ if ($payment->confirmed) {
             <div class="row g-4">
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="feature-card text-center">
+                        <div class="mb-3">
+                            <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200&q=80" 
+                                 alt="Café WiFi" class="img-fluid rounded" style="height: 150px; width: 100%; object-fit: cover;">
+                        </div>
                         <div class="feature-icon mx-auto">
                             <i class="fas fa-coffee"></i>
                         </div>
@@ -674,6 +703,10 @@ if ($payment->confirmed) {
                 </div>
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="feature-card text-center">
+                        <div class="mb-3">
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200&q=80" 
+                                 alt="Community Network" class="img-fluid rounded" style="height: 150px; width: 100%; object-fit: cover;">
+                        </div>
                         <div class="feature-icon mx-auto">
                             <i class="fas fa-building"></i>
                         </div>
@@ -683,6 +716,10 @@ if ($payment->confirmed) {
                 </div>
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="feature-card text-center">
+                        <div class="mb-3">
+                            <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200&q=80" 
+                                 alt="Enterprise ISP" class="img-fluid rounded" style="height: 150px; width: 100%; object-fit: cover;">
+                        </div>
                         <div class="feature-icon mx-auto">
                             <i class="fas fa-city"></i>
                         </div>
@@ -720,11 +757,11 @@ if ($payment->confirmed) {
             <div class="row g-4">
                 <div class="col-lg-4">
                     <h6>Glinta Africa</h6>
-                    <p class="text-sm mb-3" style="color: var(--gray);">Professional ISP billing and network management platform designed for African telecommunications infrastructure.</p>
+                    <p class="text-sm mb-3" style="color: rgba(255,255,255,0.8);">Professional ISP billing and network management platform designed for African telecommunications infrastructure.</p>
                     <div class="d-flex gap-3">
-                        <a href="#" style="color: var(--gold);"><i class="fab fa-twitter"></i></a>
-                        <a href="#" style="color: var(--gold);"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" style="color: var(--gold);"><i class="fab fa-github"></i></a>
+                        <a href="#" style="color: var(--gold); font-size: 1.2rem; transition: all 0.3s ease;" onmouseover="this.style.color='var(--gold-light)'" onmouseout="this.style.color='var(--gold)'"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: var(--gold); font-size: 1.2rem; transition: all 0.3s ease;" onmouseover="this.style.color='var(--gold-light)'" onmouseout="this.style.color='var(--gold)'"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" style="color: var(--gold); font-size: 1.2rem; transition: all 0.3s ease;" onmouseover="this.style.color='var(--gold-light)'" onmouseout="this.style.color='var(--gold)'"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4">
@@ -763,13 +800,13 @@ if ($payment->confirmed) {
                     </div>
                 </div>
             </div>
-            <hr class="my-4" style="border-color: var(--gray-700);">
+            <hr class="my-4" style="border-color: rgba(212, 175, 55, 0.3);">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <p class="text-sm mb-0" style="color: var(--gray);">&copy; 2024 Glinta Africa. All rights reserved.</p>
+                    <p class="text-sm mb-0" style="color: rgba(255,255,255,0.7);">&copy; 2024 Glinta Africa. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <p class="text-sm mb-0" style="color: var(--gray);">Built for African telecommunications</p>
+                    <p class="text-sm mb-0" style="color: rgba(255,255,255,0.7);">Built with excellence for African telecommunications</p>
                 </div>
             </div>
         </div>

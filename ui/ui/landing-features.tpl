@@ -64,8 +64,8 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             font-size: 14px;
             line-height: 1.5;
-            color: var(--gray-700);
-            background: var(--light);
+            color: var(--black);
+            background: var(--white);
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
@@ -75,7 +75,7 @@
             font-family: 'Manrope', sans-serif;
             font-weight: 600;
             line-height: 1.2;
-            color: var(--dark);
+            color: var(--black);
             margin-bottom: 0.5rem;
         }
 
@@ -397,27 +397,45 @@
             color: var(--primary);
         }
 
-        /* Footer */
+        /* Footer with African Art Pattern */
         .footer {
-            background: var(--dark);
-            color: var(--gray-300);
-            padding: 3rem 0 1rem;
+            background: var(--gradient-black);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><pattern id="kente" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="%23D4AF37" opacity="0.1"/><rect x="10" y="10" width="10" height="10" fill="%23D4AF37" opacity="0.1"/></pattern><rect width="100" height="100" fill="url(%23kente)"/></svg>');
+            background-size: 100px 100px;
+            opacity: 0.1;
         }
 
         .footer h6 {
-            color: white;
+            color: var(--gold);
             margin-bottom: 1rem;
+            font-weight: 600;
         }
 
         .footer a {
-            color: var(--gray-400);
+            color: var(--white);
             text-decoration: none;
             font-size: 0.875rem;
-            transition: color 0.2s ease;
+            transition: all 0.3s ease;
+            opacity: 0.8;
         }
 
         .footer a:hover {
-            color: var(--accent);
+            color: var(--gold);
+            opacity: 1;
+            transform: translateX(2px);
         }
 
         /* Responsive Design */
