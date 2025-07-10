@@ -89,8 +89,7 @@ if ($handler == '') {
 $landing_routes = [
     'home', 'services', 'features', 'pricing', 'about', 'contact', 'blog', 
     'privacy', 'terms', 'security', 'compliance', 'help', 'documentation', 
-    'community', 'hotspot', 'pppoe', 'billing', 'analytics', 'careers', 
-    'news', 'investors', 'demo-reseller', 'demo-customer'
+    'community', 'careers', 'news', 'investors', 'demo-reseller', 'demo-customer'
 ];
 
 // If this is a landing page route, use default controller
@@ -98,7 +97,7 @@ $landing_routes = [
 if (in_array($handler, $landing_routes)) {
     // Only redirect single-segment routes to default controller
     // This prevents interference with order/gateway/admin routes
-    if (count($routes) == 1 || ($handler !== 'hotspot' && $handler !== 'pppoe')) {
+    if (count($routes) == 1) {
         $handler = 'default';
     }
 }
