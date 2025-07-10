@@ -252,53 +252,105 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
         
-        /* Laptop Mockup Styles */
+        /* Enhanced Realistic Laptop Mockup */
         .laptop-mockup {
             position: relative;
-            max-width: 500px;
+            max-width: 550px;
             margin: 0 auto;
             padding: 2rem 0;
+            transform: perspective(1000px) rotateY(-5deg) rotateX(10deg);
+            transition: all 0.4s ease;
         }
         
-        .laptop-mockup::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 5%;
-            right: 5%;
-            height: 70%;
-            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
-            border-radius: 8px 8px 0 0;
-            border: 3px solid #4a5568;
+        .laptop-mockup:hover {
+            transform: perspective(1000px) rotateY(0deg) rotateX(5deg) scale(1.02);
         }
         
+        /* Laptop Base */
         .laptop-mockup::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 30%;
-            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e0 100%);
-            border-radius: 0 0 20px 20px;
-            border: 2px solid #a0aec0;
+            bottom: -5px;
+            left: -5%;
+            right: -5%;
+            height: 25px;
+            background: linear-gradient(135deg, #c0c0c0 0%, #a8a8a8 50%, #909090 100%);
+            border-radius: 0 0 25px 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            z-index: 1;
+        }
+        
+        /* Laptop Screen Bezel */
+        .laptop-mockup::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 5%;
+            right: 5%;
+            height: calc(75% - 10px);
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            border-radius: 12px 12px 4px 4px;
+            border: 4px solid #333;
+            box-shadow: 
+                inset 0 0 0 2px #555,
+                0 10px 30px rgba(0,0,0,0.4);
+            z-index: 2;
         }
         
         .laptop-screen {
             position: relative;
             z-index: 10;
             background: #000;
-            border-radius: 5px;
-            margin: 5% 8% 0 8%;
+            border-radius: 8px;
+            margin: 20px 8% 0 8%;
             overflow: hidden;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+            box-shadow: 
+                inset 0 0 30px rgba(0,0,0,0.8),
+                0 0 20px rgba(212, 175, 55, 0.2);
+            border: 1px solid #333;
+        }
+        
+        .laptop-screen::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 25px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.1), transparent);
+            z-index: 5;
+            pointer-events: none;
         }
         
         .dashboard-image {
             width: 100%;
             height: auto;
             display: block;
-            border-radius: 3px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            filter: brightness(1.1) contrast(1.05);
+        }
+        
+        .dashboard-image:hover {
+            filter: brightness(1.15) contrast(1.1);
+        }
+        
+        /* Screen glow effect */
+        .laptop-screen::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            z-index: -1;
+            animation: screenGlow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes screenGlow {
+            0% { opacity: 0.5; }
+            100% { opacity: 0.8; }
         }
 
         /* Service Cards */
@@ -1121,41 +1173,128 @@ Advanced network management, automated billing, and seamless mobile money integr
         </div>
     </section>
 
-    <!-- Call to Action -->
-    <section class="cta-section">
-        <div class="container">
+    <!-- Dynamic Call to Action -->
+    <section class="py-5" style="background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%); position: relative; overflow: hidden;">
+        <!-- Animated Background Elements -->
+        <div class="position-absolute" style="top: -50%; left: -50%; width: 200%; height: 200%; background: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(212, 175, 55, 0.02) 2px, rgba(212, 175, 55, 0.02) 4px); animation: float 15s linear infinite;"></div>
+        
+        <div class="container" style="position: relative; z-index: 2;">
             <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="mb-4">Ready to Deploy Professional ISP Services?</h2>
-                    <p class="text-lg mb-4" style="color: rgba(255,255,255,0.9);">Contact our technical team to discuss your requirements and get a customized solution.</p>
+                <div class="col-lg-10 mx-auto text-center">
+                    <h2 class="mb-4" style="color: var(--gold); font-size: 2.5rem; font-weight: 700; text-shadow: 0 4px 8px rgba(212, 175, 55, 0.3);">
+                        Ready to Deploy Professional ISP Services?
+                    </h2>
+                    <p class="text-lg mb-4" style="color: #ffffff; font-size: 1.2rem; line-height: 1.6;">
+                        Contact our technical team to discuss your requirements and get a customized solution.
+                        <br><span style="color: var(--gold); font-weight: 600;">Join 2,450+ ISPs already using our platform across Africa</span>
+                    </p>
+                    
+                    <!-- Dynamic Stats Row -->
+                    <div class="row g-3 mb-5">
+                        <div class="col-md-3 col-6">
+                            <div class="text-center p-3" style="background: rgba(212, 175, 55, 0.1); border-radius: 15px; border: 1px solid rgba(212, 175, 55, 0.3);">
+                                <div style="color: var(--gold); font-size: 1.8rem; font-weight: 700;" id="deployment-time">24hrs</div>
+                                <small style="color: rgba(255,255,255,0.8);">Deployment Time</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <div class="text-center p-3" style="background: rgba(212, 175, 55, 0.1); border-radius: 15px; border: 1px solid rgba(212, 175, 55, 0.3);">
+                                <div style="color: var(--gold); font-size: 1.8rem; font-weight: 700;" id="support-response">15min</div>
+                                <small style="color: rgba(255,255,255,0.8);">Support Response</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <div class="text-center p-3" style="background: rgba(212, 175, 55, 0.1); border-radius: 15px; border: 1px solid rgba(212, 175, 55, 0.3);">
+                                <div style="color: var(--gold); font-size: 1.8rem; font-weight: 700;" id="success-rate">99.9%</div>
+                                <small style="color: rgba(255,255,255,0.8);">Success Rate</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <div class="text-center p-3" style="background: rgba(212, 175, 55, 0.1); border-radius: 15px; border: 1px solid rgba(212, 175, 55, 0.3);">
+                                <div style="color: var(--gold); font-size: 1.8rem; font-weight: 700;" id="training-hours">0hrs</div>
+                                <small style="color: rgba(255,255,255,0.8);">Training Required</small>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
-                        <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-accent">
+                        <a href="mailto:watsonwambugu@yahoo.com" class="btn px-4 py-3" style="background: var(--gradient-gold); color: #000; font-weight: 600; border-radius: 50px; transition: all 0.3s ease; box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 30px rgba(212, 175, 55, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 20px rgba(212, 175, 55, 0.3)'">
                             <i class="fas fa-envelope me-2"></i>Email: watsonwambugu@yahoo.com
                         </a>
-                        <a href="https://wa.me/254711503023" target="_blank" class="btn btn-outline-primary" style="color: white; border-color: white;">
+                        <a href="https://wa.me/254711503023" target="_blank" class="btn px-4 py-3" style="background: transparent; color: white; border: 2px solid var(--gold); font-weight: 600; border-radius: 50px; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(212, 175, 55, 0.1)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='transparent'; this.style.transform='translateY(0)'">
                             <i class="fab fa-whatsapp me-2"></i>WhatsApp: +254 711 503 023
                         </a>
                     </div>
+                    
                     <div class="mt-4">
-                        <a href="#demo-section" class="btn btn-outline-primary" style="color: white; border-color: white;">
-                            <i class="fas fa-play me-2"></i>Try Demo
-                        </a>
+                        <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">
+                            <i class="fas fa-shield-alt me-1" style="color: var(--gold);"></i>Enterprise Security • 
+                            <i class="fas fa-headset me-1 ms-2" style="color: var(--gold);"></i>24/7 Expert Support • 
+                            <i class="fas fa-rocket me-1 ms-2" style="color: var(--gold);"></i>Rapid Deployment
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Demo Section -->
-    <section class="py-5" id="demo-section" style="background: var(--gray-50);">
+    <!-- Enhanced Demo Section -->
+    <section class="py-5" id="demo-section" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); position: relative;">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h2>Try Our Services</h2>
-                    <p class="text-gray-600 mb-4">Experience the complete ISP services platform with live dashboard access.</p>
-                    <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-primary btn-lg">
+                <div class="col-lg-10 mx-auto text-center">
+                    <h2 style="color: #000000; font-size: 2.2rem; font-weight: 700; margin-bottom: 1rem;">
+                        <span style="color: var(--gold);">Try Our Services</span> - Live Demo Access
+                    </h2>
+                    <p style="color: #333333; font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem;">
+                        Experience the complete ISP services platform with live dashboard access.
+                        <br><strong style="color: var(--gold);">No registration required</strong> • <strong style="color: #000;">Full feature access</strong> • <strong style="color: var(--gold);">Real-time data</strong>
+                    </p>
+                    
+                    <!-- Demo Features Grid -->
+                    <div class="row g-3 mb-4">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="d-flex align-items-center justify-content-center p-3" style="background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                                <div class="text-center">
+                                    <i class="fas fa-tachometer-alt fa-2x mb-2" style="color: var(--gold);"></i>
+                                    <h6 style="color: #000; margin: 0;">Live Dashboard</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="d-flex align-items-center justify-content-center p-3" style="background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                                <div class="text-center">
+                                    <i class="fas fa-users fa-2x mb-2" style="color: var(--gold);"></i>
+                                    <h6 style="color: #000; margin: 0;">User Management</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="d-flex align-items-center justify-content-center p-3" style="background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                                <div class="text-center">
+                                    <i class="fas fa-credit-card fa-2x mb-2" style="color: var(--gold);"></i>
+                                    <h6 style="color: #000; margin: 0;">Billing System</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="d-flex align-items-center justify-content-center p-3" style="background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                                <div class="text-center">
+                                    <i class="fas fa-chart-line fa-2x mb-2" style="color: var(--gold);"></i>
+                                    <h6 style="color: #000; margin: 0;">Analytics</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-lg px-5 py-3" style="background: var(--gradient-gold); color: #000; font-weight: 700; border-radius: 50px; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 35px rgba(212, 175, 55, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 25px rgba(212, 175, 55, 0.3)'">
                         <i class="fas fa-external-link-alt me-2"></i>Launch Demo Dashboard
                     </a>
+                    
+                    <p style="color: #666; font-size: 0.9rem; margin-top: 1rem;">
+                        <i class="fas fa-clock me-1" style="color: var(--gold);"></i>Demo environment resets every 24 hours • 
+                        <i class="fas fa-lock me-1 ms-2" style="color: var(--gold);"></i>Secure sandbox environment
+                    </p>
                 </div>
             </div>
         </div>
