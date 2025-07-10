@@ -708,7 +708,7 @@ Real stories, real solutions, and occasionally real funny mistakes we've all mad
                                 </div>
                                 <div class="blog-read-time">8 min read</div>
                             </div>
-                            <a href="{$app_url}/blog/kenya-internet-market-2025" class="blog-link">
+                            <a href="{$app_url}/blog/radius-security-guide" class="blog-link">
                                 Read More <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
@@ -731,7 +731,7 @@ Real stories, real solutions, and occasionally real funny mistakes we've all mad
                                 </div>
                                 <div class="blog-read-time">10 min read</div>
                             </div>
-                            <a href="{$app_url}/blog/kenya-internet-market-2025" class="blog-link">
+                            <a href="{$app_url}/blog/snmp-monitoring-guide" class="blog-link">
                                 Read More <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
@@ -754,7 +754,7 @@ Real stories, real solutions, and occasionally real funny mistakes we've all mad
                                 </div>
                                 <div class="blog-read-time">15 min read</div>
                             </div>
-                            <a href="{$app_url}/blog/kenya-internet-market-2025" class="blog-link">
+                            <a href="{$app_url}/blog/mpesa-integration-guide" class="blog-link">
                                 Read More <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
@@ -777,7 +777,7 @@ Real stories, real solutions, and occasionally real funny mistakes we've all mad
                                 </div>
                                 <div class="blog-read-time">12 min read</div>
                             </div>
-                            <a href="{$app_url}/blog/kenya-internet-market-2025" class="blog-link">
+                            <a href="{$app_url}/blog/network-analytics-influxdb-grafana" class="blog-link">
                                 Read More <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
@@ -800,7 +800,7 @@ Real stories, real solutions, and occasionally real funny mistakes we've all mad
                                 </div>
                                 <div class="blog-read-time">9 min read</div>
                             </div>
-                            <a href="{$app_url}/blog/kenya-internet-market-2025" class="blog-link">
+                            <a href="{$app_url}/blog/mikrotik-routeros-api-automation" class="blog-link">
                                 Read More <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
