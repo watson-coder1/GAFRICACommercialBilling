@@ -482,6 +482,101 @@
             transform: translateX(2px);
         }
 
+        /* Enhanced Pricing Card Animations */
+        .pricing-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .pricing-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            transform: rotate(45deg) translate(-100%, -100%);
+            transition: transform 0.6s ease;
+        }
+        
+        .pricing-card:hover::after {
+            transform: rotate(45deg) translate(100%, 100%);
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .pricing-card.featured {
+            transform: scale(1.05);
+            border: 2px solid var(--gold);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2);
+        }
+        
+        .pricing-card.featured:hover {
+            transform: translateY(-8px) scale(1.08);
+            box-shadow: 0 25px 50px rgba(212, 175, 55, 0.3);
+        }
+        
+        .pricing-price {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .pricing-card:hover .pricing-price {
+            transform: scale(1.1);
+            color: var(--gold);
+        }
+        
+        /* Floating Badge Animation */
+        .pricing-badge {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        /* Button Pulse Effect */
+        .btn-pricing {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-pricing::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-pricing:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        /* Success Stories Enhanced */
+        .success-story {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .success-story:hover {
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero {
@@ -493,10 +588,16 @@
             
             .pricing-card {
                 padding: 2rem 1.5rem;
+                margin-bottom: 2rem;
             }
             
             .pricing-card.featured {
                 transform: none;
+                margin: 1rem 0;
+            }
+            
+            .pricing-card:hover {
+                transform: translateY(-4px) scale(1.01);
             }
         }
     </style>
@@ -576,40 +677,100 @@
             </div>
             <div class="row g-4">
                 <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="bg-white rounded p-3 text-center">
-                        <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80" 
-                             alt="Café Network" class="img-fluid rounded mb-2">
-                        <h6>Café Networks</h6>
-                        <small class="text-muted">200+ locations</small>
+                    <div class="success-story bg-white rounded p-4 text-center shadow-sm">
+                        <div class="position-relative mb-3">
+                            <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80" 
+                                 alt="Café Network" class="img-fluid rounded" style="height: 150px; width: 100%; object-fit: cover;">
+                            <div class="position-absolute top-0 end-0 bg-success text-white px-2 py-1 rounded-bottom-start">
+                                <small><i class="fas fa-check me-1"></i>Active</small>
+                            </div>
+                        </div>
+                        <h6 class="text-primary">Café Networks</h6>
+                        <div class="d-flex justify-content-center gap-3 mb-2">
+                            <div class="text-center">
+                                <strong class="text-success">200+</strong>
+                                <br><small class="text-muted">Locations</small>
+                            </div>
+                            <div class="text-center">
+                                <strong class="text-info">5K+</strong>
+                                <br><small class="text-muted">Daily Users</small>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="bg-white rounded p-3 text-center">
-                        <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80" 
-                             alt="Enterprise ISP" class="img-fluid rounded mb-2">
-                        <h6>Enterprise ISPs</h6>
-                        <small class="text-muted">50+ companies</small>
+                    <div class="success-story bg-white rounded p-4 text-center shadow-sm">
+                        <div class="position-relative mb-3">
+                            <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80" 
+                                 alt="Enterprise ISP" class="img-fluid rounded" style="height: 150px; width: 100%; object-fit: cover;">
+                            <div class="position-absolute top-0 end-0 bg-primary text-white px-2 py-1 rounded-bottom-start">
+                                <small><i class="fas fa-star me-1"></i>Featured</small>
+                            </div>
+                        </div>
+                        <h6 class="text-primary">Enterprise ISPs</h6>
+                        <div class="d-flex justify-content-center gap-3 mb-2">
+                            <div class="text-center">
+                                <strong class="text-success">50+</strong>
+                                <br><small class="text-muted">Companies</small>
+                            </div>
+                            <div class="text-center">
+                                <strong class="text-info">100K+</strong>
+                                <br><small class="text-muted">Subscribers</small>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="bg-white rounded p-3 text-center">
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80" 
-                             alt="Community Networks" class="img-fluid rounded mb-2">
-                        <h6>Community Networks</h6>
-                        <small class="text-muted">1000+ households</small>
+                    <div class="success-story bg-white rounded p-4 text-center shadow-sm">
+                        <div class="position-relative mb-3">
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200&q=80" 
+                                 alt="Community Networks" class="img-fluid rounded" style="height: 150px; width: 100%; object-fit: cover;">
+                            <div class="position-absolute top-0 end-0 bg-warning text-dark px-2 py-1 rounded-bottom-start">
+                                <small><i class="fas fa-heart me-1"></i>Popular</small>
+                            </div>
+                        </div>
+                        <h6 class="text-primary">Community Networks</h6>
+                        <div class="d-flex justify-content-center gap-3 mb-2">
+                            <div class="text-center">
+                                <strong class="text-success">1K+</strong>
+                                <br><small class="text-muted">Households</small>
+                            </div>
+                            <div class="text-center">
+                                <strong class="text-info">25K+</strong>
+                                <br><small class="text-muted">Connections</small>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section class="py-5">
+    <!-- Enhanced Pricing Section -->
+    <section class="py-5" style="background: linear-gradient(rgba(248,248,248,0.95), rgba(248,248,248,0.95)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center;">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" 
+                         alt="ISP Pricing Plans" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
                     <h2>Professional Plans</h2>
-                    <p class="text-lg text-gray-600">Scalable solutions for ISPs of all sizes</p>
+                    <p class="text-lg text-gray-600">Scalable solutions for ISPs of all sizes with transparent pricing.</p>
+                    <div class="row g-3 mt-3">
+                        <div class="col-6">
+                            <div class="text-center p-3 bg-white rounded shadow-sm">
+                                <h4 class="text-primary mb-1">3</h4>
+                                <small class="text-muted">Plan Options</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="text-center p-3 bg-white rounded shadow-sm">
+                                <h4 class="text-primary mb-1">Free</h4>
+                                <small class="text-muted">Trial Period</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row g-4">
@@ -828,41 +989,197 @@
         </div>
     </section>
 
-    <!-- Call to Action -->
-    <section class="cta-section">
+    <!-- Enhanced Dynamic CTA -->
+    <section class="py-5" style="background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #2C5282 100%); position: relative; overflow: hidden;">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="mb-4">Ready to Transform Your ISP Operations?</h2>
-                    <p class="text-lg mb-4" style="color: rgba(255,255,255,0.9);">Contact our sales team to discuss your requirements and get a customized quote.</p>
-                    <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
-                        <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-accent">
-                            <i class="fas fa-envelope me-2"></i>Email: watsonwambugu@yahoo.com
+            <!-- Animated Background Elements -->
+            <div class="position-absolute" style="top: 20%; left: 5%; width: 80px; height: 80px; background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, transparent 70%); border-radius: 50%; animation: float 4s ease-in-out infinite;"></div>
+            <div class="position-absolute" style="top: 70%; right: 10%; width: 120px; height: 120px; background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, transparent 70%); border-radius: 50%; animation: float 6s ease-in-out infinite reverse;"></div>
+            
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2 class="text-white mb-4">Choose Your Perfect Plan</h2>
+                    <p class="text-white-50 mb-4">Join thousands of ISPs across Africa who trust our platform for their billing operations.</p>
+                    
+                    <!-- Pricing Highlights -->
+                    <div class="row g-3 mb-4">
+                        <div class="col-6">
+                            <div class="d-flex align-items-center text-white">
+                                <div class="bg-success rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                    <i class="fas fa-dollar-sign text-white"></i>
+                                </div>
+                                <div>
+                                    <strong>From $10/month</strong><br>
+                                    <small class="text-white-50">Transparent pricing</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center text-white">
+                                <div class="bg-info rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                    <i class="fas fa-rocket text-white"></i>
+                                </div>
+                                <div>
+                                    <strong>3-Day Setup</strong><br>
+                                    <small class="text-white-50">Quick deployment</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center text-white">
+                                <div class="bg-warning rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                    <i class="fas fa-shield-alt text-dark"></i>
+                                </div>
+                                <div>
+                                    <strong>99.9% Uptime</strong><br>
+                                    <small class="text-white-50">Guaranteed SLA</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center text-white">
+                                <div class="bg-danger rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                    <i class="fas fa-headset text-white"></i>
+                                </div>
+                                <div>
+                                    <strong>24/7 Support</strong><br>
+                                    <small class="text-white-50">Expert assistance</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="d-flex flex-column flex-md-row gap-3">
+                        <a href="#demo-section" class="btn btn-lg px-4 py-3" style="background: var(--gradient-gold); color: var(--black); font-weight: 600; border-radius: 8px; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(212,175,55,0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                            <i class="fas fa-play me-2"></i>Try Live Demo
                         </a>
-                        <a href="https://wa.me/254711503023" target="_blank" class="btn btn-outline-primary" style="color: white; border-color: white;">
-                            <i class="fab fa-whatsapp me-2"></i>WhatsApp: +254 711 503 023
+                        <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-outline-light btn-lg px-4 py-3" style="border-radius: 8px; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">
+                            <i class="fas fa-envelope me-2"></i>Get Custom Quote
                         </a>
                     </div>
-                    <div class="mt-4">
-                        <a href="#demo-section" class="btn btn-outline-primary" style="color: white; border-color: white;">
-                            <i class="fas fa-play me-2"></i>Try Demo
-                        </a>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-left">
+                    <!-- Interactive Pricing Calculator -->
+                    <div class="bg-white rounded-lg p-4 shadow-lg" style="border-radius: 12px;">
+                        <div class="text-center mb-4">
+                            <h5 class="text-dark">Quick Savings Calculator</h5>
+                            <p class="text-muted small">See your potential monthly savings</p>
+                        </div>
+                        
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <div class="text-center p-3 bg-light rounded">
+                                    <div class="h4 text-success mb-1">$500</div>
+                                    <small class="text-muted">Monthly Savings</small>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="text-center p-3 bg-light rounded">
+                                    <div class="h4 text-info mb-1">35%</div>
+                                    <small class="text-muted">Revenue Increase</small>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="text-center p-3 bg-light rounded">
+                                    <div class="h4 text-warning mb-1">60%</div>
+                                    <small class="text-muted">Less Support Tickets</small>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="text-center p-3 bg-light rounded">
+                                    <div class="h4 text-primary mb-1">3x</div>
+                                    <small class="text-muted">Faster Onboarding</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            <a href="https://wa.me/254711503023" target="_blank" class="btn btn-success btn-sm">
+                                <i class="fab fa-whatsapp me-1"></i>Chat with Sales
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Demo Section -->
-    <section class="py-5" id="demo-section" style="background: var(--gray-50);">
+    <!-- Interactive Demo Section -->
+    <section class="py-5" id="demo-section" style="background: linear-gradient(rgba(248,248,248,0.95), rgba(248,248,248,0.95)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center;">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h2>Try Our Platform</h2>
-                    <p class="text-gray-600 mb-4">Experience the complete billing system with live dashboard access.</p>
-                    <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-primary btn-lg">
-                        <i class="fas fa-external-link-alt me-2"></i>Launch Demo Dashboard
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2>Experience Glinta Africa Live</h2>
+                    <p class="text-gray-600 mb-4">Get instant access to our complete ISP billing platform with real features and live data.</p>
+                    
+                    <!-- Demo Features -->
+                    <div class="row g-3 mb-4">
+                        <div class="col-12">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-check-circle text-success me-3"></i>
+                                <span>Live dashboard with real ISP metrics</span>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-check-circle text-success me-3"></i>
+                                <span>Mobile money integration demo</span>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-check-circle text-success me-3"></i>
+                                <span>Customer management features</span>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-check-circle text-success me-3"></i>
+                                <span>Network monitoring tools</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-primary btn-lg px-5 py-3" style="border-radius: 8px; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(44,82,130,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        <i class="fas fa-rocket me-2"></i>Launch Demo Dashboard
                     </a>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-left">
+                    <!-- Dashboard Preview with Animation -->
+                    <div class="position-relative">
+                        <div class="bg-white rounded-lg shadow-lg p-3" style="border-radius: 12px; transform: perspective(1000px) rotateY(-10deg) rotateX(5deg);">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-danger rounded-circle" style="width: 8px; height: 8px;"></div>
+                                <div class="bg-warning rounded-circle mx-1" style="width: 8px; height: 8px;"></div>
+                                <div class="bg-success rounded-circle" style="width: 8px; height: 8px;"></div>
+                                <span class="ms-3 small text-muted">Live Demo Dashboard</span>
+                            </div>
+                            <img src="{$app_url}/ui/ui/images/dashboard-demo.png" alt="Live Demo Dashboard" class="img-fluid rounded" style="border: 1px solid #e9ecef;">
+                            
+                            <!-- Animated Play Button -->
+                            <div class="position-absolute top-50 start-50 translate-middle">
+                                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width: 70px; height: 70px; background: var(--gradient-gold); animation: pulse 2s infinite; cursor: pointer;" onclick="window.open('https://glintaafrica.com/admin', '_blank')">
+                                    <i class="fas fa-play text-dark fs-4"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Floating Info Cards -->
+                        <div class="position-absolute" style="top: 10%; right: -20px; animation: float 3s ease-in-out infinite;">
+                            <div class="bg-primary text-white px-3 py-2 rounded shadow" style="font-size: 0.75rem;">
+                                <i class="fas fa-users me-1"></i>Live Users: 1,247
+                            </div>
+                        </div>
+                        
+                        <div class="position-absolute" style="bottom: 20%; left: -30px; animation: float 4s ease-in-out infinite reverse;">
+                            <div class="bg-success text-white px-3 py-2 rounded shadow" style="font-size: 0.75rem;">
+                                <i class="fas fa-dollar-sign me-1"></i>Revenue: KES 125K
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
