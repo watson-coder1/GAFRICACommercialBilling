@@ -527,20 +527,108 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- Enhanced Hero Section -->
+    <section class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; position: relative; overflow: hidden;">
+        <!-- Animated Background Elements -->
+        <div class="position-absolute" style="top: 15%; left: 10%; width: 100px; height: 100px; background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, transparent 70%); border-radius: 50%; animation: float 6s ease-in-out infinite;"></div>
+        <div class="position-absolute" style="top: 70%; right: 15%; width: 150px; height: 150px; background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, transparent 70%); border-radius: 50%; animation: float 8s ease-in-out infinite reverse;"></div>
+        
         <div class="container hero-content">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h1 class="display-2">Enterprise Features</h1>
-                    <p class="lead">Advanced capabilities designed for professional ISP operations. Real-time monitoring, automated billing, and comprehensive network management.</p>
-                    <div class="mt-4">
-                        <a href="#demo-section" class="btn btn-accent me-3">
-                            <i class="fas fa-play me-2"></i>Try Demo
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h1 class="display-2 text-white">Enterprise Features</h1>
+                    <p class="lead text-white-50">Advanced capabilities designed for professional ISP operations. Real-time monitoring, automated billing, and comprehensive network management.</p>
+                    
+                    <!-- Feature Highlights -->
+                    <div class="row g-3 mb-4">
+                        <div class="col-6">
+                            <div class="d-flex align-items-center text-white">
+                                <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                    <i class="fas fa-tachometer-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <strong>Real-time</strong><br>
+                                    <small class="text-white-50">Live monitoring</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center text-white">
+                                <div class="bg-success rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                    <i class="fas fa-mobile-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <strong>Mobile Money</strong><br>
+                                    <small class="text-white-50">M-Pesa, Airtel</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center text-white">
+                                <div class="bg-warning rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                    <i class="fas fa-network-wired text-dark"></i>
+                                </div>
+                                <div>
+                                    <strong>Automation</strong><br>
+                                    <small class="text-white-50">Network mgmt</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center text-white">
+                                <div class="bg-info rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                    <i class="fas fa-shield-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <strong>Security</strong><br>
+                                    <small class="text-white-50">Enterprise grade</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex flex-column flex-md-row gap-3">
+                        <a href="#demo-section" class="btn btn-lg px-4 py-3" style="background: var(--gradient-gold); color: var(--black); font-weight: 600; border-radius: 8px; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(212,175,55,0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                            <i class="fas fa-rocket me-2"></i>Try Live Features
                         </a>
-                        <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-outline-primary">
+                        <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-outline-light btn-lg px-4 py-3" style="border-radius: 8px; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">
                             <i class="fas fa-envelope me-2"></i>Contact Sales
                         </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-left">
+                    <!-- Feature Dashboard Preview -->
+                    <div class="position-relative">
+                        <div class="bg-white rounded-lg p-3 shadow-lg" style="border-radius: 12px; transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-danger rounded-circle" style="width: 8px; height: 8px;"></div>
+                                <div class="bg-warning rounded-circle mx-1" style="width: 8px; height: 8px;"></div>
+                                <div class="bg-success rounded-circle" style="width: 8px; height: 8px;"></div>
+                                <span class="ms-3 small text-muted">glintaafrica.com/admin</span>
+                            </div>
+                            <img src="{$app_url}/ui/ui/images/dashboard-demo.png" alt="Enterprise Features Dashboard" class="img-fluid rounded" style="border: 1px solid #e9ecef;">
+                            
+                            <!-- Animated Play Button -->
+                            <div class="position-absolute top-50 start-50 translate-middle">
+                                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px; background: var(--gradient-gold); animation: pulse 2s infinite; cursor: pointer;" onclick="window.open('https://glintaafrica.com/admin', '_blank')">
+                                    <i class="fas fa-play text-dark"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Floating Feature Tags -->
+                        <div class="position-absolute" style="top: 15%; right: -20px; animation: float 3s ease-in-out infinite;">
+                            <div class="bg-primary text-white px-3 py-2 rounded shadow" style="font-size: 0.75rem;">
+                                <i class="fas fa-chart-line me-1"></i>Live Analytics
+                            </div>
+                        </div>
+                        
+                        <div class="position-absolute" style="bottom: 25%; left: -30px; animation: float 4s ease-in-out infinite reverse;">
+                            <div class="bg-success text-white px-3 py-2 rounded shadow" style="font-size: 0.75rem;">
+                                <i class="fas fa-mobile-alt me-1"></i>Mobile Integration
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
