@@ -16,7 +16,7 @@
     <link rel="shortcut icon" href="{$app_url}/ui/ui/images/logo.png" type="image/x-icon" />
     
     <!-- Professional Typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Bootstrap & Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -97,18 +97,21 @@
 
         /* Logo */
         .logo-brand {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.5rem;
-            font-weight: 900;
-            color: var(--gray);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--gold);
             text-decoration: none;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.02em;
             display: inline-block;
+            text-shadow: 0 2px 4px rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
         }
 
         .logo-brand:hover {
+            color: var(--gold-light);
             transform: scale(1.05);
-            filter: brightness(1.1);
+            text-shadow: 0 4px 8px rgba(212, 175, 55, 0.5);
         }
 
         /* Navigation */
