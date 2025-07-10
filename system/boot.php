@@ -84,6 +84,24 @@ $handler = $routes[0];
 if ($handler == '') {
     $handler = 'default';
 }
+
+// Define routes that should be handled by default controller (landing pages)
+$landing_routes = [
+    'home', 'services', 'features', 'pricing', 'about', 'contact', 'blog', 
+    'privacy', 'terms', 'security', 'compliance', 'help', 'documentation', 
+    'community', 'hotspot', 'pppoe', 'billing', 'analytics', 'careers', 
+    'news', 'investors', 'demo-reseller', 'demo-customer'
+];
+
+// If this is a landing page route, use default controller
+// But allow multi-segment routes for application functionality
+if (in_array($handler, $landing_routes)) {
+    // Only redirect single-segment routes to default controller
+    // This prevents interference with order/gateway/admin routes
+    if (count($routes) == 1 || ($handler !== 'hotspot' && $handler !== 'pppoe')) {
+        $handler = 'default';
+    }
+}
 try {
     if (!empty($_GET['uid'])) {
         $_COOKIE['uid'] = $_GET['uid'];
