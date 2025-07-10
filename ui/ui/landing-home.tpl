@@ -534,68 +534,154 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" style="position: relative; overflow: hidden;">
+        <!-- Animated Floating Elements -->
+        <div class="position-absolute" style="top: 10%; left: 5%; width: 150px; height: 150px; background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, transparent 70%); border-radius: 50%; animation: float 8s ease-in-out infinite;"></div>
+        <div class="position-absolute" style="top: 60%; right: 10%; width: 200px; height: 200px; background: radial-gradient(circle, rgba(44,82,130,0.1) 0%, transparent 70%); border-radius: 50%; animation: float 10s ease-in-out infinite reverse;"></div>
+        <div class="position-absolute" style="top: 30%; right: 20%; width: 100px; height: 100px; background: radial-gradient(circle, rgba(212,175,55,0.12) 0%, transparent 70%); border-radius: 50%; animation: float 6s ease-in-out infinite;"></div>
+        
         <div class="container hero-content">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h1 class="display-2">Enterprise ISP Billing Platform</h1>
-                    <p class="lead">Professional-grade network billing and management solution for African telecommunications infrastructure</p>
-                    <div class="mt-4">
-                        <a href="#demo-section" class="btn btn-accent me-3">
-                            <i class="fas fa-play me-2"></i>Try Demo Now
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h1 class="display-2">🚀 Internet Billing Made <span style="color: var(--gold); animation: glow 2s ease-in-out infinite alternate;">Fun</span>!</h1>
+                    <p class="lead">Because who said enterprise software has to be boring? 😴<br>
+                    Professional ISP billing that actually makes you smile 😊</p>
+                    
+                    <!-- Fun Stats Bar -->
+                    <div class="row g-3 mb-4">
+                        <div class="col-4">
+                            <div class="text-center p-3 rounded" style="background: rgba(212,175,55,0.1); border: 2px solid rgba(212,175,55,0.3);">
+                                <div class="h4 mb-1" style="color: var(--gold);">⚡</div>
+                                <small class="text-white">Lightning Fast</small>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="text-center p-3 rounded" style="background: rgba(212,175,55,0.1); border: 2px solid rgba(212,175,55,0.3);">
+                                <div class="h4 mb-1" style="color: var(--gold);">🎯</div>
+                                <small class="text-white">Dead Simple</small>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="text-center p-3 rounded" style="background: rgba(212,175,55,0.1); border: 2px solid rgba(212,175,55,0.3);">
+                                <div class="h4 mb-1" style="color: var(--gold);">💰</div>
+                                <small class="text-white">Money Maker</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex flex-column flex-md-row gap-3">
+                        <a href="#demo-section" class="btn btn-accent btn-lg px-4 py-3" style="position: relative; overflow: hidden; animation: pulse 2s infinite;" onmouseover="this.style.transform='scale(1.05) rotate(1deg)'; this.style.boxShadow='0 10px 30px rgba(212,175,55,0.4)'" onmouseout="this.style.transform='scale(1) rotate(0deg)'; this.style.boxShadow='none'">
+                            <i class="fas fa-rocket me-2"></i>🎮 Play with Demo!
                         </a>
-                        <a href="{$app_url}/contact" class="btn btn-outline-primary">
-                            <i class="fas fa-phone me-2"></i>Contact Sales
+                        <a href="{$app_url}/contact" class="btn btn-outline-primary btn-lg px-4 py-3" style="transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.1)'; this.innerHTML='<i class=\"fas fa-coffee me-2\"></i>☕ Let\'s Chat!'" onmouseout="this.style.background='transparent'; this.innerHTML='<i class=\"fas fa-phone me-2\"></i>📞 Contact Sales'">
+                            <i class="fas fa-phone me-2"></i>📞 Contact Sales
                         </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-left">
+                    <!-- Interactive Dashboard Preview -->
+                    <div class="position-relative">
+                        <div class="bg-white rounded-lg p-4 shadow-lg" style="border-radius: 20px; transform: perspective(1000px) rotateY(-10deg) rotateX(5deg); transition: all 0.3s ease;" onmouseover="this.style.transform='perspective(1000px) rotateY(-5deg) rotateX(2deg) scale(1.02)'" onmouseout="this.style.transform='perspective(1000px) rotateY(-10deg) rotateX(5deg) scale(1)'">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-danger rounded-circle" style="width: 12px; height: 12px;"></div>
+                                <div class="bg-warning rounded-circle mx-2" style="width: 12px; height: 12px;"></div>
+                                <div class="bg-success rounded-circle" style="width: 12px; height: 12px;"></div>
+                                <span class="ms-3 small text-muted">✨ glintaafrica.com/admin</span>
+                            </div>
+                            <img src="{$app_url}/ui/ui/images/dashboard-demo.png" alt="Look at this beautiful dashboard!" class="img-fluid rounded" style="border: 3px solid var(--gold);">
+                            
+                            <!-- Animated Play Button -->
+                            <div class="position-absolute top-50 start-50 translate-middle" style="animation: bounce 2s infinite;">
+                                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width: 80px; height: 80px; background: var(--gradient-gold); cursor: pointer; box-shadow: 0 10px 30px rgba(212,175,55,0.3);" onclick="window.open('https://glintaafrica.com/admin', '_blank')">
+                                    <i class="fas fa-play text-dark" style="font-size: 1.5rem; margin-left: 5px;"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Floating Emojis -->
+                        <div class="position-absolute" style="top: 10%; right: -10px; animation: float 3s ease-in-out infinite; font-size: 2rem;">💻</div>
+                        <div class="position-absolute" style="bottom: 20%; left: -20px; animation: float 4s ease-in-out infinite reverse; font-size: 2rem;">📊</div>
+                        <div class="position-absolute" style="top: 70%; right: 10%; animation: float 5s ease-in-out infinite; font-size: 1.5rem;">🎉</div>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <!-- CSS Animations -->
+        <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px var(--gold), 0 0 20px var(--gold), 0 0 30px var(--gold); }
+            to { text-shadow: 0 0 20px var(--gold), 0 0 30px var(--gold), 0 0 40px var(--gold); }
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        </style>
     </section>
 
     <!-- Visual Features Gallery -->
     <section class="py-5" style="background: linear-gradient(rgba(245,245,245,0.8), rgba(245,245,245,0.8)), url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cover;">
         <div class="container">
-            <div class="row text-center mb-4">
+            <div class="row text-center mb-5">
                 <div class="col-12" data-aos="fade-up">
-                    <h2>Complete ISP Solution</h2>
+                    <h2>🎯 Why Our Users Actually <em>Love</em> Us</h2>
+                    <p class="lead" style="color: var(--gray);">No more "Why is this so complicated?" moments 🤯</p>
                 </div>
             </div>
             <div class="row g-4">
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="feature-card">
+                    <div class="feature-card" style="transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px) scale(1.02)'; this.style.boxShadow='0 20px 40px rgba(212,175,55,0.2)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='var(--shadow-sm)'">
                         <div class="feature-icon">
-                            <i class="fas fa-mobile-alt"></i>
+                            📱
                         </div>
-                        <h5 class="feature-title">Mobile Money</h5>
-                        <p class="feature-description">Integrated payment processing with M-Pesa, Airtel Money, and MTN MoMo for instant customer payments.</p>
+                        <h5 class="feature-title">Mobile Money Magic ✨</h5>
+                        <p class="feature-description">M-Pesa, Airtel Money, MTN MoMo - we speak all the money languages! Your customers pay, boom 💥 - instant activation. No more "Did the payment go through?" anxiety 😅</p>
+                        <div class="text-center mt-3">
+                            <span class="badge" style="background: var(--gradient-gold); color: var(--black); font-size: 0.7rem;">🚀 Instant Activation</span>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="feature-card">
+                    <div class="feature-card" style="transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px) scale(1.02)'; this.style.boxShadow='0 20px 40px rgba(212,175,55,0.2)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='var(--shadow-sm)'">
                         <div class="feature-icon">
-                            <i class="fas fa-wifi"></i>
+                            📶
                         </div>
-                        <h5 class="feature-title">Hotspot Management</h5>
-                        <p class="feature-description">Complete control over your WiFi hotspots with automated user provisioning and bandwidth management.</p>
+                        <h5 class="feature-title">WiFi on Autopilot 🤖</h5>
+                        <p class="feature-description">Set it and forget it! Our system manages your hotspots like a boss. Bandwidth control? ✅ User limits? ✅ Your sanity? Preserved! 😌</p>
+                        <div class="text-center mt-3">
+                            <span class="badge" style="background: var(--gradient-gold); color: var(--black); font-size: 0.7rem;">🎯 Zero Stress</span>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="feature-card">
+                    <div class="feature-card" style="transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px) scale(1.02)'; this.style.boxShadow='0 20px 40px rgba(212,175,55,0.2)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='var(--shadow-sm)'">
                         <div class="feature-icon">
-                            <i class="fas fa-chart-line"></i>
+                            📊
                         </div>
-                        <h5 class="feature-title">Real-time Analytics</h5>
-                        <p class="feature-description">Monitor network performance, track revenue, and analyze customer behavior with live dashboards.</p>
+                        <h5 class="feature-title">Analytics That Don't Suck 📈</h5>
+                        <p class="feature-description">Pretty charts that actually mean something! Track everything in real-time without needing a PhD in Data Science 🎓</p>
+                        <div class="text-center mt-3">
+                            <span class="badge" style="background: var(--gradient-gold); color: var(--black); font-size: 0.7rem;">📈 Easy Insights</span>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="feature-card">
+                    <div class="feature-card" style="transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px) scale(1.02)'; this.style.boxShadow='0 20px 40px rgba(212,175,55,0.2)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='var(--shadow-sm)'">
                         <div class="feature-icon">
-                            <i class="fas fa-shield-alt"></i>
+                            🛡️
                         </div>
-                        <h5 class="feature-title">RADIUS Integration</h5>
-                        <p class="feature-description">Enterprise-grade authentication and accounting with FreeRADIUS integration for secure network access.</p>
+                        <h5 class="feature-title">Security? We Got You! 🔐</h5>
+                        <p class="feature-description">Enterprise-grade RADIUS that's tougher than your grandmother's cookies 🍪. Your network stays locked down while you sleep peacefully 😴</p>
+                        <div class="text-center mt-3">
+                            <span class="badge" style="background: var(--gradient-gold); color: var(--black); font-size: 0.7rem;">🔒 Fort Knox Level</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -607,8 +693,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
-                    <h2>Experience Our Platform</h2>
-                    <p class="text-lg" style="color: var(--gray);">See the system in action</p>
+                    <h2>🎮 Take It for a Spin!</h2>
+                    <p class="text-lg" style="color: var(--gray);">Warning: May cause uncontrollable excitement 😄</p>
+                    <div class="d-flex justify-content-center gap-3 mb-4">
+                        <span class="badge bg-primary">🔥 Live Data</span>
+                        <span class="badge bg-success">⚡ Real Features</span>
+                        <span class="badge bg-warning text-dark">🎯 Zero Setup</span>
+                    </div>
                 </div>
             </div>
             <div class="row g-4">
@@ -616,11 +707,39 @@
                     <div class="demo-card text-center">
                         <img src="{$app_url}/ui/ui/images/dashboard-demo.png" 
                              alt="Live Dashboard Demo - Glinta Africa ISP Billing Platform" class="img-fluid rounded mb-4 shadow-lg" style="border: 2px solid var(--gold);">
-                        <h4 id="demo-section">Access Live Demo Dashboard</h4>
-                        <p style="color: var(--gray);">Explore the actual Glinta Africa ISP billing dashboard with live features</p>
-                        <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-primary btn-lg">
-                            <i class="fas fa-external-link-alt me-2"></i>Open Demo Dashboard
+                        <h4 id="demo-section">🚀 Your New Favorite Dashboard</h4>
+                        <p style="color: var(--gray);">This isn't just a demo - it's a full-blown playground! Click around, break things (you can't actually break anything 😉), and see why our users never want to leave.</p>
+                        <div class="row g-3 mb-4">
+                            <div class="col-4">
+                                <div class="text-center">
+                                    <div class="h5 mb-1">⏱️</div>
+                                    <small style="color: var(--gray);">5 min setup</small>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="text-center">
+                                    <div class="h5 mb-1">🤝</div>
+                                    <small style="color: var(--gray);">Human support</small>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="text-center">
+                                    <div class="h5 mb-1">💸</div>
+                                    <small style="color: var(--gray);">Fair pricing</small>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-primary btn-lg" style="animation: wiggle 2s ease-in-out infinite;" onmouseover="this.innerHTML='<i class=\"fas fa-rocket me-2\"></i>🎉 Let\'s Gooo!'" onmouseout="this.innerHTML='<i class=\"fas fa-external-link-alt me-2\"></i>🎮 Enter the Matrix'">
+                            <i class="fas fa-external-link-alt me-2"></i>🎮 Enter the Matrix
                         </a>
+                        
+                        <style>
+                        @keyframes wiggle {
+                            0%, 100% { transform: rotate(0deg); }
+                            25% { transform: rotate(1deg); }
+                            75% { transform: rotate(-1deg); }
+                        }
+                        </style>
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
@@ -665,8 +784,9 @@ if ($payment->confirmed) {
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
-                    <h2>Trusted Across Africa</h2>
-                    <p class="text-lg" style="color: var(--gray);">Powering internet service providers in 15+ African countries</p>
+                    <h2>🌍 We're Kind of a Big Deal</h2>
+                    <p class="text-lg" style="color: var(--gray);">Not to brag, but we're powering ISPs from Cape Town to Cairo 🦁<br>
+                    <small>(Okay, maybe we're bragging just a little 😏)</small></p>
                 </div>
             </div>
             <div class="metrics-grid" data-aos="fade-up" data-aos-delay="200">
@@ -695,8 +815,9 @@ if ($payment->confirmed) {
         <div class="container position-relative">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
-                    <h2>Perfect for Every Business Model</h2>
-                    <p class="text-lg" style="color: var(--gray);">From small WiFi hotspots to enterprise ISP operations</p>
+                    <h2>🎯 We Fit Everywhere (Seriously!)</h2>
+                    <p class="text-lg" style="color: var(--gray);">From "I just want WiFi in my café" to "I'm building the next Safaricom" 📡<br>
+                    <small>We scale with your dreams (and your budget) 💰</small></p>
                 </div>
             </div>
             <div class="row g-4">
@@ -709,8 +830,8 @@ if ($payment->confirmed) {
                         <div class="feature-icon mx-auto">
                             <i class="fas fa-coffee"></i>
                         </div>
-                        <h5>Café & Restaurant WiFi</h5>
-                        <p class="text-sm" style="color: var(--gray);">Offer premium internet to customers with time-based or data packages. Accept mobile money payments instantly.</p>
+                        <h5>☕ Café & Restaurant WiFi</h5>
+                        <p class="text-sm" style="color: var(--gray);">Turn your café into a WiFi goldmine! ⚡ Time-based packages, instant M-Pesa payments, and happy customers who actually tip better when they have good internet 😉</p>
                     </div>
                 </div>
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
@@ -722,8 +843,8 @@ if ($payment->confirmed) {
                         <div class="feature-icon mx-auto">
                             <i class="fas fa-building"></i>
                         </div>
-                        <h5>Community Networks</h5>
-                        <p class="text-sm" style="color: var(--gray);">Deploy neighborhood-wide internet with centralized billing, customer management, and support ticketing.</p>
+                        <h5>🏘️ Community Networks</h5>
+                        <p class="text-sm" style="color: var(--gray);">Be the neighborhood hero! 🦸‍♂️ Connect everyone with centralized billing that actually works. No more chasing payments door-to-door 🚪</p>
                     </div>
                 </div>
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
@@ -735,8 +856,8 @@ if ($payment->confirmed) {
                         <div class="feature-icon mx-auto">
                             <i class="fas fa-city"></i>
                         </div>
-                        <h5>Enterprise ISP</h5>
-                        <p class="text-sm" style="color: var(--gray);">Scale to thousands of subscribers with advanced features like PPPoE, RADIUS, and network automation.</p>
+                        <h5>🏢 Enterprise ISP</h5>
+                        <p class="text-sm" style="color: var(--gray);">Go big or go home! 🚀 Scale to thousands without breaking a sweat. PPPoE, RADIUS, automation - we've got all the fancy acronyms covered 🤓</p>
                     </div>
                 </div>
             </div>
@@ -748,8 +869,9 @@ if ($payment->confirmed) {
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="mb-4">Ready to Transform Your ISP Business?</h2>
-                    <p class="text-lg mb-4" style="color: rgba(255,255,255,0.9);">Get started with a free demo and see how Glinta can revolutionize your operations.</p>
+                    <h2 class="mb-4">🚀 Ready to Join the Fun?</h2>
+                    <p class="text-lg mb-4" style="color: rgba(255,255,255,0.9);">Stop wrestling with complicated software 🤼‍♂️<br>
+                    Life's too short for boring billing systems! Let's make your ISP business actually enjoyable 🎉</p>
                     <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
                         <a href="#demo-section" class="btn btn-accent">
                             <i class="fas fa-play me-2"></i>View Live Demo
