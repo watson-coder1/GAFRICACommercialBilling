@@ -1,8 +1,8 @@
 {include file="sections/header.tpl"}
 
 
-<form id="site-search" method="post" action="{Text::url('map/customer/')}">
-    <input type="hidden" name="_route" value="map/customer">
+<form id="site-search" method="post" action="{Text::url('maps/customer/')}">
+    <input type="hidden" name="_route" value="maps/customer">
     <div class="input-group">
         <div class="input-group-addon">
             <span class="fa fa-search"></span>
