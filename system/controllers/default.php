@@ -136,8 +136,10 @@ if(Admin::getID()){
         // Show the appropriate template
         try {
             // Check if template file exists
-            if (!file_exists($root_path . '/ui/ui/' . $template)) {
+            $template_path = dirname(dirname(__DIR__)) . '/ui/ui/' . $template;
+            if (!file_exists($template_path)) {
                 // Template doesn't exist, use landing-final.tpl as fallback
+                error_log("Template not found: " . $template_path);
                 $template = 'landing-final.tpl';
                 $title = 'Glinta Africa - Internet Billing Solutions';
             }
@@ -148,6 +150,10 @@ if(Admin::getID()){
             $ui->assign('logged_in_admin', false);
             $ui->assign('logged_in_customer', false);
             $ui->assign('current_page', $page);
+            
+            // Debug log
+            error_log("Displaying template: " . $template . " for page: " . $page);
+            
             $ui->display($template);
             return;
         } catch (Exception $e) {
