@@ -150,10 +150,6 @@ if(Admin::getID()){
             $ui->assign('logged_in_admin', false);
             $ui->assign('logged_in_customer', false);
             $ui->assign('current_page', $page);
-            
-            // Debug log
-            error_log("Displaying template: " . $template . " for page: " . $page);
-            
             $ui->display($template);
             return;
         } catch (Exception $e) {

@@ -4,14 +4,6 @@
  *  by https://t.me/ibnux
  **/
 
-// Temporary debug - enable error reporting
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-// Start output buffering to prevent whitespace issues
-ob_start();
-
 session_start();
 
 if(isset($_GET['nux-mac']) && !empty($_GET['nux-mac'])){
@@ -36,7 +28,4 @@ if(isset($_GET['nux-hostname']) && !empty($_GET['nux-hostname'])){
 }
 require_once 'system/vendor/autoload.php';
 require_once 'system/boot.php';
-
-// Clean any output buffer content before running the app
-ob_clean();
 App::_run();
