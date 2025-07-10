@@ -550,23 +550,111 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" style="position: relative; overflow: hidden;">
+        <!-- Animated Floating Elements -->
+        <div class="position-absolute" style="top: 15%; left: 10%; width: 120px; height: 120px; background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, transparent 70%); border-radius: 50%; animation: float 7s ease-in-out infinite;"></div>
+        <div class="position-absolute" style="top: 70%; right: 15%; width: 180px; height: 180px; background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, transparent 70%); border-radius: 50%; animation: float 9s ease-in-out infinite reverse;"></div>
+        
         <div class="container hero-content">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h1 class="display-2">About Glinta Africa</h1>
-                    <p class="lead">Professional ISP solutions built for African telecommunications. We provide enterprise-grade billing and network management platforms designed specifically for African markets.</p>
-                    <div class="mt-4">
-                        <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-accent me-3">
-                            <i class="fas fa-external-link-alt me-2"></i>View Platform
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h1 class="display-2">🌍 Meet the Team That <span style="color: var(--accent); animation: glow 2s ease-in-out infinite alternate;">Actually Gets It</span></h1>
+                    <p class="lead">We're not your typical tech company 🤓<br>
+We actually understand that African ISPs need solutions that work with M-Pesa, not Silicon Valley fantasies 💭</p>
+                    
+                    <!-- Fun Team Stats -->
+                    <div class="row g-3 mb-4">
+                        <div class="col-4">
+                            <div class="text-center p-3 rounded" style="background: rgba(212,175,55,0.15); border: 2px solid rgba(212,175,55,0.3);">
+                                <div class="h4 mb-1" style="color: var(--accent);">☕</div>
+                                <small class="text-white">Coffee Addicts</small>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="text-center p-3 rounded" style="background: rgba(212,175,55,0.15); border: 2px solid rgba(212,175,55,0.3);">
+                                <div class="h4 mb-1" style="color: var(--accent);">🏠</div>
+                                <small class="text-white">Africa Based</small>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="text-center p-3 rounded" style="background: rgba(212,175,55,0.15); border: 2px solid rgba(212,175,55,0.3);">
+                                <div class="h4 mb-1" style="color: var(--accent);">🎯</div>
+                                <small class="text-white">Problem Solvers</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex flex-column flex-md-row gap-3">
+                        <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-accent btn-lg px-4 py-3" style="animation: pulse 2s infinite;" onmouseover="this.style.transform='scale(1.05) rotate(1deg)'; this.style.boxShadow='0 10px 30px rgba(212,175,55,0.4)'" onmouseout="this.style.transform='scale(1) rotate(0deg)'; this.style.boxShadow='none'">
+                            <i class="fas fa-rocket me-2"></i>🎮 Explore Platform
                         </a>
-                        <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-outline-primary">
-                            <i class="fas fa-envelope me-2"></i>Contact Us
+                        <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-outline-primary btn-lg px-4 py-3" style="transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.1)'; this.innerHTML='<i class=\"fas fa-coffee me-2\"></i>☕ Let\'s Chat!'" onmouseout="this.style.background='transparent'; this.innerHTML='<i class=\"fas fa-envelope me-2\"></i>📧 Contact Us'">
+                            <i class="fas fa-envelope me-2"></i>📧 Contact Us
                         </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-left">
+                    <!-- Team Illustration -->
+                    <div class="position-relative">
+                        <div class="bg-white rounded-lg p-4 shadow-lg" style="border-radius: 20px; transform: perspective(1000px) rotateY(-10deg) rotateX(5deg); transition: all 0.3s ease;" onmouseover="this.style.transform='perspective(1000px) rotateY(-5deg) rotateX(2deg) scale(1.02)'" onmouseout="this.style.transform='perspective(1000px) rotateY(-10deg) rotateX(5deg) scale(1)'">
+                            <!-- Team Avatar Grid -->
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <div class="team-mini-card text-center p-3 rounded" style="background: var(--gradient-primary); color: white;">
+                                        <div class="h2 mb-2">👨‍💻</div>
+                                        <small>Tech Lead</small>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="team-mini-card text-center p-3 rounded" style="background: var(--gradient-accent); color: var(--primary);">
+                                        <div class="h2 mb-2">🎨</div>
+                                        <small>UI/UX Guru</small>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="team-mini-card text-center p-3 rounded" style="background: var(--gradient-accent); color: var(--primary);">
+                                        <div class="h2 mb-2">📊</div>
+                                        <small>Data Wizard</small>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="team-mini-card text-center p-3 rounded" style="background: var(--gradient-primary); color: white;">
+                                        <div class="h2 mb-2">🛡️</div>
+                                        <small>Security Expert</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Floating Icons -->
+                        <div class="position-absolute" style="top: 10%; right: -10px; animation: float 3s ease-in-out infinite; font-size: 2rem;">💡</div>
+                        <div class="position-absolute" style="bottom: 20%; left: -20px; animation: float 4s ease-in-out infinite reverse; font-size: 2rem;">🚀</div>
+                        <div class="position-absolute" style="top: 70%; right: 10%; animation: float 5s ease-in-out infinite; font-size: 1.5rem;">⭐</div>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <!-- CSS Animations -->
+        <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent), 0 0 30px var(--accent); }
+            to { text-shadow: 0 0 20px var(--accent), 0 0 30px var(--accent), 0 0 40px var(--accent); }
+        }
+        .team-mini-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .team-mini-card:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        </style>
     </section>
 
     <!-- Mission Section -->
@@ -578,9 +666,10 @@
                         <div class="mission-icon">
                             <i class="fas fa-bullseye"></i>
                         </div>
-                        <h2 class="mb-3">Our Mission</h2>
-                        <p class="text-lg text-gray-600 mb-4">To empower African telecommunications infrastructure with professional-grade billing and network management solutions that integrate seamlessly with local payment systems and business practices.</p>
-                        <p class="text-gray-600">We believe that reliable internet connectivity is fundamental to economic growth, education, and innovation across Africa. Our platform enables ISPs to build sustainable businesses while serving their communities with professional, efficient network services.</p>
+                        <h2 class="mb-3">🎯 Our Mission (It's Pretty Cool)</h2>
+                        <p class="text-lg text-gray-600 mb-4">Simple: Stop ISPs from pulling their hair out 😤<br>
+Build software that actually works with how Africa does business - mobile money, prepaid everything, and "just make it work" mentality 💪</p>
+                        <p class="text-gray-600">We believe internet should be as easy to sell as airtime ⚡ No more "the system is down" excuses or "payment didn't go through" headaches. Just smooth, reliable ISP operations that let you focus on growing your business (and maybe sleeping better at night) 😴</p>
                     </div>
                 </div>
             </div>
@@ -592,8 +681,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
-                    <h2>Trusted by ISPs Across Africa</h2>
-                    <p class="text-lg text-gray-600">Professional solutions powering telecommunications infrastructure</p>
+                    <h2>🏆 The Numbers Don't Lie</h2>
+                    <p class="text-lg text-gray-600">These aren't just numbers - they're real ISPs making real money with zero stress 💰</p>
                 </div>
             </div>
             <div class="row g-4">
@@ -630,8 +719,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
-                    <h2>Our Journey</h2>
-                    <p class="text-lg text-gray-600">Building professional ISP solutions for African markets</p>
+                    <h2>📖 How We Got Here (The Plot Twist Story)</h2>
+                    <p class="text-lg text-gray-600">Spoiler alert: We actually started as ISP operators who got fed up with terrible software 🤬</p>
                 </div>
             </div>
             <div class="timeline">
@@ -639,40 +728,40 @@
                     <div class="timeline-badge">2020</div>
                     <div class="timeline-content">
                         <div class="timeline-year">2020</div>
-                        <h5>Platform Foundation</h5>
-                        <p class="text-gray-600">Launched the first professional ISP billing platform designed specifically for African telecommunications markets with native mobile money integration.</p>
+                        <h5>🚀 "Enough is Enough!"</h5>
+                        <p class="text-gray-600">Started because we were tired of ISP software that looked like it was built in 1999 😅 First platform that actually understood M-Pesa isn't just "another payment option" - it's THE payment option!</p>
                     </div>
                 </div>
                 <div class="timeline-item" data-aos="fade-left">
                     <div class="timeline-badge">2021</div>
                     <div class="timeline-content">
                         <div class="timeline-year">2021</div>
-                        <h5>RADIUS Integration</h5>
-                        <p class="text-gray-600">Introduced enterprise-grade RADIUS authentication with AAA support, enabling professional network access control for ISPs across East Africa.</p>
+                        <h5>🛡️ Getting Serious About Security</h5>
+                        <p class="text-gray-600">Added enterprise-grade RADIUS because "trust me bro" isn't a valid authentication protocol 🔐 Now your network is more secure than most banks!</p>
                     </div>
                 </div>
                 <div class="timeline-item" data-aos="fade-right">
                     <div class="timeline-badge">2022</div>
                     <div class="timeline-content">
                         <div class="timeline-year">2022</div>
-                        <h5>Network Automation</h5>
-                        <p class="text-gray-600">Launched automated network device management with support for Mikrotik, Ubiquiti, and SNMP-enabled equipment, reducing operational overhead by 60%.</p>
+                        <h5>🤖 Robots Take Over (The Good Kind)</h5>
+                        <p class="text-gray-600">Automated all the boring stuff so ISPs can stop manually configuring routers at 2 AM ⏰ 60% less work = 60% more sleep = 100% happier ISP operators!</p>
                     </div>
                 </div>
                 <div class="timeline-item" data-aos="fade-left">
                     <div class="timeline-badge">2023</div>
                     <div class="timeline-content">
                         <div class="timeline-year">2023</div>
-                        <h5>Enterprise Features</h5>
-                        <p class="text-gray-600">Introduced enterprise-grade security, compliance management, and advanced analytics to serve large-scale ISP deployments across multiple African countries.</p>
+                        <h5>💼 Going Full Enterprise Mode</h5>
+                        <p class="text-gray-600">Added all the fancy enterprise stuff without the fancy enterprise prices 💸 Because why should only big telcos have nice things?</p>
                     </div>
                 </div>
                 <div class="timeline-item" data-aos="fade-right">
                     <div class="timeline-badge">2024</div>
                     <div class="timeline-content">
                         <div class="timeline-year">2024</div>
-                        <h5>Platform Evolution</h5>
-                        <p class="text-gray-600">Launched next-generation platform with advanced technical capabilities, serving professional ISPs across 15 African countries with enterprise-grade reliability.</p>
+                        <h5>🌟 Plot Twist: We're Actually Good At This</h5>
+                        <p class="text-gray-600">Turns out listening to real ISPs and building what they actually need works! Who knew? 🤷‍♂️ Now we're in 15 countries and counting!</p>
                     </div>
                 </div>
             </div>
@@ -684,8 +773,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
-                    <h2>Our Values</h2>
-                    <p class="text-lg text-gray-600">Principles that guide our platform development and customer service</p>
+                    <h2>💎 Our Values (We Actually Mean These)</h2>
+                    <p class="text-lg text-gray-600">No corporate buzzword bingo here - these are the real deal 🎯</p>
                 </div>
             </div>
             <div class="row g-4">
@@ -694,8 +783,8 @@
                         <div class="value-icon">
                             <i class="fas fa-cogs"></i>
                         </div>
-                        <h5>Technical Excellence</h5>
-                        <p class="text-sm text-gray-600">We build enterprise-grade solutions with industry-standard protocols, security frameworks, and performance optimization for professional ISP operations.</p>
+                        <h5>🔧 Actually Good at Tech Stuff</h5>
+                        <p class="text-sm text-gray-600">We write code that doesn't break at 3 AM 💻 Enterprise-grade doesn't mean enterprise-complicated. We keep it professional but not pretentious!</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
@@ -703,8 +792,8 @@
                         <div class="value-icon">
                             <i class="fas fa-globe-africa"></i>
                         </div>
-                        <h5>African-Focused</h5>
-                        <p class="text-sm text-gray-600">Our platform is designed for African telecommunications infrastructure, with native support for local payment systems and regulatory requirements.</p>
+                        <h5>🌍 Africa First, Always</h5>
+                        <p class="text-sm text-gray-600">We're not trying to "adapt" some American software for Africa 🙄 We built this FROM SCRATCH for how African ISPs actually work. M-Pesa isn't an afterthought - it's the main event!</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
@@ -712,8 +801,8 @@
                         <div class="value-icon">
                             <i class="fas fa-shield-alt"></i>
                         </div>
-                        <h5>Enterprise Security</h5>
-                        <p class="text-sm text-gray-600">Bank-grade security with compliance management, audit trails, and enterprise authentication for mission-critical ISP operations.</p>
+                        <h5>🔒 Fort Knox Level Security</h5>
+                        <p class="text-sm text-gray-600">Your data is safer than your grandmother's secret recipe 👵 Bank-grade security without the bank-grade headaches. Sleep peacefully knowing hackers will find easier targets!</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
@@ -721,8 +810,8 @@
                         <div class="value-icon">
                             <i class="fas fa-users"></i>
                         </div>
-                        <h5>Professional Support</h5>
-                        <p class="text-sm text-gray-600">24/7 technical support with dedicated account management and SLA-backed response times for enterprise customers.</p>
+                        <h5>🤝 Humans Who Actually Help</h5>
+                        <p class="text-sm text-gray-600">Real people, real solutions, real fast ⚡ No phone trees, no "have you tried turning it off and on again?" We actually know how to fix things!</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
@@ -730,8 +819,8 @@
                         <div class="value-icon">
                             <i class="fas fa-chart-line"></i>
                         </div>
-                        <h5>Scalable Architecture</h5>
-                        <p class="text-sm text-gray-600">Cloud-native architecture that scales from small ISPs to enterprise deployments with multi-tenant support and unlimited growth potential.</p>
+                        <h5>📈 Grows With Your Dreams</h5>
+                        <p class="text-sm text-gray-600">Start small, dream big! 🚀 Whether you're running WiFi in one café or building the next Safaricom, our platform scales without breaking (or breaking the bank)!</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
@@ -739,8 +828,8 @@
                         <div class="value-icon">
                             <i class="fas fa-sync-alt"></i>
                         </div>
-                        <h5>Continuous Innovation</h5>
-                        <p class="text-sm text-gray-600">Regular platform updates with new features, security enhancements, and technology integrations to stay ahead of industry requirements.</p>
+                        <h5>🔄 Always Getting Better</h5>
+                        <p class="text-sm text-gray-600">We're constantly adding cool new features 🆕 Not because we're bored, but because ISPs keep asking for them. Customer feedback = our product roadmap!</p>
                     </div>
                 </div>
             </div>
@@ -752,8 +841,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
-                    <h2 style="color: white;">Platform Impact</h2>
-                    <p class="text-lg" style="color: rgba(255,255,255,0.9);">Measurable results from our professional ISP solutions</p>
+                    <h2 style="color: white;">📊 The Results Speak For Themselves</h2>
+                    <p class="text-lg" style="color: rgba(255,255,255,0.9);">These aren't just pretty numbers - they're real ISPs making real money 💰</p>
                 </div>
             </div>
             <div class="row g-4">
@@ -790,8 +879,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="mb-4">Ready to Transform Your ISP Operations?</h2>
-                    <p class="text-lg text-gray-600 mb-4">Contact our technical team to discuss your requirements and see how our professional platform can enhance your telecommunications infrastructure.</p>
+                    <h2 class="mb-4">🚀 Ready to Join the Cool Kids Club?</h2>
+                    <p class="text-lg text-gray-600 mb-4">Stop struggling with software that fights you 🥊<br>
+Let's chat about how we can make your ISP business actually fun to run! (Yes, that's possible) 😊</p>
                     <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
                         <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-primary">
                             <i class="fas fa-envelope me-2"></i>Email: watsonwambugu@yahoo.com

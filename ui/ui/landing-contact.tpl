@@ -155,6 +155,21 @@
             display: flex;
             align-items: center;
         }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px var(--gold), 0 0 20px var(--gold), 0 0 30px var(--gold); }
+            to { text-shadow: 0 0 20px var(--gold), 0 0 30px var(--gold), 0 0 40px var(--gold); }
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
 
         .hero::before {
             content: '';
@@ -472,9 +487,10 @@
         <div class="container hero-content">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
-                    <h1 class="display-2">Contact Us</h1>
+                    <h1 class="display-2">📩 Let's <span style="color: var(--gold); animation: glow 2s ease-in-out infinite alternate;">Chat</span>!</h1>
                     <p class="lead">
-                        Ready to transform your ISP operations? Get professional support, technical assistance, and demo access for enterprise telecommunications.
+                        We promise we're more fun than your average tech support 😄<br>
+No phone trees, no "have you tried turning it off and on again?", just real humans with real solutions! 🙌
                     </p>
                     <div class="mt-4">
                         <a href="#demo-section" class="btn btn-accent me-3">
