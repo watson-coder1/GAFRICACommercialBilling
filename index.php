@@ -4,6 +4,9 @@
  *  by https://t.me/ibnux
  **/
 
+// Start output buffering to prevent whitespace issues
+ob_start();
+
 session_start();
 
 if(isset($_GET['nux-mac']) && !empty($_GET['nux-mac'])){
@@ -28,4 +31,7 @@ if(isset($_GET['nux-hostname']) && !empty($_GET['nux-hostname'])){
 }
 require_once 'system/vendor/autoload.php';
 require_once 'system/boot.php';
+
+// Clean any output buffer content before running the app
+ob_clean();
 App::_run();
