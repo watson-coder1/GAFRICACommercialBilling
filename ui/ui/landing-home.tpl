@@ -429,27 +429,45 @@
             color: var(--black);
         }
 
-        /* Footer */
+        /* Footer with African Art Pattern */
         .footer {
             background: var(--gradient-black);
             color: var(--white);
-            padding: 3rem 0 1rem;
+            padding: 4rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><pattern id="kente" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="%23D4AF37" opacity="0.1"/><rect x="10" y="10" width="10" height="10" fill="%23D4AF37" opacity="0.1"/></pattern><rect width="100" height="100" fill="url(%23kente)"/></svg>');
+            background-size: 100px 100px;
+            opacity: 0.1;
         }
 
         .footer h6 {
             color: var(--gold);
             margin-bottom: 1rem;
+            font-weight: 600;
         }
 
         .footer a {
             color: var(--white);
             text-decoration: none;
             font-size: 0.875rem;
-            transition: color 0.2s ease;
+            transition: all 0.3s ease;
+            opacity: 0.8;
         }
 
         .footer a:hover {
             color: var(--gold);
+            opacity: 1;
+            transform: translateX(2px);
         }
 
         /* Responsive Design */

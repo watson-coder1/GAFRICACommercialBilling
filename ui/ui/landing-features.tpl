@@ -855,9 +855,9 @@ if ($response['success']) {
                     <h6>Glinta Africa</h6>
                     <p class="text-sm text-gray-400 mb-3">Professional ISP billing and network management features for African telecommunications infrastructure.</p>
                     <div class="d-flex gap-3">
-                        <a href="#" class="text-gray-400"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-gray-400"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="text-gray-400"><i class="fab fa-github"></i></a>
+                        <a href="#" style="color: var(--gold); font-size: 1.2rem; transition: all 0.3s ease;" onmouseover="this.style.color='var(--gold-light)'" onmouseout="this.style.color='var(--gold)'"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: var(--gold); font-size: 1.2rem; transition: all 0.3s ease;" onmouseover="this.style.color='var(--gold-light)'" onmouseout="this.style.color='var(--gold)'"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" style="color: var(--gold); font-size: 1.2rem; transition: all 0.3s ease;" onmouseover="this.style.color='var(--gold-light)'" onmouseout="this.style.color='var(--gold)'"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4">

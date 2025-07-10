@@ -311,10 +311,12 @@
             color: var(--gray-300);
         }
 
-        /* Value Proposition */
+        /* Value Proposition with Visual Pattern */
         .value-section {
-            background: var(--gray-50);
+            background: linear-gradient(rgba(245, 245, 245, 0.95), rgba(245, 245, 245, 0.95)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="hexagon" width="50" height="50" patternUnits="userSpaceOnUse"><polygon points="25,8 42,17 42,33 25,42 8,33 8,17" fill="none" stroke="%23D4AF37" stroke-width="1" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23hexagon)"/></svg>');
             padding: 4rem 0;
+            position: relative;
         }
 
         .value-card {
@@ -821,9 +823,9 @@
                     <h6>Glinta Africa</h6>
                     <p class="text-sm text-gray-400 mb-3">Professional ISP billing and network management pricing for African telecommunications infrastructure.</p>
                     <div class="d-flex gap-3">
-                        <a href="#" class="text-gray-400"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-gray-400"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="text-gray-400"><i class="fab fa-github"></i></a>
+                        <a href="#" style="color: var(--gold); font-size: 1.2rem; transition: all 0.3s ease;" onmouseover="this.style.color='var(--gold-light)'" onmouseout="this.style.color='var(--gold)'"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: var(--gold); font-size: 1.2rem; transition: all 0.3s ease;" onmouseover="this.style.color='var(--gold-light)'" onmouseout="this.style.color='var(--gold)'"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" style="color: var(--gold); font-size: 1.2rem; transition: all 0.3s ease;" onmouseover="this.style.color='var(--gold-light)'" onmouseout="this.style.color='var(--gold)'"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4">

@@ -197,6 +197,24 @@
         .contact-form:hover {
             box-shadow: var(--shadow-lg);
         }
+        
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(45deg, var(--gold), var(--gold-light), var(--gold));
+            border-radius: 15px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .contact-form:hover::before {
+            opacity: 0.1;
+        }
 
         .form-control {
             border: 1px solid var(--gray-200);
@@ -644,9 +662,9 @@
                     <h6>Glinta Africa</h6>
                     <p class="text-sm text-gray-400 mb-3">Professional ISP billing and contact solutions for African telecommunications. Enterprise-grade support and technical assistance.</p>
                     <div class="d-flex gap-3">
-                        <a href="#" class="text-gray-400"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-gray-400"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="text-gray-400"><i class="fab fa-github"></i></a>
+                        <a href="#" style="color: var(--gold); font-size: 1.2rem; transition: all 0.3s ease;" onmouseover="this.style.color='var(--gold-light)'" onmouseout="this.style.color='var(--gold)'"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: var(--gold); font-size: 1.2rem; transition: all 0.3s ease;" onmouseover="this.style.color='var(--gold-light)'" onmouseout="this.style.color='var(--gold)'"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" style="color: var(--gold); font-size: 1.2rem; transition: all 0.3s ease;" onmouseover="this.style.color='var(--gold-light)'" onmouseout="this.style.color='var(--gold)'"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4">
