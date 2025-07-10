@@ -548,12 +548,30 @@
     </section>
 
     <!-- Core Features -->
-    <section class="py-5" style="background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center;">
+    <section class="py-5" style="background: linear-gradient(rgba(248,248,248,0.95), rgba(248,248,248,0.95)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center;">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" 
+                         alt="ISP Features" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
                     <h2>Core Features</h2>
                     <p class="text-lg text-gray-600">Professional-grade capabilities for modern ISP operations</p>
+                    <div class="row g-3 mt-3">
+                        <div class="col-6">
+                            <div class="text-center p-3 bg-white rounded shadow-sm">
+                                <h4 class="text-primary mb-1">6+</h4>
+                                <small class="text-muted">Core Features</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="text-center p-3 bg-white rounded shadow-sm">
+                                <h4 class="text-primary mb-1">100%</h4>
+                                <small class="text-muted">Automated</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row g-4">
@@ -577,18 +595,20 @@
                 </div>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="feature-card">
+                        <div class="mb-3">
+                            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200&q=80" 
+                                 alt="Automated Billing" class="img-fluid rounded" style="height: 150px; width: 100%; object-fit: cover;">
+                        </div>
                         <div class="feature-icon">
                             <i class="fas fa-credit-card"></i>
                         </div>
                         <h5 class="feature-title">Automated Billing</h5>
-                        <p class="feature-description">Intelligent billing automation with flexible pricing models, tax calculations, and payment processing.</p>
-                        <ul class="feature-list">
-                            <li><i class="fas fa-check"></i> Recurring billing automation</li>
-                            <li><i class="fas fa-check"></i> Multiple pricing models</li>
-                            <li><i class="fas fa-check"></i> Pro-rata calculations</li>
-                            <li><i class="fas fa-check"></i> Tax compliance engine</li>
-                            <li><i class="fas fa-check"></i> Invoice generation</li>
-                        </ul>
+                        <p class="feature-description">Intelligent billing automation with flexible pricing and payment processing.</p>
+                        <div class="d-flex flex-wrap gap-1 mb-3">
+                            <span class="badge bg-primary text-white">Recurring</span>
+                            <span class="badge bg-primary text-white">Tax Engine</span>
+                            <span class="badge bg-primary text-white">Invoicing</span>
+                        </div>
                         <div class="mt-3">
                             <span class="badge bg-light text-dark me-1">Automation</span>
                             <span class="badge bg-light text-dark me-1">Billing</span>
@@ -598,39 +618,43 @@
                 </div>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="feature-card">
+                        <div class="mb-3">
+                            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200&q=80" 
+                                 alt="Mobile Money Integration" class="img-fluid rounded" style="height: 150px; width: 100%; object-fit: cover;">
+                        </div>
                         <div class="feature-icon">
                             <i class="fas fa-mobile-alt"></i>
                         </div>
                         <h5 class="feature-title">Mobile Money Integration</h5>
-                        <p class="feature-description">Native integration with African mobile money platforms for seamless payment processing.</p>
-                        <ul class="feature-list">
-                            <li><i class="fas fa-check"></i> M-Pesa STK Push</li>
-                            <li><i class="fas fa-check"></i> Airtel Money support</li>
-                            <li><i class="fas fa-check"></i> MTN MoMo integration</li>
-                            <li><i class="fas fa-check"></i> Automated reconciliation</li>
-                            <li><i class="fas fa-check"></i> Payment webhooks</li>
-                        </ul>
+                        <p class="feature-description">Native integration with African mobile money platforms.</p>
+                        <div class="d-flex flex-wrap gap-1 mb-3">
+                            <span class="badge bg-success text-white">M-Pesa</span>
+                            <span class="badge bg-success text-white">Airtel Money</span>
+                            <span class="badge bg-success text-white">MTN MoMo</span>
+                        </div>
                         <div class="mt-3">
-                            <span class="badge bg-light text-dark me-1">M-Pesa</span>
-                            <span class="badge bg-light text-dark me-1">Mobile Money</span>
-                            <span class="badge bg-light text-dark">API</span>
+                            <span class="badge bg-light text-dark me-1">API</span>
+                            <span class="badge bg-light text-dark me-1">Webhooks</span>
+                            <span class="badge bg-light text-dark">Real-time</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
                     <div class="feature-card">
+                        <div class="mb-3">
+                            <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200&q=80" 
+                                 alt="Network Automation" class="img-fluid rounded" style="height: 150px; width: 100%; object-fit: cover;">
+                        </div>
                         <div class="feature-icon">
                             <i class="fas fa-network-wired"></i>
                         </div>
                         <h5 class="feature-title">Network Automation</h5>
-                        <p class="feature-description">Automated network device management with bulk operations and configuration templates.</p>
-                        <ul class="feature-list">
-                            <li><i class="fas fa-check"></i> Mikrotik RouterOS API</li>
-                            <li><i class="fas fa-check"></i> Ubiquiti UniFi integration</li>
-                            <li><i class="fas fa-check"></i> SNMP monitoring</li>
-                            <li><i class="fas fa-check"></i> Bulk user provisioning</li>
-                            <li><i class="fas fa-check"></i> Configuration templates</li>
-                        </ul>
+                        <p class="feature-description">Automated network device management with bulk operations.</p>
+                        <div class="d-flex flex-wrap gap-1 mb-3">
+                            <span class="badge bg-info text-white">Mikrotik API</span>
+                            <span class="badge bg-info text-white">UniFi</span>
+                            <span class="badge bg-info text-white">SNMP</span>
+                        </div>
                         <div class="mt-3">
                             <span class="badge bg-light text-dark me-1">API</span>
                             <span class="badge bg-light text-dark me-1">SNMP</span>
@@ -640,39 +664,43 @@
                 </div>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
                     <div class="feature-card">
+                        <div class="mb-3">
+                            <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200&q=80" 
+                                 alt="Customer Management" class="img-fluid rounded" style="height: 150px; width: 100%; object-fit: cover;">
+                        </div>
                         <div class="feature-icon">
                             <i class="fas fa-users"></i>
                         </div>
                         <h5 class="feature-title">Customer Management</h5>
-                        <p class="feature-description">Comprehensive customer relationship management with support ticket system and communication tools.</p>
-                        <ul class="feature-list">
-                            <li><i class="fas fa-check"></i> Customer portal</li>
-                            <li><i class="fas fa-check"></i> Support ticket system</li>
-                            <li><i class="fas fa-check"></i> SMS notifications</li>
-                            <li><i class="fas fa-check"></i> Usage analytics</li>
-                            <li><i class="fas fa-check"></i> Service history tracking</li>
-                        </ul>
+                        <p class="feature-description">Comprehensive CRM with support tickets and communication tools.</p>
+                        <div class="d-flex flex-wrap gap-1 mb-3">
+                            <span class="badge bg-warning text-dark">Portal</span>
+                            <span class="badge bg-warning text-dark">Tickets</span>
+                            <span class="badge bg-warning text-dark">SMS</span>
+                        </div>
                         <div class="mt-3">
                             <span class="badge bg-light text-dark me-1">CRM</span>
-                            <span class="badge bg-light text-dark me-1">Support</span>
-                            <span class="badge bg-light text-dark">Portal</span>
+                            <span class="badge bg-light text-dark me-1">Analytics</span>
+                            <span class="badge bg-light text-dark">History</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
                     <div class="feature-card">
+                        <div class="mb-3">
+                            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200&q=80" 
+                                 alt="Security & Compliance" class="img-fluid rounded" style="height: 150px; width: 100%; object-fit: cover;">
+                        </div>
                         <div class="feature-icon">
                             <i class="fas fa-shield-alt"></i>
                         </div>
                         <h5 class="feature-title">Security & Compliance</h5>
-                        <p class="feature-description">Enterprise-grade security features with compliance management and audit trails.</p>
-                        <ul class="feature-list">
-                            <li><i class="fas fa-check"></i> Role-based access control</li>
-                            <li><i class="fas fa-check"></i> Two-factor authentication</li>
-                            <li><i class="fas fa-check"></i> Audit logging</li>
-                            <li><i class="fas fa-check"></i> Data encryption</li>
-                            <li><i class="fas fa-check"></i> GDPR compliance</li>
-                        </ul>
+                        <p class="feature-description">Enterprise-grade security with compliance management and audit trails.</p>
+                        <div class="d-flex flex-wrap gap-1 mb-3">
+                            <span class="badge bg-danger text-white">RBAC</span>
+                            <span class="badge bg-danger text-white">2FA</span>
+                            <span class="badge bg-danger text-white">GDPR</span>
+                        </div>
                         <div class="mt-3">
                             <span class="badge bg-light text-dark me-1">Security</span>
                             <span class="badge bg-light text-dark me-1">2FA</span>
@@ -819,30 +847,99 @@ if ($response['success']) {
         </div>
     </section>
 
-    <!-- Call to Action -->
-    <section class="cta-section">
+    <!-- Dynamic Call to Action -->
+    <section class="py-5" style="background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #2C5282 100%); position: relative; overflow: hidden;">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="mb-4">Experience These Features Live</h2>
-                    <p class="text-lg mb-4" style="color: rgba(255,255,255,0.9);">Get hands-on experience with our enterprise features. Contact us for a personalized demonstration.</p>
-                    <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
-                        <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-accent">
-                            <i class="fas fa-envelope me-2"></i>Email: watsonwambugu@yahoo.com
+            <!-- Animated Background Elements -->
+            <div class="position-absolute" style="top: 10%; left: 10%; width: 100px; height: 100px; background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, transparent 70%); border-radius: 50%; animation: float 6s ease-in-out infinite;"></div>
+            <div class="position-absolute" style="top: 60%; right: 15%; width: 150px; height: 150px; background: radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 70%); border-radius: 50%; animation: float 8s ease-in-out infinite reverse;"></div>
+            
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2 class="text-white mb-4">Ready to Experience These Features?</h2>
+                    <p class="text-white-50 mb-4">Get instant access to our live demo dashboard and explore all enterprise features in action.</p>
+                    
+                    <!-- Feature Highlights -->
+                    <div class="row g-3 mb-4">
+                        <div class="col-6">
+                            <div class="d-flex align-items-center text-white">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <small>Live Dashboard Access</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center text-white">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <small>Real-time Features</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center text-white">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <small>Mobile Money Demo</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center text-white">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <small>Full Feature Set</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="d-flex flex-column flex-md-row gap-3">
+                        <a href="#demo-section" class="btn btn-lg px-4 py-3" style="background: var(--gradient-gold); color: var(--black); font-weight: 600; border-radius: 8px; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(212,175,55,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                            <i class="fas fa-rocket me-2"></i>Launch Live Demo
                         </a>
-                        <a href="https://wa.me/254711503023" target="_blank" class="btn btn-outline-primary" style="color: white; border-color: white;">
-                            <i class="fab fa-whatsapp me-2"></i>WhatsApp: +254 711 503 023
+                        <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-outline-light btn-lg px-4 py-3" style="border-radius: 8px; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">
+                            <i class="fas fa-envelope me-2"></i>Get Personalized Demo
                         </a>
                     </div>
-                    <div class="mt-4">
-                        <a href="#demo-section" class="btn btn-outline-primary" style="color: white; border-color: white;">
-                            <i class="fas fa-play me-2"></i>Try Demo
-                        </a>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-left">
+                    <!-- Interactive Dashboard Preview -->
+                    <div class="position-relative">
+                        <div class="bg-white rounded-lg p-4 shadow-lg" style="border-radius: 12px; transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-danger rounded-circle" style="width: 8px; height: 8px;"></div>
+                                <div class="bg-warning rounded-circle mx-1" style="width: 8px; height: 8px;"></div>
+                                <div class="bg-success rounded-circle" style="width: 8px; height: 8px;"></div>
+                                <span class="ms-3 small text-muted">glintaafrica.com/admin</span>
+                            </div>
+                            <img src="{$app_url}/ui/ui/images/dashboard-demo.png" alt="Live Demo Preview" class="img-fluid rounded" style="border: 1px solid #e9ecef;">
+                            
+                            <!-- Animated Pulse Effect -->
+                            <div class="position-absolute top-50 start-50 translate-middle">
+                                <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px; animation: pulse 2s infinite; background: var(--gradient-gold) !important;">
+                                    <i class="fas fa-play text-white"></i>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    
+    <!-- Add Custom Animations -->
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+    </style>
 
     <!-- Demo Section -->
     <section class="py-5" id="demo-section" style="background: var(--gray-50);">
