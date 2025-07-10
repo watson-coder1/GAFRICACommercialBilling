@@ -678,7 +678,7 @@ Real stories, real solutions, and occasionally real funny mistakes we've all mad
                                 </div>
                                 <div class="blog-read-time">12 min read</div>
                             </div>
-                            <a href="#" class="blog-link">
+                            <a href="{$app_url}/blog/future-isp-africa" class="blog-link">
                                 Read Full Article <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
@@ -708,7 +708,7 @@ Real stories, real solutions, and occasionally real funny mistakes we've all mad
                                 </div>
                                 <div class="blog-read-time">8 min read</div>
                             </div>
-                            <a href="#" class="blog-link">
+                            <a href="{$app_url}/blog/kenya-internet-market-2025" class="blog-link">
                                 Read More <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
@@ -731,7 +731,7 @@ Real stories, real solutions, and occasionally real funny mistakes we've all mad
                                 </div>
                                 <div class="blog-read-time">10 min read</div>
                             </div>
-                            <a href="#" class="blog-link">
+                            <a href="{$app_url}/blog/kenya-internet-market-2025" class="blog-link">
                                 Read More <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
@@ -754,7 +754,7 @@ Real stories, real solutions, and occasionally real funny mistakes we've all mad
                                 </div>
                                 <div class="blog-read-time">15 min read</div>
                             </div>
-                            <a href="#" class="blog-link">
+                            <a href="{$app_url}/blog/kenya-internet-market-2025" class="blog-link">
                                 Read More <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
@@ -777,7 +777,7 @@ Real stories, real solutions, and occasionally real funny mistakes we've all mad
                                 </div>
                                 <div class="blog-read-time">12 min read</div>
                             </div>
-                            <a href="#" class="blog-link">
+                            <a href="{$app_url}/blog/kenya-internet-market-2025" class="blog-link">
                                 Read More <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
@@ -800,7 +800,7 @@ Real stories, real solutions, and occasionally real funny mistakes we've all mad
                                 </div>
                                 <div class="blog-read-time">9 min read</div>
                             </div>
-                            <a href="#" class="blog-link">
+                            <a href="{$app_url}/blog/kenya-internet-market-2025" class="blog-link">
                                 Read More <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
@@ -823,7 +823,7 @@ Real stories, real solutions, and occasionally real funny mistakes we've all mad
                                 </div>
                                 <div class="blog-read-time">20 min read</div>
                             </div>
-                            <a href="#" class="blog-link">
+                            <a href="{$app_url}/blog/kenya-internet-market-2025" class="blog-link">
                                 Read More <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>

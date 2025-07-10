@@ -487,6 +487,28 @@
             position: relative;
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+        
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 5px rgba(212,175,55,0.4); }
+            50% { box-shadow: 0 0 20px rgba(212,175,55,0.8), 0 0 30px rgba(212,175,55,0.4); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
         
         .pricing-card::after {
@@ -647,19 +669,61 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" style="background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #2C5282 100%); min-height: 80vh; display: flex; align-items: center; position: relative; overflow: hidden;">
+        <!-- Animated Background Elements -->
+        <div style="position: absolute; top: 10%; left: 10%; width: 100px; height: 100px; border-radius: 50%; background: rgba(212,175,55,0.1); animation: float 6s ease-in-out infinite;"></div>
+        <div style="position: absolute; top: 60%; right: 15%; width: 80px; height: 80px; border-radius: 50%; background: rgba(212,175,55,0.1); animation: float 8s ease-in-out infinite reverse;"></div>
+        <div style="position: absolute; bottom: 20%; left: 20%; width: 60px; height: 60px; border-radius: 50%; background: rgba(212,175,55,0.1); animation: float 7s ease-in-out infinite;"></div>
+        
         <div class="container hero-content">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h1 class="display-2">Enterprise Pricing</h1>
-                    <p class="lead">Professional ISP billing solutions with transparent pricing. Choose the plan that scales with your business operations.</p>
-                    <div class="mt-4">
-                        <a href="#demo-section" class="btn btn-accent me-3">
-                            <i class="fas fa-play me-2"></i>Try Demo
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h1 class="display-2 text-white">💰 Pricing That Won't <span style="color: var(--gold); animation: glow 2s ease-in-out infinite alternate;">Break the Bank</span>!</h1>
+                    <p class="lead text-white-50 mb-4">Finally, ISP billing that costs less than your morning coffee! ☕ Choose a plan that grows with your business (and your sanity).</p>
+                    
+                    <!-- Fun Stats -->
+                    <div class="row g-3 mb-4">
+                        <div class="col-6">
+                            <div class="text-center p-3 rounded" style="background: rgba(212,175,55,0.15); border: 2px solid rgba(212,175,55,0.3); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.05) rotate(2deg)'" onmouseout="this.style.transform='scale(1) rotate(0deg)'">
+                                <div class="h4 mb-1" style="color: var(--gold);">💸</div>
+                                <small class="text-white">Save 60% on IT costs</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="text-center p-3 rounded" style="background: rgba(212,175,55,0.15); border: 2px solid rgba(212,175,55,0.3); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.05) rotate(-2deg)'" onmouseout="this.style.transform='scale(1) rotate(0deg)'">
+                                <div class="h4 mb-1" style="color: var(--gold);">🚀</div>
+                                <small class="text-white">Setup in 24 hours</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex flex-column flex-md-row gap-3">
+                        <a href="#pricing-plans" class="btn btn-accent btn-lg px-4 py-3" style="animation: pulse 2s infinite;" onmouseover="this.style.transform='scale(1.05) rotate(1deg)'; this.style.boxShadow='0 10px 30px rgba(212,175,55,0.4)'" onmouseout="this.style.transform='scale(1) rotate(0deg)'; this.style.boxShadow='none'">
+                            💳 See Pricing
                         </a>
-                        <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-outline-primary">
-                            <i class="fas fa-envelope me-2"></i>Contact Sales
+                        <a href="#demo-section" class="btn btn-outline-light btn-lg px-4 py-3" style="transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.1)'; this.innerHTML='🎮 Try Demo Now!'" onmouseout="this.style.background='transparent'; this.innerHTML='🎯 Live Demo'">
+                            🎯 Live Demo
                         </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-left">
+                    <!-- Pricing Visual -->
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" 
+                             alt="Affordable Pricing" class="img-fluid rounded shadow-lg" style="transform: perspective(1000px) rotateY(10deg); transition: all 0.3s ease;" onmouseover="this.style.transform='perspective(1000px) rotateY(0deg) scale(1.02)'" onmouseout="this.style.transform='perspective(1000px) rotateY(10deg) scale(1)'">
+                        
+                        <!-- Animated Price Tags -->
+                        <div class="position-absolute top-0 start-0 m-3 bg-success text-white rounded p-2 shadow" style="animation: bounce 3s infinite;">
+                            <small>🏷️ Best Value</small>
+                        </div>
+                        <div class="position-absolute bottom-0 end-0 m-3 bg-warning text-dark rounded p-2 shadow" style="animation: bounce 4s infinite reverse;">
+                            <small>💎 Premium Quality</small>
+                        </div>
+                        
+                        <!-- Floating Icons -->
+                        <div class="position-absolute" style="top: 20%; right: -30px; animation: float 3s ease-in-out infinite; font-size: 2rem;">💰</div>
+                        <div class="position-absolute" style="bottom: 30%; left: -30px; animation: float 4s ease-in-out infinite reverse; font-size: 2rem;">📊</div>
                     </div>
                 </div>
             </div>
@@ -746,8 +810,42 @@
         </div>
     </section>
 
+    <!-- Humorous Intro Section -->
+    <section class="py-5" style="background: var(--white-soft);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
+                    <h2>🎭 Choose Your Adventure (Pricing Edition)</h2>
+                    <p class="text-lg text-gray-600 mb-4">We know pricing pages are about as exciting as watching paint dry, so we added some personality! 😄</p>
+                    
+                    <!-- Fun Comparison -->
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <div class="text-center p-3 rounded" style="background: rgba(212,175,55,0.1); border: 2px solid rgba(212,175,55,0.3);">
+                                <div class="h4 mb-1">🍕</div>
+                                <small>Our Monthly Plan = 2 Pizza Dinners</small>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center p-3 rounded" style="background: rgba(212,175,55,0.1); border: 2px solid rgba(212,175,55,0.3);">
+                                <div class="h4 mb-1">☕</div>
+                                <small>Cheaper than your daily coffee habit</small>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center p-3 rounded" style="background: rgba(212,175,55,0.1); border: 2px solid rgba(212,175,55,0.3);">
+                                <div class="h4 mb-1">🚗</div>
+                                <small>Less than your monthly fuel bill</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Enhanced Pricing Section -->
-    <section class="py-5" style="background: linear-gradient(rgba(248,248,248,0.95), rgba(248,248,248,0.95)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center;">
+    <section class="py-5" id="pricing-plans" style="background: linear-gradient(rgba(248,248,248,0.95), rgba(248,248,248,0.95)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center;">
         <div class="container">
             <div class="row align-items-center mb-5">
                 <div class="col-lg-6" data-aos="fade-right">
@@ -780,16 +878,16 @@
                             <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=150&q=80" 
                                  alt="Starter Plan" class="img-fluid rounded" style="height: 120px; width: 100%; object-fit: cover;">
                         </div>
-                        <h3 class="pricing-title">Starter</h3>
-                        <p class="pricing-subtitle">Small ISPs</p>
+                        <h3 class="pricing-title">🌱 "Baby Steps" Starter</h3>
+                        <p class="pricing-subtitle">Perfect for ISPs still figuring things out</p>
                         <div class="pricing-price">$10</div>
                         <div class="pricing-period">per month</div>
                         <ul class="pricing-features">
-                            <li><i class="fas fa-check"></i> 100 customers</li>
-                            <li><i class="fas fa-check"></i> RADIUS integration</li>
-                            <li><i class="fas fa-check"></i> M-Pesa integration</li>
-                            <li><i class="fas fa-check"></i> Customer portal</li>
-                            <li><i class="fas fa-check"></i> Email support</li>
+                            <li><i class="fas fa-check"></i> 100 customers (that's a good start!)</li>
+                            <li><i class="fas fa-check"></i> RADIUS integration (no more headaches)</li>
+                            <li><i class="fas fa-check"></i> M-Pesa integration (because cash is so 2010)</li>
+                            <li><i class="fas fa-check"></i> Customer portal (let them help themselves)</li>
+                            <li><i class="fas fa-check"></i> Email support (we actually reply!)</li>
                         </ul>
                         <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-primary btn-pricing">
                             <i class="fas fa-envelope me-2"></i>Get Started
@@ -804,16 +902,16 @@
                             <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=150&q=80" 
                                  alt="Professional Plan" class="img-fluid rounded" style="height: 120px; width: 100%; object-fit: cover;">
                         </div>
-                        <h3 class="pricing-title">Professional</h3>
-                        <p class="pricing-subtitle">Growing ISPs</p>
+                        <h3 class="pricing-title">🚀 "I'm Serious Now" Professional</h3>
+                        <p class="pricing-subtitle">For ISPs ready to impress their customers</p>
                         <div class="pricing-price">$25</div>
                         <div class="pricing-period">per month</div>
                         <ul class="pricing-features">
-                            <li><i class="fas fa-check"></i> 500 customers</li>
-                            <li><i class="fas fa-check"></i> Advanced RADIUS</li>
-                            <li><i class="fas fa-check"></i> All mobile money</li>
-                            <li><i class="fas fa-check"></i> Priority support</li>
-                            <li><i class="fas fa-check"></i> API access</li>
+                            <li><i class="fas fa-check"></i> 500 customers (now we're talking!)</li>
+                            <li><i class="fas fa-check"></i> Advanced RADIUS (enterprise-grade stuff)</li>
+                            <li><i class="fas fa-check"></i> All mobile money (M-Pesa, Airtel, the works)</li>
+                            <li><i class="fas fa-check"></i> Priority support (we pick up the phone!)</li>
+                            <li><i class="fas fa-check"></i> API access (for the tech-savvy)</li>
                         </ul>
                         <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-accent btn-pricing">
                             <i class="fas fa-envelope me-2"></i>Get Started
@@ -827,16 +925,16 @@
                             <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=150&q=80" 
                                  alt="Enterprise Plan" class="img-fluid rounded" style="height: 120px; width: 100%; object-fit: cover;">
                         </div>
-                        <h3 class="pricing-title">Enterprise</h3>
-                        <p class="pricing-subtitle">Large-scale ISPs</p>
+                        <h3 class="pricing-title">👑 "Boss Mode" Enterprise</h3>
+                        <p class="pricing-subtitle">For ISPs who've conquered their market</p>
                         <div class="pricing-price">$50</div>
                         <div class="pricing-period">per month</div>
                         <ul class="pricing-features">
-                            <li><i class="fas fa-check"></i> Unlimited customers</li>
-                            <li><i class="fas fa-check"></i> Full platform access</li>
-                            <li><i class="fas fa-check"></i> White-label solution</li>
-                            <li><i class="fas fa-check"></i> 24/7 phone support</li>
-                            <li><i class="fas fa-check"></i> Custom integrations</li>
+                            <li><i class="fas fa-check"></i> Unlimited customers (go wild!)</li>
+                            <li><i class="fas fa-check"></i> Full platform access (all the bells & whistles)</li>
+                            <li><i class="fas fa-check"></i> White-label solution (put your brand on it)</li>
+                            <li><i class="fas fa-check"></i> 24/7 phone support (yes, even at 3 AM)</li>
+                            <li><i class="fas fa-check"></i> Custom integrations (we code what you need)</li>
                         </ul>
                         <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-outline-primary btn-pricing">
                             <i class="fas fa-envelope me-2"></i>Contact Sales
