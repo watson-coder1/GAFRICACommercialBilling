@@ -12,7 +12,7 @@
     <link rel="shortcut icon" href="{$app_url}/ui/ui/images/logo.png" type="image/x-icon" />
     
     <!-- Professional Typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Bootstrap & Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -23,36 +23,28 @@
     
     <style>
         :root {
-            --primary: #1a365d;
-            --primary-light: #2d5282;
-            --primary-dark: #0f2a44;
-            --accent: #d4af37;
-            --accent-light: #f4e4c1;
-            --accent-dark: #b8941f;
-            --secondary: #4a5568;
-            --success: #38a169;
-            --warning: #ed8936;
-            --danger: #e53e3e;
-            --info: #3182ce;
-            --light: #f7fafc;
-            --dark: #1a202c;
-            --gray-50: #fafafa;
-            --gray-100: #f5f5f5;
-            --gray-200: #e5e5e5;
-            --gray-300: #d4d4d4;
-            --gray-400: #a3a3a3;
-            --gray-500: #737373;
-            --gray-600: #525252;
-            --gray-700: #404040;
-            --gray-800: #262626;
-            --gray-900: #171717;
-            --gradient-primary: linear-gradient(135deg, #1a365d 0%, #2d5282 100%);
-            --gradient-accent: linear-gradient(135deg, #d4af37 0%, #f4e4c1 100%);
-            --gradient-hero: linear-gradient(135deg, #0f2a44 0%, #1a365d 50%, #2d5282 100%);
+            --gold: #D4AF37;
+            --gold-light: #F4E4C1;
+            --gold-dark: #B8941F;
+            --black: #000000;
+            --black-soft: #1a1a1a;
+            --white: #FFFFFF;
+            --white-soft: #f8f8f8;
+            --teal: #2C5282;
+            --teal-light: #4299E1;
+            --teal-dark: #1A365D;
+            --gray: #666666;
+            --gray-light: #f5f5f5;
+            --gray-dark: #2d2d2d;
+            --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #F4E4C1 50%, #B8941F 100%);
+            --gradient-black: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            --gradient-teal: linear-gradient(135deg, #2C5282 0%, #4299E1 100%);
+            --gradient-hero: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #2C5282 100%);
             --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
             --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+            --shadow-gold: 0 10px 30px rgba(212,175,55,0.3);
         }
 
         * {
@@ -98,16 +90,21 @@
 
         /* Logo */
         .logo-brand {
-            font-family: 'Manrope', sans-serif;
+            font-family: 'Orbitron', monospace;
             font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
+            font-weight: 900;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             text-decoration: none;
-            letter-spacing: -0.025em;
+            letter-spacing: 0.5px;
+            display: inline-block;
         }
 
         .logo-brand:hover {
-            color: var(--primary-light);
+            transform: scale(1.05);
+            filter: brightness(1.1);
         }
 
         /* Navigation */

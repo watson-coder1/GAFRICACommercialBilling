@@ -77,14 +77,6 @@ if(Admin::getID()){
                 $template = 'landing-community.tpl';
                 $title = 'Community Forum - Glinta Africa';
                 break;
-            case 'hotspot':
-                $template = 'landing-hotspot.tpl';
-                $title = 'Hotspot Solutions - Glinta Africa';
-                break;
-            case 'pppoe':
-                $template = 'landing-pppoe.tpl';
-                $title = 'PPPoE Management - Glinta Africa';
-                break;
             case 'billing':
                 $template = 'landing-billing.tpl';
                 $title = 'Billing Platform - Glinta Africa';
