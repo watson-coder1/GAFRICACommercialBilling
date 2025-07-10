@@ -93,10 +93,7 @@
             font-family: 'Orbitron', monospace;
             font-size: 1.5rem;
             font-weight: 900;
-            background: var(--gradient-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--gray);
             text-decoration: none;
             letter-spacing: 0.5px;
             display: inline-block;

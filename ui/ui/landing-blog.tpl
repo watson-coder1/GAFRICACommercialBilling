@@ -104,14 +104,14 @@
             font-family: 'Manrope', sans-serif;
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--accent);
+            color: var(--gray);
             text-decoration: none;
             letter-spacing: -0.025em;
             transition: all 0.3s ease;
         }
 
         .logo-brand:hover {
-            color: var(--accent-dark);
+            color: var(--gray-dark);
             transform: scale(1.05);
         }
 

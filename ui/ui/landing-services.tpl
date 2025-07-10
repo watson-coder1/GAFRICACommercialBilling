@@ -93,10 +93,7 @@
             font-family: 'Orbitron', monospace;
             font-size: 1.5rem;
             font-weight: 900;
-            background: var(--gradient-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--gray);
             text-decoration: none;
             letter-spacing: 0.5px;
             display: inline-block;
@@ -140,20 +137,13 @@
             background: var(--gray-50);
         }
 
-        /* Hero Section with Tech Background */
+        /* Modern Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), 
-                        url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            min-height: 80vh;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2C5282 50%, #000000 100%);
+            position: relative;
             color: white;
             padding: 8rem 0 4rem;
-            position: relative;
             overflow: hidden;
-            display: flex;
-            align-items: center;
         }
 
         .hero::before {
@@ -165,7 +155,25 @@
             bottom: 0;
             background-image: 
                 radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 50%);
+                radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 60% 40%, rgba(44, 82, 130, 0.15) 0%, transparent 50%);
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 2px,
+                rgba(212, 175, 55, 0.03) 2px,
+                rgba(212, 175, 55, 0.03) 4px
+            );
+            animation: float 20s linear infinite;
         }
 
         .hero-content {
@@ -176,12 +184,118 @@
         .hero h1 {
             color: white;
             margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .hero .lead {
             font-size: 1.125rem;
             color: rgba(255, 255, 255, 0.9);
             margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .hero-stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .hero-stat:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        }
+        
+        .hero-stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .hero-stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .hero-buttons {
+            margin-top: 2rem;
+        }
+        
+        .hero-buttons .btn {
+            margin: 0.5rem;
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .hero-buttons .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Laptop Mockup Styles */
+        .laptop-mockup {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        .laptop-mockup::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 5%;
+            right: 5%;
+            height: 70%;
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            border-radius: 8px 8px 0 0;
+            border: 3px solid #4a5568;
+        }
+        
+        .laptop-mockup::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 30%;
+            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e0 100%);
+            border-radius: 0 0 20px 20px;
+            border: 2px solid #a0aec0;
+        }
+        
+        .laptop-screen {
+            position: relative;
+            z-index: 10;
+            background: #000;
+            border-radius: 5px;
+            margin: 5% 8% 0 8%;
+            overflow: hidden;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+        }
+        
+        .dashboard-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 3px;
         }
 
         /* Service Cards */
@@ -449,17 +563,71 @@
             transform: translateX(2px);
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
+        /* Enhanced Responsive Design */
+        
+        /* Mobile First - Small devices (576px and down) */
+        @media (max-width: 575.98px) {
             .hero {
-                padding: 6rem 0 3rem;
+                padding: 5rem 0 3rem;
             }
             
-            h1 { font-size: 2rem; }
-            h2 { font-size: 1.75rem; }
+            .display-2 {
+                font-size: 1.8rem;
+                line-height: 1.3;
+            }
+            
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .hero-stat {
+                padding: 1rem;
+            }
+            
+            .hero-stat-number {
+                font-size: 1.8rem;
+            }
+            
+            .hero-buttons .btn {
+                width: 100%;
+                margin: 0.25rem 0;
+            }
+            
+            .laptop-mockup {
+                max-width: 300px;
+                padding: 1rem 0;
+            }
             
             .service-card {
-                padding: 1.5rem;
+                padding: 1.25rem;
+            }
+        }
+        
+        /* Tablets - Medium devices (768px and up) */
+        @media (min-width: 576px) and (max-width: 991.98px) {
+            .hero {
+                padding: 6rem 0 4rem;
+            }
+            
+            .display-2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .laptop-mockup {
+                max-width: 400px;
+            }
+        }
+        
+        /* Large devices (992px and up) */
+        @media (min-width: 992px) {
+            .hero-stats {
+                grid-template-columns: repeat(4, 1fr);
             }
         }
     </style>
@@ -508,19 +676,40 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Modern Hero Section -->
     <section class="hero">
         <div class="container hero-content">
             <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h1 class="display-2">🚀 Services That Actually <span style="color: var(--gold); animation: glow 2s ease-in-out infinite alternate;">Work</span>!</h1>
-                    <p class="lead">Forget complicated setups and midnight debugging sessions 🌙<br>
-We've built everything you need to run a successful ISP without losing your sanity! 🤪</p>
-                    <div class="mt-4">
-                        <a href="#demo-section" class="btn btn-accent me-3">
-                            <i class="fas fa-play me-2"></i>Try Demo
+                <div class="col-lg-10 mx-auto text-center">
+                    <h1 class="display-2">Professional ISP <span style="color: var(--gold); animation: glow 2s ease-in-out infinite alternate;">Services</span></h1>
+                    <p class="lead">Enterprise-grade internet billing solutions designed for African telecommunications.<br>
+Advanced network management, automated billing, and seamless mobile money integration.</p>
+                    
+                    <!-- Hero Stats -->
+                    <div class="hero-stats" data-aos="fade-up" data-aos-delay="300">
+                        <div class="hero-stat" data-aos="zoom-in" data-aos-delay="400">
+                            <span class="hero-stat-number" id="active-users">2,450</span>
+                            <span class="hero-stat-label">Active ISPs</span>
+                        </div>
+                        <div class="hero-stat" data-aos="zoom-in" data-aos-delay="500">
+                            <span class="hero-stat-number" id="uptime">99.9%</span>
+                            <span class="hero-stat-label">System Uptime</span>
+                        </div>
+                        <div class="hero-stat" data-aos="zoom-in" data-aos-delay="600">
+                            <span class="hero-stat-number" id="countries">15+</span>
+                            <span class="hero-stat-label">Countries</span>
+                        </div>
+                        <div class="hero-stat" data-aos="zoom-in" data-aos-delay="700">
+                            <span class="hero-stat-number" id="support">24/7</span>
+                            <span class="hero-stat-label">Expert Support</span>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-buttons" data-aos="fade-up" data-aos-delay="800">
+                        <a href="#dashboard-demo" class="btn btn-accent">
+                            <i class="fas fa-desktop me-2"></i>View Live Demo
                         </a>
-                        <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-outline-primary">
+                        <a href="mailto:watsonwambugu@yahoo.com" class="btn btn-outline-light">
                             <i class="fas fa-envelope me-2"></i>Contact Sales
                         </a>
                     </div>
@@ -529,24 +718,74 @@ We've built everything you need to run a successful ISP without losing your sani
         </div>
     </section>
 
-    <!-- Visual Showcase -->
-    <section class="py-5" style="background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center;">
+    <!-- Dashboard Demo Section -->
+    <section class="py-5" id="dashboard-demo" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6" data-aos="fade-right">
-                    <div class="bg-white p-4 rounded shadow">
-                        <h3 class="text-dark">Live System Overview</h3>
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80" 
-                             alt="Dashboard Preview" class="img-fluid rounded mb-3">
-                        <p class="text-muted">Real-time monitoring of your entire network infrastructure</p>
+                    <h2 class="h1 mb-4">See It In Action</h2>
+                    <p class="lead text-muted mb-4">Experience our powerful ISP management dashboard that's helping thousands of providers across Africa streamline their operations.</p>
+                    
+                    <div class="row g-3 mb-4">
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <div class="bg-primary rounded-circle p-2 me-3">
+                                    <i class="fas fa-chart-line text-white"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0">Real-time Analytics</h6>
+                                    <small class="text-muted">Live network monitoring</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <div class="bg-success rounded-circle p-2 me-3">
+                                    <i class="fas fa-mobile-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0">Mobile Payments</h6>
+                                    <small class="text-muted">M-Pesa integration</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <div class="bg-warning rounded-circle p-2 me-3">
+                                    <i class="fas fa-users text-white"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0">User Management</h6>
+                                    <small class="text-muted">Automated billing</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <div class="bg-info rounded-circle p-2 me-3">
+                                    <i class="fas fa-shield-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0">RADIUS Security</h6>
+                                    <small class="text-muted">Enterprise auth</small>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    
+                    <a href="https://glintaafrica.com/admin" target="_blank" class="btn btn-primary btn-lg">
+                        <i class="fas fa-external-link-alt me-2"></i>Launch Demo
+                    </a>
                 </div>
+                
                 <div class="col-lg-6" data-aos="fade-left">
-                    <div class="bg-white p-4 rounded shadow">
-                        <h3 class="text-dark">Mobile Integration</h3>
-                        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80" 
-                             alt="Mobile Payments" class="img-fluid rounded mb-3">
-                        <p class="text-muted">Seamless mobile money integration for African markets</p>
+                    <!-- Laptop Mockup with Dashboard -->
+                    <div class="laptop-mockup">
+                        <div class="laptop-screen">
+                            <img src="{$app_url}/ui/ui/images/demohasboard2.png" 
+                                 alt="ISP Dashboard Demo" 
+                                 class="dashboard-image">
+                        </div>
                     </div>
                 </div>
             </div>

@@ -101,7 +101,7 @@
             font-family: 'Manrope', sans-serif;
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--primary);
+            color: var(--gray);
             text-decoration: none;
             letter-spacing: -0.025em;
         }
