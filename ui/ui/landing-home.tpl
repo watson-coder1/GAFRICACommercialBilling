@@ -543,7 +543,7 @@
         <div class="container hero-content">
             <div class="row align-items-center">
                 <div class="col-lg-6" data-aos="fade-right">
-                    <h1 class="display-2">🚀 Internet Billing Made <span style="color: var(--gold); animation: glow 2s ease-in-out infinite alternate;">Fun</span>!</h1>
+                    <h1 class="display-2">Internet Billing Made <span style="color: var(--gold); animation: glow 2s ease-in-out infinite alternate;">Simple</span>!</h1>
                     <p class="lead">Because who said enterprise software has to be boring? 😴<br>
                     Professional ISP billing that actually makes you smile 😊</p>
                     
@@ -557,7 +557,7 @@
                         </div>
                         <div class="col-4">
                             <div class="text-center p-3 rounded" style="background: rgba(212,175,55,0.1); border: 2px solid rgba(212,175,55,0.3);">
-                                <div class="h4 mb-1" style="color: var(--gold);">🎯</div>
+                                <div class="h4 mb-1" style="color: var(--gold);"><i class="fas fa-bullseye"></i></div>
                                 <small class="text-white">Dead Simple</small>
                             </div>
                         </div>
@@ -601,7 +601,7 @@
                         
                         <!-- Floating Emojis -->
                         <div class="position-absolute" style="top: 10%; right: -10px; animation: float 3s ease-in-out infinite; font-size: 2rem;">💻</div>
-                        <div class="position-absolute" style="bottom: 20%; left: -20px; animation: float 4s ease-in-out infinite reverse; font-size: 2rem;">📊</div>
+                        <div class="position-absolute" style="bottom: 20%; left: -20px; animation: float 4s ease-in-out infinite reverse; font-size: 2rem;"><i class="fas fa-chart-bar" style="color: var(--gold);"></i></div>
                         <div class="position-absolute" style="top: 70%; right: 10%; animation: float 5s ease-in-out infinite; font-size: 1.5rem;">🎉</div>
                     </div>
                 </div>
@@ -631,7 +631,7 @@
         <div class="container">
             <div class="row text-center mb-5">
                 <div class="col-12" data-aos="fade-up">
-                    <h2>🎯 Why Our Users Actually <em>Love</em> Us</h2>
+                    <h2>Why Our Users Actually <em>Love</em> Us</h2>
                     <p class="lead" style="color: var(--gray);">No more "Why is this so complicated?" moments 🤯</p>
                 </div>
             </div>
@@ -644,7 +644,7 @@
                         <h5 class="feature-title">Mobile Money Magic ✨</h5>
                         <p class="feature-description">M-Pesa, Airtel Money, MTN MoMo - we speak all the money languages! Your customers pay, boom 💥 - instant activation. No more "Did the payment go through?" anxiety 😅</p>
                         <div class="text-center mt-3">
-                            <span class="badge" style="background: var(--gradient-gold); color: var(--black); font-size: 0.7rem;">🚀 Instant Activation</span>
+                            <span class="badge" style="background: var(--gradient-gold); color: var(--black); font-size: 0.7rem;">Instant Activation</span>
                         </div>
                     </div>
                 </div>
@@ -656,14 +656,14 @@
                         <h5 class="feature-title">WiFi on Autopilot 🤖</h5>
                         <p class="feature-description">Set it and forget it! Our system manages your hotspots like a boss. Bandwidth control? ✅ User limits? ✅ Your sanity? Preserved! 😌</p>
                         <div class="text-center mt-3">
-                            <span class="badge" style="background: var(--gradient-gold); color: var(--black); font-size: 0.7rem;">🎯 Zero Stress</span>
+                            <span class="badge" style="background: var(--gradient-gold); color: var(--black); font-size: 0.7rem;">Zero Stress</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="feature-card" style="transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px) scale(1.02)'; this.style.boxShadow='0 20px 40px rgba(212,175,55,0.2)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='var(--shadow-sm)'">
                         <div class="feature-icon">
-                            📊
+                            <i class="fas fa-chart-line" style="color: var(--gold);"></i>
                         </div>
                         <h5 class="feature-title">Analytics That Don't Suck 📈</h5>
                         <p class="feature-description">Pretty charts that actually mean something! Track everything in real-time without needing a PhD in Data Science 🎓</p>
@@ -698,7 +698,7 @@
                     <div class="d-flex justify-content-center gap-3 mb-4">
                         <span class="badge bg-primary">🔥 Live Data</span>
                         <span class="badge bg-success">⚡ Real Features</span>
-                        <span class="badge bg-warning text-dark">🎯 Zero Setup</span>
+                        <span class="badge bg-warning text-dark">Zero Setup</span>
                     </div>
                 </div>
             </div>
@@ -707,7 +707,7 @@
                     <div class="demo-card text-center">
                         <img src="{$app_url}/ui/ui/images/dashboard-demo.png" 
                              alt="Live Dashboard Demo - Glinta Africa ISP Billing Platform" class="img-fluid rounded mb-4 shadow-lg" style="border: 2px solid var(--gold);">
-                        <h4 id="demo-section">🚀 Your New Favorite Dashboard</h4>
+                        <h4 id="demo-section">Your New Favorite Dashboard</h4>
                         <p style="color: var(--gray);">This isn't just a demo - it's a full-blown playground! Click around, break things (you can't actually break anything 😉), and see why our users never want to leave.</p>
                         <div class="row g-3 mb-4">
                             <div class="col-4">
@@ -815,7 +815,7 @@ if ($payment->confirmed) {
         <div class="container position-relative">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up">
-                    <h2>🎯 We Fit Everywhere (Seriously!)</h2>
+                    <h2>We Fit Everywhere (Seriously!)</h2>
                     <p class="text-lg" style="color: var(--gray);">From "I just want WiFi in my café" to "I'm building the next Safaricom" 📡<br>
                     <small>We scale with your dreams (and your budget) 💰</small></p>
                 </div>
@@ -857,7 +857,7 @@ if ($payment->confirmed) {
                             <i class="fas fa-city"></i>
                         </div>
                         <h5>🏢 Enterprise ISP</h5>
-                        <p class="text-sm" style="color: var(--gray);">Go big or go home! 🚀 Scale to thousands without breaking a sweat. PPPoE, RADIUS, automation - we've got all the fancy acronyms covered 🤓</p>
+                        <p class="text-sm" style="color: var(--gray);">Go big or go home! Scale to thousands without breaking a sweat. PPPoE, RADIUS, automation - we've got all the fancy acronyms covered.</p>
                     </div>
                 </div>
             </div>
@@ -869,7 +869,7 @@ if ($payment->confirmed) {
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="mb-4">🚀 Ready to Join the Fun?</h2>
+                    <h2 class="mb-4">Ready to Join the Fun?</h2>
                     <p class="text-lg mb-4" style="color: rgba(255,255,255,0.9);">Stop wrestling with complicated software 🤼‍♂️<br>
                     Life's too short for boring billing systems! Let's make your ISP business actually enjoyable 🎉</p>
                     <div class="d-flex flex-column flex-md-row justify-content-center gap-3">

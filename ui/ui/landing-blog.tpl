@@ -769,33 +769,6 @@ Real stories, proven strategies, and breakthrough moments from industry professi
                     </article>
                 </div>
 
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <article class="blog-card">
-                        <div class="position-relative">
-                            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Network Management" class="blog-image">
-                            <div class="position-absolute top-0 start-0 m-3">
-                                <span class="badge bg-primary">📊 Trending</span>
-                            </div>
-                        </div>
-                        <div class="blog-content">
-                            <div class="blog-category">Network Operations</div>
-                            <h3 class="blog-title">SNMP Monitoring: Proactive Network Management and Performance Optimization</h3>
-                            <p class="blog-excerpt">
-                                Advanced SNMP monitoring techniques for real-time network performance tracking, automated alerting, and predictive maintenance strategies.
-                            </p>
-                            <div class="blog-meta">
-                                <div class="blog-date">
-                                    <i class="fas fa-calendar"></i>
-                                    <span>Jan 5, 2025</span>
-                                </div>
-                                <div class="blog-read-time">10 min read</div>
-                            </div>
-                            <a href="{$app_url}/blog/snmp-monitoring-guide" class="blog-link">
-                                Read More <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </article>
-                </div>
 
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                     <article class="blog-card">
@@ -886,7 +859,7 @@ Real stories, proven strategies, and breakthrough moments from industry professi
                         <div class="position-relative">
                             <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Industry Analysis" class="blog-image">
                             <div class="position-absolute bottom-0 end-0 m-3">
-                                <span class="badge bg-dark">📊 Market Intel</span>
+                                <span class="badge bg-dark">Market Intel</span>
                             </div>
                         </div>
                         <div class="blog-content">
@@ -965,13 +938,120 @@ Real stories, proven strategies, and breakthrough moments from industry professi
         </div>
     </section>
 
+    <!-- Dynamic Content Section -->
+    <section class="py-5" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Real-time Stats -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-center p-4 bg-white rounded shadow-sm h-100">
+                        <div class="mb-3">
+                            <i class="fas fa-users fa-2x" style="color: var(--accent);"></i>
+                        </div>
+                        <h4 class="h5 mb-2">Active ISPs</h4>
+                        <div class="h3 mb-2" style="color: var(--primary); font-weight: 700;" id="active-isps">2,450+</div>
+                        <small class="text-muted">Growing daily across Africa</small>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-center p-4 bg-white rounded shadow-sm h-100">
+                        <div class="mb-3">
+                            <i class="fas fa-globe-africa fa-2x" style="color: var(--accent);"></i>
+                        </div>
+                        <h4 class="h5 mb-2">Connected Users</h4>
+                        <div class="h3 mb-2" style="color: var(--primary); font-weight: 700;" id="connected-users">180,000+</div>
+                        <small class="text-muted">Online right now</small>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-center p-4 bg-white rounded shadow-sm h-100">
+                        <div class="mb-3">
+                            <i class="fas fa-chart-line fa-2x" style="color: var(--accent);"></i>
+                        </div>
+                        <h4 class="h5 mb-2">Data Processed</h4>
+                        <div class="h3 mb-2" style="color: var(--primary); font-weight: 700;" id="data-processed">45.2 TB</div>
+                        <small class="text-muted">This month</small>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-center p-4 bg-white rounded shadow-sm h-100">
+                        <div class="mb-3">
+                            <i class="fas fa-clock fa-2x" style="color: var(--accent);"></i>
+                        </div>
+                        <h4 class="h5 mb-2">Uptime</h4>
+                        <div class="h3 mb-2" style="color: var(--primary); font-weight: 700;" id="uptime">99.9%</div>
+                        <small class="text-muted">Last 30 days</small>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Featured Resources -->
+            <div class="row mt-5">
+                <div class="col-12 text-center mb-4">
+                    <h3>Featured Resources</h3>
+                    <p class="text-muted">Essential tools and guides for ISP professionals</p>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <div class="mb-3">
+                                <i class="fas fa-download fa-2x" style="color: var(--accent);"></i>
+                            </div>
+                            <h5 class="card-title">API Documentation</h5>
+                            <p class="card-text">Complete integration guide for developers</p>
+                            <a href="#" class="btn btn-outline-primary btn-sm">Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <div class="mb-3">
+                                <i class="fas fa-video fa-2x" style="color: var(--accent);"></i>
+                            </div>
+                            <h5 class="card-title">Video Tutorials</h5>
+                            <p class="card-text">Step-by-step setup and configuration</p>
+                            <a href="#" class="btn btn-outline-primary btn-sm">Watch Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <div class="mb-3">
+                                <i class="fas fa-comments fa-2x" style="color: var(--accent);"></i>
+                            </div>
+                            <h5 class="card-title">Community Forum</h5>
+                            <p class="card-text">Connect with other ISP professionals</p>
+                            <a href="#" class="btn btn-outline-primary btn-sm">Join Discussion</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Newsletter Section -->
     <section class="newsletter-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="mb-4">Stay Updated on ISP Technology</h2>
-                    <p class="text-lg mb-4" style="color: rgba(255,255,255,0.9);">Get the latest insights on network operations, security, and telecommunications technology delivered to your inbox.</p>
+                    <h2 class="mb-4">
+                        <span id="newsletter-title">Stay Updated on ISP Technology</span>
+                        <div class="small mt-2" style="color: rgba(255,255,255,0.7);">
+                            <i class="fas fa-users me-1"></i><span id="subscriber-count">12,500+</span> professionals already subscribed
+                        </div>
+                    </h2>
+                    <p class="text-lg mb-4" style="color: rgba(255,255,255,0.9);">
+                        Get the latest insights on network operations, security, and telecommunications technology delivered to your inbox.
+                        <br><strong>Weekly digest</strong> • <strong>Expert analysis</strong> • <strong>Industry news</strong>
+                    </p>
                     <div class="newsletter-form">
                         <div class="input-group">
                             <input type="email" class="form-control newsletter-input" placeholder="Enter your email address" required>
@@ -1102,6 +1182,81 @@ Real stories, proven strategies, and breakthrough moments from industry professi
                 this.reset();
             }
         });
+        
+        // Dynamic stats animation
+        function animateStats() {
+            const stats = [
+                { id: 'active-isps', target: 2450, suffix: '+' },
+                { id: 'connected-users', target: 180000, suffix: '+' },
+                { id: 'data-processed', target: 45.2, suffix: ' TB' },
+                { id: 'uptime', target: 99.9, suffix: '%' }
+            ];
+            
+            stats.forEach(stat => {
+                const element = document.getElementById(stat.id);
+                if (element) {
+                    let current = 0;
+                    const increment = stat.target / 100;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= stat.target) {
+                            current = stat.target;
+                            clearInterval(timer);
+                        }
+                        
+                        if (stat.id === 'data-processed') {
+                            element.textContent = current.toFixed(1) + stat.suffix;
+                        } else if (stat.id === 'uptime') {
+                            element.textContent = current.toFixed(1) + stat.suffix;
+                        } else {
+                            element.textContent = Math.floor(current).toLocaleString() + stat.suffix;
+                        }
+                    }, 20);
+                }
+            });
+        }
+        
+        // Dynamic newsletter titles
+        const newsletterTitles = [
+            'Stay Updated on ISP Technology',
+            'Get Expert ISP Insights',
+            'Join the ISP Knowledge Network',
+            'Master ISP Operations'
+        ];
+        
+        function rotateNewsletterTitle() {
+            const titleElement = document.getElementById('newsletter-title');
+            if (titleElement && newsletterTitles.length > 0) {
+                let currentIndex = 0;
+                setInterval(() => {
+                    titleElement.style.opacity = '0';
+                    setTimeout(() => {
+                        currentIndex = (currentIndex + 1) % newsletterTitles.length;
+                        titleElement.textContent = newsletterTitles[currentIndex];
+                        titleElement.style.opacity = '1';
+                    }, 300);
+                }, 4000);
+            }
+        }
+        
+        // Dynamic subscriber count
+        function updateSubscriberCount() {
+            const countElement = document.getElementById('subscriber-count');
+            if (countElement) {
+                let count = 12500;
+                setInterval(() => {
+                    count += Math.floor(Math.random() * 3) + 1;
+                    countElement.textContent = count.toLocaleString() + '+';
+                }, 30000); // Update every 30 seconds
+            }
+        }
+        
+        // Initialize dynamic features
+        setTimeout(() => {
+            animateStats();
+            rotateNewsletterTitle();
+            updateSubscriberCount();
+        }, 1000);
     </script>
 </body>
 </html>
