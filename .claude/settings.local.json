@@ -34,7 +34,8 @@
       "Bash(if [ -f \"ui/ui/landing-final.tpl\" ])",
       "Bash(then echo \"✓ Fallback template landing-final.tpl exists\")",
       "Bash(else echo \"✗ Fallback template landing-final.tpl missing\")",
-      "Bash(sed:*)"
+      "Bash(sed:*)",
+      "Bash(cat:*)"
     ],
     "deny": []
   }

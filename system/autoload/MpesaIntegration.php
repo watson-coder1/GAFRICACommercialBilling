@@ -24,7 +24,7 @@ class MpesaIntegration
         $this->passkey = $_c['mpesa_passkey'] ?? '';
         $this->shortcode = $_c['mpesa_shortcode'] ?? '';
         $this->environment = $_c['mpesa_environment'] ?? 'sandbox';
-        $this->callbackUrl = $_c['app_url'] . '/portal/callback';
+        $this->callbackUrl = $_c['mpesa_callback_url'] ?? ($_c['app_url'] . '/portal/callback');
     }
     
     /**

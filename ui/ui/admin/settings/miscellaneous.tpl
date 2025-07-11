@@ -240,6 +240,16 @@
                                 {Lang::T('M-Pesa Lipa Na M-Pesa Online Passkey')}</small>
                         </p>
                     </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">{Lang::T('Callback URL')}</label>
+                        <div class="col-md-6">
+                            <input type="url" class="form-control" id="mpesa_callback_url" name="mpesa_callback_url"
+                                value="{if $_c['mpesa_callback_url']}{$_c['mpesa_callback_url']}{else}https://glintaafrica.com/portal/callback{/if}">
+                        </div>
+                        <p class="help-block col-md-3"><small>
+                                {Lang::T('URL where M-Pesa will send payment confirmations')}</small>
+                        </p>
+                    </div>
                     <div class="alert alert-info">
                         <strong>Instructions:</strong>
                         <ol>
