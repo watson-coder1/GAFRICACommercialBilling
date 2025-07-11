@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
     unzip \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd \
-    && docker-php-ext-install pdo pdo_mysql \
+    && docker-php-ext-install pdo pdo_mysql mysqli \
     && docker-php-ext-install zip \
     && a2enmod rewrite \
     && a2enmod headers
