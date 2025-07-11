@@ -145,44 +145,50 @@ switch ($routes['1']) {
         break;
         
     case 'callback':
-        // M-Pesa callback handler (to be implemented with actual API)
+        // M-Pesa callback handler
+        header('Content-Type: application/json');
+        
+        // Get raw POST data
         $input = file_get_contents('php://input');
-        $data = json_decode($input, true);
         
         // Log callback for debugging
         file_put_contents('system/uploads/mpesa_callbacks.log', 
             date('Y-m-d H:i:s') . ' - ' . $input . PHP_EOL, FILE_APPEND);
         
-        // Process callback (placeholder for actual implementation)
-        if ($data && isset($data['TransactionID'])) {
-            // Update transaction status
-            $transaction = ORM::for_table('tbl_mpesa_transactions')
-                ->where('transaction_id', $data['TransactionID'])
-                ->find_one();
-                
-            if ($transaction) {
-                $transaction->status = 'completed';
-                $transaction->mpesa_receipt_number = $data['ReceiptNumber'] ?? '';
-                $transaction->callback_response = $input;
-                $transaction->save();
-                
-                // Update session status
-                $session = ORM::for_table('tbl_portal_sessions')
-                    ->where('session_id', $transaction->session_id)
-                    ->find_one();
-                    
-                if ($session) {
-                    $session->payment_status = 'completed';
-                    $session->expires_at = date('Y-m-d H:i:s', strtotime('+' . $session->package->duration_hours . ' hours'));
-                    $session->save();
-                    
-                    // Create MikroTik user (placeholder)
-                    // This will be implemented when MikroTik is available
+        // Process callback using MpesaIntegration class
+        try {
+            $mpesa = new MpesaIntegration();
+            $data = json_decode($input, true);
+            
+            if ($data) {
+                $result = $mpesa->processCallback($data);
+                if ($result) {
+                    echo json_encode([
+                        'ResultCode' => 0,
+                        'ResultDesc' => 'Success'
+                    ]);
+                } else {
+                    echo json_encode([
+                        'ResultCode' => 1,
+                        'ResultDesc' => 'Failed to process callback'
+                    ]);
                 }
+            } else {
+                echo json_encode([
+                    'ResultCode' => 1,
+                    'ResultDesc' => 'Invalid JSON data'
+                ]);
             }
+        } catch (Exception $e) {
+            // Log error but still respond to Safaricom
+            file_put_contents('system/uploads/mpesa_callbacks.log', 
+                date('Y-m-d H:i:s') . ' - ERROR: ' . $e->getMessage() . PHP_EOL, FILE_APPEND);
+            
+            echo json_encode([
+                'ResultCode' => 0,
+                'ResultDesc' => 'Acknowledged'
+            ]);
         }
-        
-        echo json_encode(['status' => 'success']);
         break;
         
     case 'admin':
