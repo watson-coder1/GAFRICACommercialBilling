@@ -178,6 +178,80 @@
                 </div>
             </div>
 
+            <!-- M-Pesa Configuration Panel -->
+            <div class="panel panel-info panel-hovered panel-stacked mb30">
+                <div class="panel-heading">
+                    {Lang::T('M-Pesa Daraja API Configuration')}
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">{Lang::T('Environment')}</label>
+                        <div class="col-md-5">
+                            <select name="mpesa_environment" id="mpesa_environment" class="form-control">
+                                <option value="sandbox" {if $_c['mpesa_environment']=='sandbox' }selected="selected" {/if}>
+                                    {Lang::T('Sandbox (Testing)')}
+                                </option>
+                                <option value="live" {if $_c['mpesa_environment']=='live' }selected="selected" {/if}>
+                                    {Lang::T('Live (Production)')}
+                                </option>
+                            </select>
+                        </div>
+                        <p class="help-block col-md-4"><small>
+                                {Lang::T('Use Sandbox for testing, Live for production')}</small>
+                        </p>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">{Lang::T('Consumer Key')}</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="mpesa_consumer_key" name="mpesa_consumer_key"
+                                value="{if $_c['mpesa_consumer_key']}{$_c['mpesa_consumer_key']}{/if}">
+                        </div>
+                        <p class="help-block col-md-3"><small>
+                                {Lang::T('M-Pesa API Consumer Key from Safaricom Developer Portal')}</small>
+                        </p>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">{Lang::T('Consumer Secret')}</label>
+                        <div class="col-md-6">
+                            <input type="password" class="form-control" id="mpesa_consumer_secret" name="mpesa_consumer_secret"
+                                value="{if $_c['mpesa_consumer_secret']}{$_c['mpesa_consumer_secret']}{/if}">
+                        </div>
+                        <p class="help-block col-md-3"><small>
+                                {Lang::T('M-Pesa API Consumer Secret from Safaricom Developer Portal')}</small>
+                        </p>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">{Lang::T('Business Short Code')}</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="mpesa_shortcode" name="mpesa_shortcode"
+                                value="{if $_c['mpesa_shortcode']}{$_c['mpesa_shortcode']}{/if}">
+                        </div>
+                        <p class="help-block col-md-3"><small>
+                                {Lang::T('M-Pesa Business Short Code (Paybill or Till Number)')}</small>
+                        </p>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">{Lang::T('Passkey')}</label>
+                        <div class="col-md-6">
+                            <input type="password" class="form-control" id="mpesa_passkey" name="mpesa_passkey"
+                                value="{if $_c['mpesa_passkey']}{$_c['mpesa_passkey']}{/if}">
+                        </div>
+                        <p class="help-block col-md-3"><small>
+                                {Lang::T('M-Pesa Lipa Na M-Pesa Online Passkey')}</small>
+                        </p>
+                    </div>
+                    <div class="alert alert-info">
+                        <strong>Instructions:</strong>
+                        <ol>
+                            <li>Register on <a href="https://developer.safaricom.co.ke" target="_blank">Safaricom Developer Portal</a></li>
+                            <li>Create a new app and get Consumer Key & Secret</li>
+                            <li>For Sandbox, use test credentials. For Live, use your business credentials</li>
+                            <li>Configure your callback URL in Safaricom portal: <strong>{$app_url}/portal/callback</strong></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
             <div class="panel-body">
                 <div class="form-group">
                     <button class="btn btn-success btn-block" name="save" value="save" type="submit">
