@@ -970,7 +970,8 @@ switch ($action) {
         if (!in_array($admin['user_type'], ['SuperAdmin', 'Admin'])) {
             _alert(Lang::T('You do not have permission to access this page'), 'danger', "dashboard");
         }
-
+        
+        global $db_host, $db_user, $db_pass, $db_name;
         $dbc = new mysqli($db_host, $db_user, $db_pass, $db_name);
         if ($result = $dbc->query('SHOW TABLE STATUS')) {
             $tables = array();
