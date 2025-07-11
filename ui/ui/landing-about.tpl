@@ -1014,7 +1014,7 @@ Let's chat about how we can make your ISP business actually fun to run! (Yes, th
             <div class="row g-4">
                 <div class="col-lg-4">
                     <h6>Glinta Africa</h6>
-                    <p class="text-sm text-gray-400 mb-3">Professional ISP billing and network management solutions for African telecommunications infrastructure. Enterprise-grade platform built for African markets.</p>
+                    <p class="text-sm mb-3" style="color: var(--accent);">Professional ISP billing and network management solutions for African telecommunications infrastructure. Enterprise-grade platform built for African markets.</p>
                     <div class="d-flex gap-3">
                         <a href="#" class="text-gray-400"><i class="fab fa-twitter"></i></a>
                         <a href="#" class="text-gray-400"><i class="fab fa-linkedin"></i></a>
