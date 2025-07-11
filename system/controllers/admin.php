@@ -34,6 +34,11 @@ switch ($do) {
             if ($d) {
                 $d_pass = $d['password'];
                 if (Password::_verify($password, $d_pass) == true) {
+                    // Auto-upgrade SHA1 passwords to bcrypt
+                    if (Password::needsUpgrade($d_pass)) {
+                        $d->password = Password::_hash($password);
+                        error_log("INFO: Auto-upgraded SHA1 password to bcrypt for admin: $username");
+                    }
                     $_SESSION['aid'] = $d['id'];
                     $token = Admin::setCookie($d['id']);
                     $d->last_login = date('Y-m-d H:i:s');

@@ -19,8 +19,10 @@ class Password
         if (password_verify($user_input, $hashed_password)) {
             return true;
         }
-        // Fallback to old SHA1 for existing passwords
+        // Fallback to old SHA1 for existing passwords (DEPRECATED - auto-upgrade needed)
         if (sha1($user_input) == $hashed_password) {
+            // Log security warning for SHA1 usage
+            error_log("WARNING: SHA1 password detected for authentication - upgrade required");
             return true;
         }
         return false;

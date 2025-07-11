@@ -161,8 +161,9 @@ switch ($action) {
         }
 
         if ($q !== null && $q !== '') {
+            $searchTerm = '%' . $q . '%';
             $query = ORM::for_table('tbl_message_logs')
-            ->whereRaw("message_type LIKE '%$q%' OR recipient LIKE '%$q%' OR message_content LIKE '%$q%' OR status LIKE '%$q%' OR error_message LIKE '%$q%'")
+            ->whereRaw("message_type LIKE ? OR recipient LIKE ? OR message_content LIKE ? OR status LIKE ? OR error_message LIKE ?", [$searchTerm, $searchTerm, $searchTerm, $searchTerm, $searchTerm])
                 ->order_by_desc('sent_at');
             $d = Paginator::findMany($query, ['q' => $q]);
         } else {
