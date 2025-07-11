@@ -119,12 +119,19 @@
             display: block;
             position: relative;
             transform: skew(-8deg) scale(1.02);
+            text-shadow: none;
+            filter: drop-shadow(0 3px 6px rgba(212, 175, 55, 0.4));
+        }
+        
+        .logo-brand .main-logo .gli-part {
+            color: #000000;
+        }
+        
+        .logo-brand .main-logo .nta-part {
             background: linear-gradient(135deg, #D4AF37 0%, #F4E4C1 30%, #B8941F 70%, #D4AF37 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: none;
-            filter: drop-shadow(0 3px 6px rgba(212, 175, 55, 0.4));
         }
 
         .logo-brand .main-logo::before {
@@ -786,10 +793,10 @@
     <nav class="navbar navbar-expand-lg" id="navbar">
         <div class="container">
             <a class="logo-brand" href="{$app_url}">
-                <span class="mission-statement">Connect • Innovate • Empower</span>
                 <span class="main-logo">
-                    <i class="fas fa-network-wired icon"></i>Glinta Africa
+                    <i class="fas fa-network-wired icon"></i><span class="gli-part">GLI</span><span class="nta-part">nta Africa</span>
                 </span>
+                <span class="mission-statement">Connect • Innovate • Empower</span>
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <i class="fas fa-bars"></i>
