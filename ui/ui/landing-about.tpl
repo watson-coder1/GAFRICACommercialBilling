@@ -9,7 +9,11 @@
     <meta name="author" content="Glinta Africa">
     
     <link rel="canonical" href="https://glintaafrica.com/about">
-    <link rel="shortcut icon" href="{$app_url}/ui/ui/images/logo.png" type="image/x-icon" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{$app_url}/ui/ui/images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="{$app_url}/ui/ui/images/favicon-32x32.png">
+    <link rel="shortcut icon" href="{$app_url}/ui/ui/images/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{$app_url}/ui/ui/images/favicon-32x32.png">
     
     <!-- Professional Typography -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
