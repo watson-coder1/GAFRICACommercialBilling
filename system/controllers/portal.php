@@ -57,6 +57,19 @@ switch ($routes['1']) {
         
         // Get available packages with error handling
         try {
+            // First ensure the table exists
+            $db = ORM::get_db();
+            $db->exec("CREATE TABLE IF NOT EXISTS tbl_hotspot_packages (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                name VARCHAR(255) NOT NULL,
+                price DECIMAL(10,2) NOT NULL,
+                duration_hours INT NOT NULL,
+                data_limit_mb INT NULL,
+                description TEXT NULL,
+                status ENUM('active', 'inactive') DEFAULT 'active',
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )");
+            
             $packages = ORM::for_table('tbl_hotspot_packages')
                 ->where('status', 'active')
                 ->order_by_asc('price')
