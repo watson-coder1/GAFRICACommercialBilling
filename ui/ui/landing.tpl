@@ -6,6 +6,8 @@
     <title>{$_title}</title>
     <meta name="description" content="Glinta Africa - Complete Hotspot Billing System for WiFi Hotspots, ISPs, and Internet Service Providers. Manage your hotspot business with ease.">
     <meta name="keywords" content="hotspot billing, wifi management, mikrotik billing, internet service provider, ISP billing, hotspot management">
+    <meta name="google-adsense-account" content="ca-pub-7906696382628802">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7906696382628802" crossorigin="anonymous"></script>
     
     <link rel="shortcut icon" href="{$app_url}/ui/ui/images/logo.png" type="image/x-icon" />
     <link rel="stylesheet" href="{$app_url}/ui/ui/styles/bootstrap.min.css">
