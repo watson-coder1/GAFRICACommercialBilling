@@ -15,6 +15,27 @@ switch ($routes['1']) {
         $ip = $_GET['ip'] ?? '';
         $sessionId = uniqid('portal_', true);
         
+        // If no IP provided, detect real IP
+        if (empty($ip)) {
+            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['HTTP_X_REAL_IP'] ?? $_SERVER['REMOTE_ADDR'] ?? 'Unknown';
+            // Clean up IP if it contains multiple IPs (from proxy)
+            if (strpos($ip, ',') !== false) {
+                $ip = trim(explode(',', $ip)[0]);
+            }
+        }
+        
+        // If no MAC provided, try to get device info from User Agent
+        if (empty($mac)) {
+            $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
+            // Create a pseudo-MAC from device fingerprint
+            if (!empty($userAgent)) {
+                $deviceHash = substr(md5($userAgent . $ip), 0, 12);
+                $mac = implode(':', str_split($deviceHash, 2));
+            } else {
+                $mac = 'device-' . substr(md5($ip . time()), 0, 12);
+            }
+        }
+        
         // Check if MAC already has active session
         $activeSession = ORM::for_table('tbl_portal_sessions')
             ->where('mac_address', $mac)

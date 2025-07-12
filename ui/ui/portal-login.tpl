@@ -167,11 +167,21 @@
         }
         .brand-title {
             font-family: 'Lobster', cursive;
-            color: #FFD700;
+            background: linear-gradient(45deg, #666, #999);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             font-size: 32px;
             text-align: center;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            text-shadow: none;
+            animation: titlePulse 3s ease-in-out infinite;
+            position: relative;
+        }
+        
+        @keyframes titlePulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
         }
         
         /* Responsive typography */
@@ -212,6 +222,17 @@
             cursor: pointer;
             transition: all 0.3s ease;
             position: relative;
+            transform: translateY(0);
+            animation: cardFloat 4s ease-in-out infinite;
+        }
+        
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-2px); }
+        }
+        
+        .package-card:nth-child(even) {
+            animation-delay: 2s;
         }
         
         /* Enhanced package card responsiveness */
@@ -244,12 +265,21 @@
             }
         }
         .package-card:hover {
-            border-color: #FFD700;
-            box-shadow: 0 5px 15px rgba(255,215,0,0.3);
+            border-color: #00C851;
+            box-shadow: 0 8px 25px rgba(0, 200, 81, 0.2);
+            transform: translateY(-5px) scale(1.02);
+            animation: none;
         }
         .package-card.selected {
-            border-color: #FFD700;
-            background: #fffbf0;
+            border-color: #00C851;
+            background: linear-gradient(135deg, #f8fff9, #e8f7ea);
+            box-shadow: 0 10px 30px rgba(0, 200, 81, 0.15);
+            animation: selectedPulse 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes selectedPulse {
+            0%, 100% { box-shadow: 0 10px 30px rgba(0, 200, 81, 0.15); }
+            50% { box-shadow: 0 10px 30px rgba(0, 200, 81, 0.25); }
         }
         .package-name {
             font-size: 18px;
@@ -260,8 +290,21 @@
         .package-price {
             font-size: 24px;
             font-weight: bold;
-            color: #FFD700;
+            color: #00C851;
             margin-bottom: 8px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            animation: priceGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes priceGlow {
+            from { 
+                color: #00C851; 
+                text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            }
+            to { 
+                color: #28a745; 
+                text-shadow: 0 0 8px rgba(0, 200, 81, 0.3);
+            }
         }
         .package-details {
             color: #666;
@@ -289,7 +332,7 @@
             box-shadow: 0 0 0 0.2rem rgba(255,215,0,0.25);
         }
         .continue-btn {
-            background: linear-gradient(45deg, #FFD700, #FFA500);
+            background: linear-gradient(45deg, #00C851, #28a745);
             border: none;
             color: white;
             padding: 15px 30px;
@@ -299,10 +342,29 @@
             width: 100%;
             cursor: pointer;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
+        
+        .continue-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .continue-btn:hover::before {
+            left: 100%;
+        }
+        
         .continue-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255,215,0,0.4);
+            box-shadow: 0 8px 20px rgba(0, 200, 81, 0.3);
+            background: linear-gradient(45deg, #28a745, #00C851);
         }
         .continue-btn:disabled {
             opacity: 0.6;
@@ -405,8 +467,8 @@
         
         <div class="wifi-info">
             <small>
-                <strong>Device:</strong> {$mac|default:"Unknown"}<br>
-                <strong>IP:</strong> {$ip|default:"Unknown"}
+                <strong>Device:</strong> <span id="device-info">{$mac|default:"Detecting..."}</span><br>
+                <strong>IP:</strong> <span id="ip-info">{$ip|default:"Detecting..."}</span>
             </small>
         </div>
         
@@ -447,14 +509,84 @@
             const packageIdInput = document.getElementById('selected_package_id');
             const continueBtn = document.querySelector('.continue-btn');
             const phoneInput = document.querySelector('input[name="phone_number"]');
+            const deviceInfo = document.getElementById('device-info');
+            const ipInfo = document.getElementById('ip-info');
+            
+            // Enhanced device detection
+            function detectDeviceInfo() {
+                const userAgent = navigator.userAgent;
+                let deviceType = 'Unknown Device';
+                
+                if (/iPhone/i.test(userAgent)) {
+                    deviceType = 'iPhone';
+                } else if (/iPad/i.test(userAgent)) {
+                    deviceType = 'iPad';
+                } else if (/Android/i.test(userAgent)) {
+                    if (/Mobile/i.test(userAgent)) {
+                        deviceType = 'Android Phone';
+                    } else {
+                        deviceType = 'Android Tablet';
+                    }
+                } else if (/Windows/i.test(userAgent)) {
+                    deviceType = 'Windows PC';
+                } else if (/Mac/i.test(userAgent)) {
+                    deviceType = 'Mac';
+                } else if (/Linux/i.test(userAgent)) {
+                    deviceType = 'Linux PC';
+                }
+                
+                // Update device info if it shows default text
+                if (deviceInfo.textContent.includes('Detecting') || deviceInfo.textContent.includes('device-')) {
+                    deviceInfo.textContent = deviceType;
+                }
+                
+                // Try to get more accurate IP info
+                if (ipInfo.textContent.includes('Detecting')) {
+                    // This will be updated by the server-side detection
+                    ipInfo.textContent = 'Getting IP...';
+                }
+            }
+            
+            // Add entrance animations
+            function animateEntrance() {
+                packageCards.forEach((card, index) => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        card.style.transition = 'all 0.5s ease';
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, index * 100);
+                });
+            }
             
             packageCards.forEach(card => {
                 card.addEventListener('click', function() {
                     // Remove selected class from all cards
                     packageCards.forEach(c => c.classList.remove('selected'));
                     
-                    // Add selected class to clicked card
+                    // Add selected class to clicked card with animation
                     this.classList.add('selected');
+                    
+                    // Add selection effect
+                    const ripple = document.createElement('div');
+                    ripple.style.cssText = `
+                        position: absolute;
+                        border-radius: 50%;
+                        background: rgba(0, 200, 81, 0.3);
+                        transform: scale(0);
+                        animation: ripple 0.6s linear;
+                        pointer-events: none;
+                        width: 50px;
+                        height: 50px;
+                        left: 50%;
+                        top: 50%;
+                        margin-left: -25px;
+                        margin-top: -25px;
+                    `;
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => ripple.remove(), 600);
                     
                     // Set package ID
                     packageIdInput.value = this.dataset.packageId;
@@ -471,7 +603,23 @@
                 const hasPhone = phoneInput.value.trim() !== '';
                 continueBtn.disabled = !(hasPackage && hasPhone);
             }
+            
+            // Initialize
+            detectDeviceInfo();
+            animateEntrance();
         });
+        
+        // Add ripple animation CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
