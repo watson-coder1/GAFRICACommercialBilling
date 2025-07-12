@@ -37,7 +37,8 @@
       "Bash(sed:*)",
       "Bash(cat:*)",
       "Bash(mysql:*)",
-      "WebFetch(domain:glintaafrica.com)"
+      "WebFetch(domain:glintaafrica.com)",
+      "WebFetch(domain:tailscale.com)"
     ],
     "deny": []
   }
