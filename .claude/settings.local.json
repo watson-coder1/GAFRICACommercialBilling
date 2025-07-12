@@ -35,7 +35,9 @@
       "Bash(then echo \"✓ Fallback template landing-final.tpl exists\")",
       "Bash(else echo \"✗ Fallback template landing-final.tpl missing\")",
       "Bash(sed:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(mysql:*)",
+      "WebFetch(domain:glintaafrica.com)"
     ],
     "deny": []
   }
