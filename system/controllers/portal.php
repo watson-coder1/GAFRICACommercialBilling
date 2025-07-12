@@ -163,6 +163,9 @@ switch ($routes['1']) {
             if ($data) {
                 $result = $mpesa->processCallback($data);
                 if ($result) {
+                    // Payment successful - create MikroTik user
+                    createHotspotUserFromCallback($data);
+                    
                     echo json_encode([
                         'ResultCode' => 0,
                         'ResultDesc' => 'Success'
@@ -217,4 +220,89 @@ switch ($routes['1']) {
     default:
         r2(U . 'portal/login');
         break;
+}
+
+/**
+ * Create MikroTik hotspot user after successful payment
+ */
+function createHotspotUserFromCallback($callbackData) {
+    try {
+        // Extract transaction details from M-Pesa callback
+        $transactionId = $callbackData['Body']['stkCallback']['CheckoutRequestID'] ?? '';
+        
+        // Find the session and package
+        $transaction = ORM::for_table('tbl_mpesa_transactions')
+            ->where('transaction_id', $transactionId)
+            ->find_one();
+            
+        if (!$transaction) {
+            return false;
+        }
+        
+        $session = ORM::for_table('tbl_portal_sessions')
+            ->where('session_id', $transaction->session_id)
+            ->find_one();
+            
+        $package = ORM::for_table('tbl_hotspot_packages')
+            ->where('id', $session->package_id)
+            ->find_one();
+            
+        // Create unique username
+        $username = 'hs_' . substr($session->mac_address, -6) . '_' . time();
+        $password = substr(md5($username . time()), 0, 8);
+        
+        // Get router information
+        $router = ORM::for_table('tbl_routers')
+            ->where('enabled', 1)
+            ->find_one();
+            
+        if (!$router) {
+            return false;
+        }
+        
+        // Create MikroTik user using existing device handler
+        $device = new MikrotikHotspot();
+        $client = $device->getClient($router->ip_address, $router->username, $router->password);
+        
+        if ($client) {
+            // Create hotspot user profile data
+            $planData = [
+                'name_plan' => $package->name,
+                'typebp' => 'Limited',
+                'limit_type' => 'Time_Limit',
+                'time_limit' => $package->duration_hours,
+                'time_unit' => 'Hrs',
+                'shared_users' => 1
+            ];
+            
+            // Create customer data
+            $customerData = [
+                'username' => $username,
+                'password' => $password,
+                'mac_address' => $session->mac_address
+            ];
+            
+            // Add user to MikroTik
+            $device->addHotspotUser($client, $planData, $customerData);
+            
+            // Update session with user credentials
+            $session->payment_status = 'completed';
+            $session->expires_at = date('Y-m-d H:i:s', strtotime('+' . $package->duration_hours . ' hours'));
+            $session->save();
+            
+            // Log success
+            file_put_contents('system/uploads/hotspot_users.log', 
+                date('Y-m-d H:i:s') . ' - Created user: ' . $username . ' for MAC: ' . $session->mac_address . PHP_EOL, FILE_APPEND);
+                
+            return true;
+        }
+        
+        return false;
+        
+    } catch (Exception $e) {
+        // Log error
+        file_put_contents('system/uploads/hotspot_users.log', 
+            date('Y-m-d H:i:s') . ' - ERROR: ' . $e->getMessage() . PHP_EOL, FILE_APPEND);
+        return false;
+    }
 }
