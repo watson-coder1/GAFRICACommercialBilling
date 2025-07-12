@@ -33,6 +33,90 @@
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: var(--black);
+            position: relative;
+        }
+        
+        /* AdSense containers for landing page */
+        .landing-ad-container {
+            position: fixed;
+            z-index: 1000;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .landing-ad-top-left {
+            top: 80px;
+            left: 10px;
+            width: 200px;
+            height: 200px;
+        }
+        
+        .landing-ad-top-right {
+            top: 80px;
+            right: 10px;
+            width: 200px;
+            height: 200px;
+        }
+        
+        .landing-ad-bottom-left {
+            bottom: 10px;
+            left: 10px;
+            width: 200px;
+            height: 200px;
+        }
+        
+        .landing-ad-bottom-right {
+            bottom: 10px;
+            right: 10px;
+            width: 200px;
+            height: 200px;
+        }
+        
+        /* Hide landing ads on mobile */
+        @media (max-width: 768px) {
+            .landing-ad-container {
+                display: none;
+            }
+        }
+        
+        /* Medium screens - reduce ad size */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .landing-ad-container {
+                width: 150px;
+                height: 150px;
+            }
+        }
+        
+        /* Fallback content for landing ads */
+        .landing-ad-fallback {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10px;
+            color: #666;
+            font-size: 12px;
+        }
+        
+        .landing-ad-fallback .logo {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--gold);
+            margin-bottom: 5px;
+        }
+        
+        .landing-ad-fallback .tagline {
+            font-size: 10px;
+            opacity: 0.8;
         }
         
         .landing-hero {
@@ -691,6 +775,76 @@
 </head>
 
 <body>
+    <!-- Google AdSense containers for landing page -->
+    <!-- Only visible on desktop/tablet -->
+    <div class="landing-ad-container landing-ad-top-left">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7906696382628802"
+                crossorigin="anonymous"></script>
+        <ins class="adsbygoogle"
+             style="display:block;width:200px;height:200px"
+             data-ad-client="ca-pub-7906696382628802"
+             data-ad-slot="1234567894"
+             data-ad-format="auto"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <div class="landing-ad-fallback" style="display:none;">
+            <div class="logo">Glinta</div>
+            <div class="tagline">Professional</div>
+        </div>
+    </div>
+    
+    <div class="landing-ad-container landing-ad-top-right">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7906696382628802"
+                crossorigin="anonymous"></script>
+        <ins class="adsbygoogle"
+             style="display:block;width:200px;height:200px"
+             data-ad-client="ca-pub-7906696382628802"
+             data-ad-slot="1234567895"
+             data-ad-format="auto"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <div class="landing-ad-fallback" style="display:none;">
+            <div class="logo">Glinta</div>
+            <div class="tagline">Enterprise</div>
+        </div>
+    </div>
+    
+    <div class="landing-ad-container landing-ad-bottom-left">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7906696382628802"
+                crossorigin="anonymous"></script>
+        <ins class="adsbygoogle"
+             style="display:block;width:200px;height:200px"
+             data-ad-client="ca-pub-7906696382628802"
+             data-ad-slot="1234567896"
+             data-ad-format="auto"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <div class="landing-ad-fallback" style="display:none;">
+            <div class="logo">Glinta</div>
+            <div class="tagline">Solutions</div>
+        </div>
+    </div>
+    
+    <div class="landing-ad-container landing-ad-bottom-right">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7906696382628802"
+                crossorigin="anonymous"></script>
+        <ins class="adsbygoogle"
+             style="display:block;width:200px;height:200px"
+             data-ad-client="ca-pub-7906696382628802"
+             data-ad-slot="1234567897"
+             data-ad-format="auto"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <div class="landing-ad-fallback" style="display:none;">
+            <div class="logo">Glinta</div>
+            <div class="tagline">Africa</div>
+        </div>
+    </div>
+
     <!-- Loading Screen -->
     <div class="loading-screen" id="loadingScreen">
         <div class="text-center">

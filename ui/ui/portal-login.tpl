@@ -29,6 +29,36 @@
             background: rgba(255,255,255,0.95);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Fallback content when ads don't load */
+        .ad-fallback {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10px;
+            color: #666;
+            font-size: 12px;
+        }
+        
+        .ad-fallback .logo {
+            font-size: 18px;
+            font-weight: bold;
+            color: #FFD700;
+            margin-bottom: 5px;
+        }
+        
+        .ad-fallback .tagline {
+            font-size: 10px;
+            opacity: 0.8;
         }
         
         .ad-top-left {
@@ -292,67 +322,79 @@
     <!-- Google AdSense containers positioned at corners -->
     <!-- Only visible on desktop/tablet - hidden on mobile -->
     <div class="ad-container ad-top-left">
-        <!-- Replace with your Google AdSense code -->
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXX"
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7906696382628802"
                 crossorigin="anonymous"></script>
         <!-- Top Left Ad -->
         <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-XXXXXXXXX"
-             data-ad-slot="XXXXXXXXX"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
+             style="display:block;width:200px;height:200px"
+             data-ad-client="ca-pub-7906696382628802"
+             data-ad-slot="1234567890"
+             data-ad-format="auto"></ins>
         <script>
              (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
+        <!-- Fallback content -->
+        <div class="ad-fallback" style="display:none;">
+            <div class="logo">Glinta</div>
+            <div class="tagline">Fast WiFi</div>
+        </div>
     </div>
     
     <div class="ad-container ad-top-right">
-        <!-- Replace with your Google AdSense code -->
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXX"
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7906696382628802"
                 crossorigin="anonymous"></script>
         <!-- Top Right Ad -->
         <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-XXXXXXXXX"
-             data-ad-slot="XXXXXXXXX"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
+             style="display:block;width:200px;height:200px"
+             data-ad-client="ca-pub-7906696382628802"
+             data-ad-slot="1234567891"
+             data-ad-format="auto"></ins>
         <script>
              (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
+        <!-- Fallback content -->
+        <div class="ad-fallback" style="display:none;">
+            <div class="logo">Glinta</div>
+            <div class="tagline">Reliable Internet</div>
+        </div>
     </div>
     
     <div class="ad-container ad-bottom-left">
-        <!-- Replace with your Google AdSense code -->
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXX"
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7906696382628802"
                 crossorigin="anonymous"></script>
         <!-- Bottom Left Ad -->
         <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-XXXXXXXXX"
-             data-ad-slot="XXXXXXXXX"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
+             style="display:block;width:200px;height:200px"
+             data-ad-client="ca-pub-7906696382628802"
+             data-ad-slot="1234567892"
+             data-ad-format="auto"></ins>
         <script>
              (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
+        <!-- Fallback content -->
+        <div class="ad-fallback" style="display:none;">
+            <div class="logo">Glinta</div>
+            <div class="tagline">24/7 Support</div>
+        </div>
     </div>
     
     <div class="ad-container ad-bottom-right">
-        <!-- Replace with your Google AdSense code -->
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXX"
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7906696382628802"
                 crossorigin="anonymous"></script>
         <!-- Bottom Right Ad -->
         <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-XXXXXXXXX"
-             data-ad-slot="XXXXXXXXX"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
+             style="display:block;width:200px;height:200px"
+             data-ad-client="ca-pub-7906696382628802"
+             data-ad-slot="1234567893"
+             data-ad-format="auto"></ins>
         <script>
              (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
+        <!-- Fallback content -->
+        <div class="ad-fallback" style="display:none;">
+            <div class="logo">Glinta</div>
+            <div class="tagline">Africa WiFi</div>
+        </div>
     </div>
 
     <div class="portal-container">
