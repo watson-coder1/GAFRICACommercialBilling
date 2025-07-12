@@ -13,8 +13,104 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --kenya-black: #000000;
+            --kenya-red: #CE1126;
+            --kenya-green: #006B3F;
+            --kenya-white: #FFFFFF;
+            --glinta-gold: #FFD700;
+        }
+        
+        /* Loading Screen */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--kenya-black) 0%, #1a1a1a 50%, var(--kenya-green) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+        
+        .loading-overlay.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .loading-logo {
+            width: 120px;
+            height: 120px;
+            background: var(--glinta-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            animation: logoSpin 2s linear infinite;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+        }
+        
+        .loading-logo::before {
+            content: 'G';
+            font-size: 48px;
+            font-weight: bold;
+            color: var(--kenya-black);
+            font-family: 'Lobster', cursive;
+        }
+        
+        @keyframes logoSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            color: var(--kenya-white);
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            animation: loadingPulse 1.5s ease-in-out infinite;
+        }
+        
+        .loading-subtitle {
+            color: var(--glinta-gold);
+            font-size: 16px;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        
+        .loading-progress {
+            width: 200px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        
+        .loading-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--glinta-gold), var(--kenya-green));
+            border-radius: 2px;
+            animation: progressMove 2s ease-in-out infinite;
+        }
+        
+        @keyframes loadingPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        @keyframes progressMove {
+            0% { width: 0%; }
+            50% { width: 70%; }
+            100% { width: 100%; }
+        }
+        
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--kenya-black) 0%, #1a1a1a 30%, var(--kenya-green) 100%);
             font-family: 'Roboto', sans-serif;
             min-height: 100vh;
             margin: 0;
@@ -115,17 +211,36 @@
         }
         
         .portal-container {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            padding: 20px;
-            max-width: 450px;
+            background: linear-gradient(135deg, var(--kenya-white) 0%, #f8f9fa 100%);
+            border: 3px solid var(--glinta-gold);
+            border-radius: 25px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15), 0 0 20px rgba(255, 215, 0, 0.1);
+            padding: 25px;
+            max-width: 480px;
             width: 100%;
             margin: 20px auto;
             max-height: 95vh;
             overflow-y: auto;
             position: relative;
             z-index: 50;
+        }
+        
+        .portal-container::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(45deg, var(--glinta-gold), var(--kenya-green), var(--kenya-black));
+            border-radius: 28px;
+            z-index: -1;
+            animation: borderGlow 3s ease-in-out infinite;
+        }
+        
+        @keyframes borderGlow {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
         }
         
         /* Enhanced responsive breakpoints */
@@ -167,22 +282,42 @@
         }
         .brand-title {
             font-family: 'Lobster', cursive;
-            background: linear-gradient(45deg, #666, #999);
+            background: linear-gradient(45deg, var(--glinta-gold), #DAA520);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            font-size: 32px;
+            font-size: 36px;
             text-align: center;
-            margin-bottom: 10px;
-            text-shadow: none;
-            animation: titlePulse 3s ease-in-out infinite;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
             position: relative;
         }
         
-        @keyframes titlePulse {
-            0%, 100% { opacity: 0.8; }
-            50% { opacity: 1; }
+        .patriotic-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: var(--kenya-green);
+            font-weight: 500;
         }
+        
+        .flag-colors {
+            display: flex;
+            gap: 2px;
+        }
+        
+        .flag-stripe {
+            width: 20px;
+            height: 4px;
+            border-radius: 2px;
+        }
+        
+        .flag-black { background: var(--kenya-black); }
+        .flag-red { background: var(--kenya-red); }
+        .flag-green { background: var(--kenya-green); }
         
         /* Responsive typography */
         @media (max-width: 480px) {
@@ -288,23 +423,39 @@
             margin-bottom: 8px;
         }
         .package-price {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: bold;
-            color: #00C851;
+            background: linear-gradient(45deg, var(--kenya-green), #28a745);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 8px;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
             animation: priceGlow 2s ease-in-out infinite alternate;
+            position: relative;
+        }
+        
+        .package-price::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 2px;
+            background: var(--glinta-gold);
+            border-radius: 1px;
+            animation: underlineGlow 1.5s ease-in-out infinite;
         }
         
         @keyframes priceGlow {
-            from { 
-                color: #00C851; 
-                text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-            }
-            to { 
-                color: #28a745; 
-                text-shadow: 0 0 8px rgba(0, 200, 81, 0.3);
-            }
+            from { filter: brightness(1); }
+            to { filter: brightness(1.2) drop-shadow(0 0 5px rgba(0, 107, 63, 0.3)); }
+        }
+        
+        @keyframes underlineGlow {
+            0%, 100% { opacity: 0.6; width: 40%; }
+            50% { opacity: 1; width: 80%; }
         }
         .package-details {
             color: #666;
@@ -332,18 +483,20 @@
             box-shadow: 0 0 0 0.2rem rgba(255,215,0,0.25);
         }
         .continue-btn {
-            background: linear-gradient(45deg, #00C851, #28a745);
-            border: none;
-            color: white;
-            padding: 15px 30px;
-            font-size: 16px;
-            font-weight: 500;
-            border-radius: 10px;
+            background: linear-gradient(45deg, var(--kenya-green), #28a745);
+            border: 2px solid var(--glinta-gold);
+            color: var(--kenya-white);
+            padding: 18px 30px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 12px;
             width: 100%;
             cursor: pointer;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .continue-btn::before {
@@ -383,6 +536,16 @@
     </style>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-logo"></div>
+        <div class="loading-text">Karibu Glinta Africa</div>
+        <div class="loading-subtitle">🇰🇪 "Harambee - Unity is Strength" 🇰🇪</div>
+        <div class="loading-progress">
+            <div class="loading-progress-bar"></div>
+        </div>
+    </div>
+
     <!-- Google AdSense containers positioned at corners -->
     <!-- Only visible on desktop/tablet - hidden on mobile -->
     <div class="ad-container ad-top-left">
@@ -463,7 +626,16 @@
 
     <div class="portal-container">
         <div class="brand-title">Glinta Africa</div>
-        <div class="subtitle">Choose Your WiFi Package</div>
+        <div class="patriotic-badge">
+            <span>🇰🇪</span>
+            <div class="flag-colors">
+                <div class="flag-stripe flag-black"></div>
+                <div class="flag-stripe flag-red"></div>
+                <div class="flag-stripe flag-green"></div>
+            </div>
+            <span>Proudly Kenyan</span>
+        </div>
+        <div class="subtitle">Choose Your WiFi Package - Chagua Mpango Wako</div>
         
         <div class="wifi-info">
             <small>
@@ -491,13 +663,13 @@
             {/foreach}
             
             <div class="phone-input">
-                <input type="tel" name="phone_number" placeholder="Enter your phone number (e.g., 0712345678)" 
-                       pattern="^(254|0)[17]\d{8}$" required>
-                <small class="form-text text-muted">Format: 0712345678 or 254712345678</small>
+                <input type="tel" name="phone_number" placeholder="07XX XXX XXX" 
+                       pattern="^(254|0)[17]\d{8}$" required maxlength="10">
+                <small class="form-text text-muted">🇰🇪 Kenyan mobile number (e.g., 0712345678)</small>
             </div>
             
             <button type="submit" class="continue-btn" disabled>
-                Continue to Payment
+                🚀 Lipa na M-Pesa - Pay Now
             </button>
         </form>
     </div>
@@ -604,9 +776,23 @@
                 continueBtn.disabled = !(hasPackage && hasPhone);
             }
             
+            // Loading screen control
+            function hideLoadingScreen() {
+                setTimeout(() => {
+                    const loadingOverlay = document.getElementById('loadingOverlay');
+                    loadingOverlay.classList.add('fade-out');
+                    setTimeout(() => {
+                        loadingOverlay.style.display = 'none';
+                    }, 500);
+                }, 2500); // Show loading for 2.5 seconds
+            }
+            
             // Initialize
             detectDeviceInfo();
-            animateEntrance();
+            hideLoadingScreen();
+            setTimeout(() => {
+                animateEntrance();
+            }, 3000); // Start entrance animation after loading screen
         });
         
         // Add ripple animation CSS
