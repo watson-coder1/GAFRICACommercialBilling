@@ -28,7 +28,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, var(--kenya-black) 0%, #1a1a1a 50%, var(--kenya-green) 100%);
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #1a252f 100%);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -110,38 +110,20 @@
         }
         
         body {
-            background: linear-gradient(135deg, var(--kenya-black) 0%, #1a1a1a 30%, var(--kenya-green) 100%);
+            background: linear-gradient(135deg, #f8f6f0 0%, #ffffff 50%, #f5f3ed 100%);
             font-family: 'Roboto', sans-serif;
             min-height: 100vh;
             margin: 0;
             padding: 10px;
             overflow-x: hidden;
             position: relative;
+            transition: all 0.3s ease;
         }
         
-        /* Mobile keyboard handling */
+        /* Mobile optimizations */
         @media screen and (max-width: 768px) {
             body {
                 padding: 5px;
-            }
-            
-            /* Fix for mobile keyboard covering input */
-            .portal-container {
-                position: relative;
-                margin-top: 10px;
-                margin-bottom: 10px;
-            }
-            
-            /* Ensure input is visible when focused */
-            .phone-input input:focus {
-                position: relative;
-                z-index: 1000;
-            }
-            
-            /* Adjust container when keyboard is open */
-            .portal-container.keyboard-open {
-                transform: translateY(-50px);
-                transition: transform 0.3s ease;
             }
         }
         
@@ -237,12 +219,13 @@
         }
         
         .portal-container {
-            background: linear-gradient(135deg, var(--kenya-white) 0%, #f8f9fa 100%);
-            border: 3px solid var(--glinta-gold);
-            border-radius: 25px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.15), 0 0 20px rgba(255, 215, 0, 0.1);
-            padding: 25px;
-            max-width: 480px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(218, 165, 32, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08), 0 5px 15px rgba(0,0,0,0.05);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            max-width: 420px;
             width: 100%;
             margin: 20px auto;
             max-height: 95vh;
@@ -254,19 +237,14 @@
         .portal-container::before {
             content: '';
             position: absolute;
-            top: -3px;
-            left: -3px;
-            right: -3px;
-            bottom: -3px;
-            background: linear-gradient(45deg, var(--glinta-gold), var(--kenya-green), var(--kenya-black));
-            border-radius: 28px;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            bottom: -1px;
+            background: linear-gradient(45deg, rgba(218, 165, 32, 0.1), rgba(0, 107, 63, 0.1));
+            border-radius: 21px;
             z-index: -1;
-            animation: borderGlow 3s ease-in-out infinite;
-        }
-        
-        @keyframes borderGlow {
-            0%, 100% { opacity: 0.7; }
-            50% { opacity: 1; }
+            opacity: 0.5;
         }
         
         /* Enhanced responsive breakpoints */
@@ -334,15 +312,23 @@
         }
         .brand-title {
             font-family: 'Lobster', cursive;
-            background: linear-gradient(45deg, var(--glinta-gold), #DAA520);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-size: 36px;
+            color: #2c3e50;
+            font-size: 32px;
             text-align: center;
             margin-bottom: 5px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
             position: relative;
+        }
+        
+        .brand-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 2px;
+            background: linear-gradient(45deg, var(--glinta-gold), #DAA520);
+            border-radius: 1px;
         }
         
         .patriotic-badge {
@@ -452,21 +438,15 @@
             }
         }
         .package-card:hover {
-            border-color: #00C851;
-            box-shadow: 0 8px 25px rgba(0, 200, 81, 0.2);
-            transform: translateY(-5px) scale(1.02);
+            border-color: var(--glinta-gold);
+            box-shadow: 0 8px 25px rgba(218, 165, 32, 0.15);
+            transform: translateY(-3px);
             animation: none;
         }
         .package-card.selected {
-            border-color: #00C851;
-            background: linear-gradient(135deg, #f8fff9, #e8f7ea);
-            box-shadow: 0 10px 30px rgba(0, 200, 81, 0.15);
-            animation: selectedPulse 1.5s ease-in-out infinite;
-        }
-        
-        @keyframes selectedPulse {
-            0%, 100% { box-shadow: 0 10px 30px rgba(0, 200, 81, 0.15); }
-            50% { box-shadow: 0 10px 30px rgba(0, 200, 81, 0.25); }
+            border-color: var(--glinta-gold);
+            background: linear-gradient(135deg, #fffef8, #faf9f0);
+            box-shadow: 0 10px 30px rgba(218, 165, 32, 0.12);
         }
         .package-name {
             font-size: 18px;
@@ -475,15 +455,10 @@
             margin-bottom: 8px;
         }
         .package-price {
-            font-size: 26px;
-            font-weight: bold;
-            background: linear-gradient(45deg, var(--kenya-green), #28a745);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 24px;
+            font-weight: 600;
+            color: #2c3e50;
             margin-bottom: 8px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-            animation: priceGlow 2s ease-in-out infinite alternate;
             position: relative;
         }
         
@@ -493,21 +468,11 @@
             bottom: -2px;
             left: 50%;
             transform: translateX(-50%);
-            width: 60%;
-            height: 2px;
+            width: 40%;
+            height: 1px;
             background: var(--glinta-gold);
             border-radius: 1px;
-            animation: underlineGlow 1.5s ease-in-out infinite;
-        }
-        
-        @keyframes priceGlow {
-            from { filter: brightness(1); }
-            to { filter: brightness(1.2) drop-shadow(0 0 5px rgba(0, 107, 63, 0.3)); }
-        }
-        
-        @keyframes underlineGlow {
-            0%, 100% { opacity: 0.6; width: 40%; }
-            50% { opacity: 1; width: 80%; }
+            opacity: 0.6;
         }
         .package-details {
             color: #666;
@@ -535,20 +500,19 @@
             box-shadow: 0 0 0 0.2rem rgba(255,215,0,0.25);
         }
         .continue-btn {
-            background: linear-gradient(45deg, var(--kenya-green), #28a745);
-            border: 2px solid var(--glinta-gold);
+            background: linear-gradient(45deg, #2c3e50, #34495e);
+            border: 1px solid var(--glinta-gold);
             color: var(--kenya-white);
-            padding: 18px 30px;
-            font-size: 18px;
-            font-weight: 600;
-            border-radius: 12px;
+            padding: 16px 30px;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 8px;
             width: 100%;
             cursor: pointer;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
         
         .continue-btn::before {
@@ -567,9 +531,9 @@
         }
         
         .continue-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 200, 81, 0.3);
-            background: linear-gradient(45deg, #28a745, #00C851);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(44, 62, 80, 0.2);
+            background: linear-gradient(45deg, #34495e, #2c3e50);
         }
         .continue-btn:disabled {
             opacity: 0.6;
@@ -822,49 +786,105 @@
             
             phoneInput.addEventListener('input', checkFormValid);
             
-            // Mobile keyboard handling
-            function handleMobileKeyboard() {
-                const portalContainer = document.querySelector('.portal-container');
-                const isMobile = window.innerWidth <= 768;
+            // Professional mobile keyboard handling like high-end companies
+            function initializeProfessionalKeyboardHandling() {
+                const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                if (!isMobile) return;
                 
-                if (isMobile) {
-                    phoneInput.addEventListener('focus', function() {
-                        // Scroll input into view
-                        setTimeout(() => {
-                            this.scrollIntoView({ 
-                                behavior: 'smooth', 
-                                block: 'center',
-                                inline: 'nearest'
-                            });
-                        }, 300);
-                        
-                        // Add keyboard open class
-                        portalContainer.classList.add('keyboard-open');
-                    });
-                    
-                    phoneInput.addEventListener('blur', function() {
-                        // Remove keyboard open class
-                        portalContainer.classList.remove('keyboard-open');
-                    });
-                    
-                    // Handle viewport changes (keyboard open/close)
-                    let viewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
-                    
-                    if (window.visualViewport) {
-                        window.visualViewport.addEventListener('resize', () => {
-                            const currentHeight = window.visualViewport.height;
-                            const heightDifference = viewportHeight - currentHeight;
+                const portalContainer = document.querySelector('.portal-container');
+                const initialViewportHeight = window.innerHeight;
+                let isKeyboardOpen = false;
+                
+                // Store original styles
+                const originalBodyStyle = {
+                    height: document.body.style.height,
+                    minHeight: document.body.style.minHeight,
+                    position: document.body.style.position
+                };
+                
+                function adjustForKeyboard(keyboardHeight) {
+                    if (keyboardHeight > 150) { // Keyboard is open
+                        if (!isKeyboardOpen) {
+                            isKeyboardOpen = true;
                             
-                            if (heightDifference > 100) {
-                                // Keyboard is likely open
-                                document.body.style.paddingBottom = '200px';
-                            } else {
-                                // Keyboard is likely closed
-                                document.body.style.paddingBottom = '10px';
-                            }
-                        });
+                            // Adjust body to account for keyboard
+                            document.body.style.height = `${initialViewportHeight}px`;
+                            document.body.style.minHeight = 'auto';
+                            document.body.style.position = 'relative';
+                            
+                            // Move focused input into view
+                            setTimeout(() => {
+                                const activeElement = document.activeElement;
+                                if (activeElement && activeElement.type === 'tel') {
+                                    const inputRect = activeElement.getBoundingClientRect();
+                                    const availableHeight = initialViewportHeight - keyboardHeight;
+                                    const targetPosition = availableHeight * 0.4; // Position in upper 40% of visible area
+                                    
+                                    if (inputRect.top > targetPosition) {
+                                        const scrollAmount = inputRect.top - targetPosition;
+                                        window.scrollBy({
+                                            top: scrollAmount,
+                                            behavior: 'smooth'
+                                        });
+                                    }
+                                }
+                            }, 100);
+                        }
+                    } else { // Keyboard is closed
+                        if (isKeyboardOpen) {
+                            isKeyboardOpen = false;
+                            
+                            // Restore original body styles
+                            document.body.style.height = originalBodyStyle.height;
+                            document.body.style.minHeight = originalBodyStyle.minHeight;
+                            document.body.style.position = originalBodyStyle.position;
+                            
+                            // Scroll back to top smoothly
+                            window.scrollTo({
+                                top: 0,
+                                behavior: 'smooth'
+                            });
+                        }
                     }
                 }
+                
+                // Use Visual Viewport API if available (iOS Safari, Chrome)
+                if (window.visualViewport) {
+                    window.visualViewport.addEventListener('resize', () => {
+                        const keyboardHeight = initialViewportHeight - window.visualViewport.height;
+                        adjustForKeyboard(keyboardHeight);
+                    });
+                } else {
+                    // Fallback for older browsers
+                    let lastHeight = window.innerHeight;
+                    
+                    window.addEventListener('resize', () => {
+                        const currentHeight = window.innerHeight;
+                        const heightChange = lastHeight - currentHeight;
+                        adjustForKeyboard(heightChange);
+                        lastHeight = currentHeight;
+                    });
+                }
+                
+                // Enhanced input focus handling
+                phoneInput.addEventListener('focus', function() {
+                    // Set a timeout to ensure keyboard animation completes
+                    setTimeout(() => {
+                        if (window.visualViewport) {
+                            const keyboardHeight = initialViewportHeight - window.visualViewport.height;
+                            adjustForKeyboard(keyboardHeight);
+                        }
+                    }, 300);
+                });
+                
+                // Handle input blur
+                phoneInput.addEventListener('blur', function() {
+                    setTimeout(() => {
+                        if (!document.activeElement || document.activeElement.tagName !== 'INPUT') {
+                            adjustForKeyboard(0);
+                        }
+                    }, 300);
+                });
             }
             
             function checkFormValid() {
@@ -886,7 +906,7 @@
             
             // Initialize
             detectDeviceInfo();
-            handleMobileKeyboard();
+            initializeProfessionalKeyboardHandling();
             hideLoadingScreen();
             setTimeout(() => {
                 animateEntrance();
