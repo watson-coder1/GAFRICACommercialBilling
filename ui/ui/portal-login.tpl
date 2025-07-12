@@ -15,18 +15,29 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             font-family: 'Roboto', sans-serif;
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             margin: 0;
+            padding: 10px;
+            overflow-x: hidden;
         }
         .portal-container {
             background: white;
             border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            padding: 40px;
-            max-width: 500px;
-            width: 90%;
+            padding: 20px;
+            max-width: 450px;
+            width: 100%;
+            margin: 20px auto;
+            max-height: 95vh;
+            overflow-y: auto;
+        }
+        
+        @media (max-width: 768px) {
+            .portal-container {
+                padding: 15px;
+                border-radius: 15px;
+                margin: 10px auto;
+                max-height: 98vh;
+            }
         }
         .brand-title {
             font-family: 'Lobster', cursive;
@@ -45,11 +56,19 @@
         .package-card {
             border: 2px solid #e9ecef;
             border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 15px;
+            padding: 15px;
+            margin-bottom: 12px;
             cursor: pointer;
             transition: all 0.3s ease;
             position: relative;
+        }
+        
+        @media (max-width: 768px) {
+            .package-card {
+                padding: 12px;
+                margin-bottom: 10px;
+                border-radius: 12px;
+            }
         }
         .package-card:hover {
             border-color: #FFD700;

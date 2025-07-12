@@ -85,8 +85,26 @@ switch ($routes['1']) {
         $session->phone_number = $phoneNumber;
         $session->save();
         
-        // For now, redirect to payment status (will implement M-Pesa later)
-        r2(U . 'portal/payment/' . $sessionId);
+        // Initiate M-Pesa STK Push
+        try {
+            $mpesa = new MpesaIntegration();
+            $stkResult = $mpesa->initiateSTKPush(
+                $phoneNumber, 
+                $package->price, 
+                $sessionId,
+                'Glinta WiFi - ' . $package->name
+            );
+            
+            if ($stkResult['success']) {
+                // STK push sent successfully
+                r2(U . 'portal/payment/' . $sessionId, 's', 'Payment request sent to your phone. Please check and enter your M-Pesa PIN.');
+            } else {
+                // STK push failed
+                r2(U . 'portal/login', 'e', 'Failed to initiate payment: ' . $stkResult['message']);
+            }
+        } catch (Exception $e) {
+            r2(U . 'portal/login', 'e', 'Payment system error. Please try again.');
+        }
         break;
         
     case 'payment':
