@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
     <title>Glinta Africa - WiFi Packages</title>
     <meta name="google-adsense-account" content="ca-pub-7906696382628802">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7906696382628802" crossorigin="anonymous"></script>
@@ -117,6 +117,32 @@
             padding: 10px;
             overflow-x: hidden;
             position: relative;
+        }
+        
+        /* Mobile keyboard handling */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            
+            /* Fix for mobile keyboard covering input */
+            .portal-container {
+                position: relative;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+            
+            /* Ensure input is visible when focused */
+            .phone-input input:focus {
+                position: relative;
+                z-index: 1000;
+            }
+            
+            /* Adjust container when keyboard is open */
+            .portal-container.keyboard-open {
+                transform: translateY(-50px);
+                transition: transform 0.3s ease;
+            }
         }
         
         /* Ad containers positioned at corners */
@@ -246,14 +272,40 @@
         /* Enhanced responsive breakpoints */
         @media (max-width: 480px) {
             body {
-                padding: 5px;
+                padding: 3px;
+                min-height: 100vh;
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                padding-top: 20px;
             }
             .portal-container {
-                padding: 12px;
-                border-radius: 12px;
-                margin: 5px auto;
-                max-height: 98vh;
+                padding: 15px;
+                border-radius: 15px;
+                margin: 0 auto;
+                max-height: none;
                 max-width: 95%;
+                width: 95%;
+                position: relative;
+                min-height: auto;
+            }
+            
+            /* Mobile input improvements */
+            .phone-input {
+                margin-top: 15px;
+                margin-bottom: 20px;
+            }
+            
+            .phone-input input {
+                font-size: 16px; /* Prevents zoom on iOS */
+                padding: 15px;
+                border-radius: 8px;
+            }
+            
+            .continue-btn {
+                padding: 16px 20px;
+                font-size: 16px;
+                margin-top: 10px;
             }
         }
         
@@ -770,6 +822,51 @@
             
             phoneInput.addEventListener('input', checkFormValid);
             
+            // Mobile keyboard handling
+            function handleMobileKeyboard() {
+                const portalContainer = document.querySelector('.portal-container');
+                const isMobile = window.innerWidth <= 768;
+                
+                if (isMobile) {
+                    phoneInput.addEventListener('focus', function() {
+                        // Scroll input into view
+                        setTimeout(() => {
+                            this.scrollIntoView({ 
+                                behavior: 'smooth', 
+                                block: 'center',
+                                inline: 'nearest'
+                            });
+                        }, 300);
+                        
+                        // Add keyboard open class
+                        portalContainer.classList.add('keyboard-open');
+                    });
+                    
+                    phoneInput.addEventListener('blur', function() {
+                        // Remove keyboard open class
+                        portalContainer.classList.remove('keyboard-open');
+                    });
+                    
+                    // Handle viewport changes (keyboard open/close)
+                    let viewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+                    
+                    if (window.visualViewport) {
+                        window.visualViewport.addEventListener('resize', () => {
+                            const currentHeight = window.visualViewport.height;
+                            const heightDifference = viewportHeight - currentHeight;
+                            
+                            if (heightDifference > 100) {
+                                // Keyboard is likely open
+                                document.body.style.paddingBottom = '200px';
+                            } else {
+                                // Keyboard is likely closed
+                                document.body.style.paddingBottom = '10px';
+                            }
+                        });
+                    }
+                }
+            }
+            
             function checkFormValid() {
                 const hasPackage = packageIdInput.value !== '';
                 const hasPhone = phoneInput.value.trim() !== '';
@@ -789,6 +886,7 @@
             
             // Initialize
             detectDeviceInfo();
+            handleMobileKeyboard();
             hideLoadingScreen();
             setTimeout(() => {
                 animateEntrance();
