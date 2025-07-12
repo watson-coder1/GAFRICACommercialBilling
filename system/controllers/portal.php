@@ -55,57 +55,11 @@ switch ($routes['1']) {
         $session->ip_address = $ip;
         $session->save();
         
-        // Get available packages with error handling
-        try {
-            // First ensure the table exists
-            $db = ORM::get_db();
-            $db->exec("CREATE TABLE IF NOT EXISTS tbl_hotspot_packages (
-                id INT AUTO_INCREMENT PRIMARY KEY,
-                name VARCHAR(255) NOT NULL,
-                price DECIMAL(10,2) NOT NULL,
-                duration_hours INT NOT NULL,
-                data_limit_mb INT NULL,
-                description TEXT NULL,
-                status ENUM('active', 'inactive') DEFAULT 'active',
-                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-            )");
-            
-            $packages = ORM::for_table('tbl_hotspot_packages')
-                ->where('status', 'active')
-                ->order_by_asc('price')
-                ->find_many();
-                
-            // Check if packages exist, if not create default ones
-            if (empty($packages)) {
-                // Create default packages if none exist
-                $defaultPackages = [
-                    ['name' => '1 Hour Basic', 'price' => 20, 'duration_hours' => 1, 'description' => 'Fast internet for 1 hour', 'status' => 'active'],
-                    ['name' => '3 Hours Standard', 'price' => 50, 'duration_hours' => 3, 'description' => 'Extended internet access', 'status' => 'active'],
-                    ['name' => 'Daily Premium', 'price' => 100, 'duration_hours' => 24, 'description' => 'Full day internet access', 'status' => 'active']
-                ];
-                
-                foreach ($defaultPackages as $pkg) {
-                    $package = ORM::for_table('tbl_hotspot_packages')->create();
-                    $package->name = $pkg['name'];
-                    $package->price = $pkg['price'];
-                    $package->duration_hours = $pkg['duration_hours'];
-                    $package->description = $pkg['description'];
-                    $package->status = $pkg['status'];
-                    $package->created_at = date('Y-m-d H:i:s');
-                    $package->save();
-                }
-                
-                // Re-fetch packages
-                $packages = ORM::for_table('tbl_hotspot_packages')
-                    ->where('status', 'active')
-                    ->order_by_asc('price')
-                    ->find_many();
-            }
-        } catch (Exception $e) {
-            // Log error and show user-friendly message
-            error_log("Portal packages error: " . $e->getMessage());
-            $packages = [];
-        }
+        // Get available packages
+        $packages = ORM::for_table('tbl_hotspot_packages')
+            ->where('status', 'active')
+            ->order_by_asc('price')
+            ->find_many();
             
         $ui->assign('packages', $packages);
         $ui->assign('session_id', $sessionId);

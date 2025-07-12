@@ -39,7 +39,8 @@
       "Bash(mysql:*)",
       "WebFetch(domain:glintaafrica.com)",
       "WebFetch(domain:tailscale.com)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Bash(rm:*)"
     ],
     "deny": []
   }
