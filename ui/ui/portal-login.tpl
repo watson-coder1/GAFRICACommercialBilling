@@ -18,7 +18,70 @@
             margin: 0;
             padding: 10px;
             overflow-x: hidden;
+            position: relative;
         }
+        
+        /* Ad containers positioned at corners */
+        .ad-container {
+            position: fixed;
+            z-index: 100;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .ad-top-left {
+            top: 10px;
+            left: 10px;
+            width: 200px;
+            height: 200px;
+        }
+        
+        .ad-top-right {
+            top: 10px;
+            right: 10px;
+            width: 200px;
+            height: 200px;
+        }
+        
+        .ad-bottom-left {
+            bottom: 10px;
+            left: 10px;
+            width: 200px;
+            height: 200px;
+        }
+        
+        .ad-bottom-right {
+            bottom: 10px;
+            right: 10px;
+            width: 200px;
+            height: 200px;
+        }
+        
+        /* Hide ads on mobile to avoid interference */
+        @media (max-width: 768px) {
+            .ad-container {
+                display: none;
+            }
+        }
+        
+        /* Medium screens - reduce ad size */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .ad-container {
+                width: 150px;
+                height: 150px;
+            }
+        }
+        
+        /* Large screens - show all ads */
+        @media (min-width: 1025px) {
+            .ad-container {
+                width: 200px;
+                height: 200px;
+            }
+        }
+        
         .portal-container {
             background: white;
             border-radius: 20px;
@@ -29,14 +92,45 @@
             margin: 20px auto;
             max-height: 95vh;
             overflow-y: auto;
+            position: relative;
+            z-index: 50;
         }
         
-        @media (max-width: 768px) {
+        /* Enhanced responsive breakpoints */
+        @media (max-width: 480px) {
+            body {
+                padding: 5px;
+            }
+            .portal-container {
+                padding: 12px;
+                border-radius: 12px;
+                margin: 5px auto;
+                max-height: 98vh;
+                max-width: 95%;
+            }
+        }
+        
+        @media (min-width: 481px) and (max-width: 768px) {
             .portal-container {
                 padding: 15px;
                 border-radius: 15px;
                 margin: 10px auto;
                 max-height: 98vh;
+                max-width: 90%;
+            }
+        }
+        
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .portal-container {
+                padding: 25px;
+                max-width: 500px;
+            }
+        }
+        
+        @media (min-width: 1025px) {
+            .portal-container {
+                padding: 30px;
+                max-width: 550px;
             }
         }
         .brand-title {
@@ -47,6 +141,31 @@
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
+        
+        /* Responsive typography */
+        @media (max-width: 480px) {
+            .brand-title {
+                font-size: 24px;
+                margin-bottom: 8px;
+            }
+            .subtitle {
+                font-size: 14px !important;
+                margin-bottom: 20px !important;
+            }
+        }
+        
+        @media (min-width: 481px) and (max-width: 768px) {
+            .brand-title {
+                font-size: 28px;
+            }
+        }
+        
+        @media (min-width: 1025px) {
+            .brand-title {
+                font-size: 36px;
+            }
+        }
+        
         .subtitle {
             text-align: center;
             color: #666;
@@ -63,11 +182,33 @@
             position: relative;
         }
         
-        @media (max-width: 768px) {
+        /* Enhanced package card responsiveness */
+        @media (max-width: 480px) {
+            .package-card {
+                padding: 10px;
+                margin-bottom: 8px;
+                border-radius: 10px;
+            }
+            .package-name {
+                font-size: 16px !important;
+            }
+            .package-price {
+                font-size: 20px !important;
+            }
+        }
+        
+        @media (min-width: 481px) and (max-width: 768px) {
             .package-card {
                 padding: 12px;
                 margin-bottom: 10px;
                 border-radius: 12px;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .package-card {
+                padding: 18px;
+                margin-bottom: 15px;
             }
         }
         .package-card:hover {
@@ -148,6 +289,72 @@
     </style>
 </head>
 <body>
+    <!-- Google AdSense containers positioned at corners -->
+    <!-- Only visible on desktop/tablet - hidden on mobile -->
+    <div class="ad-container ad-top-left">
+        <!-- Replace with your Google AdSense code -->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXX"
+                crossorigin="anonymous"></script>
+        <!-- Top Left Ad -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXX"
+             data-ad-slot="XXXXXXXXX"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    
+    <div class="ad-container ad-top-right">
+        <!-- Replace with your Google AdSense code -->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXX"
+                crossorigin="anonymous"></script>
+        <!-- Top Right Ad -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXX"
+             data-ad-slot="XXXXXXXXX"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    
+    <div class="ad-container ad-bottom-left">
+        <!-- Replace with your Google AdSense code -->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXX"
+                crossorigin="anonymous"></script>
+        <!-- Bottom Left Ad -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXX"
+             data-ad-slot="XXXXXXXXX"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    
+    <div class="ad-container ad-bottom-right">
+        <!-- Replace with your Google AdSense code -->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXX"
+                crossorigin="anonymous"></script>
+        <!-- Bottom Right Ad -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXX"
+             data-ad-slot="XXXXXXXXX"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
     <div class="portal-container">
         <div class="brand-title">Glinta Africa</div>
         <div class="subtitle">Choose Your WiFi Package</div>
