@@ -550,7 +550,7 @@
         
         function updateCountdown() {
             if (countdown > 0) {
-                startBrowsingBtn.innerHTML = `<span>🔍</span><span>Start Browsing (${countdown}s)</span>`;
+                startBrowsingBtn.innerHTML = '<span>🔍</span><span>Start Browsing (' + countdown + 's)</span>';
                 countdown--;
                 setTimeout(updateCountdown, 1000);
             } else {
