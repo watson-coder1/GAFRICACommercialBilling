@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Glinta Africa - WiFi Access Portal</title>
+    <meta name="description" content="Purchase WiFi packages to access internet">
+    
+    <style>
+        /* Embedded styles for MikroTik compatibility */
+        :root {
+            --kenya-black: #000000;
+            --kenya-red: #CE1126;
+            --kenya-green: #006B3F;
+            --kenya-white: #FFFFFF;
+            --glinta-gold: #FFD700;
+            --glinta-blue: #1e3a8a;
+            --glinta-gray: #f8fafc;
+            --glinta-border: #e2e8f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #000 0%, #006B3F 50%, #FFD700 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--kenya-black) 0%, var(--kenya-green) 100%);
+            color: var(--kenya-white);
+            padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-circle {
+            width: 50px;
+            height: 50px;
+            background: var(--glinta-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--kenya-black);
+        }
+        
+        .brand-text h1 {
+            margin: 0;
+            font-size: 24px;
+            color: var(--glinta-gold);
+        }
+        
+        .brand-text p {
+            margin: 0;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 40px 20px;
+        }
+        
+        .portal-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .portal-card {
+            background: var(--kenya-white);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--glinta-border);
+        }
+        
+        .card-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--kenya-green), #10b981);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 24px;
+            color: var(--kenya-white);
+        }
+        
+        .card-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--kenya-black);
+            margin-bottom: 10px;
+        }
+        
+        .card-subtitle {
+            color: #64748b;
+            font-size: 14px;
+        }
+        
+        /* Package Selection */
+        .package-grid {
+            display: grid;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .package-card {
+            border: 2px solid var(--glinta-border);
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #f8fafc;
+        }
+        
+        .package-card:hover {
+            border-color: var(--kenya-green);
+            background: #f0fdf4;
+        }
+        
+        .package-card.selected {
+            border-color: var(--kenya-green);
+            background: #f0fdf4;
+            box-shadow: 0 4px 15px rgba(0, 107, 63, 0.2);
+        }
+        
+        .package-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .package-name {
+            font-weight: 600;
+            color: var(--kenya-black);
+            font-size: 16px;
+        }
+        
+        .package-price {
+            font-weight: bold;
+            color: var(--kenya-green);
+            font-size: 18px;
+        }
+        
+        .package-details {
+            font-size: 13px;
+            color: #64748b;
+        }
+        
+        /* Form Styling */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--kenya-black);
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--glinta-border);
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--kenya-green);
+            box-shadow: 0 0 0 3px rgba(0, 107, 63, 0.1);
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--kenya-green), #10b981);
+            color: var(--kenya-white);
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #065f46, var(--kenya-green));
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 107, 63, 0.3);
+        }
+        
+        /* Simple animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .portal-card {
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .header-content {
+                text-align: center;
+            }
+            
+            .portal-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-circle">G</div>
+                    <div class="brand-text">
+                        <h1>Glinta Africa</h1>
+                        <p>Premium WiFi Solutions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="portal-grid">
+                <!-- WiFi Packages -->
+                <div class="portal-card">
+                    <div class="card-header">
+                        <div class="card-icon">📱</div>
+                        <h3 class="card-title">Purchase WiFi Package</h3>
+                        <p class="card-subtitle">Select a package and pay with M-Pesa to get instant internet access</p>
+                    </div>
+
+                    <!-- MikroTik will inject form action dynamically -->
+                    <form name="login" action="$(link-login-only)" method="post" 
+                          $(if chap-id) onSubmit="return doLogin()" $(endif)>
+                        <input type="hidden" name="dst" value="$(link-orig)" />
+                        <input type="hidden" name="popup" value="true" />
+                        
+                        <div class="form-group">
+                            <label class="form-label">📦 Select Package</label>
+                            <div class="package-grid">
+                                <!-- Package 1 -->
+                                <div class="package-card" onclick="selectPackage(this, '1hour', 10)">
+                                    <div class="package-header">
+                                        <span class="package-name">1 Hour Access</span>
+                                        <span class="package-price">KSh 10</span>
+                                    </div>
+                                    <div class="package-details">
+                                        ⏱️ 1 hour • 🚀 High Speed • 📱 All Devices
+                                    </div>
+                                </div>
+                                
+                                <!-- Package 2 -->
+                                <div class="package-card" onclick="selectPackage(this, '3hours', 25)">
+                                    <div class="package-header">
+                                        <span class="package-name">3 Hours Access</span>
+                                        <span class="package-price">KSh 25</span>
+                                    </div>
+                                    <div class="package-details">
+                                        ⏱️ 3 hours • 🚀 High Speed • 📱 All Devices
+                                    </div>
+                                </div>
+                                
+                                <!-- Package 3 -->
+                                <div class="package-card" onclick="selectPackage(this, '1day', 50)">
+                                    <div class="package-header">
+                                        <span class="package-name">Full Day Access</span>
+                                        <span class="package-price">KSh 50</span>
+                                    </div>
+                                    <div class="package-details">
+                                        ⏱️ 24 hours • 🚀 High Speed • 📱 All Devices • 💡 Best Value
+                                    </div>
+                                </div>
+                                
+                                <!-- Package 4 -->
+                                <div class="package-card" onclick="selectPackage(this, '1week', 200)">
+                                    <div class="package-header">
+                                        <span class="package-name">Weekly Access</span>
+                                        <span class="package-price">KSh 200</span>
+                                    </div>
+                                    <div class="package-details">
+                                        ⏱️ 7 days • 🚀 High Speed • 📱 All Devices • 🔥 Popular
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="hidden" name="package" id="selectedPackage" required>
+                            <input type="hidden" name="amount" id="selectedAmount" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="username" class="form-label">📞 Phone Number (M-Pesa)</label>
+                            <input type="tel" 
+                                   name="username" 
+                                   id="username" 
+                                   class="form-input" 
+                                   placeholder="0712345678" 
+                                   required 
+                                   minlength="10" 
+                                   maxlength="13"
+                                   pattern="^(254|0)[17]\d{8}$">
+                            <small style="color: #64748b; font-size: 12px;">Enter your Safaricom number for payment</small>
+                        </div>
+
+                        <!-- Hidden password field for MikroTik -->
+                        <input type="hidden" name="password" value="temp_pass">
+
+                        <button type="submit" class="btn btn-primary">
+                            💳 Pay with M-Pesa
+                        </button>
+                    </form>
+                    
+                    <!-- Error messages from MikroTik -->
+                    $(if error)<div style="color: red; margin-top: 10px;">$(error)</div>$(endif)
+                    $(if trial == 'yes')<div style="color: green; margin-top: 10px;">Free trial available, <a href="$(link-login-only)?dst=$(link-orig-esc)&username=T-$(mac-esc)">click here</a>.</div>$(endif)
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Package selection
+        function selectPackage(element, packageId, amount) {
+            // Remove previous selection
+            document.querySelectorAll('.package-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            
+            // Add selection to clicked card
+            element.classList.add('selected');
+            
+            // Set hidden input values
+            document.getElementById('selectedPackage').value = packageId;
+            document.getElementById('selectedAmount').value = amount;
+        }
+        
+        // Auto-format phone number
+        document.getElementById('username').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            
+            // Convert 07xx to 2547xx
+            if (value.startsWith('07')) {
+                value = '254' + value.substring(1);
+            }
+            
+            e.target.value = value;
+        });
+        
+        // MikroTik CHAP authentication (if needed)
+        function doLogin() {
+            document.login.password.value = hexMD5('$(chap-id)' + 'temp_pass' + '$(chap-challenge)');
+            return true;
+        }
+    </script>
+    
+    <!-- MD5 for CHAP (if needed) -->
+    $(if chap-id)
+    <script src="/md5.js"></script>
+    $(endif)
+</body>
+</html>
