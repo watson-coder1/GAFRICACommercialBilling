@@ -666,15 +666,6 @@
                         </button>
                     </form>
 
-                    <div class="divider">
-                        <span class="divider-text">Need Help?</span>
-                    </div>
-
-                    <div style="text-align: center; color: #64748b; font-size: 14px;">
-                        <p>✅ Payment successful but no internet?<br>
-                        📧 Contact: <strong>support@glintaafrica.com</strong><br>
-                        📞 Call: <strong>0711311897</strong></p>
-                    </div>
                 </div>
             </div>
 
