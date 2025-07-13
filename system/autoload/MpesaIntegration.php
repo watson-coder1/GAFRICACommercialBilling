@@ -236,25 +236,66 @@ class MpesaIntegration
     }
     
     /**
-     * Create MikroTik user (placeholder for actual implementation)
+     * Create MikroTik hotspot user after successful payment
      */
     private function createMikroTikUser($session, $package)
     {
-        // This will be implemented when MikroTik is available
-        $username = 'user_' . substr($session->session_id, -8);
-        $password = substr(md5($session->session_id . time()), 0, 8);
-        
-        // Store MikroTik user in session
-        $session->mikrotik_user = $username;
-        $session->save();
-        
-        // TODO: Implement actual MikroTik API calls
-        // Example:
-        // $mikrotik = new MikrotikAPI();
-        // $mikrotik->connect($routerIP, $username, $password);
-        // $mikrotik->createUser($username, $password, $package->duration_hours);
-        
-        return true;
+        try {
+            // Create unique username
+            $username = 'hs_' . substr(str_replace(':', '', $session->mac_address), -6) . '_' . time();
+            $password = substr(md5($username . time()), 0, 8);
+            
+            // Get router information
+            $router = ORM::for_table('tbl_routers')
+                ->where('enabled', 1)
+                ->find_one();
+                
+            if (!$router) {
+                file_put_contents('system/uploads/hotspot_users.log', 
+                    date('Y-m-d H:i:s') . ' - ERROR: No enabled router found' . PHP_EOL, FILE_APPEND);
+                return false;
+            }
+            
+            // Load MikroTik device handler
+            require_once 'system/devices/MikrotikHotspot.php';
+            $device = new MikrotikHotspot();
+            
+            // Create customer and plan data compatible with existing MikroTik class
+            $customer = [
+                'username' => $username,
+                'password' => $password,
+                'mac_address' => $session->mac_address
+            ];
+            
+            $plan = [
+                'name_plan' => $package->name,
+                'typebp' => 'Limited',
+                'limit_type' => 'Time_Limit',
+                'time_limit' => $package->duration_hours,
+                'time_unit' => 'Hrs',
+                'shared_users' => 1,
+                'routers' => $router->id
+            ];
+            
+            // Add user to MikroTik hotspot
+            $device->add_customer($customer, $plan);
+            
+            // Store MikroTik user in session
+            $session->mikrotik_user = $username;
+            $session->save();
+            
+            // Log success
+            file_put_contents('system/uploads/hotspot_users.log', 
+                date('Y-m-d H:i:s') . ' - Created user: ' . $username . ' for MAC: ' . $session->mac_address . ' - Package: ' . $package->name . PHP_EOL, FILE_APPEND);
+                
+            return true;
+            
+        } catch (Exception $e) {
+            // Log error
+            file_put_contents('system/uploads/hotspot_users.log', 
+                date('Y-m-d H:i:s') . ' - ERROR: ' . $e->getMessage() . PHP_EOL, FILE_APPEND);
+            return false;
+        }
     }
     
     /**
