@@ -199,7 +199,8 @@ switch ($routes['1']) {
         $ui->assign('session', $session);
         $ui->assign('package', $package);
         $ui->assign('transaction', $transaction);
-        $ui->display('portal-payment.tpl');
+        $ui->assign('app_url', APP_URL);
+        $ui->display('portal-payment-enhanced.tpl');
         break;
         
     case 'status':
@@ -441,7 +442,7 @@ switch ($routes['1']) {
         }
         
         if ($authenticated) {
-            r2(U . 'portal/status/' . $sessionId, 's', "Authentication successful using $authenticationType! You now have internet access.");
+            r2(U . 'portal/success/' . $sessionId, 's', "Authentication successful using $authenticationType! You now have internet access.");
         } else {
             if ($mpesaCode) {
                 r2(U . 'portal/login', 'e', 'M-Pesa receipt code not found or already used. Please contact support.');
@@ -449,6 +450,32 @@ switch ($routes['1']) {
                 r2(U . 'portal/login', 'e', 'Invalid or expired voucher code. Please check and try again.');
             }
         }
+        break;
+        
+    case 'success':
+        $sessionId = $routes['2'] ?? '';
+        
+        $session = ORM::for_table('tbl_portal_sessions')
+            ->where('session_id', $sessionId)
+            ->find_one();
+            
+        if (!$session || $session->payment_status !== 'completed') {
+            r2(U . 'portal/login', 'e', 'Invalid session or payment not completed');
+        }
+        
+        $package = ORM::for_table('tbl_hotspot_packages')
+            ->where('id', $session->package_id)
+            ->find_one();
+            
+        $transaction = ORM::for_table('tbl_mpesa_transactions')
+            ->where('session_id', $sessionId)
+            ->find_one();
+            
+        $ui->assign('session', $session);
+        $ui->assign('package', $package);
+        $ui->assign('transaction', $transaction);
+        $ui->assign('app_url', APP_URL);
+        $ui->display('portal-success.tpl');
         break;
         
     default:
