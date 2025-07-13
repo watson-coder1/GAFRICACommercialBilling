@@ -733,7 +733,7 @@
             
             <div class="phone-input">
                 <input type="tel" name="phone_number" placeholder="0712345678" 
-                       pattern="^(254|0)?[17]\d{8}$" required maxlength="13" id="phoneInput">
+                       required minlength="10" maxlength="13" id="phoneInput">
                 <small class="form-text text-muted">🇰🇪 Enter phone number: 0712345678 or 254712345678</small>
             </div>
             
@@ -837,36 +837,11 @@
                 });
             });
             
-            // Phone input formatting and validation
+            // Simple phone input validation
             phoneInput.addEventListener('input', function() {
-                // Remove any non-digit characters
-                let value = this.value.replace(/\D/g, '');
-                
-                // Format the phone number as user types
-                if (value.startsWith('254')) {
-                    // Keep 254 format
-                    this.value = value.substring(0, 12);
-                } else if (value.startsWith('0')) {
-                    // Keep 0 format
-                    this.value = value.substring(0, 10);
-                } else if (value.length > 0) {
-                    // If user starts typing without 0 or 254, add 0
-                    this.value = '0' + value.substring(0, 9);
-                }
-                
-                // Clear any previous validation message
-                this.setCustomValidity('');
-                
+                // Just remove spaces and non-digits, keep it simple
+                this.value = this.value.replace(/[^\d]/g, '');
                 checkFormValid();
-            });
-            
-            // Add custom validation message
-            phoneInput.addEventListener('invalid', function() {
-                if (this.validity.patternMismatch) {
-                    this.setCustomValidity('Please enter a valid Kenyan phone number (e.g., 0712345678 or 254712345678)');
-                } else if (this.validity.valueMissing) {
-                    this.setCustomValidity('Please enter your phone number');
-                }
             });
             
             // Mobile keyboard handling
@@ -915,6 +890,10 @@
                     // Handle form submission with better mobile UX
                     const form = document.getElementById('packageForm');
                     form.addEventListener('submit', function(e) {
+                        console.log('Form submission started');
+                        console.log('Package ID:', packageIdInput.value);
+                        console.log('Phone:', phoneInput.value);
+                        
                         // Blur the input to hide keyboard before submission
                         phoneInput.blur();
                         
@@ -924,7 +903,7 @@
                         
                         // Let the form submit normally after a brief delay
                         setTimeout(() => {
-                            // This allows the form to submit normally
+                            console.log('Form submitting now...');
                         }, 100);
                     });
                 }
@@ -933,10 +912,8 @@
             function checkFormValid() {
                 const hasPackage = packageIdInput.value !== '';
                 const phoneValue = phoneInput.value.trim();
-                const hasValidPhone = phoneValue !== '' && (
-                    /^0[17]\d{8}$/.test(phoneValue) || 
-                    /^254[17]\d{8}$/.test(phoneValue)
-                );
+                // Very simple validation - just check if it's at least 10 digits
+                const hasValidPhone = phoneValue.length >= 10;
                 
                 continueBtn.disabled = !(hasPackage && hasValidPhone);
                 
@@ -946,7 +923,7 @@
                 } else if (!hasPackage) {
                     continueBtn.innerHTML = '📋 Select a Package First';
                 } else if (!hasValidPhone) {
-                    continueBtn.innerHTML = '📱 Enter Valid Phone Number';
+                    continueBtn.innerHTML = '📱 Enter Valid Phone Number (10+ digits)';
                 }
             }
             
