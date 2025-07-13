@@ -732,9 +732,9 @@
             {/foreach}
             
             <div class="phone-input">
-                <input type="tel" name="phone_number" placeholder="07XX XXX XXX" 
-                       pattern="^(254|0)[17]\d{8}$" required maxlength="10">
-                <small class="form-text text-muted">🇰🇪 Kenyan mobile number (e.g., 0712345678)</small>
+                <input type="tel" name="phone_number" placeholder="0712345678" 
+                       pattern="^(254|0)?[17]\d{8}$" required maxlength="13" id="phoneInput">
+                <small class="form-text text-muted">🇰🇪 Enter phone number: 0712345678 or 254712345678</small>
             </div>
             
             <button type="submit" class="continue-btn" disabled>
@@ -749,7 +749,7 @@
             const packageCards = document.querySelectorAll('.package-card');
             const packageIdInput = document.getElementById('selected_package_id');
             const continueBtn = document.querySelector('.continue-btn');
-            const phoneInput = document.querySelector('input[name="phone_number"]');
+            const phoneInput = document.getElementById('phoneInput');
             const deviceInfo = document.getElementById('device-info');
             const ipInfo = document.getElementById('ip-info');
             
@@ -837,7 +837,37 @@
                 });
             });
             
-            phoneInput.addEventListener('input', checkFormValid);
+            // Phone input formatting and validation
+            phoneInput.addEventListener('input', function() {
+                // Remove any non-digit characters
+                let value = this.value.replace(/\D/g, '');
+                
+                // Format the phone number as user types
+                if (value.startsWith('254')) {
+                    // Keep 254 format
+                    this.value = value.substring(0, 12);
+                } else if (value.startsWith('0')) {
+                    // Keep 0 format
+                    this.value = value.substring(0, 10);
+                } else if (value.length > 0) {
+                    // If user starts typing without 0 or 254, add 0
+                    this.value = '0' + value.substring(0, 9);
+                }
+                
+                // Clear any previous validation message
+                this.setCustomValidity('');
+                
+                checkFormValid();
+            });
+            
+            // Add custom validation message
+            phoneInput.addEventListener('invalid', function() {
+                if (this.validity.patternMismatch) {
+                    this.setCustomValidity('Please enter a valid Kenyan phone number (e.g., 0712345678 or 254712345678)');
+                } else if (this.validity.valueMissing) {
+                    this.setCustomValidity('Please enter your phone number');
+                }
+            });
             
             // Mobile keyboard handling
             function handleMobileKeyboard() {
@@ -902,8 +932,22 @@
             
             function checkFormValid() {
                 const hasPackage = packageIdInput.value !== '';
-                const hasPhone = phoneInput.value.trim() !== '';
-                continueBtn.disabled = !(hasPackage && hasPhone);
+                const phoneValue = phoneInput.value.trim();
+                const hasValidPhone = phoneValue !== '' && (
+                    /^0[17]\d{8}$/.test(phoneValue) || 
+                    /^254[17]\d{8}$/.test(phoneValue)
+                );
+                
+                continueBtn.disabled = !(hasPackage && hasValidPhone);
+                
+                // Update button text based on validation
+                if (hasPackage && hasValidPhone) {
+                    continueBtn.innerHTML = '🚀 Lipa na M-Pesa - Pay Now';
+                } else if (!hasPackage) {
+                    continueBtn.innerHTML = '📋 Select a Package First';
+                } else if (!hasValidPhone) {
+                    continueBtn.innerHTML = '📱 Enter Valid Phone Number';
+                }
             }
             
             // Loading screen control
