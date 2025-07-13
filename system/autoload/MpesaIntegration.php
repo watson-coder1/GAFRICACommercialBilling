@@ -97,6 +97,9 @@ class MpesaIntegration
         
         $passwordData = $this->generatePassword();
         
+        // Ensure amount is a whole number for Mpesa API
+        $amount = (int) round((float) $amount);
+        
         $payload = [
             'BusinessShortCode' => $this->shortcode,
             'Password' => $passwordData['password'],
