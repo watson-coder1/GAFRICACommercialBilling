@@ -508,6 +508,13 @@
                 🌐 Continue Surfing with Glinta Africa!
             </p>
             
+            <div id="connectivityStatus" style="margin: 20px 0; padding: 15px; border-radius: 10px; background: #f0f9ff; border: 1px solid #3b82f6;">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 10px; color: #1e40af;">
+                    <div class="spinner" style="width: 20px; height: 20px; border: 2px solid #e2e8f0; border-top: 2px solid #3b82f6; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                    <span>Testing internet connectivity...</span>
+                </div>
+            </div>
+            
             <div class="action-buttons">
                 <a href="https://google.com" class="btn btn-primary" target="_blank">
                     <span>🔍</span>
@@ -555,6 +562,56 @@
         
         // Start countdown after page loads
         setTimeout(updateCountdown, 2000);
+        
+        // Test internet connectivity and auto-redirect
+        function testConnectivity() {
+            const statusDiv = document.getElementById('connectivityStatus');
+            
+            fetch('/connectivity_test.php')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.connected) {
+                        // Internet is working!
+                        statusDiv.innerHTML = `
+                            <div style="display: flex; align-items: center; justify-content: center; gap: 10px; color: #059669;">
+                                <span style="font-size: 24px;">✅</span>
+                                <span><strong>Internet Connected!</strong> Redirecting to browser...</span>
+                            </div>
+                        `;
+                        statusDiv.style.background = '#f0fdf4';
+                        statusDiv.style.borderColor = '#059669';
+                        
+                        console.log('✅ Internet access confirmed, redirecting...');
+                        
+                        // Redirect to Google after 3 seconds
+                        setTimeout(() => {
+                            window.location.href = 'http://google.com';
+                        }, 3000);
+                    } else {
+                        // Still no internet, wait and try again
+                        setTimeout(testConnectivity, 2000);
+                    }
+                })
+                .catch(error => {
+                    // Error means no internet yet, try again
+                    console.log('❌ No internet yet, retrying...');
+                    
+                    // Update status to show we're still trying
+                    statusDiv.innerHTML = `
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 10px; color: #dc2626;">
+                            <div class="spinner" style="width: 20px; height: 20px; border: 2px solid #e2e8f0; border-top: 2px solid #dc2626; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                            <span>Activating internet access...</span>
+                        </div>
+                    `;
+                    statusDiv.style.background = '#fef2f2';
+                    statusDiv.style.borderColor = '#dc2626';
+                    
+                    setTimeout(testConnectivity, 2000);
+                });
+        }
+        
+        // Start testing connectivity after 5 seconds
+        setTimeout(testConnectivity, 5000);
         
         // Celebrate with confetti effect (optional)
         function createConfetti() {

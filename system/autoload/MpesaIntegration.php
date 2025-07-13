@@ -284,6 +284,22 @@ class MpesaIntegration
             $session->mikrotik_user = $username;
             $session->save();
             
+            // IMPORTANT: Automatically login the user to hotspot
+            try {
+                // Get client IP from session
+                $clientIP = $session->ip_address;
+                
+                // Auto-login user to MikroTik hotspot
+                $device->connect_customer($customer, $clientIP, $session->mac_address, $router->id);
+                
+                file_put_contents('system/uploads/hotspot_users.log', 
+                    date('Y-m-d H:i:s') . ' - AUTO-LOGIN: User ' . $username . ' logged in automatically' . PHP_EOL, FILE_APPEND);
+                    
+            } catch (Exception $e) {
+                file_put_contents('system/uploads/hotspot_users.log', 
+                    date('Y-m-d H:i:s') . ' - AUTO-LOGIN ERROR: ' . $e->getMessage() . PHP_EOL, FILE_APPEND);
+            }
+            
             // Log success
             file_put_contents('system/uploads/hotspot_users.log', 
                 date('Y-m-d H:i:s') . ' - Created user: ' . $username . ' for MAC: ' . $session->mac_address . ' - Package: ' . $package->name . PHP_EOL, FILE_APPEND);
