@@ -123,25 +123,42 @@
         @media screen and (max-width: 768px) {
             body {
                 padding: 5px;
+                overflow-x: hidden;
             }
             
             /* Fix for mobile keyboard covering input */
             .portal-container {
                 position: relative;
                 margin-top: 10px;
-                margin-bottom: 10px;
+                margin-bottom: 100px; /* Extra space for keyboard */
+                min-height: auto;
             }
             
             /* Ensure input is visible when focused */
             .phone-input input:focus {
                 position: relative;
                 z-index: 1000;
+                transform: translateY(-60px); /* Move up when focused */
+                transition: transform 0.3s ease;
+            }
+            
+            /* Make continue button more accessible on mobile */
+            .continue-btn {
+                position: sticky;
+                bottom: 20px;
+                z-index: 1001;
+                margin-top: 20px;
             }
             
             /* Adjust container when keyboard is open */
             .portal-container.keyboard-open {
-                transform: translateY(-50px);
+                transform: translateY(-80px);
                 transition: transform 0.3s ease;
+            }
+            
+            /* Prevent zoom on input focus */
+            input, select, textarea {
+                font-size: 16px !important;
             }
         }
         
@@ -828,42 +845,58 @@
                 const isMobile = window.innerWidth <= 768;
                 
                 if (isMobile) {
+                    // Prevent iOS zoom on input focus
+                    const meta = document.querySelector('meta[name=viewport]');
+                    
                     phoneInput.addEventListener('focus', function() {
-                        // Scroll input into view
-                        setTimeout(() => {
-                            this.scrollIntoView({ 
-                                behavior: 'smooth', 
-                                block: 'center',
-                                inline: 'nearest'
-                            });
-                        }, 300);
+                        // Prevent zoom on iOS
+                        if (meta) {
+                            meta.content = 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no';
+                        }
                         
                         // Add keyboard open class
                         portalContainer.classList.add('keyboard-open');
+                        
+                        // Scroll container to ensure visibility
+                        setTimeout(() => {
+                            portalContainer.scrollIntoView({ 
+                                behavior: 'smooth', 
+                                block: 'start'
+                            });
+                        }, 300);
+                        
+                        // Add extra bottom padding for keyboard
+                        document.body.style.paddingBottom = '300px';
                     });
                     
                     phoneInput.addEventListener('blur', function() {
+                        // Restore original viewport
+                        if (meta) {
+                            meta.content = 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover';
+                        }
+                        
                         // Remove keyboard open class
                         portalContainer.classList.remove('keyboard-open');
+                        
+                        // Reset padding
+                        document.body.style.paddingBottom = '10px';
                     });
                     
-                    // Handle viewport changes (keyboard open/close)
-                    let viewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
-                    
-                    if (window.visualViewport) {
-                        window.visualViewport.addEventListener('resize', () => {
-                            const currentHeight = window.visualViewport.height;
-                            const heightDifference = viewportHeight - currentHeight;
-                            
-                            if (heightDifference > 100) {
-                                // Keyboard is likely open
-                                document.body.style.paddingBottom = '200px';
-                            } else {
-                                // Keyboard is likely closed
-                                document.body.style.paddingBottom = '10px';
-                            }
-                        });
-                    }
+                    // Handle form submission with better mobile UX
+                    const form = document.getElementById('packageForm');
+                    form.addEventListener('submit', function(e) {
+                        // Blur the input to hide keyboard before submission
+                        phoneInput.blur();
+                        
+                        // Add loading state to button
+                        continueBtn.innerHTML = '⏳ Processing...';
+                        continueBtn.disabled = true;
+                        
+                        // Let the form submit normally after a brief delay
+                        setTimeout(() => {
+                            // This allows the form to submit normally
+                        }, 100);
+                    });
                 }
             }
             
