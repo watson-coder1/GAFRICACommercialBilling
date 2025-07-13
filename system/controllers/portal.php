@@ -148,6 +148,17 @@ switch ($routes['1']) {
             file_put_contents('system/uploads/portal_debug.log', "STK Result: " . json_encode($stkResult) . "\n\n", FILE_APPEND);
             
             if ($stkResult['success']) {
+                // Create M-Pesa transaction record immediately
+                $transaction = ORM::for_table('tbl_mpesa_transactions')->create();
+                $transaction->transaction_id = $stkResult['checkout_request_id'];
+                $transaction->phone_number = $phoneNumber;
+                $transaction->amount = $package->price;
+                $transaction->session_id = $sessionId;
+                $transaction->status = 'pending';
+                $transaction->save();
+                
+                file_put_contents('system/uploads/portal_debug.log', "Transaction created: " . $stkResult['checkout_request_id'] . "\n", FILE_APPEND);
+                
                 // STK push sent successfully
                 r2(U . 'portal/payment/' . $sessionId, 's', 'Payment request sent to your phone. Please check and enter your M-Pesa PIN.');
             } else {
