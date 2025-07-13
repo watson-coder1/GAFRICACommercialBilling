@@ -613,11 +613,10 @@
                                    name="phone_number" 
                                    id="phoneNumber" 
                                    class="form-input" 
-                                   placeholder="0712345678 or 254712345678" 
+                                   placeholder="0712345678" 
                                    required 
                                    minlength="10" 
-                                   maxlength="13"
-                                   pattern="^(254|0)[17]\d{8}$">
+                                   maxlength="13">
                             <small style="color: #64748b; font-size: 12px;">Enter your Safaricom number for M-Pesa payment</small>
                         </div>
 
@@ -678,7 +677,7 @@
                     <div style="text-align: center; color: #64748b; font-size: 14px;">
                         <p>✅ Payment successful but no internet?<br>
                         📧 Contact: <strong>support@glintaafrica.com</strong><br>
-                        📞 Call: <strong>+254 700 000 000</strong></p>
+                        📞 Call: <strong>0711311897</strong></p>
                     </div>
                 </div>
             </div>
@@ -702,7 +701,7 @@
                 
                 <div class="help-contact">
                     <strong>🚨 Need Immediate Help?</strong><br>
-                    WhatsApp: <strong>+254 700 000 000</strong> | Email: <strong>support@glintaafrica.com</strong>
+                    WhatsApp: <strong>0711311897</strong> | Email: <strong>support@glintaafrica.com</strong>
                 </div>
             </div>
         </div>
@@ -750,11 +749,11 @@
                 return;
             }
             
-            if (!phoneNumber.match(/^(254|0)[17]\d{8}$/)) {
+            if (phoneNumber.length < 10) {
                 Swal.fire({
                     icon: 'error',
                     title: 'Invalid Phone Number',
-                    text: 'Please enter a valid Safaricom number (e.g., 0712345678)',
+                    text: 'Please enter a valid phone number (minimum 10 digits)',
                     confirmButtonColor: '#006B3F'
                 });
                 return;
@@ -797,15 +796,11 @@
             this.submit();
         });
 
-        // Auto-format phone number
+        // Auto-format phone number (less strict)
         document.getElementById('phoneNumber').addEventListener('input', function(e) {
             let value = e.target.value.replace(/\D/g, '');
             
-            // Convert 07xx to 2547xx
-            if (value.startsWith('07')) {
-                value = '254' + value.substring(1);
-            }
-            
+            // Just keep numbers, don't auto-convert format
             e.target.value = value;
         });
 

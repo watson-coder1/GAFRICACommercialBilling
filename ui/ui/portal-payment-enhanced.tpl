@@ -393,7 +393,7 @@
                 
                 <div class="contact-info">
                     <div class="contact-item">📧 support@glintaafrica.com</div>
-                    <div class="contact-item">📞 +254 700 000 000</div>
+                    <div class="contact-item">📞 0711311897</div>
                     <div class="contact-item">💬 WhatsApp Support Available</div>
                 </div>
             </div>

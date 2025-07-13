@@ -97,10 +97,10 @@ switch ($routes['1']) {
             r2(U . 'portal/login', 'e', 'Missing required information');
         }
         
-        // Validate phone number format (Kenyan format)
-        if (!preg_match('/^(254|0)[17]\d{8}$/', $phoneNumber)) {
+        // Basic phone number validation (more flexible)
+        if (strlen($phoneNumber) < 10 || !preg_match('/^\d+$/', $phoneNumber)) {
             file_put_contents('system/uploads/portal_debug.log', "ERROR: Invalid phone number format\n\n", FILE_APPEND);
-            r2(U . 'portal/login', 'e', 'Invalid phone number format');
+            r2(U . 'portal/login', 'e', 'Please enter a valid phone number (minimum 10 digits)');
         }
         
         // Format phone number to 254 format
