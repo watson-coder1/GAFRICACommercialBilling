@@ -539,9 +539,6 @@
                     <p>Premium WiFi Solutions</p>
                 </div>
             </div>
-            <div class="wifi-status">
-                <div>📡 Connected to Glinta WiFi</div>
-            </div>
         </div>
     </header>
 
