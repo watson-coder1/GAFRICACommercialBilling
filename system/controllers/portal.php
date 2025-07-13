@@ -73,7 +73,8 @@ switch ($routes['1']) {
         $ui->assign('session_id', $sessionId);
         $ui->assign('mac', $mac);
         $ui->assign('ip', $ip);
-        $ui->display('portal-login.tpl');
+        $ui->assign('app_url', APP_URL);
+        $ui->display('portal-login-enhanced.tpl');
         break;
         
     case 'select':
@@ -297,6 +298,157 @@ switch ($routes['1']) {
         $ui->assign('packages', $packages);
         $ui->assign('_title', 'Portal Management');
         $ui->display('admin/portal-admin.tpl');
+        break;
+        
+    case 'voucher':
+        // Voucher/M-Pesa code authentication handler
+        $sessionId = $_POST['session_id'] ?? '';
+        $voucherCode = strtoupper(trim($_POST['voucher_code'] ?? ''));
+        $mpesaCode = strtoupper(trim($_POST['mpesa_code'] ?? ''));
+        
+        if (!$sessionId) {
+            r2(U . 'portal/login', 'e', 'Invalid session');
+        }
+        
+        if (!$voucherCode && !$mpesaCode) {
+            r2(U . 'portal/login', 'e', 'Please enter either a voucher code or M-Pesa receipt code');
+        }
+        
+        $session = ORM::for_table('tbl_portal_sessions')
+            ->where('session_id', $sessionId)
+            ->find_one();
+            
+        if (!$session) {
+            r2(U . 'portal/login', 'e', 'Invalid session');
+        }
+        
+        $authenticated = false;
+        $authenticationType = '';
+        
+        // Try M-Pesa receipt code first
+        if ($mpesaCode) {
+            $mpesaTransaction = ORM::for_table('tbl_mpesa_transactions')
+                ->where('mpesa_receipt_number', $mpesaCode)
+                ->where('status', 'completed')
+                ->find_one();
+                
+            if ($mpesaTransaction) {
+                // Find the session associated with this transaction
+                $paidSession = ORM::for_table('tbl_portal_sessions')
+                    ->where('session_id', $mpesaTransaction->session_id)
+                    ->find_one();
+                    
+                if ($paidSession && $paidSession->payment_status == 'completed') {
+                    // Update current session with the paid session details
+                    $session->package_id = $paidSession->package_id;
+                    $session->phone_number = $paidSession->phone_number;
+                    $session->payment_status = 'completed';
+                    $session->expires_at = $paidSession->expires_at;
+                    $session->mikrotik_user = $paidSession->mikrotik_user;
+                    $session->save();
+                    
+                    $authenticated = true;
+                    $authenticationType = 'M-Pesa Receipt';
+                    
+                    file_put_contents('system/uploads/portal_debug.log', 
+                        date('Y-m-d H:i:s') . " - M-Pesa code authentication: $mpesaCode for session: $sessionId\n", FILE_APPEND);
+                }
+            }
+        }
+        
+        // Try voucher code if M-Pesa didn't work
+        if (!$authenticated && $voucherCode) {
+            // Check if voucher exists and is valid
+            $voucher = ORM::for_table('tbl_voucher')
+                ->where('voucher_code', $voucherCode)
+                ->where('status', 'active')
+                ->find_one();
+                
+            if ($voucher) {
+                // Get voucher plan details
+                $plan = ORM::for_table('tbl_plans')
+                    ->where('id', $voucher->plan_id)
+                    ->find_one();
+                    
+                if ($plan) {
+                    // Create hotspot package equivalent
+                    $package = ORM::for_table('tbl_hotspot_packages')
+                        ->where('name', $plan->name_plan)
+                        ->find_one();
+                        
+                    if (!$package) {
+                        // Create package from plan
+                        $package = ORM::for_table('tbl_hotspot_packages')->create();
+                        $package->name = $plan->name_plan;
+                        $package->price = $plan->price;
+                        $package->duration_hours = $plan->time_limit;
+                        $package->status = 'active';
+                        $package->created_at = date('Y-m-d H:i:s');
+                        $package->save();
+                    }
+                    
+                    // Update session
+                    $session->package_id = $package->id;
+                    $session->payment_status = 'completed';
+                    $session->expires_at = date('Y-m-d H:i:s', strtotime('+' . $plan->time_limit . ' hours'));
+                    
+                    // Create MikroTik user
+                    try {
+                        $username = 'hs_' . substr(str_replace(':', '', $session->mac_address), -6) . '_' . time();
+                        $password = substr(md5($username . time()), 0, 8);
+                        
+                        $router = ORM::for_table('tbl_routers')
+                            ->where('enabled', 1)
+                            ->find_one();
+                            
+                        if ($router) {
+                            require_once 'system/devices/MikrotikHotspot.php';
+                            $device = new MikrotikHotspot();
+                            $client = $device->getClient($router->ip_address, $router->username, $router->password);
+                            
+                            if ($client) {
+                                $addRequest = new PEAR2\Net\RouterOS\Request('/ip/hotspot/user/add');
+                                $client->sendSync(
+                                    $addRequest
+                                        ->setArgument('name', $username)
+                                        ->setArgument('profile', $plan->name_plan)
+                                        ->setArgument('password', $password)
+                                        ->setArgument('comment', "Voucher: $voucherCode")
+                                        ->setArgument('limit-uptime', $plan->time_limit . ":00:00")
+                                );
+                                
+                                $session->mikrotik_user = $username;
+                            }
+                        }
+                    } catch (Exception $e) {
+                        file_put_contents('system/uploads/portal_debug.log', 
+                            date('Y-m-d H:i:s') . " - Voucher MikroTik user creation error: " . $e->getMessage() . "\n", FILE_APPEND);
+                    }
+                    
+                    $session->save();
+                    
+                    // Mark voucher as used
+                    $voucher->status = 'used';
+                    $voucher->save();
+                    
+                    $authenticated = true;
+                    $authenticationType = 'Voucher Code';
+                    
+                    file_put_contents('system/uploads/portal_debug.log', 
+                        date('Y-m-d H:i:s') . " - Voucher authentication: $voucherCode for session: $sessionId\n", FILE_APPEND);
+                }
+            }
+        }
+        
+        if ($authenticated) {
+            r2(U . 'portal/status/' . $sessionId, 's', "Authentication successful using $authenticationType! You now have internet access.");
+        } else {
+            if ($mpesaCode) {
+                r2(U . 'portal/login', 'e', 'M-Pesa receipt code not found or already used. Please contact support.');
+            } else {
+                r2(U . 'portal/login', 'e', 'Invalid or expired voucher code. Please check and try again.');
+            }
+        }
         break;
         
     default:
