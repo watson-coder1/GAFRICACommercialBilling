@@ -541,7 +541,6 @@
             </div>
             <div class="wifi-status">
                 <div>📡 Connected to Glinta WiFi</div>
-                <div>🌍 Ready for Internet Access</div>
             </div>
         </div>
     </header>
@@ -763,10 +762,21 @@
             const btn = document.getElementById('purchaseBtn');
             const btnText = document.getElementById('purchaseBtnText');
             btn.classList.add('loading');
-            btnText.innerHTML = '<span class="spinner"></span>Processing...';
+            btnText.innerHTML = '<span class="spinner"></span>Sending request...';
             
-            // Submit form
-            this.submit();
+            // Show M-Pesa PIN message
+            Swal.fire({
+                icon: 'info',
+                title: 'M-Pesa Payment Request Sent!',
+                html: '<p><strong>📱 Check your phone now!</strong></p><p>You will receive an M-Pesa message.<br>Enter your M-Pesa PIN to approve the payment.</p>',
+                confirmButtonText: 'OK, I understand',
+                confirmButtonColor: '#006B3F',
+                allowOutsideClick: false,
+                didClose: () => {
+                    // Submit form after user acknowledges
+                    document.getElementById('packageForm').submit();
+                }
+            });
         });
 
         // Voucher form submission
