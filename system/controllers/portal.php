@@ -9,6 +9,14 @@ if (!defined('PEAR2_NET_ROUTEROS')) {
     define('PEAR2_NET_ROUTEROS', 'pear2/net_routeros');
 }
 
+// Debug logging for all portal requests
+$debugInfo = "=== Portal Request " . date('Y-m-d H:i:s') . " ===\n";
+$debugInfo .= "Route: " . ($routes['1'] ?? 'default') . "\n";
+$debugInfo .= "Method: " . $_SERVER['REQUEST_METHOD'] . "\n";
+$debugInfo .= "GET: " . json_encode($_GET) . "\n";
+$debugInfo .= "POST: " . json_encode($_POST) . "\n";
+file_put_contents('system/uploads/portal_debug.log', $debugInfo . "\n", FILE_APPEND);
+
 switch ($routes['1']) {
     case 'login':
         $mac = $_GET['mac'] ?? '';
@@ -69,16 +77,28 @@ switch ($routes['1']) {
         break;
         
     case 'select':
+        // Debug logging
+        $debugLog = "=== Portal Select Debug " . date('Y-m-d H:i:s') . " ===\n";
+        $debugLog .= "POST Data: " . json_encode($_POST) . "\n";
+        
         $sessionId = $_POST['session_id'] ?? '';
         $packageId = $_POST['package_id'] ?? '';
         $phoneNumber = $_POST['phone_number'] ?? '';
         
+        $debugLog .= "Session ID: $sessionId\n";
+        $debugLog .= "Package ID: $packageId\n";
+        $debugLog .= "Phone Number: $phoneNumber\n";
+        
+        file_put_contents('system/uploads/portal_debug.log', $debugLog . "\n", FILE_APPEND);
+        
         if (!$sessionId || !$packageId || !$phoneNumber) {
+            file_put_contents('system/uploads/portal_debug.log', "ERROR: Missing required information\n\n", FILE_APPEND);
             r2(U . 'portal/login', 'e', 'Missing required information');
         }
         
         // Validate phone number format (Kenyan format)
         if (!preg_match('/^(254|0)[17]\d{8}$/', $phoneNumber)) {
+            file_put_contents('system/uploads/portal_debug.log', "ERROR: Invalid phone number format\n\n", FILE_APPEND);
             r2(U . 'portal/login', 'e', 'Invalid phone number format');
         }
         
@@ -108,13 +128,24 @@ switch ($routes['1']) {
         
         // Initiate M-Pesa STK Push
         try {
+            file_put_contents('system/uploads/portal_debug.log', "Initiating Mpesa STK Push...\n", FILE_APPEND);
+            
             $mpesa = new MpesaIntegration();
+            
+            // Check if Mpesa is configured
+            if (!$mpesa->isConfigured()) {
+                file_put_contents('system/uploads/portal_debug.log', "ERROR: Mpesa not configured\n\n", FILE_APPEND);
+                r2(U . 'portal/login', 'e', 'Payment system not configured. Please contact administrator.');
+            }
+            
             $stkResult = $mpesa->initiateSTKPush(
                 $phoneNumber, 
                 $package->price, 
                 $sessionId,
                 'Glinta WiFi - ' . $package->name
             );
+            
+            file_put_contents('system/uploads/portal_debug.log', "STK Result: " . json_encode($stkResult) . "\n\n", FILE_APPEND);
             
             if ($stkResult['success']) {
                 // STK push sent successfully
@@ -124,7 +155,8 @@ switch ($routes['1']) {
                 r2(U . 'portal/login', 'e', 'Failed to initiate payment: ' . $stkResult['message']);
             }
         } catch (Exception $e) {
-            r2(U . 'portal/login', 'e', 'Payment system error. Please try again.');
+            file_put_contents('system/uploads/portal_debug.log', "EXCEPTION: " . $e->getMessage() . "\n\n", FILE_APPEND);
+            r2(U . 'portal/login', 'e', 'Payment system error: ' . $e->getMessage());
         }
         break;
         
