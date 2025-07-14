@@ -9,6 +9,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
 use PEAR2\Net\RouterOS;
+use PEAR2\Net\RouterOS as RouterOS;
 
 require $root_path . 'system/autoload/mail/Exception.php';
 require $root_path . 'system/autoload/mail/PHPMailer.php';

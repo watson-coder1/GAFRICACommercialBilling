@@ -6,6 +6,7 @@
  **/
 
 use PEAR2\Net\RouterOS;
+use PEAR2\Net\RouterOS as RouterOS;
 
 class Mikrotik
 {
