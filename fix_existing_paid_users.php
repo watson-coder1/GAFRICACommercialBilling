@@ -67,7 +67,7 @@ try {
             
             // Generate IP address if missing
             if (empty($session->ip_address)) {
-                $session->ip_address = '192.168.88.' . (100 + ($session->id % 150));
+                $session->ip_address = '10.0.1.' . (100 + ($session->id % 150));
                 echo "  Generated IP: {$session->ip_address}\n";
             }
             

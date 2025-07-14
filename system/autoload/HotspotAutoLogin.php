@@ -59,7 +59,7 @@ class HotspotAutoLogin
             // Now actually log the user in to the hotspot
             try {
                 // Get client IP - try from session first, then generate one
-                $clientIP = $session->ip_address ?? '192.168.88.' . (100 + (rand() % 150));
+                $clientIP = $session->ip_address ?? '10.0.1.' . (100 + (rand() % 150));
                 
                 // Use MikroTik connect_customer method to actually log them in
                 $customer = [
