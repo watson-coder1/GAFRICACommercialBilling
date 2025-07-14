@@ -27,26 +27,19 @@ class HotspotAutoLogin
             $username = $session->mac_address;
             $password = $session->mac_address;
             
-            // Connect to MikroTik
-            require_once 'system/autoload/PEAR2/Net/RouterOS/Autoload.php';
-            $client = new PEAR2\Net\RouterOS\Client($router->ip_address, $router->username, $router->password);
+            // Connect to MikroTik using existing method
+            require_once 'system/devices/MikrotikHotspot.php';
+            $mikrotikDevice = new MikrotikHotspot();
+            $client = $mikrotikDevice->getClient($router->ip_address, $router->username, $router->password);
             
             // Remove existing user if exists
             try {
-                $printRequest = new PEAR2\Net\RouterOS\Request('/ip/hotspot/user/print');
-                $printRequest->setQuery(PEAR2\Net\RouterOS\Query::where('name', $username));
-                $response = $client->sendSync($printRequest);
-                
-                foreach ($response as $user) {
-                    $removeRequest = new PEAR2\Net\RouterOS\Request('/ip/hotspot/user/remove');
-                    $removeRequest->setArgument('numbers', $user['.id']);
-                    $client->sendSync($removeRequest);
-                }
+                $mikrotikDevice->removeHotspotUser($client, $username);
             } catch (Exception $e) {
                 // User doesn't exist, continue
             }
             
-            // Create new user
+            // Create new user using RouterOS Request directly
             $addRequest = new PEAR2\Net\RouterOS\Request('/ip/hotspot/user/add');
             $addRequest->setArgument('name', $username);
             $addRequest->setArgument('password', $password);
@@ -68,18 +61,9 @@ class HotspotAutoLogin
             
             self::log("SUCCESS: Created user $username for MAC $session->mac_address");
             
-            // Auto-login user by creating active session
-            try {
-                $loginRequest = new PEAR2\Net\RouterOS\Request('/ip/hotspot/active/login');
-                $loginRequest->setArgument('user', $username);
-                $loginRequest->setArgument('mac-address', $session->mac_address);
-                $loginRequest->setArgument('ip', $session->ip_address);
-                $client->sendSync($loginRequest);
-                
-                self::log("AUTO-LOGIN: Successfully logged in user $username");
-            } catch (Exception $e) {
-                self::log("AUTO-LOGIN WARNING: Manual login may be required - " . $e->getMessage());
-            }
+            // Auto-login will happen automatically due to MAC-based auth
+            // MAC auth mode will automatically log in users with matching MAC
+            self::log("AUTO-LOGIN: User created with MAC auth - should auto-login");
             
             return true;
             
