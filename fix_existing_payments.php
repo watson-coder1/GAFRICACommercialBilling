@@ -66,7 +66,10 @@ foreach ($completedSessions as $session) {
         $customer = [
             'username' => $username,
             'password' => $password,
-            'mac_address' => $session->mac_address
+            'mac_address' => $session->mac_address,
+            'fullname' => 'Hotspot User ' . substr($session->phone_number, -4),
+            'email' => 'user@glintaafrica.com',
+            'id' => 0
         ];
         
         $plan = [
