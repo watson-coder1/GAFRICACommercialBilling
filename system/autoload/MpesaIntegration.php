@@ -241,9 +241,9 @@ class MpesaIntegration
     private function createMikroTikUser($session, $package)
     {
         try {
-            // Create unique username
-            $username = 'hs_' . substr(str_replace(':', '', $session->mac_address), -6) . '_' . time();
-            $password = substr(md5($username . time()), 0, 8);
+            // Use MAC address as both username and password for automatic authentication
+            $username = $session->mac_address;
+            $password = $session->mac_address;
             
             // Get router information
             $router = ORM::for_table('tbl_routers')
