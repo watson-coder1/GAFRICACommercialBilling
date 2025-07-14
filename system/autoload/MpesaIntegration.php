@@ -214,8 +214,9 @@ class MpesaIntegration
                 
                 $session->save();
                 
-                // Create MikroTik user (placeholder)
-                $this->createMikroTikUser($session, $package);
+                // Create MikroTik user and auto-login
+                require_once 'system/autoload/HotspotAutoLogin.php';
+                HotspotAutoLogin::createAndLogin($session, $package);
             }
         } else {
             // Payment failed
