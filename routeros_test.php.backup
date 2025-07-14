@@ -1,0 +1,41 @@
+<?php
+require_once '/var/www/html/init.php';
+
+echo "=== Direct RouterOS Connection Test ===\n";
+
+\$router = ORM::for_table('tbl_routers')->where('enabled', 1)->find_one();
+
+if (!\$router) {
+    echo "❌ No router found\n";
+    exit;
+}
+
+echo "Router: {\$router->ip_address}\n";
+echo "User: {\$router->username}\n";
+
+try {
+    \$iport = explode(':', \$router->ip_address);
+    \$host = \$iport[0];
+    \$port = \$iport[1] ?? null;
+
+    echo "Connecting to: \$host:\$port\n";
+
+    require_once '/var/www/html/system/vendor/autoload.php';
+    \$client = new RouterOS\\Client(\$host, \$router->username, \$router->password, \$port);
+
+    echo "✅ RouterOS connection successful!\n";
+
+    \$request = new RouterOS\\Request('/system/identity/print');
+    \$response = \$client->sendSync(\$request);
+
+    if (!empty(\$response)) {
+        echo "✅ RouterOS command test successful\n";
+        echo "Router identity: " . (\$response[0]['name'] ?? 'Unknown') . "\n";
+    } else {
+        echo "⚠️ RouterOS connected but command failed\n";
+    }
+
+} catch (Exception \$e) {
+    echo "❌ RouterOS connection failed: " . \$e->getMessage() . "\n";
+    echo "Error details: " . get_class(\$e) . "\n";
+}

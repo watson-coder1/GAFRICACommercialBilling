@@ -6,7 +6,7 @@
  **/
 
 use PEAR2\Net\RouterOS;
-use PEAR2\Net\RouterOS as RouterOS;
+use PEAR2\Net\RouterOS as MikroTikAPI;
 
 class Mikrotik
 {
@@ -22,7 +22,7 @@ class Mikrotik
             return null;
         }
         $iport = explode(":", $ip);
-        return new RouterOS\Client($iport[0], $user, $pass, ($iport[1]) ? $iport[1] : null);
+        return new MikroTikAPI\Client($iport[0], $user, $pass, ($iport[1]) ? $iport[1] : null);
     }
 
     public static function isUserLogin($client, $username)

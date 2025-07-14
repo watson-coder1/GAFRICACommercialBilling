@@ -185,13 +185,18 @@ class HotspotAutoLogin
             
             $hosts = $client->sendSync($hostRequest);
             
-            if (!empty($hosts)) {
-                $ip = $hosts[0]['address'] ?? null;
-                if ($ip) {
-                    self::log("LIVE-IP: Found live IP $ip for MAC $mac");
-                    return $ip;
-                }
+            $ip = null;
+       if (!empty($hosts)) {
+    foreach ($hosts as $host) {
+        if ($host->getType() === PEAR2\Net\RouterOS\Response::TYPE_DATA) {
+            $ip = $host->getArgument('address');
+            if ($ip) {
+                self::log("LIVE-IP: Found live IP $ip for MAC $mac");
+                return $ip;
             }
+        }
+    }
+}
             
             self::log("LIVE-IP: No live IP found for MAC $mac in hosts");
             return null;
