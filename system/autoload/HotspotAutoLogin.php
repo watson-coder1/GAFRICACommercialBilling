@@ -56,9 +56,37 @@ class HotspotAutoLogin
             
             self::log("SUCCESS: Created user $username for MAC $session->mac_address");
             
-            // Auto-login will happen automatically due to MAC-based auth
-            // MAC auth mode will automatically log in users with matching MAC
-            self::log("AUTO-LOGIN: User created with MAC auth - should auto-login");
+            // Now actually log the user in to the hotspot
+            try {
+                // Get client IP - try from session first, then generate one
+                $clientIP = $session->ip_address ?? '192.168.1.' . (100 + (rand() % 150));
+                
+                // Use MikroTik connect_customer method to actually log them in
+                $customer = [
+                    'username' => $username,
+                    'password' => $password
+                ];
+                
+                // Call the actual login function
+                $mikrotikDevice->connect_customer($customer, $clientIP, $session->mac_address, $router->id);
+                
+                self::log("AUTO-LOGIN SUCCESS: User $username logged in with IP $clientIP");
+                
+                // Also try alternative login method
+                $loginRequest = new PEAR2\Net\RouterOS\Request('/ip/hotspot/active/login');
+                $loginRequest->setArgument('user', $username);
+                $loginRequest->setArgument('password', $password);
+                $loginRequest->setArgument('ip', $clientIP);
+                $loginRequest->setArgument('mac-address', $session->mac_address);
+                
+                $client->sendSync($loginRequest);
+                
+                self::log("AUTO-LOGIN: Direct login command sent for user $username");
+                
+            } catch (Exception $loginException) {
+                self::log("AUTO-LOGIN ERROR: " . $loginException->getMessage());
+                // Don't fail the whole process if login fails, user can still manually login
+            }
             
             return true;
             
