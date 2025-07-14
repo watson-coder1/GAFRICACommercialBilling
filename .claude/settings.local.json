@@ -40,7 +40,12 @@
       "WebFetch(domain:glintaafrica.com)",
       "WebFetch(domain:tailscale.com)",
       "Bash(git checkout:*)",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "Bash(sudo docker exec:*)",
+      "Bash(/usr/bin/docker exec:*)",
+      "Bash(test:*)",
+      "Bash(readlink:*)",
+      "Bash(echo $PATH)"
     ],
     "deny": []
   }
