@@ -32,12 +32,7 @@ class HotspotAutoLogin
             $mikrotikDevice = new MikrotikHotspot();
             $client = $mikrotikDevice->getClient($router->ip_address, $router->username, $router->password);
             
-            // Remove existing user if exists
-            try {
-                $mikrotikDevice->removeHotspotUser($client, $username);
-            } catch (Exception $e) {
-                // User doesn't exist, continue
-            }
+            // Skip user removal - will overwrite if exists
             
             // Create new user using RouterOS Request directly
             $addRequest = new PEAR2\Net\RouterOS\Request('/ip/hotspot/user/add');
