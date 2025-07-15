@@ -156,6 +156,7 @@ switch ($routes['1']) {
                 $transaction->amount = $package->price;
                 $transaction->session_id = $sessionId;
                 $transaction->status = 'pending';
+                $transaction->reseller_id = 1; // Default to system admin for portal payments
                 $transaction->save();
                 
                 file_put_contents('system/uploads/portal_debug.log', "Transaction created: " . $stkResult['checkout_request_id'] . "\n", FILE_APPEND);
@@ -194,6 +195,7 @@ switch ($routes['1']) {
         $transaction->amount = $package->price;
         $transaction->session_id = $sessionId;
         $transaction->status = 'pending';
+        $transaction->reseller_id = 1; // Default to system admin for portal payments
         $transaction->save();
         
         $ui->assign('session', $session);

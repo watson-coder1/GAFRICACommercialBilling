@@ -82,6 +82,13 @@ foreach ($mpesaPayments as $mpesaPayment) {
         $transaction->routers = substr('Portal', 0, 32); // max 32 chars
         $transaction->type = 'Hotspot'; // Hotspot portal payments
         $transaction->admin_id = 1;
+        // Add reseller_id field - check if it exists first
+        try {
+            $transaction->reseller_id = isset($mpesaPayment->reseller_id) ? $mpesaPayment->reseller_id : 1;
+        } catch (Exception $e) {
+            // If reseller_id column doesn't exist in mpesa table, default to 1
+            $transaction->reseller_id = 1;
+        }
         
         // Add expiration field - calculate from package duration
         if ($package && $package->duration_hours > 0) {

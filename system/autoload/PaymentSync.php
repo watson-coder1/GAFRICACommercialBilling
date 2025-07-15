@@ -44,8 +44,9 @@ class PaymentSync
                     $transaction->recharged_time = date('Y-m-d H:i:s', strtotime($mpesaPayment->created_at));
                     $transaction->method = 'M-Pesa STK Push';
                     $transaction->routers = 'Hotspot Portal';
-                    $transaction->type = 'Credit';
+                    $transaction->type = 'Hotspot';
                     $transaction->admin_id = 1; // System admin
+                    $transaction->reseller_id = $mpesaPayment->reseller_id ?: 1; // Default to system admin
                     $transaction->save();
                     
                     // Mark M-Pesa payment as synced
