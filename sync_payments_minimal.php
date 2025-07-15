@@ -70,28 +70,28 @@ foreach ($mpesaPayments as $mpesaPayment) {
         
         $packageName = $package ? $package->name : 'Unknown Package';
         
-        // Create transaction record with all required fields
+        // Create transaction record with all required fields (respecting size limits)
         $transaction = ORM::for_table('tbl_transactions')->create();
-        $transaction->invoice = 'MPESA-' . $mpesaPayment->id;
-        $transaction->username = $mpesaPayment->phone_number;
-        $transaction->plan_name = $packageName;
+        $transaction->invoice = substr('MPESA-' . $mpesaPayment->id, 0, 25); // max 25 chars
+        $transaction->username = substr($mpesaPayment->phone_number, 0, 32); // max 32 chars
+        $transaction->plan_name = substr($packageName, 0, 40); // max 40 chars
         $transaction->price = $mpesaPayment->amount;
         $transaction->recharged_on = date('Y-m-d', strtotime($mpesaPayment->created_at));
-        $transaction->recharged_time = date('Y-m-d H:i:s', strtotime($mpesaPayment->created_at));
-        $transaction->method = 'M-Pesa';
-        $transaction->routers = 'Portal';
+        $transaction->recharged_time = date('H:i:s', strtotime($mpesaPayment->created_at)); // time format
+        $transaction->method = substr('M-Pesa', 0, 128); // max 128 chars
+        $transaction->routers = substr('Portal', 0, 32); // max 32 chars
         $transaction->type = 'Hotspot'; // Hotspot portal payments
         $transaction->admin_id = 1;
         
         // Add expiration field - calculate from package duration
         if ($package && $package->duration_hours > 0) {
-            $transaction->expiration = date('Y-m-d H:i:s', 
+            $transaction->expiration = date('Y-m-d', 
                 strtotime($mpesaPayment->created_at . ' +' . $package->duration_hours . ' hours'));
             // Time field in HH:MM:SS format
             $transaction->time = sprintf('%02d:00:00', $package->duration_hours);
         } else {
             // Default to 24 hours if no package duration
-            $transaction->expiration = date('Y-m-d H:i:s', 
+            $transaction->expiration = date('Y-m-d', 
                 strtotime($mpesaPayment->created_at . ' +24 hours'));
             $transaction->time = '24:00:00';
         }
@@ -99,9 +99,10 @@ foreach ($mpesaPayments as $mpesaPayment) {
         try {
             $transaction->save();
             $syncedCount++;
-            echo "✓ Synced payment {$mpesaPayment->id} -> transaction {$transaction->id} (KSh {$mpesaPayment->amount})\n";
+            echo "✓ Synced payment {$mpesaPayment->id} -> transaction {$transaction->id} (KSh {$mpesaPayment->amount}) - {$packageName}\n";
         } catch (Exception $e) {
             echo "✗ Failed to sync payment {$mpesaPayment->id}: " . $e->getMessage() . "\n";
+            echo "  Debug info: Invoice='{$transaction->invoice}', Username='{$transaction->username}', Plan='{$transaction->plan_name}'\n";
         }
     } else {
         echo "- Payment {$mpesaPayment->id} skipped (no portal session)\n";
