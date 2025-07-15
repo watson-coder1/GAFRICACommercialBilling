@@ -38,11 +38,19 @@ class PaymentSync
     public static function syncMpesaPayments()
     {
         try {
-            // Get all completed M-Pesa payments that haven't been synced yet
-            $mpesaPayments = ORM::for_table('tbl_mpesa_transactions')
-                ->where('status', 'completed')
-                ->where_null('synced_to_transactions')
-                ->find_many();
+            // Get all completed M-Pesa payments - handle case where sync column doesn't exist
+            try {
+                $mpesaPayments = ORM::for_table('tbl_mpesa_transactions')
+                    ->where('status', 'completed')
+                    ->where_null('synced_to_transactions')
+                    ->find_many();
+            } catch (Exception $e) {
+                // Column doesn't exist, get all completed payments
+                self::log("INFO: synced_to_transactions column not accessible, syncing all completed payments");
+                $mpesaPayments = ORM::for_table('tbl_mpesa_transactions')
+                    ->where('status', 'completed')
+                    ->find_many();
+            }
             
             $syncedCount = 0;
             
@@ -74,10 +82,15 @@ class PaymentSync
                     $transaction->admin_id = 1; // System admin
                     $transaction->save();
                     
-                    // Mark M-Pesa payment as synced
-                    $mpesaPayment->synced_to_transactions = 1;
-                    $mpesaPayment->transaction_ref = $transaction->id;
-                    $mpesaPayment->save();
+                    // Mark M-Pesa payment as synced (if column exists)
+                    try {
+                        $mpesaPayment->synced_to_transactions = 1;
+                        $mpesaPayment->transaction_ref = $transaction->id;
+                        $mpesaPayment->save();
+                    } catch (Exception $e) {
+                        // Column doesn't exist, continue without marking as synced
+                        self::log("INFO: Cannot mark payment as synced - column not accessible");
+                    }
                     
                     $syncedCount++;
                     
