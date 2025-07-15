@@ -120,20 +120,26 @@ try {
         $amount = rand(100, 1000);
         $days_ago = rand(1, 30);
         
+        $recharge_date = date('Y-m-d', strtotime("-$days_ago days"));
+        $expiration_date = date('Y-m-d', strtotime($recharge_date . ' +30 days'));
+        
         $stmt = $pdo->prepare("INSERT INTO tbl_transactions 
-            (invoice, username, plan_name, price, recharged_on, recharged_time, method, type, reseller_id) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            (invoice, username, plan_name, price, recharged_on, recharged_time, method, type, reseller_id, expiration, time, admin_id) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         
         $stmt->execute([
             "TEST-" . time() . "-$i",
             "testcustomer" . rand(1, 5),
             "Test Package " . rand(1, 3),
             $amount,
-            date('Y-m-d', strtotime("-$days_ago days")),
+            $recharge_date,
             date('H:i:s'),
             'M-Pesa',
             'Hotspot',
-            $reseller_id
+            $reseller_id,
+            $expiration_date,
+            '30:00:00', // 30 hours validity
+            1 // admin_id
         ]);
     }
     
