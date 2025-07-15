@@ -102,19 +102,36 @@ class PaymentSync
     public static function addSyncColumns()
     {
         try {
-            // Add sync columns if they don't exist
-            $alterQuery = "ALTER TABLE tbl_mpesa_transactions ADD COLUMN IF NOT EXISTS synced_to_transactions TINYINT(1) DEFAULT NULL";
-            ORM::for_table('tbl_mpesa_transactions')->raw_execute($alterQuery);
+            // Check if columns exist first
+            $checkQuery = "SHOW COLUMNS FROM tbl_mpesa_transactions LIKE 'synced_to_transactions'";
+            $result = ORM::for_table('tbl_mpesa_transactions')->raw_query($checkQuery);
             
-            $alterQuery2 = "ALTER TABLE tbl_mpesa_transactions ADD COLUMN IF NOT EXISTS transaction_ref INT(11) DEFAULT NULL";
-            ORM::for_table('tbl_mpesa_transactions')->raw_execute($alterQuery2);
+            if (empty($result)) {
+                // Add sync columns
+                $alterQuery = "ALTER TABLE tbl_mpesa_transactions ADD COLUMN synced_to_transactions TINYINT(1) DEFAULT NULL";
+                ORM::for_table('tbl_mpesa_transactions')->raw_execute($alterQuery);
+                self::log("SUCCESS: Added synced_to_transactions column");
+            } else {
+                self::log("INFO: synced_to_transactions column already exists");
+            }
             
-            self::log("SUCCESS: Added sync columns to tbl_mpesa_transactions");
+            // Check second column
+            $checkQuery2 = "SHOW COLUMNS FROM tbl_mpesa_transactions LIKE 'transaction_ref'";
+            $result2 = ORM::for_table('tbl_mpesa_transactions')->raw_query($checkQuery2);
+            
+            if (empty($result2)) {
+                $alterQuery2 = "ALTER TABLE tbl_mpesa_transactions ADD COLUMN transaction_ref INT(11) DEFAULT NULL";
+                ORM::for_table('tbl_mpesa_transactions')->raw_execute($alterQuery2);
+                self::log("SUCCESS: Added transaction_ref column");
+            } else {
+                self::log("INFO: transaction_ref column already exists");
+            }
+            
             return true;
             
         } catch (Exception $e) {
-            self::log("INFO: Sync columns may already exist - " . $e->getMessage());
-            return true; // Continue even if columns exist
+            self::log("ERROR: Failed to add sync columns - " . $e->getMessage());
+            return false;
         }
     }
     
@@ -170,17 +187,24 @@ try {
         ->where('status', 'completed')
         ->count();
     
-    $unsynced_mpesa = ORM::for_table('tbl_mpesa_transactions')
-        ->where('status', 'completed')
-        ->where_null('synced_to_transactions')
-        ->count();
-    
     echo "Completed M-Pesa payments: $completed_mpesa\n";
-    echo "Unsynced M-Pesa payments: $unsynced_mpesa\n\n";
     
-    if ($unsynced_mpesa == 0) {
-        echo "No M-Pesa payments to sync. All payments are already synchronized.\n";
-        exit(0);
+    // Try to count unsynced payments, but handle case where column doesn't exist
+    try {
+        $unsynced_mpesa = ORM::for_table('tbl_mpesa_transactions')
+            ->where('status', 'completed')
+            ->where_null('synced_to_transactions')
+            ->count();
+        
+        echo "Unsynced M-Pesa payments: $unsynced_mpesa\n\n";
+        
+        if ($unsynced_mpesa == 0) {
+            echo "No M-Pesa payments to sync. All payments are already synchronized.\n";
+            exit(0);
+        }
+    } catch (Exception $e) {
+        // Column doesn't exist yet, assume all payments need syncing
+        echo "Sync column not found - will add it and sync all $completed_mpesa payments\n\n";
     }
     
 } catch (Exception $e) {
