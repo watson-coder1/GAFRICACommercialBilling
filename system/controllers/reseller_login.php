@@ -5,7 +5,7 @@
  * Separate login portal for resellers
  */
 
-$action = $routes['1'] ?? 'login';
+$action = $_GET['action'] ?? $routes[1] ?? 'login';
 
 switch ($action) {
     case 'login':
