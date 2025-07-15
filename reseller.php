@@ -103,8 +103,7 @@ switch ($controller) {
         require_once 'system/controllers/reseller_subscription.php';
         break;
     default:
-        // Redirect to login for unknown routes
-        header('Location: ' . RESELLER_URL . '/login');
-        exit;
+        // For unknown routes, include login controller
+        require_once 'system/controllers/reseller_login.php';
 }
 ?>
