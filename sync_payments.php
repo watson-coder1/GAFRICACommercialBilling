@@ -4,18 +4,12 @@
  * Run this script to sync existing M-Pesa payments to the main transactions table
  */
 
-// Include required files
-require_once 'config.php';
-require_once 'system/autoload/ORM.php';
-require_once 'system/autoload/GUMP.php';
-require_once 'system/autoload/Lang.php';
-require_once 'system/autoload/PaymentSync.php';
+// Bootstrap the application - use the same loading mechanism as the main app
+require_once 'system/vendor/autoload.php';
+require_once 'system/boot.php';
 
-// Initialize database
-ORM::configure('mysql:host=' . $db_host . ';dbname=' . $db_name);
-ORM::configure('username', $db_user);
-ORM::configure('password', $db_pass);
-ORM::configure('driver_options', array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+// Include our PaymentSync class
+require_once 'system/autoload/PaymentSync.php';
 
 echo "=== GLINTA AFRICA PAYMENT SYNC UTILITY ===\n";
 echo "This script will sync M-Pesa payments to the main transactions table\n";
