@@ -70,7 +70,7 @@ foreach ($mpesaPayments as $mpesaPayment) {
         
         $packageName = $package ? $package->name : 'Unknown Package';
         
-        // Create transaction record with minimal fields
+        // Create transaction record with all required fields
         $transaction = ORM::for_table('tbl_transactions')->create();
         $transaction->invoice = 'MPESA-' . $mpesaPayment->id;
         $transaction->username = $mpesaPayment->phone_number;
@@ -80,8 +80,18 @@ foreach ($mpesaPayments as $mpesaPayment) {
         $transaction->recharged_time = date('Y-m-d H:i:s', strtotime($mpesaPayment->created_at));
         $transaction->method = 'M-Pesa';
         $transaction->routers = 'Portal';
-        $transaction->type = 'Hotspot'; // Must be one of: Hotspot, PPPOE, Balance
+        $transaction->type = 'Hotspot'; // Hotspot portal payments
         $transaction->admin_id = 1;
+        
+        // Add expiration field - calculate from package duration
+        if ($package && $package->duration_hours > 0) {
+            $transaction->expiration = date('Y-m-d H:i:s', 
+                strtotime($mpesaPayment->created_at . ' +' . $package->duration_hours . ' hours'));
+        } else {
+            // Default to 24 hours if no package duration
+            $transaction->expiration = date('Y-m-d H:i:s', 
+                strtotime($mpesaPayment->created_at . ' +24 hours'));
+        }
         
         try {
             $transaction->save();
