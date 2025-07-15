@@ -9,6 +9,9 @@ require_once 'init.php';
 require_once 'system/orm.php';
 require_once 'system/autoload/ResellerAuth.php';
 
+// Include Smarty library
+require_once 'system/vendor/smarty/smarty/libs/Smarty.class.php';
+
 // Set base URL for reseller portal
 define('RESELLER_URL', $config['web_url'] . '/reseller.php');
 
@@ -24,11 +27,27 @@ $routes = $path ? explode('/', $path) : ['login'];
 
 // Initialize UI for reseller portal
 $ui = new Smarty();
-$ui->setTemplateDir('ui/reseller/');
+$ui->setTemplateDir([
+    'reseller' => 'ui/reseller/',
+    'admin' => 'ui/ui/admin/',
+    'default' => 'ui/ui/'
+]);
 $ui->setCompileDir('ui/compiled/');
 $ui->setCacheDir('ui/cache/');
+$ui->setConfigDir('ui/conf/');
+
+// Make sure directories are writable
+@chmod('ui/compiled/', 0755);
+@chmod('ui/cache/', 0755);
+
+// Assign basic template variables
 $ui->assign('_url', RESELLER_URL);
 $ui->assign('app_url', $config['web_url']);
+$ui->assign('_title', 'Reseller Portal - Glinta Africa');
+$ui->assign('_system_name', 'Glinta Hotspot Billing');
+
+// Make template globally available as $template for compatibility
+$template = $ui;
 
 // Check subscription status for authenticated users
 if (isset($_SESSION['reseller_admin_id']) && $routes[0] !== 'login' && $routes[0] !== 'logout') {

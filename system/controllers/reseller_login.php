@@ -25,12 +25,7 @@ switch ($action) {
 }
 
 function handleResellerLogin() {
-    global $template;
-    
-    // Ensure template is initialized
-    if (!isset($template) || !is_object($template)) {
-        require_once __DIR__ . "/../../template_fallback.php";
-    }
+    global $ui;
     
     // Check if already logged in
     if (isset($_SESSION['reseller_admin_id'])) {
@@ -39,19 +34,18 @@ function handleResellerLogin() {
     }
     
     // Set template variables for login
-    $template->assign('_title', 'Reseller Login - Glinta Hotspot');
-    $template->assign('_system_name', 'Glinta Hotspot Billing');
-    $template->assign('login_url', RESELLER_URL . '/authenticate');
-    $template->assign('error', $_GET['error'] ?? '');
-    $template->assign('message', $_GET['message'] ?? '');
+    $ui->assign('_title', 'Reseller Login - Glinta Hotspot');
+    $ui->assign('_system_name', 'Glinta Hotspot Billing');
+    $ui->assign('login_url', RESELLER_URL . '/authenticate');
+    $ui->assign('error', $_GET['error'] ?? '');
+    $ui->assign('message', $_GET['message'] ?? '');
     
-    // Check if reseller login template exists
-    $reseller_template = __DIR__ . "/../../ui/reseller/login.tpl";
-    if (file_exists($reseller_template)) {
-        $template->display('reseller/login.tpl');
-    } else {
-        // Fall back to admin login template
-        $template->display('admin/admin/login.tpl');
+    // Try to display reseller login template
+    try {
+        $ui->display('login.tpl');
+    } catch (Exception $e) {
+        // If template fails, try admin login template
+        $ui->display('admin/admin/login.tpl');
     }
 }
 
