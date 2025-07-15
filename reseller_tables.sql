@@ -79,53 +79,149 @@ CREATE TABLE IF NOT EXISTS `tbl_reseller_settings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Add reseller_id to existing tables (ALTER TABLE statements)
+-- Using ALTER TABLE with IF NOT EXISTS for columns and checking before adding indexes
 
 -- Add reseller_id to customers table
-ALTER TABLE `tbl_customers` ADD COLUMN `reseller_id` int(11) DEFAULT NULL AFTER `id`;
-ALTER TABLE `tbl_customers` ADD KEY `reseller_id` (`reseller_id`);
+ALTER TABLE `tbl_customers` ADD COLUMN IF NOT EXISTS `reseller_id` int(11) DEFAULT NULL AFTER `id`;
+-- Check if index exists before creating
+SET @exists = (SELECT COUNT(*) FROM information_schema.statistics WHERE table_schema = DATABASE() AND table_name = 'tbl_customers' AND index_name = 'reseller_id');
+SET @sql = IF(@exists = 0, 'ALTER TABLE `tbl_customers` ADD KEY `reseller_id` (`reseller_id`)', 'SELECT "Index already exists"');
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
 
 -- Add reseller_id to routers table  
-ALTER TABLE `tbl_routers` ADD COLUMN `reseller_id` int(11) DEFAULT NULL AFTER `id`;
-ALTER TABLE `tbl_routers` ADD KEY `reseller_id` (`reseller_id`);
+ALTER TABLE `tbl_routers` ADD COLUMN IF NOT EXISTS `reseller_id` int(11) DEFAULT NULL AFTER `id`;
+-- Check if index exists before creating
+SET @exists = (SELECT COUNT(*) FROM information_schema.statistics WHERE table_schema = DATABASE() AND table_name = 'tbl_routers' AND index_name = 'reseller_id');
+SET @sql = IF(@exists = 0, 'ALTER TABLE `tbl_routers` ADD KEY `reseller_id` (`reseller_id`)', 'SELECT "Index already exists"');
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
 
 -- Add reseller_id to transactions table
-ALTER TABLE `tbl_transactions` ADD COLUMN `reseller_id` int(11) DEFAULT NULL AFTER `id`;
-ALTER TABLE `tbl_transactions` ADD KEY `reseller_id` (`reseller_id`);
+ALTER TABLE `tbl_transactions` ADD COLUMN IF NOT EXISTS `reseller_id` int(11) DEFAULT NULL AFTER `id`;
+-- Check if index exists before creating
+SET @exists = (SELECT COUNT(*) FROM information_schema.statistics WHERE table_schema = DATABASE() AND table_name = 'tbl_transactions' AND index_name = 'reseller_id');
+SET @sql = IF(@exists = 0, 'ALTER TABLE `tbl_transactions` ADD KEY `reseller_id` (`reseller_id`)', 'SELECT "Index already exists"');
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
 
 -- Add reseller_id to user_recharges table
-ALTER TABLE `tbl_user_recharges` ADD COLUMN `reseller_id` int(11) DEFAULT NULL AFTER `id`;
-ALTER TABLE `tbl_user_recharges` ADD KEY `reseller_id` (`reseller_id`);
+ALTER TABLE `tbl_user_recharges` ADD COLUMN IF NOT EXISTS `reseller_id` int(11) DEFAULT NULL AFTER `id`;
+-- Check if index exists before creating
+SET @exists = (SELECT COUNT(*) FROM information_schema.statistics WHERE table_schema = DATABASE() AND table_name = 'tbl_user_recharges' AND index_name = 'reseller_id');
+SET @sql = IF(@exists = 0, 'ALTER TABLE `tbl_user_recharges` ADD KEY `reseller_id` (`reseller_id`)', 'SELECT "Index already exists"');
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
 
 -- Add reseller_id to portal_sessions table (if exists)
-ALTER TABLE `tbl_portal_sessions` ADD COLUMN `reseller_id` int(11) DEFAULT NULL AFTER `id`;
-ALTER TABLE `tbl_portal_sessions` ADD KEY `reseller_id` (`reseller_id`);
+SET @table_exists = (SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = DATABASE() AND table_name = 'tbl_portal_sessions');
+SET @sql = IF(@table_exists > 0, 'ALTER TABLE `tbl_portal_sessions` ADD COLUMN IF NOT EXISTS `reseller_id` int(11) DEFAULT NULL AFTER `id`', 'SELECT "Table does not exist"');
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
+-- Add index if table exists
+SET @sql = IF(@table_exists > 0, 'ALTER TABLE `tbl_portal_sessions` ADD KEY IF NOT EXISTS `reseller_id` (`reseller_id`)', 'SELECT "Table does not exist"');
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
 
 -- Add reseller_id to mpesa_transactions table (if exists)
-ALTER TABLE `tbl_mpesa_transactions` ADD COLUMN `reseller_id` int(11) DEFAULT NULL AFTER `id`;
-ALTER TABLE `tbl_mpesa_transactions` ADD KEY `reseller_id` (`reseller_id`);
+SET @table_exists = (SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = DATABASE() AND table_name = 'tbl_mpesa_transactions');
+SET @sql = IF(@table_exists > 0, 'ALTER TABLE `tbl_mpesa_transactions` ADD COLUMN IF NOT EXISTS `reseller_id` int(11) DEFAULT NULL AFTER `id`', 'SELECT "Table does not exist"');
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
+-- Add index if table exists
+SET @sql = IF(@table_exists > 0, 'ALTER TABLE `tbl_mpesa_transactions` ADD KEY IF NOT EXISTS `reseller_id` (`reseller_id`)', 'SELECT "Table does not exist"');
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
 
 -- Add reseller_id to plans table
-ALTER TABLE `tbl_plans` ADD COLUMN `reseller_id` int(11) DEFAULT NULL AFTER `id`;
-ALTER TABLE `tbl_plans` ADD KEY `reseller_id` (`reseller_id`);
+ALTER TABLE `tbl_plans` ADD COLUMN IF NOT EXISTS `reseller_id` int(11) DEFAULT NULL AFTER `id`;
+-- Check if index exists before creating
+SET @exists = (SELECT COUNT(*) FROM information_schema.statistics WHERE table_schema = DATABASE() AND table_name = 'tbl_plans' AND index_name = 'reseller_id');
+SET @sql = IF(@exists = 0, 'ALTER TABLE `tbl_plans` ADD KEY `reseller_id` (`reseller_id`)', 'SELECT "Index already exists"');
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
 
 -- Add reseller_id to bandwidth table
-ALTER TABLE `tbl_bandwidth` ADD COLUMN `reseller_id` int(11) DEFAULT NULL AFTER `id`;
-ALTER TABLE `tbl_bandwidth` ADD KEY `reseller_id` (`reseller_id`);
+ALTER TABLE `tbl_bandwidth` ADD COLUMN IF NOT EXISTS `reseller_id` int(11) DEFAULT NULL AFTER `id`;
+-- Check if index exists before creating
+SET @exists = (SELECT COUNT(*) FROM information_schema.statistics WHERE table_schema = DATABASE() AND table_name = 'tbl_bandwidth' AND index_name = 'reseller_id');
+SET @sql = IF(@exists = 0, 'ALTER TABLE `tbl_bandwidth` ADD KEY `reseller_id` (`reseller_id`)', 'SELECT "Index already exists"');
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
 
 -- Create default system reseller (ID=1 for existing data)
 INSERT INTO `tbl_resellers` (`id`, `name`, `email`, `password`, `status`, `subscription_plan`, `max_customers`, `max_routers`, `commission_rate`, `expires_at`) 
 VALUES (1, 'System Admin', 'admin@glintaafrica.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'active', 'unlimited', 999999, 999999, 0.00, '2030-12-31 23:59:59')
 ON DUPLICATE KEY UPDATE `name` = 'System Admin';
 
--- Update existing data to belong to system reseller (ID=1)
-UPDATE `tbl_customers` SET `reseller_id` = 1 WHERE `reseller_id` IS NULL;
-UPDATE `tbl_routers` SET `reseller_id` = 1 WHERE `reseller_id` IS NULL;
-UPDATE `tbl_transactions` SET `reseller_id` = 1 WHERE `reseller_id` IS NULL;
-UPDATE `tbl_user_recharges` SET `reseller_id` = 1 WHERE `reseller_id` IS NULL;
-UPDATE `tbl_portal_sessions` SET `reseller_id` = 1 WHERE `reseller_id` IS NULL;
-UPDATE `tbl_mpesa_transactions` SET `reseller_id` = 1 WHERE `reseller_id` IS NULL;
-UPDATE `tbl_plans` SET `reseller_id` = 1 WHERE `reseller_id` IS NULL;
-UPDATE `tbl_bandwidth` SET `reseller_id` = 1 WHERE `reseller_id` IS NULL;
+-- Update existing data to belong to system reseller (ID=1) - only if columns exist
+-- Update customers table
+SET @col_exists = (SELECT COUNT(*) FROM information_schema.columns WHERE table_schema = DATABASE() AND table_name = 'tbl_customers' AND column_name = 'reseller_id');
+SET @sql = IF(@col_exists > 0, 'UPDATE `tbl_customers` SET `reseller_id` = 1 WHERE `reseller_id` IS NULL', 'SELECT "Column does not exist"');
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
+
+-- Update routers table
+SET @col_exists = (SELECT COUNT(*) FROM information_schema.columns WHERE table_schema = DATABASE() AND table_name = 'tbl_routers' AND column_name = 'reseller_id');
+SET @sql = IF(@col_exists > 0, 'UPDATE `tbl_routers` SET `reseller_id` = 1 WHERE `reseller_id` IS NULL', 'SELECT "Column does not exist"');
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
+
+-- Update transactions table
+SET @col_exists = (SELECT COUNT(*) FROM information_schema.columns WHERE table_schema = DATABASE() AND table_name = 'tbl_transactions' AND column_name = 'reseller_id');
+SET @sql = IF(@col_exists > 0, 'UPDATE `tbl_transactions` SET `reseller_id` = 1 WHERE `reseller_id` IS NULL', 'SELECT "Column does not exist"');
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
+
+-- Update user_recharges table
+SET @col_exists = (SELECT COUNT(*) FROM information_schema.columns WHERE table_schema = DATABASE() AND table_name = 'tbl_user_recharges' AND column_name = 'reseller_id');
+SET @sql = IF(@col_exists > 0, 'UPDATE `tbl_user_recharges` SET `reseller_id` = 1 WHERE `reseller_id` IS NULL', 'SELECT "Column does not exist"');
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
+
+-- Update portal_sessions table (if table and column exist)
+SET @table_exists = (SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = DATABASE() AND table_name = 'tbl_portal_sessions');
+SET @col_exists = (SELECT COUNT(*) FROM information_schema.columns WHERE table_schema = DATABASE() AND table_name = 'tbl_portal_sessions' AND column_name = 'reseller_id');
+SET @sql = IF(@table_exists > 0 AND @col_exists > 0, 'UPDATE `tbl_portal_sessions` SET `reseller_id` = 1 WHERE `reseller_id` IS NULL', 'SELECT "Table or column does not exist"');
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
+
+-- Update mpesa_transactions table (if table and column exist)
+SET @table_exists = (SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = DATABASE() AND table_name = 'tbl_mpesa_transactions');
+SET @col_exists = (SELECT COUNT(*) FROM information_schema.columns WHERE table_schema = DATABASE() AND table_name = 'tbl_mpesa_transactions' AND column_name = 'reseller_id');
+SET @sql = IF(@table_exists > 0 AND @col_exists > 0, 'UPDATE `tbl_mpesa_transactions` SET `reseller_id` = 1 WHERE `reseller_id` IS NULL', 'SELECT "Table or column does not exist"');
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
+
+-- Update plans table
+SET @col_exists = (SELECT COUNT(*) FROM information_schema.columns WHERE table_schema = DATABASE() AND table_name = 'tbl_plans' AND column_name = 'reseller_id');
+SET @sql = IF(@col_exists > 0, 'UPDATE `tbl_plans` SET `reseller_id` = 1 WHERE `reseller_id` IS NULL', 'SELECT "Column does not exist"');
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
+
+-- Update bandwidth table
+SET @col_exists = (SELECT COUNT(*) FROM information_schema.columns WHERE table_schema = DATABASE() AND table_name = 'tbl_bandwidth' AND column_name = 'reseller_id');
+SET @sql = IF(@col_exists > 0, 'UPDATE `tbl_bandwidth` SET `reseller_id` = 1 WHERE `reseller_id` IS NULL', 'SELECT "Column does not exist"');
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
 
 -- Create reseller subscription plans lookup table
 CREATE TABLE IF NOT EXISTS `tbl_reseller_plans` (
@@ -151,8 +247,35 @@ INSERT INTO `tbl_reseller_plans` (`name`, `price`, `duration_days`, `max_custome
 ('Premium', 20000.00, 30, 1000, 10, 5.00, 'Full dashboard, Unlimited features, White-label options'),
 ('Enterprise', 50000.00, 30, 5000, 25, 3.00, 'Enterprise features, API access, Custom integrations');
 
--- Create indexes for better performance
-CREATE INDEX `idx_reseller_customers` ON `tbl_customers` (`reseller_id`, `service_type`);
-CREATE INDEX `idx_reseller_transactions` ON `tbl_transactions` (`reseller_id`, `recharged_on`);
-CREATE INDEX `idx_reseller_recharges` ON `tbl_user_recharges` (`reseller_id`, `status`, `expiration`);
-CREATE INDEX `idx_reseller_routers` ON `tbl_routers` (`reseller_id`, `enabled`);
+-- Create indexes for better performance (only if columns exist)
+-- Check and create index for customers table
+SET @col_exists = (SELECT COUNT(*) FROM information_schema.columns WHERE table_schema = DATABASE() AND table_name = 'tbl_customers' AND column_name = 'reseller_id');
+SET @idx_exists = (SELECT COUNT(*) FROM information_schema.statistics WHERE table_schema = DATABASE() AND table_name = 'tbl_customers' AND index_name = 'idx_reseller_customers');
+SET @sql = IF(@col_exists > 0 AND @idx_exists = 0, 'CREATE INDEX `idx_reseller_customers` ON `tbl_customers` (`reseller_id`, `service_type`)', 'SELECT "Index not created"');
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
+
+-- Check and create index for transactions table
+SET @col_exists = (SELECT COUNT(*) FROM information_schema.columns WHERE table_schema = DATABASE() AND table_name = 'tbl_transactions' AND column_name = 'reseller_id');
+SET @idx_exists = (SELECT COUNT(*) FROM information_schema.statistics WHERE table_schema = DATABASE() AND table_name = 'tbl_transactions' AND index_name = 'idx_reseller_transactions');
+SET @sql = IF(@col_exists > 0 AND @idx_exists = 0, 'CREATE INDEX `idx_reseller_transactions` ON `tbl_transactions` (`reseller_id`, `recharged_on`)', 'SELECT "Index not created"');
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
+
+-- Check and create index for user_recharges table
+SET @col_exists = (SELECT COUNT(*) FROM information_schema.columns WHERE table_schema = DATABASE() AND table_name = 'tbl_user_recharges' AND column_name = 'reseller_id');
+SET @idx_exists = (SELECT COUNT(*) FROM information_schema.statistics WHERE table_schema = DATABASE() AND table_name = 'tbl_user_recharges' AND index_name = 'idx_reseller_recharges');
+SET @sql = IF(@col_exists > 0 AND @idx_exists = 0, 'CREATE INDEX `idx_reseller_recharges` ON `tbl_user_recharges` (`reseller_id`, `status`, `expiration`)', 'SELECT "Index not created"');
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
+
+-- Check and create index for routers table
+SET @col_exists = (SELECT COUNT(*) FROM information_schema.columns WHERE table_schema = DATABASE() AND table_name = 'tbl_routers' AND column_name = 'reseller_id');
+SET @idx_exists = (SELECT COUNT(*) FROM information_schema.statistics WHERE table_schema = DATABASE() AND table_name = 'tbl_routers' AND index_name = 'idx_reseller_routers');
+SET @sql = IF(@col_exists > 0 AND @idx_exists = 0, 'CREATE INDEX `idx_reseller_routers` ON `tbl_routers` (`reseller_id`, `enabled`)', 'SELECT "Index not created"');
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
