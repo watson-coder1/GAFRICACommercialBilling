@@ -25,6 +25,7 @@ try {
         $reseller->subscription_status = 'trial';
         $reseller->trial_start = date('Y-m-d');
         $reseller->trial_end = date('Y-m-d', strtotime('+30 days'));
+        $reseller->expires_at = date('Y-m-d H:i:s', strtotime('+30 days'));
         $reseller->status = 'active';
         $reseller->created_at = date('Y-m-d H:i:s');
         $reseller->save();

@@ -50,7 +50,8 @@ $ui->assign('_system_name', 'Glinta Hotspot Billing');
 $template = $ui;
 
 // Check subscription status for authenticated users
-if (isset($_SESSION['reseller_admin_id']) && $routes[0] !== 'login' && $routes[0] !== 'logout') {
+$action = $routes[0] ?? $_GET['action'] ?? 'login';
+if (isset($_SESSION['reseller_admin_id']) && $action !== 'login' && $action !== 'logout' && $action !== 'authenticate') {
     $reseller_id = $_SESSION['reseller_id'];
     $subscriptionCheck = ResellerAuth::checkSubscription($reseller_id);
     
@@ -66,7 +67,7 @@ if (isset($_SESSION['reseller_admin_id']) && $routes[0] !== 'login' && $routes[0
         session_destroy();
         
         // Redirect to login with message
-        header('Location: ' . RESELLER_URL . '/login?error=' . urlencode($subscriptionCheck['message']));
+        header('Location: ' . RESELLER_URL . '?action=login&error=' . urlencode($subscriptionCheck['message']));
         exit;
     }
     
