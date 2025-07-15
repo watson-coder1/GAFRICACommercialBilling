@@ -261,6 +261,106 @@
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
         
+        .quick-links-section {
+            margin-top: 30px;
+        }
+        
+        .quick-links-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--kenya-green);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .quick-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .quick-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px;
+            background: var(--kenya-white);
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--kenya-black);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .quick-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            border-color: var(--kenya-green);
+        }
+        
+        .link-icon {
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+        
+        .link-text {
+            flex: 1;
+        }
+        
+        .link-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--kenya-black);
+            margin-bottom: 2px;
+        }
+        
+        .link-desc {
+            font-size: 12px;
+            color: #64748b;
+        }
+        
+        .quick-link.google:hover {
+            border-color: #4285f4;
+            background: #f8faff;
+        }
+        
+        .quick-link.youtube:hover {
+            border-color: #ff0000;
+            background: #fff8f8;
+        }
+        
+        .quick-link.facebook:hover {
+            border-color: #1877f2;
+            background: #f0f8ff;
+        }
+        
+        .quick-link.instagram:hover {
+            border-color: #e4405f;
+            background: #fdf2f8;
+        }
+        
+        .quick-link.tiktok:hover {
+            border-color: #000000;
+            background: #f9fafb;
+        }
+        
+        .quick-link.twitter:hover {
+            border-color: #1da1f2;
+            background: #f0f9ff;
+        }
+        
+        .quick-link.whatsapp:hover {
+            border-color: #25d366;
+            background: #f0fdf4;
+        }
+        
+        .quick-link.netflix:hover {
+            border-color: #e50914;
+            background: #fef2f2;
+        }
+        
         .action-buttons {
             display: flex;
             gap: 15px;
@@ -420,6 +520,28 @@
                 grid-template-columns: 1fr 1fr;
             }
             
+            .quick-links-grid {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 12px;
+            }
+            
+            .quick-link {
+                padding: 12px;
+                gap: 10px;
+            }
+            
+            .link-icon {
+                font-size: 20px;
+            }
+            
+            .link-title {
+                font-size: 14px;
+            }
+            
+            .link-desc {
+                font-size: 11px;
+            }
+            
             .action-buttons {
                 flex-direction: column;
                 align-items: center;
@@ -434,6 +556,28 @@
         @media (max-width: 480px) {
             .package-details {
                 grid-template-columns: 1fr;
+            }
+            
+            .quick-links-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            
+            .quick-link {
+                padding: 10px;
+                gap: 8px;
+            }
+            
+            .link-icon {
+                font-size: 18px;
+            }
+            
+            .link-title {
+                font-size: 13px;
+            }
+            
+            .link-desc {
+                font-size: 10px;
             }
             
             .contact-info {
@@ -515,15 +659,85 @@
                 </div>
             </div>
             
-            <div class="action-buttons">
-                <a href="https://google.com" class="btn btn-primary" target="_blank">
-                    <span>🔍</span>
-                    <span>Start Browsing</span>
-                </a>
-                <a href="https://youtube.com" class="btn btn-secondary" target="_blank">
-                    <span>📺</span>
-                    <span>Watch Videos</span>
-                </a>
+            <div class="quick-links-section">
+                <h3 class="quick-links-title">🚀 Quick Access - Where would you like to go?</h3>
+                
+                <div class="quick-links-grid">
+                    <a href="https://google.com" class="quick-link google" target="_blank">
+                        <div class="link-icon">🔍</div>
+                        <div class="link-text">
+                            <div class="link-title">Google</div>
+                            <div class="link-desc">Search anything</div>
+                        </div>
+                    </a>
+                    
+                    <a href="https://youtube.com" class="quick-link youtube" target="_blank">
+                        <div class="link-icon">📺</div>
+                        <div class="link-text">
+                            <div class="link-title">YouTube</div>
+                            <div class="link-desc">Watch videos</div>
+                        </div>
+                    </a>
+                    
+                    <a href="https://facebook.com" class="quick-link facebook" target="_blank">
+                        <div class="link-icon">📘</div>
+                        <div class="link-text">
+                            <div class="link-title">Facebook</div>
+                            <div class="link-desc">Social media</div>
+                        </div>
+                    </a>
+                    
+                    <a href="https://instagram.com" class="quick-link instagram" target="_blank">
+                        <div class="link-icon">📸</div>
+                        <div class="link-text">
+                            <div class="link-title">Instagram</div>
+                            <div class="link-desc">Photos & stories</div>
+                        </div>
+                    </a>
+                    
+                    <a href="https://tiktok.com" class="quick-link tiktok" target="_blank">
+                        <div class="link-icon">🎵</div>
+                        <div class="link-text">
+                            <div class="link-title">TikTok</div>
+                            <div class="link-desc">Short videos</div>
+                        </div>
+                    </a>
+                    
+                    <a href="https://twitter.com" class="quick-link twitter" target="_blank">
+                        <div class="link-icon">🐦</div>
+                        <div class="link-text">
+                            <div class="link-title">Twitter</div>
+                            <div class="link-desc">Latest news</div>
+                        </div>
+                    </a>
+                    
+                    <a href="https://whatsapp.com" class="quick-link whatsapp" target="_blank">
+                        <div class="link-icon">💬</div>
+                        <div class="link-text">
+                            <div class="link-title">WhatsApp</div>
+                            <div class="link-desc">Chat & calls</div>
+                        </div>
+                    </a>
+                    
+                    <a href="https://netflix.com" class="quick-link netflix" target="_blank">
+                        <div class="link-icon">🎬</div>
+                        <div class="link-text">
+                            <div class="link-title">Netflix</div>
+                            <div class="link-desc">Stream movies</div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="action-buttons">
+                    <button id="autoRedirectBtn" class="btn btn-primary">
+                        <span>🔄</span>
+                        <span>Auto-redirect to Google (10s)</span>
+                    </button>
+                    <button id="stayHereBtn" class="btn btn-secondary">
+                        <span>⏸️</span>
+                        <span>Stay Here</span>
+                    </button>
+                </div>
             </div>
         </div>
         
@@ -543,25 +757,35 @@
     </div>
     
     <script>
-        // Auto-redirect to start browsing after 10 seconds
+        // Auto-redirect functionality
         let countdown = 10;
-        const startBrowsingBtn = document.querySelector('.btn-primary');
-        const originalText = startBrowsingBtn.innerHTML;
+        let autoRedirectEnabled = true;
+        const autoRedirectBtn = document.getElementById('autoRedirectBtn');
+        const stayHereBtn = document.getElementById('stayHereBtn');
         
         function updateCountdown() {
-            if (countdown > 0) {
-                startBrowsingBtn.innerHTML = '<span>🔍</span><span>Start Browsing (' + countdown + 's)</span>';
+            if (countdown > 0 && autoRedirectEnabled) {
+                autoRedirectBtn.innerHTML = '<span>🔄</span><span>Auto-redirect to Google (' + countdown + 's)</span>';
                 countdown--;
                 setTimeout(updateCountdown, 1000);
-            } else {
-                startBrowsingBtn.innerHTML = originalText;
-                // Optional: Auto-redirect
-                // window.open('https://google.com', '_blank');
+            } else if (autoRedirectEnabled) {
+                autoRedirectBtn.innerHTML = '<span>🔍</span><span>Redirecting to Google...</span>';
+                window.open('https://google.com', '_blank');
             }
         }
         
+        // Handle stay here button
+        stayHereBtn.addEventListener('click', function() {
+            autoRedirectEnabled = false;
+            autoRedirectBtn.innerHTML = '<span>🔍</span><span>Click to Browse Google</span>';
+            autoRedirectBtn.onclick = function() {
+                window.open('https://google.com', '_blank');
+            };
+            stayHereBtn.style.display = 'none';
+        });
+        
         // Start countdown after page loads
-        setTimeout(updateCountdown, 2000);
+        setTimeout(updateCountdown, 3000);
         
         // Test internet connectivity and auto-redirect
         function testConnectivity() {
