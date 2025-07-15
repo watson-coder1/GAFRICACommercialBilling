@@ -31,8 +31,8 @@ echo "init.php exists: " . (file_exists(__DIR__ . '/init.php') ? 'YES' : 'NO') .
 // 4. Check Database Connection (without loading full init.php)
 echo "\n=== DATABASE CONNECTION ===\n";
 try {
-    // Try to connect to database - use localhost when inside container
-    $db_host = 'localhost';
+    // Try to connect to database - use docker service name
+    $db_host = 'glinta-mysql';
     $db_name = 'phpnuxbill';
     $db_user = 'phpnuxbill';
     $db_pass = 'nuxbill2025!';
