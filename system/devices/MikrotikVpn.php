@@ -1,7 +1,7 @@
 <?php
 
 use PEAR2\Net\RouterOS;
-use PEAR2\Net\RouterOS as RouterOS;
+use PEAR2\Net\RouterOS as MikroTikAPI;
 
 class MikrotikVpn
 {
@@ -298,7 +298,7 @@ class MikrotikVpn
             return null;
         }
         $iport = explode(":", $ip);
-        return new RouterOS\Client($iport[0], $user, $pass, ($iport[1]) ? $iport[1] : null);
+        return new MikroTikAPI\Client($iport[0], $user, $pass, ($iport[1]) ? $iport[1] : null);
     }
 
     function removeVpnUser($client, $username, $cstid)

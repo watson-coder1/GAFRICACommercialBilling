@@ -9,7 +9,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
 use PEAR2\Net\RouterOS;
-use PEAR2\Net\RouterOS as RouterOS;
+use PEAR2\Net\RouterOS as MikroTikAPI;
 
 require $root_path . 'system/autoload/mail/Exception.php';
 require $root_path . 'system/autoload/mail/PHPMailer.php';
@@ -86,7 +86,7 @@ class Message
         if (!isset($client_m)) {
             $mikrotik = ORM::for_table('tbl_routers')->where('name', $router_name)->find_one();
             $iport = explode(":", $mikrotik['ip_address']);
-            $client_m = new RouterOS\Client($iport[0], $mikrotik['username'], $mikrotik['password'], ($iport[1]) ? $iport[1] : null);
+            $client_m = new MikroTikAPI\Client($iport[0], $mikrotik['username'], $mikrotik['password'], ($iport[1]) ? $iport[1] : null);
         }
         if (empty($config['mikrotik_sms_command'])) {
             $config['mikrotik_sms_command'] = "/tool sms send";

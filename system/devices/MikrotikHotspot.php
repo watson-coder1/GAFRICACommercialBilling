@@ -9,7 +9,7 @@
  **/
 
 use PEAR2\Net\RouterOS;
-use PEAR2\Net\RouterOS as RouterOS;
+use PEAR2\Net\RouterOS as MikroTikAPI;
 
 class MikrotikHotspot
 {
@@ -48,15 +48,15 @@ class MikrotikHotspot
 		$client = $this->getClient($mikrotik['ip_address'], $mikrotik['username'], $mikrotik['password']);
 		$t = ORM::for_table('tbl_user_recharges')->where('username', $customer['username'])->where('status', 'on')->find_one();
 		if ($t) {
-			$printRequest = new RouterOS\Request('/ip/hotspot/user/print');
+			$printRequest = new MikroTikAPI\Request('/ip/hotspot/user/print');
 			$printRequest->setArgument('.proplist', '.id,limit-uptime,limit-bytes-total');
-			$printRequest->setQuery(RouterOS\Query::where('name', $customer['username']));
+			$printRequest->setQuery(MikroTikAPI\Query::where('name', $customer['username']));
 			$userInfo = $client->sendSync($printRequest);
 			$id = $userInfo->getProperty('.id');
 			$uptime = $userInfo->getProperty('limit-uptime');
 			$data = $userInfo->getProperty('limit-bytes-total');
 			if (!empty($id) && (!empty($uptime) || !empty($data))) {
-				$setRequest = new RouterOS\Request('/ip/hotspot/user/set');
+				$setRequest = new MikroTikAPI\Request('/ip/hotspot/user/set');
 				$setRequest->setArgument('numbers', $id);
 				$setRequest->setArgument('profile', $t['namebp']);
 				$client->sendSync($setRequest);
@@ -89,13 +89,13 @@ class MikrotikHotspot
         $mikrotik = $this->info($plan['routers']);
         $client = $this->getClient($mikrotik['ip_address'], $mikrotik['username'], $mikrotik['password']);
         //check if customer exists
-        $printRequest = new RouterOS\Request('/ip/hotspot/user/print');
+        $printRequest = new MikroTikAPI\Request('/ip/hotspot/user/print');
         $printRequest->setArgument('.proplist', '.id');
-        $printRequest->setQuery(RouterOS\Query::where('name', $from));
+        $printRequest->setQuery(MikroTikAPI\Query::where('name', $from));
         $id = $client->sendSync($printRequest)->getProperty('.id');
 
         if (!empty($cid)) {
-            $setRequest = new RouterOS\Request('/ip/hotspot/user/set');
+            $setRequest = new MikroTikAPI\Request('/ip/hotspot/user/set');
             $setRequest->setArgument('numbers', $id);
             $setRequest->setArgument('name', $to);
             $client->sendSync($setRequest);
@@ -126,7 +126,7 @@ class MikrotikHotspot
 		if ($bw['rate_up'] == '0' || $bw['rate_down'] == '0') {
 			$rate = '';
 		}
-        $addRequest = new RouterOS\Request('/ip/hotspot/user/profile/add');
+        $addRequest = new MikroTikAPI\Request('/ip/hotspot/user/profile/add');
         $client->sendSync(
             $addRequest
                 ->setArgument('name', $plan['name_plan'])
@@ -139,9 +139,9 @@ class MikrotikHotspot
     {
         $mikrotik = $this->info($router_name);
         $client = $this->getClient($mikrotik['ip_address'], $mikrotik['username'], $mikrotik['password']);
-        $printRequest = new RouterOS\Request(
+        $printRequest = new MikroTikAPI\Request(
             '/ip hotspot active print',
-            RouterOS\Query::where('user', $customer['username'])
+            MikroTikAPI\Query::where('user', $customer['username'])
         );
         $id =  $client->sendSync($printRequest)->getProperty('.id');
         return $id;
@@ -151,7 +151,7 @@ class MikrotikHotspot
     {
         $mikrotik = $this->info($router_name);
         $client = $this->getClient($mikrotik['ip_address'], $mikrotik['username'], $mikrotik['password']);
-        $addRequest = new RouterOS\Request('/ip/hotspot/active/login');
+        $addRequest = new MikroTikAPI\Request('/ip/hotspot/active/login');
         $client->sendSync(
             $addRequest
                 ->setArgument('user', $customer['username'])
@@ -165,12 +165,12 @@ class MikrotikHotspot
     {
         $mikrotik = $this->info($router_name);
         $client = $this->getClient($mikrotik['ip_address'], $mikrotik['username'], $mikrotik['password']);
-        $printRequest = new RouterOS\Request(
+        $printRequest = new MikroTikAPI\Request(
             '/ip hotspot active print',
-            RouterOS\Query::where('user', $customer['username'])
+            MikroTikAPI\Query::where('user', $customer['username'])
         );
         $id = $client->sendSync($printRequest)->getProperty('.id');
-        $removeRequest = new RouterOS\Request('/ip/hotspot/active/remove');
+        $removeRequest = new MikroTikAPI\Request('/ip/hotspot/active/remove');
         $client->sendSync(
             $removeRequest
                 ->setArgument('numbers', $id)
@@ -183,9 +183,9 @@ class MikrotikHotspot
         $mikrotik = $this->info($new_plan['routers']);
         $client = $this->getClient($mikrotik['ip_address'], $mikrotik['username'], $mikrotik['password']);
 
-        $printRequest = new RouterOS\Request(
+        $printRequest = new MikroTikAPI\Request(
             '/ip hotspot user profile print .proplist=.id',
-            RouterOS\Query::where('name', $old_plan['name_plan'])
+            MikroTikAPI\Query::where('name', $old_plan['name_plan'])
         );
         $profileID = $client->sendSync($printRequest)->getProperty('.id');
         if (empty($profileID)) {
@@ -209,7 +209,7 @@ class MikrotikHotspot
 			if ($bw['rate_up'] == '0' || $bw['rate_down'] == '0') {
 				$rate = '';
 			}
-            $setRequest = new RouterOS\Request('/ip/hotspot/user/profile/set');
+            $setRequest = new MikroTikAPI\Request('/ip/hotspot/user/profile/set');
             $client->sendSync(
                 $setRequest
                     ->setArgument('numbers', $profileID)
@@ -226,12 +226,12 @@ class MikrotikHotspot
     {
         $mikrotik = $this->info($plan['routers']);
         $client = $this->getClient($mikrotik['ip_address'], $mikrotik['username'], $mikrotik['password']);
-        $printRequest = new RouterOS\Request(
+        $printRequest = new MikroTikAPI\Request(
             '/ip hotspot user profile print .proplist=.id',
-            RouterOS\Query::where('name', $plan['name_plan'])
+            MikroTikAPI\Query::where('name', $plan['name_plan'])
         );
         $profileID = $client->sendSync($printRequest)->getProperty('.id');
-        $removeRequest = new RouterOS\Request('/ip/hotspot/user/profile/remove');
+        $removeRequest = new MikroTikAPI\Request('/ip/hotspot/user/profile/remove');
         $client->sendSync(
             $removeRequest
                 ->setArgument('numbers', $profileID)
@@ -250,7 +250,7 @@ class MikrotikHotspot
             return null;
         }
         $iport = explode(":", $ip);
-        return new RouterOS\Client($iport[0], $user, $pass, ($iport[1]) ? $iport[1] : null);
+        return new MikroTikAPI\Client($iport[0], $user, $pass, ($iport[1]) ? $iport[1] : null);
     }
 
     function removeHotspotUser($client, $username)
@@ -259,12 +259,12 @@ class MikrotikHotspot
         if ($_app_stage == 'Demo') {
             return null;
         }
-        $printRequest = new RouterOS\Request(
+        $printRequest = new MikroTikAPI\Request(
             '/ip hotspot user print .proplist=.id',
-            RouterOS\Query::where('name', $username)
+            MikroTikAPI\Query::where('name', $username)
         );
         $userID = $client->sendSync($printRequest)->getProperty('.id');
-        $removeRequest = new RouterOS\Request('/ip/hotspot/user/remove');
+        $removeRequest = new MikroTikAPI\Request('/ip/hotspot/user/remove');
         $client->sendSync(
             $removeRequest
                 ->setArgument('numbers', $userID)
@@ -277,7 +277,7 @@ class MikrotikHotspot
         if ($_app_stage == 'Demo') {
             return null;
         }
-        $addRequest = new RouterOS\Request('/ip/hotspot/user/add');
+        $addRequest = new MikroTikAPI\Request('/ip/hotspot/user/add');
         if ($plan['typebp'] == "Limited") {
             if ($plan['limit_type'] == "Time_Limit") {
                 if ($plan['time_unit'] == 'Hrs')
@@ -345,12 +345,12 @@ class MikrotikHotspot
         if ($_app_stage == 'Demo') {
             return null;
         }
-        $printRequest = new RouterOS\Request('/ip/hotspot/user/print');
+        $printRequest = new MikroTikAPI\Request('/ip/hotspot/user/print');
         $printRequest->setArgument('.proplist', '.id');
-        $printRequest->setQuery(RouterOS\Query::where('name', $user));
+        $printRequest->setQuery(MikroTikAPI\Query::where('name', $user));
         $id = $client->sendSync($printRequest)->getProperty('.id');
 
-        $setRequest = new RouterOS\Request('/ip/hotspot/user/set');
+        $setRequest = new MikroTikAPI\Request('/ip/hotspot/user/set');
         $setRequest->setArgument('numbers', $id);
         $setRequest->setArgument('password', $pass);
         $client->sendSync($setRequest);
@@ -362,12 +362,12 @@ class MikrotikHotspot
         if ($_app_stage == 'Demo') {
             return null;
         }
-        $printRequest = new RouterOS\Request('/ip/hotspot/user/print');
+        $printRequest = new MikroTikAPI\Request('/ip/hotspot/user/print');
         $printRequest->setArgument('.proplist', '.id');
-        $printRequest->setQuery(RouterOS\Query::where('name', $username));
+        $printRequest->setQuery(MikroTikAPI\Query::where('name', $username));
         $id = $client->sendSync($printRequest)->getProperty('.id');
 
-        $setRequest = new RouterOS\Request('/ip/hotspot/user/set');
+        $setRequest = new MikroTikAPI\Request('/ip/hotspot/user/set');
         $setRequest->setArgument('numbers', $id);
         $setRequest->setArgument('profile', $plan_name);
         $client->sendSync($setRequest);
@@ -379,12 +379,12 @@ class MikrotikHotspot
         if ($_app_stage == 'Demo') {
             return null;
         }
-        $onlineRequest = new RouterOS\Request('/ip/hotspot/active/print');
+        $onlineRequest = new MikroTikAPI\Request('/ip/hotspot/active/print');
         $onlineRequest->setArgument('.proplist', '.id');
-        $onlineRequest->setQuery(RouterOS\Query::where('user', $username));
+        $onlineRequest->setQuery(MikroTikAPI\Query::where('user', $username));
         $id = $client->sendSync($onlineRequest)->getProperty('.id');
 
-        $removeRequest = new RouterOS\Request('/ip/hotspot/active/remove');
+        $removeRequest = new MikroTikAPI\Request('/ip/hotspot/active/remove');
         $removeRequest->setArgument('numbers', $id);
         $client->sendSync($removeRequest);
     }
@@ -395,9 +395,9 @@ class MikrotikHotspot
         if ($_app_stage == 'Demo') {
             return null;
         }
-        $printRequest = new RouterOS\Request(
+        $printRequest = new MikroTikAPI\Request(
             '/ip hotspot active print',
-            RouterOS\Query::where('user', $username)
+            MikroTikAPI\Query::where('user', $username)
         );
         return $client->sendSync($printRequest)->getProperty('address');
     }
