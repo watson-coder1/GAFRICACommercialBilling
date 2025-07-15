@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Welcome to Glinta Africa - You're Connected!</title>
-    <link rel="shortcut icon" href="{$app_url}/ui/ui/images/logo.png" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -449,59 +448,6 @@
             font-weight: 500;
         }
         
-        /* Floating particles effect */
-        .particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            overflow: hidden;
-        }
-        
-        .particle {
-            position: absolute;
-            background: var(--glinta-gold);
-            border-radius: 50%;
-            opacity: 0.6;
-            animation: float 6s infinite ease-in-out;
-        }
-        
-        .particle:nth-child(1) {
-            width: 6px;
-            height: 6px;
-            left: 10%;
-            animation-delay: 0s;
-        }
-        
-        .particle:nth-child(2) {
-            width: 4px;
-            height: 4px;
-            left: 70%;
-            animation-delay: 2s;
-        }
-        
-        .particle:nth-child(3) {
-            width: 8px;
-            height: 8px;
-            left: 90%;
-            animation-delay: 4s;
-        }
-        
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10%, 90% {
-                opacity: 0.6;
-            }
-            50% {
-                transform: translateY(-10px) rotate(180deg);
-            }
-        }
-        
         /* Responsive design */
         @media (max-width: 768px) {
             .success-container {
@@ -606,16 +552,15 @@
                 gap: 10px;
             }
         }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
     <div class="success-container">
-        <div class="particles">
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-        </div>
-        
         <div class="brand-header">
             <h1 class="brand-title">Glinta Africa</h1>
             <p class="brand-subtitle">Premium WiFi Solutions</p>
@@ -639,46 +584,35 @@
             </p>
         </div>
         
-        {if $package}
         <div class="package-info">
             <div class="package-header">
                 <span>📦</span>
-                <span>Your Active Package: {$package->name}</span>
+                <span>Your Active Package: Premium WiFi</span>
             </div>
             <div class="package-details">
                 <div class="package-detail">
-                    <div class="detail-value">KSh {$package->price}</div>
+                    <div class="detail-value">KSh 100</div>
                     <div class="detail-label">Amount Paid</div>
                 </div>
                 <div class="package-detail">
-                    <div class="detail-value">{$package->duration_hours}hrs</div>
+                    <div class="detail-value">24hrs</div>
                     <div class="detail-label">Duration</div>
                 </div>
-                {if $session && $session->expires_at}
                 <div class="package-detail">
-                    <div class="detail-value">{date('H:i', strtotime($session->expires_at))}</div>
+                    <div class="detail-value">23:59</div>
                     <div class="detail-label">Expires At</div>
                 </div>
-                {/if}
                 <div class="package-detail">
                     <div class="detail-value">⚡</div>
                     <div class="detail-label">High Speed</div>
                 </div>
             </div>
         </div>
-        {/if}
         
         <div class="action-section">
             <p class="continue-message">
                 Continue Surfing with Glinta Africa!
             </p>
-            
-            <div id="connectivityStatus" style="margin: 20px 0; padding: 15px; border-radius: 10px; background: #f0f9ff; border: 1px solid #3b82f6;">
-                <div style="display: flex; align-items: center; justify-content: center; gap: 10px; color: #1e40af;">
-                    <div class="spinner" style="width: 20px; height: 20px; border: 2px solid #e2e8f0; border-top: 2px solid #3b82f6; border-radius: 50%; animation: spin 1s linear infinite;"></div>
-                    <span>Testing internet connectivity...</span>
-                </div>
-            </div>
             
             <div class="quick-links-section">
                 <h3 class="quick-links-title">Quick Access - Where would you like to go?</h3>
@@ -860,98 +794,6 @@
         
         // Start countdown after page loads
         setTimeout(updateCountdown, 3000);
-        
-        // Test internet connectivity and auto-redirect
-        function testConnectivity() {
-            const statusDiv = document.getElementById('connectivityStatus');
-            
-            fetch('/connectivity_test.php')
-                .then(response => response.json())
-                .then(data => {
-                    if (data.connected) {
-                        // Internet is working!
-                        statusDiv.innerHTML = `
-                            <div style="display: flex; align-items: center; justify-content: center; gap: 10px; color: #059669;">
-                                <span style="font-size: 24px;">✅</span>
-                                <span><strong>Internet Connected!</strong> Redirecting to browser...</span>
-                            </div>
-                        `;
-                        statusDiv.style.background = '#f0fdf4';
-                        statusDiv.style.borderColor = '#059669';
-                        
-                        console.log('✅ Internet access confirmed, redirecting...');
-                        
-                        // Redirect to Google after 3 seconds
-                        setTimeout(() => {
-                            window.location.href = 'http://google.com';
-                        }, 3000);
-                    } else {
-                        // Still no internet, wait and try again
-                        setTimeout(testConnectivity, 2000);
-                    }
-                })
-                .catch(error => {
-                    // Error means no internet yet, try again
-                    console.log('❌ No internet yet, retrying...');
-                    
-                    // Update status to show we're still trying
-                    statusDiv.innerHTML = `
-                        <div style="display: flex; align-items: center; justify-content: center; gap: 10px; color: #dc2626;">
-                            <div class="spinner" style="width: 20px; height: 20px; border: 2px solid #e2e8f0; border-top: 2px solid #dc2626; border-radius: 50%; animation: spin 1s linear infinite;"></div>
-                            <span>Activating internet access...</span>
-                        </div>
-                    `;
-                    statusDiv.style.background = '#fef2f2';
-                    statusDiv.style.borderColor = '#dc2626';
-                    
-                    setTimeout(testConnectivity, 2000);
-                });
-        }
-        
-        // Start testing connectivity after 5 seconds
-        setTimeout(testConnectivity, 5000);
-        
-        // Celebrate with confetti effect (optional)
-        function createConfetti() {
-            const colors = ['#FFD700', '#006B3F', '#CE1126', '#FFFFFF'];
-            
-            for (let i = 0; i < 50; i++) {
-                setTimeout(() => {
-                    const confetti = document.createElement('div');
-                    confetti.style.position = 'fixed';
-                    confetti.style.left = Math.random() * 100 + 'vw';
-                    confetti.style.top = '-10px';
-                    confetti.style.width = '10px';
-                    confetti.style.height = '10px';
-                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                    confetti.style.borderRadius = '50%';
-                    confetti.style.pointerEvents = 'none';
-                    confetti.style.zIndex = '9999';
-                    confetti.style.animation = 'confettiFall 3s linear forwards';
-                    
-                    document.body.appendChild(confetti);
-                    
-                    setTimeout(() => {
-                        confetti.remove();
-                    }, 3000);
-                }, i * 100);
-            }
-        }
-        
-        // Add confetti animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes confettiFall {
-                to {
-                    transform: translateY(100vh) rotate(360deg);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-        
-        // Trigger confetti on page load
-        setTimeout(createConfetti, 1000);
     </script>
 </body>
 </html>
