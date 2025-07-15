@@ -25,7 +25,12 @@ switch ($action) {
 }
 
 function handleResellerLogin() {
-    global $ui;
+    global $template;
+    
+    // Ensure template is initialized
+    if (!isset($template) || !is_object($template)) {
+        require_once __DIR__ . "/../../template_fallback.php";
+    }
     
     // Check if already logged in
     if (isset($_SESSION['reseller_admin_id'])) {
@@ -33,8 +38,21 @@ function handleResellerLogin() {
         exit;
     }
     
-    $ui->assign('_title', 'Reseller Login');
-    $ui->display('login.tpl');
+    // Set template variables for login
+    $template->assign('_title', 'Reseller Login - Glinta Hotspot');
+    $template->assign('_system_name', 'Glinta Hotspot Billing');
+    $template->assign('login_url', RESELLER_URL . '/authenticate');
+    $template->assign('error', $_GET['error'] ?? '');
+    $template->assign('message', $_GET['message'] ?? '');
+    
+    // Check if reseller login template exists
+    $reseller_template = __DIR__ . "/../../ui/reseller/login.tpl";
+    if (file_exists($reseller_template)) {
+        $template->display('reseller/login.tpl');
+    } else {
+        // Fall back to admin login template
+        $template->display('admin/admin/login.tpl');
+    }
 }
 
 function handleResellerAuthenticate() {
@@ -106,9 +124,8 @@ function handleResellerLogout() {
 }
 
 function handleResellerRegister() {
-    global $ui;
-    
     // This could be used for self-registration if enabled
     // For now, redirect to contact admin
-    r2(U . 'reseller/login', 'i', 'Please contact Glinta Africa to become a reseller');
+    header('Location: ' . RESELLER_URL . '/login?message=' . urlencode('Please contact Glinta Africa to become a reseller'));
+    exit;
 }

@@ -65,6 +65,18 @@
                     </div>
                     
                     <div class="login-form">
+                        {if $error}
+                            <div class="alert alert-danger">
+                                <i class="fas fa-exclamation-triangle"></i> {$error}
+                            </div>
+                        {/if}
+                        
+                        {if $message}
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle"></i> {$message}
+                            </div>
+                        {/if}
+                        
                         <!-- Trial Info -->
                         <div class="trial-info">
                             <h6><i class="fas fa-gift text-primary"></i> 30-Day FREE Trial Available!</h6>
@@ -72,7 +84,7 @@
                         </div>
 
                         <!-- Login Form -->
-                        <form action="{$_url}/login/authenticate" method="post">
+                        <form action="{$login_url}" method="post">
                             <div class="mb-3">
                                 <label for="username" class="form-label">
                                     <i class="fas fa-user"></i> Username
