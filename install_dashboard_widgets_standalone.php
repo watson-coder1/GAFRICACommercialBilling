@@ -73,6 +73,7 @@ foreach ($widgets as $widget) {
     $newWidget->position = $widget['position'];
     $newWidget->user = $widget['user'];
     $newWidget->enabled = $widget['enabled'];
+    $newWidget->content = ''; // Required field
     $newWidget->save();
     
     echo "✓ Installed widget '{$widget['title']}' (ID: {$newWidget->id})\n";
