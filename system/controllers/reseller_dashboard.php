@@ -9,7 +9,7 @@
 function _reseller_admin($redirect = true) {
     if (!isset($_SESSION['reseller_admin_id'])) {
         if ($redirect) {
-            header('Location: ' . RESELLER_URL . '/login?error=' . urlencode('Please login to access reseller panel'));
+            header('Location: ' . RESELLER_URL . '?action=login&error=' . urlencode('Please login to access reseller panel'));
             exit;
         }
         return false;
@@ -22,7 +22,7 @@ function _reseller_admin($redirect = true) {
     
     if (!$admin) {
         if ($redirect) {
-            header('Location: ' . RESELLER_URL . '/login?error=' . urlencode('Invalid session'));
+            header('Location: ' . RESELLER_URL . '?action=login&error=' . urlencode('Invalid session'));
             exit;
         }
         return false;
@@ -34,7 +34,7 @@ function _reseller_admin($redirect = true) {
     
     if (!$subscriptionCheck['active']) {
         if ($redirect) {
-            header('Location: ' . RESELLER_URL . '/subscription?error=' . urlencode($subscriptionCheck['message']));
+            header('Location: ' . RESELLER_URL . '?action=subscription&error=' . urlencode($subscriptionCheck['message']));
             exit;
         }
         return false;
@@ -44,7 +44,7 @@ function _reseller_admin($redirect = true) {
     return $admin->as_array();
 }
 
-$action = $routes['1'] ?? 'dashboard';
+$action = $_GET['action'] ?? $routes[1] ?? 'dashboard';
 $reseller_admin = _reseller_admin();
 $reseller_id = $_SESSION['reseller_id'];
 
@@ -299,7 +299,7 @@ function handleUserStatus($reseller_id) {
 function handleRouterManagement($reseller_id) {
     global $ui, $routes;
     
-    $router_action = $routes['2'] ?? 'list';
+    $router_action = $routes[2] ?? 'list';
     
     if ($router_action == 'list') {
         $routers = ORM::for_table('tbl_routers')
