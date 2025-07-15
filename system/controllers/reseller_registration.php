@@ -85,16 +85,25 @@ function handleRegistrationProcess() {
     }
     
     if (!empty($errors)) {
-        r2(U . 'reseller/register', 'e', implode('<br>', $errors));
+        r2(RESELLER_URL . '?action=register', 'e', implode('<br>', $errors));
     }
     
-    // Get plan details
+    // Get plan details (create default if none exists)
     $planDetails = ORM::for_table('tbl_reseller_plans')
         ->where('name', $plan)
         ->find_one();
     
     if (!$planDetails) {
-        r2(U . 'reseller/register', 'e', 'Invalid plan selected');
+        // Create default starter plan if none exists
+        $planDetails = ORM::for_table('tbl_reseller_plans')->create();
+        $planDetails->name = 'starter';
+        $planDetails->price = 2000;
+        $planDetails->max_customers = 100;
+        $planDetails->max_routers = 3;
+        $planDetails->trial_days = 30;
+        $planDetails->features = 'Basic features for small businesses';
+        $planDetails->status = 'active';
+        $planDetails->save();
     }
     
     try {
@@ -136,10 +145,10 @@ function handleRegistrationProcess() {
         // Log registration
         _log('New reseller registered: ' . $name . ' (' . $company . ') - ' . $plan . ' plan', 'Reseller', 1);
         
-        r2(U . 'reseller/registration/success?email=' . urlencode($email), 's', 'Registration successful! Welcome to Glinta Africa Reseller Program!');
+        r2(RESELLER_URL . '?action=success&email=' . urlencode($email), 's', 'Registration successful! Welcome to Glinta Africa Reseller Program!');
         
     } catch (Exception $e) {
-        r2(U . 'reseller/register', 'e', 'Registration failed: ' . $e->getMessage());
+        r2(RESELLER_URL . '?action=register', 'e', 'Registration failed: ' . $e->getMessage());
     }
 }
 

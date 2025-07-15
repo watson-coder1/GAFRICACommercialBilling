@@ -86,6 +86,8 @@ switch ($controller) {
         require_once 'system/controllers/reseller_login.php';
         break;
     case 'register':
+    case 'process':
+    case 'success':
         require_once 'system/controllers/reseller_registration.php';
         break;
     case 'dashboard':
