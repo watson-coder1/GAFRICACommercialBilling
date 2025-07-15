@@ -4,6 +4,11 @@
  * Separate portal for resellers to manage their business
  */
 
+// Prevent caching issues
+header("Cache-Control: no-cache, no-store, must-revalidate");
+header("Pragma: no-cache");
+header("Expires: 0");
+
 session_start();
 require_once 'init.php';
 require_once 'system/orm.php';
