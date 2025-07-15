@@ -449,6 +449,15 @@
             font-weight: 500;
         }
         
+        .contact-item a {
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item a:hover {
+            color: #25d366;
+            text-decoration: underline !important;
+        }
+        
         /* Floating particles effect */
         .particles {
             position: absolute;
@@ -816,7 +825,11 @@
                 <div class="contact-info">
                     <div class="contact-item">📧 support@glintaafrica.com</div>
                     <div class="contact-item">📞 0711311897</div>
-                    <div class="contact-item">💬 WhatsApp Support</div>
+                    <div class="contact-item">
+                        <a href="https://wa.me/254711311897" target="_blank" style="color: var(--kenya-green); text-decoration: none;">
+                            💬 WhatsApp Support
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
