@@ -217,6 +217,10 @@ class MpesaIntegration
                 // Create MikroTik user and auto-login
                 require_once 'system/autoload/HotspotAutoLogin.php';
                 HotspotAutoLogin::createAndLogin($session, $package);
+                
+                // Sync payment to main transactions table for dashboard visibility
+                require_once 'system/autoload/PaymentSync.php';
+                PaymentSync::syncMpesaPayments();
             }
         } else {
             // Payment failed
