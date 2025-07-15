@@ -84,7 +84,7 @@
                         </div>
 
                         <!-- Login Form -->
-                        <form action="{$login_url}" method="post">
+                        <form action="?action=authenticate" method="post">
                             <div class="mb-3">
                                 <label for="username" class="form-label">
                                     <i class="fas fa-user"></i> Username
@@ -110,8 +110,8 @@
                         <div class="text-center">
                             <hr>
                             <p class="text-muted">Don't have an account?</p>
-                            <a href="{$_url}/register" class="btn btn-outline-primary">
-                                <i class="fas fa-user-plus"></i> Start Free Trial
+                            <a href="mailto:support@glintaafrica.com?subject=Reseller Registration Request" class="btn btn-outline-primary">
+                                <i class="fas fa-user-plus"></i> Request Reseller Account
                             </a>
                         </div>
                         
@@ -140,7 +140,7 @@
                 
                 <!-- Back to Main Site -->
                 <div class="text-center mt-3">
-                    <a href="{$app_url}" class="text-white text-decoration-none">
+                    <a href="https://glintaafrica.com" class="text-white text-decoration-none">
                         <i class="fas fa-arrow-left"></i> Back to Main Site
                     </a>
                 </div>

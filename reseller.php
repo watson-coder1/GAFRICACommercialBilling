@@ -75,9 +75,12 @@ if (isset($_SESSION['reseller_admin_id']) && $routes[0] !== 'login' && $routes[0
 }
 
 // Route to appropriate controller
-$controller = $routes[0] ?? 'login';
+$controller = $routes[0] ?? $_GET['action'] ?? 'login';
 
 switch ($controller) {
+    case 'authenticate':
+        require_once 'system/controllers/reseller_login.php';
+        break;
     case 'login':
         require_once 'system/controllers/reseller_login.php';
         break;
