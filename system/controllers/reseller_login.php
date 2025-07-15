@@ -29,19 +29,21 @@ function handleResellerLogin() {
     
     // Check if already logged in
     if (isset($_SESSION['reseller_admin_id'])) {
-        r2(U . 'reseller/dashboard', 's', 'Welcome back!');
+        header('Location: ' . RESELLER_URL . '/dashboard');
+        exit;
     }
     
     $ui->assign('_title', 'Reseller Login');
-    $ui->display('reseller/login.tpl');
+    $ui->display('login.tpl');
 }
 
 function handleResellerAuthenticate() {
-    $username = _post('username');
-    $password = _post('password');
+    $username = $_POST['username'] ?? '';
+    $password = $_POST['password'] ?? '';
     
     if (empty($username) || empty($password)) {
-        r2(U . 'reseller/login', 'e', 'Username and password are required');
+        header('Location: ' . RESELLER_URL . '/login?error=' . urlencode('Username and password are required'));
+        exit;
     }
     
     // Find reseller admin
@@ -51,7 +53,8 @@ function handleResellerAuthenticate() {
         ->find_one();
     
     if (!$admin || !password_verify($password, $admin->password)) {
-        r2(U . 'reseller/login', 'e', 'Invalid username or password');
+        header('Location: ' . RESELLER_URL . '/login?error=' . urlencode('Invalid username or password'));
+        exit;
     }
     
     // Check reseller subscription status
@@ -59,7 +62,8 @@ function handleResellerAuthenticate() {
     $subscriptionCheck = ResellerAuth::checkSubscription($admin->reseller_id);
     
     if (!$subscriptionCheck['active']) {
-        r2(U . 'reseller/subscription', 'e', $subscriptionCheck['message']);
+        header('Location: ' . RESELLER_URL . '/subscription?error=' . urlencode($subscriptionCheck['message']));
+        exit;
     }
     
     // Update last login
@@ -76,12 +80,9 @@ function handleResellerAuthenticate() {
     $reseller = ORM::for_table('tbl_resellers')->find_one($admin->reseller_id);
     _log('Reseller login: ' . $admin->fullname . ' (' . $reseller->name . ')', 'Reseller', $admin->reseller_id);
     
-    // Show subscription warnings if needed
-    if (isset($subscriptionCheck['message'])) {
-        r2(U . 'reseller/dashboard', 'w', $subscriptionCheck['message']);
-    } else {
-        r2(U . 'reseller/dashboard', 's', 'Welcome to your reseller dashboard!');
-    }
+    // Redirect to dashboard
+    header('Location: ' . RESELLER_URL . '/dashboard');
+    exit;
 }
 
 function handleResellerLogout() {
@@ -100,7 +101,8 @@ function handleResellerLogout() {
     unset($_SESSION['reseller_username']);
     unset($_SESSION['reseller_fullname']);
     
-    r2(U . 'reseller/login', 's', 'Logged out successfully');
+    header('Location: ' . RESELLER_URL . '/login?message=' . urlencode('Logged out successfully'));
+    exit;
 }
 
 function handleResellerRegister() {

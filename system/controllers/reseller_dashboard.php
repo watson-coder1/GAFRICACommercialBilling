@@ -7,11 +7,10 @@
 
 // Check if user is a reseller admin
 function _reseller_admin($redirect = true) {
-    global $routes;
-    
     if (!isset($_SESSION['reseller_admin_id'])) {
         if ($redirect) {
-            r2(U . 'reseller/login', 'e', 'Please login to access reseller panel');
+            header('Location: ' . RESELLER_URL . '/login?error=' . urlencode('Please login to access reseller panel'));
+            exit;
         }
         return false;
     }
@@ -23,7 +22,8 @@ function _reseller_admin($redirect = true) {
     
     if (!$admin) {
         if ($redirect) {
-            r2(U . 'reseller/login', 'e', 'Invalid session');
+            header('Location: ' . RESELLER_URL . '/login?error=' . urlencode('Invalid session'));
+            exit;
         }
         return false;
     }
@@ -34,7 +34,8 @@ function _reseller_admin($redirect = true) {
     
     if (!$subscriptionCheck['active']) {
         if ($redirect) {
-            r2(U . 'reseller/subscription', 'e', $subscriptionCheck['message']);
+            header('Location: ' . RESELLER_URL . '/subscription?error=' . urlencode($subscriptionCheck['message']));
+            exit;
         }
         return false;
     }
@@ -160,7 +161,7 @@ function handleResellerDashboard($reseller_id) {
     $ui->assign('recent_transactions', $recent_transactions);
     $ui->assign('payment_methods', $payment_methods);
     $ui->assign('subscription', $subscription);
-    $ui->display('reseller/dashboard.tpl');
+    $ui->display('dashboard.tpl');
 }
 
 function handleSalesReports($reseller_id) {
