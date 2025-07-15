@@ -218,9 +218,14 @@ class MpesaIntegration
                 require_once 'system/autoload/HotspotAutoLogin.php';
                 HotspotAutoLogin::createAndLogin($session, $package);
                 
-                // Sync payment to main transactions table for dashboard visibility
-                require_once 'system/autoload/PaymentSync.php';
-                PaymentSync::syncMpesaPayments();
+                // Automatic payment sync with reseller assignment
+                require_once 'system/autoload/AutomaticPaymentSync.php';
+                
+                // Process callback and assign to correct reseller
+                AutomaticPaymentSync::processMpesaCallback($transaction);
+                
+                // Sync to transactions table with automatic reseller assignment
+                AutomaticPaymentSync::syncToTransactions($transaction);
             }
         } else {
             // Payment failed
