@@ -28,11 +28,25 @@ class top_widget
         }
         $ui->assign('imonth', $imonth);
 
-        $u_act = ORM::for_table('tbl_user_recharges')->where('status', 'on')->count();
+        // Get REAL active users (not expired)
+        $u_act = ORM::for_table('tbl_user_recharges')
+            ->where('status', 'on')
+            ->where_raw("CONCAT(expiration, ' ', time) > NOW()")
+            ->count();
         if (empty($u_act)) {
             $u_act = '0';
         }
         $ui->assign('u_act', $u_act);
+
+        // Get REAL expired users (bought but expired)
+        $u_expired = ORM::for_table('tbl_user_recharges')
+            ->where('status', 'on')
+            ->where_raw("CONCAT(expiration, ' ', time) <= NOW()")
+            ->count();
+        if (empty($u_expired)) {
+            $u_expired = '0';
+        }
+        $ui->assign('u_expired', $u_expired);
 
         $u_all = ORM::for_table('tbl_user_recharges')->count();
         if (empty($u_all)) {

@@ -35,10 +35,18 @@ class service_type_statistics
             ->where_lte('recharged_on', $current_date)
             ->sum('price');
 
+        // Get REAL active PPPoE plans (not expired)
         $pppoe_active_plans = ORM::for_table('tbl_user_recharges')
             ->where('type', 'PPPOE')
             ->where('status', 'on')
-            ->where_gte('expiration', $current_date)
+            ->where_raw("CONCAT(expiration, ' ', time) > NOW()")
+            ->count();
+            
+        // Get REAL expired PPPoE plans
+        $pppoe_expired_plans = ORM::for_table('tbl_user_recharges')
+            ->where('type', 'PPPOE')
+            ->where('status', 'on')
+            ->where_raw("CONCAT(expiration, ' ', time) <= NOW()")
             ->count();
 
         // Hotspot Statistics
@@ -63,10 +71,18 @@ class service_type_statistics
             ->where_lte('recharged_on', $current_date)
             ->sum('price');
 
+        // Get REAL active Hotspot plans (not expired)
         $hotspot_active_plans = ORM::for_table('tbl_user_recharges')
             ->where('type', 'Hotspot')
             ->where('status', 'on')
-            ->where_gte('expiration', $current_date)
+            ->where_raw("CONCAT(expiration, ' ', time) > NOW()")
+            ->count();
+            
+        // Get REAL expired Hotspot plans
+        $hotspot_expired_plans = ORM::for_table('tbl_user_recharges')
+            ->where('type', 'Hotspot')
+            ->where('status', 'on')
+            ->where_raw("CONCAT(expiration, ' ', time) <= NOW()")
             ->count();
 
         // Calculate totals
@@ -92,6 +108,7 @@ class service_type_statistics
         $ui->assign('pppoe_revenue_week', $pppoe_revenue_week ? number_format($pppoe_revenue_week, 2) : '0.00');
         $ui->assign('pppoe_revenue_month', $pppoe_revenue_month ? number_format($pppoe_revenue_month, 2) : '0.00');
         $ui->assign('pppoe_active_plans', $pppoe_active_plans);
+        $ui->assign('pppoe_expired_plans', $pppoe_expired_plans);
         $ui->assign('pppoe_customer_percent', $pppoe_customer_percent);
         $ui->assign('pppoe_revenue_percent_week', $pppoe_revenue_percent_week);
         $ui->assign('pppoe_revenue_percent', $pppoe_revenue_percent);
@@ -101,6 +118,7 @@ class service_type_statistics
         $ui->assign('hotspot_revenue_week', $hotspot_revenue_week ? number_format($hotspot_revenue_week, 2) : '0.00');
         $ui->assign('hotspot_revenue_month', $hotspot_revenue_month ? number_format($hotspot_revenue_month, 2) : '0.00');
         $ui->assign('hotspot_active_plans', $hotspot_active_plans);
+        $ui->assign('hotspot_expired_plans', $hotspot_expired_plans);
         $ui->assign('hotspot_customer_percent', $hotspot_customer_percent);
         $ui->assign('hotspot_revenue_percent_week', $hotspot_revenue_percent_week);
         $ui->assign('hotspot_revenue_percent', $hotspot_revenue_percent);

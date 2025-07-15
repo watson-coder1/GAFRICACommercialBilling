@@ -10,18 +10,18 @@ class hotspot_clients_status
     {
         global $ui, $current_date;
 
-        // Get Hotspot clients who are currently active (not expired)
+        // Get Hotspot clients who are currently active (not expired) - REAL DATA
         $hotspot_active = ORM::for_table('tbl_user_recharges')
             ->where('type', 'Hotspot')
             ->where('status', 'on')
-            ->where_gte('expiration', $current_date)
+            ->where_raw("CONCAT(expiration, ' ', time) > NOW()")
             ->count();
 
-        // Get Hotspot clients who are expired
+        // Get Hotspot clients who are expired - REAL DATA
         $hotspot_expired = ORM::for_table('tbl_user_recharges')
             ->where('type', 'Hotspot')
             ->where('status', 'on')
-            ->where_lt('expiration', $current_date)
+            ->where_raw("CONCAT(expiration, ' ', time) <= NOW()")
             ->count();
 
         // Get Hotspot clients who are disabled/off
@@ -30,7 +30,7 @@ class hotspot_clients_status
             ->where('status', 'off')
             ->count();
 
-        // Get currently online Hotspot sessions from MikroTik API
+        // Get currently online Hotspot sessions from MikroTik API - REAL DATA
         $hotspot_online = 0;
         try {
             // Get all routers and check Hotspot sessions
@@ -40,21 +40,15 @@ class hotspot_clients_status
             
             foreach ($routers as $router) {
                 try {
-                    require_once 'system/devices/MikrotikHotspot.php';
-                    $mikrotik = new MikrotikHotspot();
-                    $client = $mikrotik->getClient($router->ip_address, $router->username, $router->password);
+                    require_once 'system/devices/Mikrotik.php';
+                    $mikrotik = new Mikrotik($router->ip_address, $router->username, $router->password);
                     
-                    if ($client) {
+                    if ($mikrotik->connect()) {
                         // Get Hotspot active sessions
-                        $hotspotRequest = new PEAR2\Net\RouterOS\Request('/ip/hotspot/active/print');
-                        $hotspotResults = $client->sendSync($hotspotRequest);
+                        $hotspotResults = $mikrotik->comm('/ip/hotspot/active/print');
                         
-                        if ($hotspotResults) {
-                            foreach ($hotspotResults as $session) {
-                                if ($session->getType() === PEAR2\Net\RouterOS\Response::TYPE_DATA) {
-                                    $hotspot_online++;
-                                }
-                            }
+                        if (is_array($hotspotResults)) {
+                            $hotspot_online += count($hotspotResults);
                         }
                     }
                 } catch (Exception $e) {
@@ -64,6 +58,12 @@ class hotspot_clients_status
             }
         } catch (Exception $e) {
             // Keep count as 0 if there's an error
+        }
+        
+        // Calculate disconnected users (have valid plan but not connected)
+        $hotspot_disconnected = $hotspot_active - $hotspot_online;
+        if ($hotspot_disconnected < 0) {
+            $hotspot_disconnected = 0;
         }
 
         // Get total Hotspot customers
@@ -88,11 +88,12 @@ class hotspot_clients_status
             // Keep as 0 if table doesn't exist
         }
 
-        // Assign variables to template
+        // Assign variables to template - ALL REAL DATA
         $ui->assign('hotspot_active', $hotspot_active);
         $ui->assign('hotspot_expired', $hotspot_expired);
         $ui->assign('hotspot_disabled', $hotspot_disabled);
         $ui->assign('hotspot_online', $hotspot_online);
+        $ui->assign('hotspot_disconnected', $hotspot_disconnected);
         $ui->assign('hotspot_total', $hotspot_total);
         $ui->assign('hotspot_transactions_today', $hotspot_transactions_today);
         $ui->assign('hotspot_logged_out', $hotspot_logged_out);
