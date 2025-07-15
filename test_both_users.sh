@@ -56,25 +56,25 @@ foreach (\$passwords as \$pass) {
     if (\$mikrotik->connect()) {
         echo '✓ SUCCESS: billing/' . \$pass . ' works!' . PHP_EOL;
         
-        // Show actual users
-        \$pppoe = \$mikrotik->comm('/ppp/active/print');
+        // Show actual HOTSPOT users (the 4 users mentioned)
         \$hotspot = \$mikrotik->comm('/ip/hotspot/active/print');
-        \$total = (is_array(\$pppoe) ? count(\$pppoe) : 0) + (is_array(\$hotspot) ? count(\$hotspot) : 0);
-        echo 'Total active users in MikroTik: ' . \$total . PHP_EOL;
+        \$total = (is_array(\$hotspot) ? count(\$hotspot) : 0);
+        echo 'Total active Hotspot users in MikroTik: ' . \$total . PHP_EOL;
         
-        // Show user details
-        if (is_array(\$pppoe) && count(\$pppoe) > 0) {
-            echo 'PPPoE Users:' . PHP_EOL;
-            foreach (\$pppoe as \$i => \$user) {
-                echo '  ' . (\$i+1) . '. ' . (\$user['name'] ?? 'unknown') . ' - ' . (\$user['address'] ?? 'no IP') . PHP_EOL;
-            }
-        }
-        
+        // Show hotspot user details
         if (is_array(\$hotspot) && count(\$hotspot) > 0) {
-            echo 'Hotspot Users:' . PHP_EOL;
+            echo 'Hotspot Users (these are your 4 users):' . PHP_EOL;
             foreach (\$hotspot as \$i => \$user) {
-                echo '  ' . (\$i+1) . '. ' . (\$user['user'] ?? 'unknown') . ' - ' . (\$user['address'] ?? 'no IP') . PHP_EOL;
+                echo '  ' . (\$i+1) . '. User: ' . (\$user['user'] ?? 'unknown') . PHP_EOL;
+                echo '      IP: ' . (\$user['address'] ?? 'no IP') . PHP_EOL;
+                echo '      MAC: ' . (\$user['mac-address'] ?? 'no MAC') . PHP_EOL;
+                echo '      Uptime: ' . (\$user['uptime'] ?? 'unknown') . PHP_EOL;
+                echo '      Bytes In: ' . (\$user['bytes-in'] ?? '0') . PHP_EOL;
+                echo '      Bytes Out: ' . (\$user['bytes-out'] ?? '0') . PHP_EOL;
+                echo '      ---' . PHP_EOL;
             }
+        } else {
+            echo 'No Hotspot users found - this is strange if MikroTik shows 4' . PHP_EOL;
         }
         
         break;
