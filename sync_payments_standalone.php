@@ -5,11 +5,23 @@
  */
 
 // Direct database connection for standalone use
-$db_host = "localhost"; // Change to your actual database host
+// Updated to use the correct database host
+$db_host = "127.0.0.1"; // Digital Ocean database host
 $db_port = "3306";
 $db_user = "phpnuxbill";
 $db_pass = "nuxbill2025!";
 $db_name = "phpnuxbill";
+
+// Auto-detect database host from environment or use localhost as fallback
+if (isset($_ENV['DB_HOST']) && !empty($_ENV['DB_HOST'])) {
+    $db_host = $_ENV['DB_HOST'];
+} elseif (file_exists('/etc/hostname')) {
+    // On Digital Ocean, try to use the internal database if available
+    $hostname = trim(file_get_contents('/etc/hostname'));
+    if (strpos($hostname, 'mysql') !== false || strpos($hostname, 'db') !== false) {
+        $db_host = $hostname;
+    }
+}
 
 // Minimal ORM setup
 require_once 'system/orm.php';
