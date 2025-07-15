@@ -2,6 +2,11 @@
     <div class="panel-heading">
         <h3 class="panel-title">
             <i class="fa fa-pie-chart"></i> Service Type Statistics
+            <div class="pull-right">
+                <a href="{$_url}widget_export&type=service_statistics&format=csv" class="btn btn-xs btn-success" title="Download Excel Report">
+                    <i class="fa fa-download"></i> Export
+                </a>
+            </div>
         </h3>
     </div>
     <div class="panel-body">
@@ -67,14 +72,16 @@
                         <strong>PPPoE Revenue</strong>
                     </div>
                     <div class="panel-body text-center">
-                        <div style="margin-bottom: 10px;">
+                        <div style="margin-bottom: 8px;">
                             <strong>Today:</strong> KSh {$pppoe_revenue_today}
                         </div>
-                        <div style="margin-bottom: 10px;">
-                            <strong>This Month:</strong> KSh {$pppoe_revenue_month}
+                        <div style="margin-bottom: 8px;">
+                            <strong>This Week:</strong> KSh {$pppoe_revenue_week}
+                            <span style="font-size: 12px; color: #007bff;">({$pppoe_revenue_percent_week}%)</span>
                         </div>
-                        <div style="font-size: 18px; color: #007bff;">
-                            <strong>{$pppoe_revenue_percent}%</strong> of total
+                        <div style="margin-bottom: 8px;">
+                            <strong>This Month:</strong> KSh {$pppoe_revenue_month}
+                            <span style="font-size: 12px; color: #007bff;">({$pppoe_revenue_percent}%)</span>
                         </div>
                     </div>
                 </div>
@@ -86,14 +93,16 @@
                         <strong>Hotspot Revenue</strong>
                     </div>
                     <div class="panel-body text-center">
-                        <div style="margin-bottom: 10px;">
+                        <div style="margin-bottom: 8px;">
                             <strong>Today:</strong> KSh {$hotspot_revenue_today}
                         </div>
-                        <div style="margin-bottom: 10px;">
-                            <strong>This Month:</strong> KSh {$hotspot_revenue_month}
+                        <div style="margin-bottom: 8px;">
+                            <strong>This Week:</strong> KSh {$hotspot_revenue_week}
+                            <span style="font-size: 12px; color: #28a745;">({$hotspot_revenue_percent_week}%)</span>
                         </div>
-                        <div style="font-size: 18px; color: #28a745;">
-                            <strong>{$hotspot_revenue_percent}%</strong> of total
+                        <div style="margin-bottom: 8px;">
+                            <strong>This Month:</strong> KSh {$hotspot_revenue_month}
+                            <span style="font-size: 12px; color: #28a745;">({$hotspot_revenue_percent}%)</span>
                         </div>
                     </div>
                 </div>
@@ -111,7 +120,8 @@
                         <span style="color: #6c757d;">{$total_active_plans} Total</span>
                     </div>
                     <div style="font-size: 14px; color: #6c757d;">
-                        <strong>Total Monthly Revenue:</strong> KSh {$total_revenue_month}
+                        <strong>Weekly Revenue:</strong> KSh {$total_revenue_week} | 
+                        <strong>Monthly Revenue:</strong> KSh {$total_revenue_month}
                     </div>
                 </div>
             </div>

@@ -2,6 +2,11 @@
     <div class="panel-heading">
         <h3 class="panel-title">
             <i class="fa fa-wifi"></i> Hotspot Clients Status
+            <div class="pull-right">
+                <a href="{$_url}widget_export&type=hotspot_clients&format=csv" class="btn btn-xs btn-light" title="Download Hotspot Clients Data" style="color: white;">
+                    <i class="fa fa-download"></i> Export
+                </a>
+            </div>
         </h3>
     </div>
     <div class="panel-body">
