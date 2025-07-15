@@ -110,8 +110,8 @@
                         <div class="text-center">
                             <hr>
                             <p class="text-muted">Don't have an account?</p>
-                            <a href="mailto:support@glintaafrica.com?subject=Reseller Registration Request" class="btn btn-outline-primary">
-                                <i class="fas fa-user-plus"></i> Request Reseller Account
+                            <a href="?action=register" class="btn btn-outline-primary">
+                                <i class="fas fa-user-plus"></i> Start Free Trial
                             </a>
                         </div>
                         
