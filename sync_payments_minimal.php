@@ -87,10 +87,13 @@ foreach ($mpesaPayments as $mpesaPayment) {
         if ($package && $package->duration_hours > 0) {
             $transaction->expiration = date('Y-m-d H:i:s', 
                 strtotime($mpesaPayment->created_at . ' +' . $package->duration_hours . ' hours'));
+            // Time field in HH:MM:SS format
+            $transaction->time = sprintf('%02d:00:00', $package->duration_hours);
         } else {
             // Default to 24 hours if no package duration
             $transaction->expiration = date('Y-m-d H:i:s', 
                 strtotime($mpesaPayment->created_at . ' +24 hours'));
+            $transaction->time = '24:00:00';
         }
         
         try {
