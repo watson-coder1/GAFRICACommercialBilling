@@ -30,15 +30,40 @@ class pppoe_clients_status
             ->where('status', 'off')
             ->count();
 
-        // Get currently online PPPoE sessions from RADIUS accounting
+        // Get currently online PPPoE sessions from MikroTik API
         $pppoe_online = 0;
         try {
-            $pppoe_online = ORM::for_table('rad_acct')
-                ->where('acctstoptime', null)
-                ->where('acctstatustype', 'Start')
-                ->count();
+            // Get all routers and check PPPoE sessions
+            $routers = ORM::for_table('tbl_routers')
+                ->where('enabled', 1)
+                ->find_many();
+            
+            foreach ($routers as $router) {
+                try {
+                    require_once 'system/devices/MikrotikHotspot.php';
+                    $mikrotik = new MikrotikHotspot();
+                    $client = $mikrotik->getClient($router->ip_address, $router->username, $router->password);
+                    
+                    if ($client) {
+                        // Get PPPoE active sessions
+                        $pppoeRequest = new PEAR2\Net\RouterOS\Request('/ppp/active/print');
+                        $pppoeResults = $client->sendSync($pppoeRequest);
+                        
+                        if ($pppoeResults) {
+                            foreach ($pppoeResults as $session) {
+                                if ($session->getType() === PEAR2\Net\RouterOS\Response::TYPE_DATA) {
+                                    $pppoe_online++;
+                                }
+                            }
+                        }
+                    }
+                } catch (Exception $e) {
+                    // Skip this router if connection fails
+                    continue;
+                }
+            }
         } catch (Exception $e) {
-            // If rad_acct table doesn't exist or has issues, keep count as 0
+            // Keep count as 0 if there's an error
         }
 
         // Get total PPPoE customers

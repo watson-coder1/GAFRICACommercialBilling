@@ -30,20 +30,40 @@ class hotspot_clients_status
             ->where('status', 'off')
             ->count();
 
-        // Get currently online Hotspot sessions from portal sessions
+        // Get currently online Hotspot sessions from MikroTik API
         $hotspot_online = 0;
         try {
-            $hotspot_online = ORM::for_table('tbl_portal_sessions')
-                ->where('payment_status', 'completed')
-                ->where_gte('expires_at', date('Y-m-d H:i:s'))
-                ->count();
+            // Get all routers and check Hotspot sessions
+            $routers = ORM::for_table('tbl_routers')
+                ->where('enabled', 1)
+                ->find_many();
+            
+            foreach ($routers as $router) {
+                try {
+                    require_once 'system/devices/MikrotikHotspot.php';
+                    $mikrotik = new MikrotikHotspot();
+                    $client = $mikrotik->getClient($router->ip_address, $router->username, $router->password);
+                    
+                    if ($client) {
+                        // Get Hotspot active sessions
+                        $hotspotRequest = new PEAR2\Net\RouterOS\Request('/ip/hotspot/active/print');
+                        $hotspotResults = $client->sendSync($hotspotRequest);
+                        
+                        if ($hotspotResults) {
+                            foreach ($hotspotResults as $session) {
+                                if ($session->getType() === PEAR2\Net\RouterOS\Response::TYPE_DATA) {
+                                    $hotspot_online++;
+                                }
+                            }
+                        }
+                    }
+                } catch (Exception $e) {
+                    // Skip this router if connection fails
+                    continue;
+                }
+            }
         } catch (Exception $e) {
-            // Fallback to checking user_recharges for online hotspot users
-            $hotspot_online = ORM::for_table('tbl_user_recharges')
-                ->where('type', 'Hotspot')
-                ->where('status', 'on')
-                ->where_gte('expiration', $current_date)
-                ->count();
+            // Keep count as 0 if there's an error
         }
 
         // Get total Hotspot customers
