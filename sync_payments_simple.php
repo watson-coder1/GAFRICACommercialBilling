@@ -82,8 +82,8 @@ foreach ($mpesaPayments as $mpesaPayment) {
         $transaction->routers = 'Hotspot Portal';
         $transaction->admin_id = 1; // System admin
         
-        // Try different type values to find what works
-        $typeValues = ['', '1', 'C', '+'];
+        // Try the correct enum values for type column
+        $typeValues = ['Hotspot', 'PPPOE', 'Balance'];
         $saved = false;
         
         foreach ($typeValues as $typeValue) {

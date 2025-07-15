@@ -80,8 +80,8 @@ foreach ($mpesaPayments as $mpesaPayment) {
         $transaction->recharged_time = date('Y-m-d H:i:s', strtotime($mpesaPayment->created_at));
         $transaction->method = 'M-Pesa';
         $transaction->routers = 'Portal';
+        $transaction->type = 'Hotspot'; // Must be one of: Hotspot, PPPOE, Balance
         $transaction->admin_id = 1;
-        // Skip the 'type' field entirely
         
         try {
             $transaction->save();
