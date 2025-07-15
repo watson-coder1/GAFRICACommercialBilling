@@ -25,9 +25,35 @@ $routes = $path ? explode('/', $path) : ['login'];
 // Initialize UI for reseller portal
 $ui = new Smarty();
 $ui->setTemplateDir('ui/reseller/');
-$ui->setCompileDir('system/tmp/');
+$ui->setCompileDir('ui/compiled/');
+$ui->setCacheDir('ui/cache/');
 $ui->assign('_url', RESELLER_URL);
 $ui->assign('app_url', $config['web_url']);
+
+// Check subscription status for authenticated users
+if (isset($_SESSION['reseller_admin_id']) && $routes[0] !== 'login' && $routes[0] !== 'logout') {
+    $reseller_id = $_SESSION['reseller_id'];
+    $subscriptionCheck = ResellerAuth::checkSubscription($reseller_id);
+    
+    if (!$subscriptionCheck['active']) {
+        // Log the automatic logout
+        $admin = ORM::for_table('tbl_reseller_admins')->find_one($_SESSION['reseller_admin_id']);
+        if ($admin) {
+            $reseller = ORM::for_table('tbl_resellers')->find_one($reseller_id);
+            _log('Reseller automatically logged out due to ' . $subscriptionCheck['status'] . ': ' . $admin->fullname . ' (' . $reseller->name . ')', 'Reseller', $reseller_id);
+        }
+        
+        // Clear session
+        session_destroy();
+        
+        // Redirect to login with message
+        header('Location: ' . RESELLER_URL . '/login?error=' . urlencode($subscriptionCheck['message']));
+        exit;
+    }
+    
+    // Assign subscription info to UI
+    $ui->assign('subscription_status', $subscriptionCheck);
+}
 
 // Route to appropriate controller
 $controller = $routes[0] ?? 'login';

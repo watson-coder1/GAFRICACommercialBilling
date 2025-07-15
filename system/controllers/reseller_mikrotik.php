@@ -5,12 +5,16 @@
  * Allows resellers to add, configure, and manage their MikroTik routers
  */
 
-// Check reseller authentication
-require_once 'reseller_dashboard.php';
-$reseller_admin = _reseller_admin();
+// Ensure reseller is logged in
+if (!isset($_SESSION['reseller_admin_id'])) {
+    header('Location: ' . RESELLER_URL . '/login');
+    exit;
+}
+
+$admin_id = $_SESSION['reseller_admin_id'];
 $reseller_id = $_SESSION['reseller_id'];
 
-$action = $routes['2'] ?? 'list';
+$action = $routes[1] ?? 'list';
 
 switch ($action) {
     case 'list':
@@ -35,7 +39,7 @@ switch ($action) {
         handleMikroTikUsers($reseller_id);
         break;
     default:
-        r2(U . 'reseller/mikrotik', 'e', 'Invalid action');
+        r2(RESELLER_URL . '/mikrotik', 'e', 'Invalid action');
 }
 
 function handleMikroTikList($reseller_id) {
@@ -72,7 +76,7 @@ function handleMikroTikAdd($reseller_id) {
         ->count();
     
     if ($current_count >= $reseller->max_routers) {
-        r2(U . 'reseller/mikrotik', 'e', 'Router limit reached. Your plan allows maximum ' . $reseller->max_routers . ' routers.');
+        r2(RESELLER_URL . '/mikrotik', 'e', 'Router limit reached. Your plan allows maximum ' . $reseller->max_routers . ' routers.');
     }
     
     if (_post('save')) {
@@ -86,19 +90,19 @@ function handleMikroTikAdd($reseller_id) {
         
         // Validation
         if (empty($name) || empty($ip_address) || empty($username) || empty($password)) {
-            r2(U . 'reseller/mikrotik/add', 'e', 'All fields are required');
+            r2(RESELLER_URL . '/mikrotik/add', 'e', 'All fields are required');
         }
         
         // Validate IP address
         if (!filter_var($ip_address, FILTER_VALIDATE_IP)) {
-            r2(U . 'reseller/mikrotik/add', 'e', 'Invalid IP address format');
+            r2(RESELLER_URL . '/mikrotik/add', 'e', 'Invalid IP address format');
         }
         
         // Test connection before saving
         $test_result = testMikroTikConnectionManual($ip_address, $username, $password, $api_port, $api_ssl);
         
         if (!$test_result['success']) {
-            r2(U . 'reseller/mikrotik/add', 'e', 'Connection test failed: ' . $test_result['message']);
+            r2(RESELLER_URL . '/mikrotik/add', 'e', 'Connection test failed: ' . $test_result['message']);
         }
         
         // Create router
@@ -117,7 +121,7 @@ function handleMikroTikAdd($reseller_id) {
         // Log router addition
         _log('MikroTik router added: ' . $name . ' (' . $ip_address . ')', 'Reseller', $reseller_id);
         
-        r2(U . 'reseller/mikrotik', 's', 'MikroTik router added successfully and connection tested!');
+        r2(RESELLER_URL . '/mikrotik', 's', 'MikroTik router added successfully and connection tested!');
     }
     
     $ui->assign('reseller', $reseller);
@@ -127,7 +131,7 @@ function handleMikroTikAdd($reseller_id) {
 function handleMikroTikEdit($reseller_id) {
     global $ui, $routes;
     
-    $router_id = $routes['3'] ?? 0;
+    $router_id = $routes[2] ?? 0;
     
     $router = ORM::for_table('tbl_routers')
         ->where('id', $router_id)
@@ -135,7 +139,7 @@ function handleMikroTikEdit($reseller_id) {
         ->find_one();
     
     if (!$router) {
-        r2(U . 'reseller/mikrotik', 'e', 'Router not found');
+        r2(RESELLER_URL . '/mikrotik', 'e', 'Router not found');
     }
     
     if (_post('save')) {
@@ -155,7 +159,7 @@ function handleMikroTikEdit($reseller_id) {
             $test_result = testMikroTikConnectionManual($ip_address, $username, $password, $api_port, $api_ssl);
             
             if (!$test_result['success']) {
-                r2(U . 'reseller/mikrotik/edit/' . $router_id, 'e', 'Connection test failed: ' . $test_result['message']);
+                r2(RESELLER_URL . '/mikrotik/edit/' . $router_id, 'e', 'Connection test failed: ' . $test_result['message']);
             }
         }
         
@@ -172,7 +176,7 @@ function handleMikroTikEdit($reseller_id) {
         
         _log('MikroTik router updated: ' . $name . ' (' . $ip_address . ')', 'Reseller', $reseller_id);
         
-        r2(U . 'reseller/mikrotik', 's', 'MikroTik router updated successfully!');
+        r2(RESELLER_URL . '/mikrotik', 's', 'MikroTik router updated successfully!');
     }
     
     $ui->assign('router', $router);
@@ -182,7 +186,7 @@ function handleMikroTikEdit($reseller_id) {
 function handleMikroTikTest($reseller_id) {
     global $routes;
     
-    $router_id = $routes['3'] ?? 0;
+    $router_id = $routes[2] ?? 0;
     
     $router = ORM::for_table('tbl_routers')
         ->where('id', $router_id)
@@ -190,7 +194,7 @@ function handleMikroTikTest($reseller_id) {
         ->find_one();
     
     if (!$router) {
-        r2(U . 'reseller/mikrotik', 'e', 'Router not found');
+        r2(RESELLER_URL . '/mikrotik', 'e', 'Router not found');
     }
     
     $test_result = testMikroTikConnection($router);
@@ -198,9 +202,9 @@ function handleMikroTikTest($reseller_id) {
     if ($test_result['success']) {
         $active_users = getMikroTikActiveUsers($router);
         $message = 'Connection successful! Active users: ' . $active_users;
-        r2(U . 'reseller/mikrotik', 's', $message);
+        r2(RESELLER_URL . '/mikrotik', 's', $message);
     } else {
-        r2(U . 'reseller/mikrotik', 'e', 'Connection failed: ' . $test_result['message']);
+        r2(RESELLER_URL . '/mikrotik', 'e', 'Connection failed: ' . $test_result['message']);
     }
 }
 
@@ -215,7 +219,7 @@ function handleMikroTikDelete($reseller_id) {
         ->find_one();
     
     if (!$router) {
-        r2(U . 'reseller/mikrotik', 'e', 'Router not found');
+        r2(RESELLER_URL . '/mikrotik', 'e', 'Router not found');
     }
     
     // Check if router has active customers
@@ -225,7 +229,7 @@ function handleMikroTikDelete($reseller_id) {
         ->count();
     
     if ($active_customers > 0) {
-        r2(U . 'reseller/mikrotik', 'e', 'Cannot delete router with active customers');
+        r2(RESELLER_URL . '/mikrotik', 'e', 'Cannot delete router with active customers');
     }
     
     $router_name = $router->name;
@@ -233,7 +237,7 @@ function handleMikroTikDelete($reseller_id) {
     
     _log('MikroTik router deleted: ' . $router_name, 'Reseller', $reseller_id);
     
-    r2(U . 'reseller/mikrotik', 's', 'MikroTik router deleted successfully');
+    r2(RESELLER_URL . '/mikrotik', 's', 'MikroTik router deleted successfully');
 }
 
 function handleMikroTikUsers($reseller_id) {
@@ -247,7 +251,7 @@ function handleMikroTikUsers($reseller_id) {
         ->find_one();
     
     if (!$router) {
-        r2(U . 'reseller/mikrotik', 'e', 'Router not found');
+        r2(RESELLER_URL . '/mikrotik', 'e', 'Router not found');
     }
     
     // Get active users from MikroTik
