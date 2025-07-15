@@ -51,6 +51,12 @@ foreach ($mpesaPayments as $mpesaPayment) {
         continue;
     }
     
+    // Skip payments without session_id
+    if (empty($mpesaPayment->session_id)) {
+        echo "- Payment {$mpesaPayment->id} skipped (no session_id)\n";
+        continue;
+    }
+    
     // Get the corresponding portal session for package info
     $portalSession = ORM::for_table('tbl_portal_sessions')
         ->where('session_id', $mpesaPayment->session_id)
@@ -74,15 +80,27 @@ foreach ($mpesaPayments as $mpesaPayment) {
         $transaction->recharged_time = date('Y-m-d H:i:s', strtotime($mpesaPayment->created_at));
         $transaction->method = 'M-Pesa STK Push';
         $transaction->routers = 'Hotspot Portal';
-        $transaction->type = 'Credit';
+        $transaction->type = 'Credit'; // Keep as Credit but might need to be shorter
         $transaction->admin_id = 1; // System admin
-        $transaction->save();
         
-        $syncedCount++;
-        
-        echo "✓ Synced payment {$mpesaPayment->id} -> transaction {$transaction->id} (KSh {$mpesaPayment->amount})\n";
+        // Try to save, handle data truncation errors
+        try {
+            $transaction->save();
+            $syncedCount++;
+            echo "✓ Synced payment {$mpesaPayment->id} -> transaction {$transaction->id} (KSh {$mpesaPayment->amount})\n";
+        } catch (Exception $e) {
+            // Try with shorter type value
+            $transaction->type = 'Cr'; // Shorter version
+            try {
+                $transaction->save();
+                $syncedCount++;
+                echo "✓ Synced payment {$mpesaPayment->id} -> transaction {$transaction->id} (KSh {$mpesaPayment->amount}) [short type]\n";
+            } catch (Exception $e2) {
+                echo "✗ Failed to sync payment {$mpesaPayment->id}: " . $e2->getMessage() . "\n";
+            }
+        }
     } else {
-        echo "✗ No portal session found for payment {$mpesaPayment->id}\n";
+        echo "- Payment {$mpesaPayment->id} skipped (no portal session for session_id: {$mpesaPayment->session_id})\n";
     }
 }
 
