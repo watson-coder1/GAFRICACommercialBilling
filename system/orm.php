@@ -135,7 +135,7 @@ class ORM implements ArrayAccess
 
     // Class configuration
     protected static $_default_config = array(
-        'connection_string' => 'sqlite::memory:',
+        'connection_string' => 'mysql:host=localhost;dbname=phpnuxbill',
         'id_column' => 'id',
         'id_column_overrides' => array(),
         'error_mode' => PDO::ERRMODE_EXCEPTION,
