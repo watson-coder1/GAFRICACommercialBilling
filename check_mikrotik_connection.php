@@ -12,6 +12,40 @@ require_once 'system/devices/MikrotikHotspot.php';
 
 echo "=== MikroTik Connection and Statistics Debug ===\n\n";
 
+// First check WireGuard connectivity
+echo "0. WIREGUARD CONNECTIVITY CHECK:\n";
+echo str_repeat("-", 50) . "\n";
+
+$wg_status = shell_exec("wg show 2>&1");
+if (!empty($wg_status)) {
+    echo "✓ WireGuard is running:\n";
+    echo $wg_status . "\n";
+} else {
+    echo "❌ WireGuard is not running\n";
+}
+
+// Test ping to MikroTik
+echo "\nTesting ping to 10.0.0.2...\n";
+$ping_result = shell_exec("ping -c 2 10.0.0.2 2>&1");
+if (strpos($ping_result, "bytes from") !== false) {
+    echo "✓ Ping successful - MikroTik is reachable\n";
+} else {
+    echo "❌ Ping failed - MikroTik not reachable\n";
+    echo "Ping output: " . substr($ping_result, 0, 200) . "\n";
+}
+
+// Test API port
+echo "\nTesting API port 8728...\n";
+$socket = @fsockopen("10.0.0.2", 8728, $errno, $errstr, 5);
+if ($socket) {
+    echo "✓ API port 8728 is accessible\n";
+    fclose($socket);
+} else {
+    echo "❌ Cannot connect to API port 8728 - Error: $errstr\n";
+}
+
+echo "\n";
+
 // 1. Check router configuration
 echo "1. ROUTER CONFIGURATION:\n";
 echo str_repeat("-", 50) . "\n";

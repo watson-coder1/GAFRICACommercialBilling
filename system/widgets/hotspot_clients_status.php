@@ -52,14 +52,21 @@ class hotspot_clients_status
                             $count++;
                         }
                         $hotspot_online += $count;
+                        
+                        // Log successful connection for debugging
+                        error_log("MikroTik {$router->name}: Found {$count} active hotspot users");
+                    } else {
+                        error_log("MikroTik {$router->name}: Failed to get client connection");
                     }
                 } catch (Exception $e) {
-                    // Skip this router if connection fails
+                    // Log the error for debugging
+                    error_log("MikroTik {$router->name} connection error: " . $e->getMessage());
                     continue;
                 }
             }
         } catch (Exception $e) {
-            // Keep count as 0 if there's an error
+            // Log the error for debugging
+            error_log("MikroTik widget error: " . $e->getMessage());
         }
         
         // Calculate disconnected users (have valid plan but not connected)
