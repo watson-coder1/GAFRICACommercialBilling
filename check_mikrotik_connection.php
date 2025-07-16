@@ -31,10 +31,8 @@ if (!$routers) {
         echo "  Enabled: " . ($router->enabled ? "Yes" : "No") . "\n";
         echo "  Description: {$router->description}\n";
         
-        // Show actual password only if requested
-        if (isset($_GET['show_pass']) && $_GET['show_pass'] == 'yes') {
-            echo "  Actual Password: {$router->password}\n";
-        }
+        // Show actual password for debugging
+        echo "  Actual Password: {$router->password}\n";
         
         echo "\n";
     }

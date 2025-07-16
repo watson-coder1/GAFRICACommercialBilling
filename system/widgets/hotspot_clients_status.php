@@ -40,16 +40,18 @@ class hotspot_clients_status
             
             foreach ($routers as $router) {
                 try {
-                    require_once 'system/devices/Mikrotik.php';
-                    $mikrotik = new Mikrotik($router->ip_address, $router->username, $router->password);
+                    $client = Mikrotik::getClient($router->ip_address, $router->username, $router->password);
                     
-                    if ($mikrotik->connect()) {
+                    if ($client) {
                         // Get Hotspot active sessions
-                        $hotspotResults = $mikrotik->comm('/ip/hotspot/active/print');
+                        $hotspotRequest = new PEAR2\Net\RouterOS\Request('/ip/hotspot/active/print');
+                        $hotspotResults = $client->sendSync($hotspotRequest);
                         
-                        if (is_array($hotspotResults)) {
-                            $hotspot_online += count($hotspotResults);
+                        $count = 0;
+                        foreach ($hotspotResults as $result) {
+                            $count++;
                         }
+                        $hotspot_online += $count;
                     }
                 } catch (Exception $e) {
                     // Skip this router if connection fails
