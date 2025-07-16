@@ -135,7 +135,7 @@ class ORM implements ArrayAccess
 
     // Class configuration
     protected static $_default_config = array(
-        'connection_string' => 'mysql:host=localhost;dbname=phpnuxbill',
+        'connection_string' => 'mysql:host=glinta-mysql;dbname=phpnuxbill',
         'id_column' => 'id',
         'id_column_overrides' => array(),
         'error_mode' => PDO::ERRMODE_EXCEPTION,
