@@ -12,8 +12,8 @@ try {
     // Direct database connection
     $db_host = 'glinta-mysql';
     $db_name = 'phpnuxbill';
-    $db_user = 'root';
-    $db_pass = 'glintadb2024!';
+    $db_user = 'phpnuxbill';
+    $db_pass = 'nuxbill2025!';
     
     $pdo = new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
