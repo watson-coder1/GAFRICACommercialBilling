@@ -10,39 +10,47 @@
     <link rel="shortcut icon" href="{$app_url}/ui/ui/images/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="{$app_url}/ui/ui/images/logo.png">
     
-    <!-- Preload critical resources -->
-    <link rel="preload" href="{$app_url}/ui/ui/styles/glinta-modern.css" as="style">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Use main header template CSS includes to avoid duplication -->
+    {* Include the optimized header CSS from main header template *}
+    {include file="admin/header-css.tpl"}
     
-    <!-- Critical CSS first -->
-    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/bootstrap.min.css">
-    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/glinta-modern.css?v={$smarty.now}">
+    <!-- Modern UI specific overrides -->
+    <style>
+        /* Modern UI enhanced styles */
+        :root {
+            --primary-gold: #FFD700;
+            --primary-gold-dark: #DAA520;
+            --neutral-900: #1a1a1a;
+            --neutral-800: #2a2a2a;
+            --neutral-700: #3a3a3a;
+            --neutral-600: #4a4a4a;
+            --neutral-400: #6a6a6a;
+            --neutral-200: #e0e0e0;
+            --bg-card: #ffffff;
+            --bg-tertiary: #f8f9fa;
+            --bg-hover: #f5f5f5;
+            --font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 1.875rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 0.75rem;
+            --spacing-lg: 1rem;
+            --spacing-xl: 1.5rem;
+            --radius-md: 0.375rem;
+            --radius-lg: 0.5rem;
+            --radius-xl: 0.75rem;
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --transition-normal: 0.2s ease;
+        }
+    </style>
     
-    <!-- Icon fonts -->
-    <link rel="stylesheet" href="{$app_url}/ui/ui/fonts/ionicons/css/ionicons.min.css">
-    <link rel="stylesheet" href="{$app_url}/ui/ui/fonts/font-awesome/css/font-awesome.min.css">
-    
-    <!-- Additional CSS -->
-    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/modern-AdminLTE.min.css">
-    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/select2.min.css">
-    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/select2-bootstrap.min.css">
-    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/sweetalert2.min.css">
-    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/plugins/pace.css">
-    <link rel="stylesheet" href="{$app_url}/ui/ui/summernote/summernote.min.css">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- JavaScript -->
-    <script>
-        var appUrl = '{$app_url}';
-        var currentUser = '{$_admin['user_type']}';
-        var systemTime = new Date();
-    </script>
-    
-    <script src="{$app_url}/ui/ui/scripts/sweetalert2.all.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <!-- Consolidated JavaScript includes -->
+    {include file="admin/header-js.tpl"}
     
     <!-- Additional head content -->
     {if isset($xheader)}

@@ -1,0 +1,105 @@
+/* Glinta Africa Header Overrides */
+/* Branding Styles */
+.main-header .logo {
+    background: #2c3e50;
+    border-right: 1px solid #34495e;
+}
+
+.main-header .logo .logo-lg {
+    color: #FFD700;
+    font-weight: 900;
+    font-size: 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.main-header .logo .logo-mini {
+    color: #FFD700;
+    font-weight: 900;
+    font-size: 18px;
+}
+
+.main-header .logo:hover .logo-lg,
+.main-header .logo:hover .logo-mini {
+    color: #DAA520;
+    text-decoration: none;
+}
+
+/* Navigation Enhancements */
+.main-header .navbar .sidebar-toggle {
+    color: #fff;
+    padding: 15px;
+    display: inline-block;
+    background: transparent;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.main-header .navbar .sidebar-toggle:hover {
+    background: rgba(255, 215, 0, 0.1);
+    color: #FFD700;
+}
+
+/* Mobile Responsive Optimizations */
+@media (max-width: 768px) {
+    .main-header .logo {
+        width: auto;
+        padding: 0 10px;
+        max-width: 200px;
+    }
+    
+    .main-header .logo .logo-lg {
+        font-size: 14px;
+        display: inline-block;
+        letter-spacing: 1px;
+    }
+    
+    .main-header .logo .logo-mini {
+        display: none;
+    }
+    
+    .sidebar-toggle {
+        display: inline-block;
+        color: #fff;
+        background: transparent;
+        border: none;
+        padding: 15px 10px;
+        float: left;
+        margin-left: 10px;
+    }
+    
+    .main-header .navbar-custom-menu {
+        float: right;
+    }
+    
+    .main-header .navbar-custom-menu .nav > li > a {
+        padding: 10px 8px;
+    }
+    
+    .main-header .navbar-custom-menu .nav > li > a .fa {
+        font-size: 16px;
+    }
+}
+
+/* Performance optimizations */
+.main-header,
+.main-sidebar,
+.content-wrapper {
+    will-change: auto;
+}
+
+/* Smooth transitions */
+.main-header .logo,
+.main-header .navbar .sidebar-toggle {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .main-header .logo {
+        background: #1a1a1a;
+        border-right: 1px solid #333;
+    }
+}

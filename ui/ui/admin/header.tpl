@@ -1,122 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>{$_title} - {$_c['CompanyName']}</title>
+    <meta name="description" content="Glinta Africa - Professional ISP Billing System">
+    <meta name="author" content="Glinta Africa">
     <meta name="google-adsense-account" content="ca-pub-7906696382628802">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7906696382628802" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="{$app_url}/ui/ui/images/logo.png" type="image/x-icon" />
 
+    <!-- Consolidated CSS includes -->
+    {include file="admin/header-css.tpl"}
+
+    <!-- Consolidated JavaScript includes -->
+    {include file="admin/header-js.tpl"}
+    <!-- Custom styles now loaded from external CSS file -->
+    
+    <!-- System Initialization -->
     <script>
-        var appUrl = '{$app_url}';
+        // Initialize Glinta Real-time System when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize real-time dashboard
+            if (typeof GlintaRealTime !== 'undefined') {
+                window.glintaRealTime = new GlintaRealTime(window.glintaConfig);
+                console.log('Glinta Real-time Dashboard initialized');
+            } else {
+                console.warn('GlintaRealTime class not found, falling back to basic functionality');
+            }
+            
+            // Enhanced mobile sidebar toggle
+            const sidebarToggle = document.querySelector('.sidebar-toggle');
+            const sidebar = document.querySelector('.main-sidebar');
+            
+            if (sidebarToggle && sidebar) {
+                sidebarToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    sidebar.classList.toggle('sidebar-open');
+                    
+                    // Trigger resize event for charts after sidebar animation
+                    setTimeout(() => {
+                        window.dispatchEvent(new Event('resize'));
+                    }, 300);
+                });
+            }
+            
+            // Initialize tooltips if jQuery is available
+            if (typeof $ !== 'undefined') {
+                $('[data-toggle="tooltip"]').tooltip();
+            }
+        });
     </script>
-
-    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/bootstrap.min.css">
-    <link rel="stylesheet" href="{$app_url}/ui/ui/fonts/ionicons/css/ionicons.min.css">
-    <link rel="stylesheet" href="{$app_url}/ui/ui/fonts/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/modern-AdminLTE.min.css">
-    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/select2.min.css" />
-    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/select2-bootstrap.min.css" />
-    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/sweetalert2.min.css" />
-    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/plugins/pace.css" />
-    <link rel="stylesheet" href="{$app_url}/ui/ui/summernote/summernote.min.css" />
-    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/glinta.css?v=20250708" />
-    <link rel="stylesheet" href="{$app_url}/ui/ui/styles/7.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Lobster&display=swap" rel="stylesheet">
-
-    <script src="{$app_url}/ui/ui/scripts/sweetalert2.all.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js?v=20250708"></script>
-    <style>
-        /* Mobile Responsive Fixes */
-        @media (max-width: 768px) {
-            .main-header .logo {
-                width: auto !important;
-                padding: 0 10px !important;
-                max-width: 200px !important;
-            }
-            
-            .main-header .logo .logo-lg {
-                font-size: 14px !important;
-                display: inline-block !important;
-                letter-spacing: 1px !important;
-            }
-            
-            .main-header .logo .logo-mini {
-                display: none !important;
-            }
-            
-            .sidebar-toggle {
-                display: inline-block !important;
-                color: #fff !important;
-                background: transparent !important;
-                border: none !important;
-                padding: 15px 10px !important;
-                float: left !important;
-                margin-left: 10px !important;
-            }
-            
-            .main-header .navbar-custom-menu {
-                float: right !important;
-            }
-            
-            .main-header .navbar-custom-menu .nav > li > a {
-                padding: 10px 8px !important;
-            }
-            
-            .main-header .navbar-custom-menu .nav > li > a .fa {
-                font-size: 16px !important;
-            }
-        }
-        
-        /* Company name styling - Gold branding */
-        .main-header .logo {
-            background: #2c3e50 !important;
-            border-right: 1px solid #34495e !important;
-        }
-        
-        .main-header .logo .logo-lg {
-            color: #FFD700 !important;
-            font-weight: 900 !important;
-            font-size: 20px !important;
-            text-decoration: none !important;
-            text-transform: uppercase !important;
-            letter-spacing: 2px !important;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5) !important;
-        }
-        
-        .main-header .logo .logo-mini {
-            color: #FFD700 !important;
-            font-weight: 900 !important;
-            font-size: 18px !important;
-        }
-        
-        .main-header .logo:hover .logo-lg {
-            color: #DAA520 !important;
-            text-decoration: none !important;
-        }
-        
-        .main-header .logo:hover .logo-mini {
-            color: #DAA520 !important;
-        }
-        
-        /* Hamburger menu positioning fix */
-        .main-header .navbar .sidebar-toggle {
-            color: #fff !important;
-            padding: 15px !important;
-            display: inline-block !important;
-            background: transparent !important;
-            border: none !important;
-        }
-        
-        .main-header .navbar .sidebar-toggle:hover {
-            background: rgba(255, 215, 0, 0.1) !important;
-            color: #FFD700 !important;
-        }
-    </style>
     {if isset($xheader)}
         {$xheader}
     {/if}

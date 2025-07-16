@@ -8,30 +8,51 @@
     {/foreach}
 {/function}
 
-{assign dtipe value="dashboard_`$tipeUser`"}
-
-{assign rows explode(".", $_c[$dtipe])}
-{assign pos 1}
-{foreach $rows as $cols}
-    {if $cols == 12}
-        <div class="row">
-            <div class="col-md-12">
-                {showWidget widgets=$widgets pos=$pos}
-            </div>
+<!-- Dashboard Container -->
+<div class="dashboard-container">
+    <!-- Dashboard Header -->
+    <div class="dashboard-header">
+        <h1>Glinta Africa Dashboard</h1>
+        <div class="real-time-status">
+            <div class="real-time-indicator"></div>
+            <span>Real-time: <span class="last-update-time">Live</span></span>
         </div>
-        {assign pos value=$pos+1}
-    {else}
-        {assign colss explode(",", $cols)}
-        <div class="row">
-            {foreach $colss as $c}
-                <div class="col-md-{$c}">
-                    {showWidget widgets=$widgets pos=$pos}
+    </div>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-content">
+        {assign dtipe value="dashboard_`$tipeUser`"}
+        
+        {assign rows explode(".", $_c[$dtipe])}
+        {assign pos 1}
+        {foreach $rows as $cols}
+            {if $cols == 12}
+                <div class="dashboard-card">
+                    <div class="dashboard-card-header">
+                        <h3 class="dashboard-card-title">System Overview</h3>
+                    </div>
+                    <div class="dashboard-card-body">
+                        {showWidget widgets=$widgets pos=$pos}
+                    </div>
                 </div>
                 {assign pos value=$pos+1}
-            {/foreach}
-        </div>
-    {/if}
-{/foreach}
+            {else}
+                {assign colss explode(",", $cols)}
+                <div class="row">
+                    {foreach $colss as $c}
+                        <div class="col-md-{$c}">
+                            <div class="dashboard-card">
+                                <div class="dashboard-card-body">
+                                    {showWidget widgets=$widgets pos=$pos}
+                                </div>
+                            </div>
+                        </div>
+                        {assign pos value=$pos+1}
+                    {/foreach}
+                </div>
+            {/if}
+        {/foreach}
+    </div>
 
 {if $_c['new_version_notify'] != 'disable'}
     <script>
@@ -73,5 +94,7 @@
         });
     </script>
 {/if}
+
+</div> <!-- Close dashboard-container -->
 
 {include file="sections/footer.tpl"}
