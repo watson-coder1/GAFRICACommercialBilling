@@ -34,36 +34,62 @@ class MikrotikHotspot
     {
         $mikrotik = $this->info($plan['routers']);
         $client = $this->getClient($mikrotik['ip_address'], $mikrotik['username'], $mikrotik['password']);
-		$isExp = ORM::for_table('tbl_plans')->select("id")->where('plan_expired', $plan['id'])->find_one();
-        $this->removeHotspotUser($client, $customer['username']);
-		if ($isExp){
-        $this->removeHotspotActiveUser($client, $customer['username']);
-		}
-        $this->addHotspotUser($client, $plan, $customer);
+        
+        // Return early if client connection failed
+        if (!$client) {
+            error_log("MikroTik add customer failed: No client connection for " . $customer['username']);
+            return false;
+        }
+        
+        try {
+            $isExp = ORM::for_table('tbl_plans')->select("id")->where('plan_expired', $plan['id'])->find_one();
+            $this->removeHotspotUser($client, $customer['username']);
+            if ($isExp){
+                $this->removeHotspotActiveUser($client, $customer['username']);
+            }
+            $this->addHotspotUser($client, $plan, $customer);
+            return true;
+        } catch (Exception $e) {
+            error_log("MikroTik add customer operation failed: " . $e->getMessage());
+            return false;
+        }
     }
 	
 	function sync_customer($customer, $plan)
 	{
 		$mikrotik = $this->info($plan['routers']);
 		$client = $this->getClient($mikrotik['ip_address'], $mikrotik['username'], $mikrotik['password']);
+		
+		// Return early if client connection failed
+		if (!$client) {
+			error_log("MikroTik sync failed: No client connection for " . $customer['username']);
+			return false;
+		}
+		
 		$t = ORM::for_table('tbl_user_recharges')->where('username', $customer['username'])->where('status', 'on')->find_one();
 		if ($t) {
-			$printRequest = new MikroTikAPI\Request('/ip/hotspot/user/print');
-			$printRequest->setArgument('.proplist', '.id,limit-uptime,limit-bytes-total');
-			$printRequest->setQuery(MikroTikAPI\Query::where('name', $customer['username']));
-			$userInfo = $client->sendSync($printRequest);
-			$id = $userInfo->getProperty('.id');
-			$uptime = $userInfo->getProperty('limit-uptime');
-			$data = $userInfo->getProperty('limit-bytes-total');
-			if (!empty($id) && (!empty($uptime) || !empty($data))) {
-				$setRequest = new MikroTikAPI\Request('/ip/hotspot/user/set');
-				$setRequest->setArgument('numbers', $id);
-				$setRequest->setArgument('profile', $t['namebp']);
-				$client->sendSync($setRequest);
-			} else {
-				$this->add_customer($customer, $plan);
+			try {
+				$printRequest = new MikroTikAPI\Request('/ip/hotspot/user/print');
+				$printRequest->setArgument('.proplist', '.id,limit-uptime,limit-bytes-total');
+				$printRequest->setQuery(MikroTikAPI\Query::where('name', $customer['username']));
+				$userInfo = $client->sendSync($printRequest);
+				$id = $userInfo->getProperty('.id');
+				$uptime = $userInfo->getProperty('limit-uptime');
+				$data = $userInfo->getProperty('limit-bytes-total');
+				if (!empty($id) && (!empty($uptime) || !empty($data))) {
+					$setRequest = new MikroTikAPI\Request('/ip/hotspot/user/set');
+					$setRequest->setArgument('numbers', $id);
+					$setRequest->setArgument('profile', $t['namebp']);
+					$client->sendSync($setRequest);
+				} else {
+					$this->add_customer($customer, $plan);
+				}
+			} catch (Exception $e) {
+				error_log("MikroTik sync operation failed: " . $e->getMessage());
+				return false;
 			}
 		}
+		return true;
 	}
 
 
@@ -250,7 +276,17 @@ class MikrotikHotspot
             return null;
         }
         $iport = explode(":", $ip);
-        return new MikroTikAPI\Client($iport[0], $user, $pass, ($iport[1]) ? $iport[1] : null);
+        
+        try {
+            $client = new MikroTikAPI\Client($iport[0], $user, $pass, ($iport[1]) ? $iport[1] : null);
+            // Set connection timeout to 5 seconds to prevent hanging
+            $client->setTimeout(5);
+            return $client;
+        } catch (Exception $e) {
+            // Log the error and return null to prevent system hanging
+            error_log("MikroTik connection failed: " . $e->getMessage());
+            return null;
+        }
     }
 
     function removeHotspotUser($client, $username)

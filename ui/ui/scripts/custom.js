@@ -53,19 +53,31 @@ function checkUsername(f, id) {
 	}
 }
 
-//auto load pool - pppoe plan
+//auto load pool - pppoe plan with debouncing
 var htmlobjek;
+var poolTimeout;
 $(document).ready(function () {
 	$("#routers").change(function () {
+		clearTimeout(poolTimeout);
 		var routers = $("#routers").val();
-		$.ajax({
-			url: appUrl + "/?_route=autoload/pool",
-			data: "routers=" + routers,
-			cache: false,
-			success: function (msg) {
-				$("#pool_name").html(msg);
-			}
-		});
+		
+		// Show loading indicator
+		$("#pool_name").html('<option>Loading...</option>');
+		
+		poolTimeout = setTimeout(function() {
+			$.ajax({
+				url: appUrl + "/?_route=autoload/pool",
+				data: "routers=" + routers,
+				cache: false,
+				timeout: 10000, // 10 second timeout
+				success: function (msg) {
+					$("#pool_name").html(msg);
+				},
+				error: function() {
+					$("#pool_name").html('<option>Error loading pools</option>');
+				}
+			});
+		}, 300); // 300ms debounce
 	});
 });
 
